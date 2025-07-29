@@ -6,11 +6,11 @@ view: movies_data {
 
   # Dimensions
 
-  dimension: adult {
-    description: "Original name: [adult]"
-    type: yesno
-    sql: ${TABLE}.adult ;;
-    label: "Adult"
+  dimension: title {
+    description: "Original name: [title]"
+    type: string
+    sql: ${TABLE}.title ;;
+    label: "Title"
   }
 
   dimension: budget {
@@ -25,13 +25,6 @@ view: movies_data {
     type: string
     sql: ${TABLE}.genres ;;
     label: "Genres"
-  }
-
-  dimension: id {
-    description: "Original name: [id]"
-    type: number
-    sql: ${TABLE}.id ;;
-    label: "Id"
   }
 
   dimension: original_language {
@@ -83,11 +76,18 @@ view: movies_data {
     label: "Tagline"
   }
 
-  dimension: title {
-    description: "Original name: [title]"
-    type: string
-    sql: ${TABLE}.title ;;
-    label: "Title"
+  dimension: adult {
+    description: "Original name: [adult]"
+    type: yesno
+    sql: ${TABLE}.adult ;;
+    label: "Adult"
+  }
+
+  dimension: id {
+    description: "Original name: [id]"
+    type: number
+    sql: ${TABLE}.id ;;
+    label: "Id"
   }
 
   # Date dimension groups
@@ -117,13 +117,6 @@ view: movies_data {
     type: sum
     sql: ${TABLE}.runtime ;;
     label: "Runtime"
-  }
-
-  measure: id {
-    description: "Original name: [id]"
-    type: sum
-    sql: ${TABLE}.id ;;
-    label: "id"
   }
 
   # Basic measures for counting
