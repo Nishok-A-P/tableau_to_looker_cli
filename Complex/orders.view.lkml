@@ -6,39 +6,6 @@ view: orders {
 
   # Dimensions
 
-  dimension: city {
-    description: "Semantic role: [City].[Name] | Original name: [City]"
-    type: string
-    sql: ${TABLE}.City ;;
-  }
-
-  dimension: country {
-    description: "Semantic role: [Country].[ISO3166_2] | Original name: [Country]"
-    type: string
-    sql: ${TABLE}.Country ;;
-  }
-
-  dimension: customer_id {
-    description: "Original name: [Customer_ID]"
-    type: string
-    sql: ${TABLE}.Customer_ID ;;
-    label: "Customer ID"
-  }
-
-  dimension: customer_name {
-    description: "Original name: [Customer_Name]"
-    type: string
-    sql: ${TABLE}.Customer_Name ;;
-    label: "Customer Name"
-  }
-
-  dimension: order_date {
-    description: "Original name: [Order_Date]"
-    type: date
-    sql: ${TABLE}.Order_Date ;;
-    label: "Order Date"
-  }
-
   dimension: order_id {
     description: "Original name: [Order_ID]"
     type: string
@@ -46,25 +13,11 @@ view: orders {
     label: "Order ID"
   }
 
-  dimension: postal_code {
-    description: "Original name: [Postal_Code]"
-    type: number
-    sql: ${TABLE}.Postal_Code ;;
-    label: "Postal Code"
-  }
-
-  dimension: product_id {
-    description: "Original name: [Product_ID]"
-    type: string
-    sql: ${TABLE}.Product_ID ;;
-    label: "Product ID"
-  }
-
-  dimension: product_name {
-    description: "Original name: [Product_Name]"
-    type: string
-    sql: ${TABLE}.Product_Name ;;
-    label: "Product Name"
+  dimension: order_date {
+    description: "Original name: [Order_Date]"
+    type: date
+    sql: ${TABLE}.Order_Date ;;
+    label: "Order Date"
   }
 
   dimension: ship_date {
@@ -81,10 +34,74 @@ view: orders {
     label: "Ship Mode"
   }
 
+  dimension: customer_id {
+    description: "Original name: [Customer_ID]"
+    type: string
+    sql: ${TABLE}.Customer_ID ;;
+    label: "Customer ID"
+  }
+
+  dimension: customer_name {
+    description: "Original name: [Customer_Name]"
+    type: string
+    sql: ${TABLE}.Customer_Name ;;
+    label: "Customer Name"
+  }
+
+  dimension: segment {
+    description: "Original name: [Segment]"
+    type: string
+    sql: ${TABLE}.Segment ;;
+    label: "[Segment]"
+  }
+
+  dimension: country {
+    description: "Semantic role: [Country].[ISO3166_2] | Original name: [Country]"
+    type: string
+    sql: ${TABLE}.Country ;;
+    label: "[Country]"
+  }
+
+  dimension: city {
+    description: "Semantic role: [City].[Name] | Original name: [City]"
+    type: string
+    sql: ${TABLE}.City ;;
+    label: "[City]"
+  }
+
   dimension: state {
     description: "Semantic role: [State].[Name] | Original name: [State]"
     type: string
     sql: ${TABLE}.State ;;
+    label: "[State]"
+  }
+
+  dimension: postal_code {
+    description: "Original name: [Postal_Code]"
+    type: number
+    sql: ${TABLE}.Postal_Code ;;
+    label: "Postal Code"
+  }
+
+  dimension: region {
+    description: "Original name: [Region]"
+    type: string
+    sql: ${TABLE}.Region ;;
+    label: "[Region]"
+  }
+
+  dimension: product_id {
+    description: "Original name: [Product_ID]"
+    type: string
+    sql: ${TABLE}.Product_ID ;;
+    label: "Product ID"
+  }
+
+  dimension: category {
+    description: "Original name: [Category]"
+    type: string
+    sql: ${TABLE}.Category ;;
+    label: "[Category]"
   }
 
   dimension: sub_category {
@@ -92,6 +109,13 @@ view: orders {
     type: string
     sql: ${TABLE}.Sub_Category ;;
     label: "Sub Category"
+  }
+
+  dimension: product_name {
+    description: "Original name: [Product_Name]"
+    type: string
+    sql: ${TABLE}.Product_Name ;;
+    label: "Product Name"
   }
 
   # Date dimension groups
@@ -123,39 +147,32 @@ view: orders {
 
   # Measures
 
-  measure: postal_code {
-    description: "Original name: [Postal_Code]"
-    type: sum
-    sql: ${TABLE}.postal_code ;;
-    label: "Postal_Code"
-  }
-
   measure: sales {
     description: "Original name: [Sales]"
     type: sum
-    sql: ${TABLE}.sales ;;
-    label: "Sales"
+    sql: ${TABLE}.Sales ;;
+    label: "[Sales]"
   }
 
   measure: quantity {
     description: "Original name: [Quantity]"
     type: sum
-    sql: ${TABLE}.quantity ;;
-    label: "Quantity"
+    sql: ${TABLE}.Quantity ;;
+    label: "[Quantity]"
   }
 
   measure: discount {
     description: "Original name: [Discount]"
     type: sum
-    sql: ${TABLE}.discount ;;
-    label: "Discount"
+    sql: ${TABLE}.Discount ;;
+    label: "[Discount]"
   }
 
   measure: profit {
     description: "Original name: [Profit]"
     type: sum
-    sql: ${TABLE}.profit ;;
-    label: "Profit"
+    sql: ${TABLE}.Profit ;;
+    label: "[Profit]"
   }
 
   # Basic measures for counting
