@@ -20,7 +20,7 @@ view: credits {
     label: "Crew"
   }
 
-  dimension: id_credits {
+  dimension: id {
     description: "Original name: [id (credits)]"
     type: number
     sql: ${TABLE}.id ;;
@@ -34,13 +34,6 @@ view: credits {
   # Calculated Fields (from Tableau formulas)
 
   # Measures
-
-  measure: id_credits {
-    description: "Original name: [id (credits)]"
-    type: sum
-    sql: ${TABLE}.id_credits ;;
-    label: "id"
-  }
 
   # Basic measures for counting
   measure: count {
