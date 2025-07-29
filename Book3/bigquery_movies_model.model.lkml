@@ -15,7 +15,7 @@ explore: movies_data {
 
   join: credits {
     type: inner
-    sql_on: ${movies_data.id} = ${credits.id_credits} ;;
+    sql_on: ${movies_data.id} = ${credits.id} ;;
     relationship: many_to_one
   }
   join: movies_data2 {
