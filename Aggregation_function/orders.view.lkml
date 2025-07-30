@@ -122,198 +122,177 @@ view: orders {
 
   # Two-step Pattern Dimensions (hidden calculation dimensions)
 
-  dimension: attr_calc {
-    description: "Row-level calculation for attr: IF ATTR([Region]) = \"Central\" THEN \"Highlight\" ELSE \"Dim\" END"
+  dimension: find_calc {
+    description: "Row-level calculation for find: FIND([Customer_Name], \"ung\")"
     type: number
-    sql: CASE WHEN (ATTR(${TABLE}.region) = 'Central') THEN 'Highlight' ELSE 'Dim' END ;;
+    sql: STRPOS(${TABLE}.customer_name, 'ung') ;;
     hidden: yes
-    # Original Tableau formula: IF ATTR([Region]) = "Central" THEN "Highlight" ELSE "Dim" END
+    # Original Tableau formula: FIND([Customer_Name], "ung")
   }
 
-  dimension: simple_attr_calc {
-    description: "Row-level calculation for simple_attr: ATTR([Category])"
+  dimension: find_with_offset_calc {
+    description: "Row-level calculation for find_with_offset: FInd([Customer_Name], \"ung\", 4)"
     type: number
-    sql: ATTR(${TABLE}.category) ;;
+    sql: STRPOS(${TABLE}.customer_name, 'ung') ;;
     hidden: yes
-    # Original Tableau formula: ATTR([Category])
+    # Original Tableau formula: FInd([Customer_Name], "ung", 4)
   }
 
-  dimension: correlation_calc {
-    description: "Row-level calculation for correlation: CORR([Sales], [Profit])"
+  dimension: length_calc {
+    description: "Row-level calculation for length: LEN([Customer_Name])"
     type: number
-    sql: CORR(${TABLE}.sales, ${TABLE}.profit) ;;
+    sql: LENGTH(${TABLE}.customer_name) ;;
     hidden: yes
-    # Original Tableau formula: CORR([Sales], [Profit])
-  }
-
-  dimension: count_distinct_calc {
-    description: "Row-level calculation for count_distinct: COUNTD([Order_ID])"
-    type: number
-    sql: COUNT(DISTINCT ${TABLE}.order_id) ;;
-    hidden: yes
-    # Original Tableau formula: COUNTD([Order_ID])
-  }
-
-  dimension: covariance_calc {
-    description: "Row-level calculation for covariance: COVAR([Sales], [Profit])"
-    type: number
-    sql: COVAR_SAMP(${TABLE}.sales, ${TABLE}.profit) ;;
-    hidden: yes
-    # Original Tableau formula: COVAR([Sales], [Profit])
-  }
-
-  dimension: covariance_p_calc {
-    description: "Row-level calculation for covariance_p: COVARP([Sales], [Profit])"
-    type: number
-    sql: COVAR_POP(${TABLE}.sales, ${TABLE}.profit) ;;
-    hidden: yes
-    # Original Tableau formula: COVARP([Sales], [Profit])
-  }
-
-  dimension: standard_deviation_calc {
-    description: "Row-level calculation for standard_deviation: STDEV([Profit])"
-    type: number
-    sql: STDDEV_SAMP(${TABLE}.profit) ;;
-    hidden: yes
-    # Original Tableau formula: STDEV([Profit])
-  }
-
-  dimension: standard_deviation_p_calc {
-    description: "Row-level calculation for standard_deviation_p: STDEVP([Profit])"
-    type: number
-    sql: STDDEV_POP(${TABLE}.profit) ;;
-    hidden: yes
-    # Original Tableau formula: STDEVP([Profit])
-  }
-
-  dimension: variance_calc {
-    description: "Row-level calculation for variance: VAR([Profit])"
-    type: number
-    sql: VAR_SAMP(${TABLE}.profit) ;;
-    hidden: yes
-    # Original Tableau formula: VAR([Profit])
-  }
-
-  dimension: variance_p_calc {
-    description: "Row-level calculation for variance_p: VARP([Profit])"
-    type: number
-    sql: VAR_POP(${TABLE}.profit) ;;
-    hidden: yes
-    # Original Tableau formula: VARP([Profit])
+    # Original Tableau formula: LEN([Customer_Name])
   }
 
   # Calculated Fields (from Tableau formulas)
 
-  measure: attr {
-    description: "Calculated field: IF ATTR([Region]) = \"Central\" THEN \"Highlight\" ELSE \"Dim\" END"
+  measure: ascii {
+    description: "Calculated field: ASCII(MAX([Category]))"
     type: number
-    sql: ${attr_calc} ;;
-    # Original Tableau formula: IF ATTR([Region]) = "Central" THEN "Highlight" ELSE "Dim" END
+    sql: ASCII(MAX(${TABLE}.category)) ;;
+    # Original Tableau formula: ASCII(MAX([Category]))
   }
 
-  measure: average {
-    description: "Calculated field: AVG([Sales])"
+  measure: character {
+    description: "Calculated field: CHAR(MAX([Postal_Code]))"
     type: number
-    sql: AVG(${TABLE}.sales) ;;
-    # Original Tableau formula: AVG([Sales])
+    sql: CHR(MAX(${TABLE}.postal_code)) ;;
+    # Original Tableau formula: CHAR(MAX([Postal_Code]))
   }
 
-  measure: simple_attr {
-    description: "Calculated field: ATTR([Category])"
-    type: number
-    sql: ${simple_attr_calc} ;;
-    # Original Tableau formula: ATTR([Category])
+  dimension: contains {
+    description: "Calculated field: CONTAINS([Customer_Name],\"Phonely\")"
+    type: yesno
+    sql: STRPOS(${TABLE}.customer_name, 'Phonely') > 0 ;;
+    # Original Tableau formula: CONTAINS([Customer_Name],"Phonely")
   }
 
-  measure: simple_average {
-    description: "Calculated field: AVG([Sales])"
-    type: number
-    sql: AVG(${TABLE}.sales) ;;
-    # Original Tableau formula: AVG([Sales])
+  dimension: endswith {
+    description: "Calculated field: ENDSWITH([Customer_Name], \"Phonely\")"
+    type: yesno
+    sql: ENDS_WITH(${TABLE}.customer_name, 'Phonely') ;;
+    # Original Tableau formula: ENDSWITH([Customer_Name], "Phonely")
   }
 
-  measure: correlation {
-    description: "Calculated field: CORR([Sales], [Profit])"
+  measure: find {
+    description: "Calculated field: FIND([Customer_Name], \"ung\")"
     type: number
-    sql: ${correlation_calc} ;;
-    # Original Tableau formula: CORR([Sales], [Profit])
+    sql: ${find_calc} ;;
+    # Original Tableau formula: FIND([Customer_Name], "ung")
   }
 
-  measure: count {
-    description: "Calculated field: COUNT([Order_ID])"
+  measure: find_with_offset {
+    description: "Calculated field: FInd([Customer_Name], \"ung\", 4)"
     type: number
-    sql: COUNT(${TABLE}.order_id) ;;
-    # Original Tableau formula: COUNT([Order_ID])
+    sql: ${find_with_offset_calc} ;;
+    # Original Tableau formula: FInd([Customer_Name], "ung", 4)
   }
 
-  measure: count_distinct {
-    description: "Calculated field: COUNTD([Order_ID])"
-    type: number
-    sql: ${count_distinct_calc} ;;
-    # Original Tableau formula: COUNTD([Order_ID])
+  dimension: left {
+    description: "Calculated field: LEFT([Customer_Name], 5)"
+    type: string
+    sql: LEFT(${TABLE}.customer_name, 5) ;;
+    # Original Tableau formula: LEFT([Customer_Name], 5)
   }
 
-  measure: covariance {
-    description: "Calculated field: COVAR([Sales], [Profit])"
-    type: number
-    sql: ${covariance_calc} ;;
-    # Original Tableau formula: COVAR([Sales], [Profit])
+  dimension: concat {
+    description: "Calculated field: LEFT([Customer_Name], 1) + LEFT(SPLIT([Customer_Name], \" \", 2), 1)"
+    type: string
+    sql: (LEFT(${TABLE}.customer_name, 1) + LEFT(SPLIT(${TABLE}.customer_name, ' ')[OFFSET(CASE WHEN 2 < 0 THEN 2 ELSE 2 - 1 END)], 1)) ;;
+    # Original Tableau formula: LEFT([Customer_Name], 1) + LEFT(SPLIT([Customer_Name], " ", 2), 1)
   }
 
-  measure: covariance_p {
-    description: "Calculated field: COVARP([Sales], [Profit])"
+  measure: length {
+    description: "Calculated field: LEN([Customer_Name])"
     type: number
-    sql: ${covariance_p_calc} ;;
-    # Original Tableau formula: COVARP([Sales], [Profit])
+    sql: ${length_calc} ;;
+    # Original Tableau formula: LEN([Customer_Name])
   }
 
-  measure: max_value {
-    description: "Calculated field: MAX([Sales])"
-    type: number
-    sql: MAX(${TABLE}.sales) ;;
-    # Original Tableau formula: MAX([Sales])
+  dimension: lower {
+    description: "Calculated field: LOWER([Customer_Name])"
+    type: string
+    sql: LOWER(${TABLE}.customer_name) ;;
+    # Original Tableau formula: LOWER([Customer_Name])
   }
 
-  measure: minimum {
-    description: "Calculated field: MIN([Sales])"
-    type: number
-    sql: MIN(${TABLE}.sales) ;;
-    # Original Tableau formula: MIN([Sales])
+  dimension: ltrim {
+    description: "Calculated field: LTRIM([Customer_Name])"
+    type: string
+    sql: LTRIM(${TABLE}.customer_name) ;;
+    # Original Tableau formula: LTRIM([Customer_Name])
   }
 
-  measure: standard_deviation {
-    description: "Calculated field: STDEV([Profit])"
-    type: number
-    sql: ${standard_deviation_calc} ;;
-    # Original Tableau formula: STDEV([Profit])
+  dimension: upper {
+    description: "Calculated field: UPPER([Customer_Name])"
+    type: string
+    sql: UPPER(${TABLE}.customer_name) ;;
+    # Original Tableau formula: UPPER([Customer_Name])
   }
 
-  measure: sum {
-    description: "Calculated field: SUM([Sales])"
-    type: number
-    sql: SUM(${TABLE}.sales) ;;
-    # Original Tableau formula: SUM([Sales])
+  dimension: trim {
+    description: "Calculated field: TRIM([Customer_Name])"
+    type: string
+    sql: TRIM(${TABLE}.customer_name) ;;
+    # Original Tableau formula: TRIM([Customer_Name])
   }
 
-  measure: standard_deviation_p {
-    description: "Calculated field: STDEVP([Profit])"
-    type: number
-    sql: ${standard_deviation_p_calc} ;;
-    # Original Tableau formula: STDEVP([Profit])
+  dimension: startswith {
+    description: "Calculated field: STARTSWITH([Customer_Name],\"Guy\")"
+    type: yesno
+    sql: STARTS_WITH(${TABLE}.customer_name, 'Guy') ;;
+    # Original Tableau formula: STARTSWITH([Customer_Name],"Guy")
   }
 
-  measure: variance {
-    description: "Calculated field: VAR([Profit])"
-    type: number
-    sql: ${variance_calc} ;;
-    # Original Tableau formula: VAR([Profit])
+  dimension: split {
+    description: "Calculated field: SPLIT([Customer_Name], \" \", 2)"
+    type: string
+    sql: SPLIT(${TABLE}.customer_name, ' ')[OFFSET(CASE WHEN 2 < 0 THEN 2 ELSE 2 - 1 END)] ;;
+    # Original Tableau formula: SPLIT([Customer_Name], " ", 2)
   }
 
-  measure: variance_p {
-    description: "Calculated field: VARP([Profit])"
-    type: number
-    sql: ${variance_p_calc} ;;
-    # Original Tableau formula: VARP([Profit])
+  dimension: space {
+    description: "Calculated field: [Customer_Name] + SPACE(5) + [Region]"
+    type: string
+    sql: ((${TABLE}.customer_name + SPACE(5)) + ${TABLE}.region) ;;
+    # Original Tableau formula: [Customer_Name] + SPACE(5) + [Region]
+  }
+
+  dimension: rtrim {
+    description: "Calculated field: RTRIM([Customer_Name])"
+    type: string
+    sql: RTRIM(${TABLE}.customer_name) ;;
+    # Original Tableau formula: RTRIM([Customer_Name])
+  }
+
+  dimension: right {
+    description: "Calculated field: RIGHT([Customer_Name], 4)"
+    type: string
+    sql: RIGHT(${TABLE}.customer_name, 4) ;;
+    # Original Tableau formula: RIGHT([Customer_Name], 4)
+  }
+
+  dimension: replace {
+    description: "Calculated field: REPLACE([Customer_Name], \" \", \"_\")"
+    type: string
+    sql: REPLACE(${TABLE}.customer_name, ' ', '_') ;;
+    # Original Tableau formula: REPLACE([Customer_Name], " ", "_")
+  }
+
+  dimension: nested_replace {
+    description: "Calculated field: REPLACE(REPLACE([Customer_Name], \" \", \"_\"), \"_\", \" \")"
+    type: string
+    sql: REPLACE(REPLACE(${TABLE}.customer_name, ' ', '_'), '_', ' ') ;;
+    # Original Tableau formula: REPLACE(REPLACE([Customer_Name], " ", "_"), "_", " ")
+  }
+
+  dimension: mid {
+    description: "Calculated field: MID([Customer_Name],3,4)"
+    type: string
+    sql: SUBSTR(${TABLE}.customer_name, 3, 4) ;;
+    # Original Tableau formula: MID([Customer_Name],3,4)
   }
 
   # Measures
