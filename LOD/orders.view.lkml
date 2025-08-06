@@ -124,6 +124,27 @@ view: orders {
 
   # Calculated Fields (from Tableau formulas)
 
+  measure: fixed_lod {
+    description: "Calculated field: { FIXED [Region] : SUM([Sales]) }"
+    type: number
+    sql: (SELECT SUM(${TABLE}.sales) FROM ${TABLE} GROUP BY region) ;;
+    # Original Tableau formula: { FIXED [Region] : SUM([Sales]) }
+  }
+
+  measure: include_lod {
+    description: "Calculated field: { INCLUDE [Customer_Name] : SUM([Sales]) }"
+    type: number
+    sql: (SELECT SUM(${TABLE}.sales) FROM ${TABLE} GROUP BY customer_name) ;;
+    # Original Tableau formula: { INCLUDE [Customer_Name] : SUM([Sales]) }
+  }
+
+  measure: exclude_lod {
+    description: "Calculated field: { EXCLUDE [State] : SUM([Sales]) }"
+    type: number
+    sql: (SELECT SUM(${TABLE}.sales) FROM ${TABLE}) ;;
+    # Original Tableau formula: { EXCLUDE [State] : SUM([Sales]) }
+  }
+
   # Measures
 
   measure: sales {
