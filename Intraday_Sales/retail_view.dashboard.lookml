@@ -17,10 +17,11 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_time]
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.channel: C4337,C8527
+    table_theme: "white"
     limit: 500
     column_limit: 50
-    row: 1
+    row: 0
     col: 0
     width: 21
-    height: 4
+    height: 9
 
