@@ -1,6 +1,5 @@
 view: intradaysales_results_day_7_mock {
   # Generated from Tableau view: IntradaySales_RESULTS_DAY-7_Mock
-
   sql_table_name: `elastic-pocs.Super_Store_Sales.IntradaySales_RESULTS_DAY-7_Mock` ;;
 
 
