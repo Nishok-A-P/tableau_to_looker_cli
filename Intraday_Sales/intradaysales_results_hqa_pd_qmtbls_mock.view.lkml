@@ -1,7 +1,9 @@
 view: intradaysales_results_hqa_pd_qmtbls_mock {
   # Generated from Tableau view: IntradaySales_RESULTS_HQA_PD_QMTBLS_Mock
-
-  sql_table_name: `elastic-pocs.Super_Store_Sales.IntradaySales_RESULTS_HQA_PD_QMTBLS_Mock` ;;
+  derived_table: {
+    sql:
+      WITH max_table AS (SELECT MAX(dttm) AS MaxDate FROM `elastic-pocs.Super_Store_Sales.IntradaySales_RESULTS_HQA_PD_QMTBLS_Mock`) SELECT base.*, max_table.MaxDate FROM `elastic-pocs.Super_Store_Sales.IntradaySales_RESULTS_HQA_PD_QMTBLS_Mock` AS base CROSS JOIN max_table ;;
+  }
 
 
   # Date dimension groups
@@ -288,6 +290,13 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
     type: yesno
     sql: STRPOS(${TABLE}.model_nm, 'C5591') > 0 ;;
     # Original Tableau formula: CONTAINS([model_nm],"C5591")
+  }
+
+  dimension: rolling_36_copy_777433916922368001 {
+    description: "Calculated field: {MAX([DTTM])}"
+    type: date_time
+    sql: {TABLE}.MaxDate ;;
+    # Original Tableau formula: {MAX([DTTM])}
   }
 
   dimension: rolling_36_copy_777433916925095938 {
