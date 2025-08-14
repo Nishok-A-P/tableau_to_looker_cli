@@ -16,6 +16,15 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
     label: "Rpt Dt"
   }
 
+  dimension: rpt_dt_hour_formatted {
+    type: string
+    sql: FORMAT_TIMESTAMP('%l %p',
+      TIMESTAMP_TRUNC(CAST(${rpt_dt_raw} AS TIMESTAMP), HOUR)) ;;
+    label: "Hour"
+  }
+
+
+
   dimension_group: rpt_time {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
@@ -24,6 +33,15 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
     label: "Rpt Time"
   }
 
+  dimension: rpt_time_hour_formatted {
+    type: string
+    sql: FORMAT_TIMESTAMP('%l %p',
+      TIMESTAMP_TRUNC(CAST(${rpt_time_raw} AS TIMESTAMP), HOUR)) ;;
+    label: "Hour"
+  }
+
+
+
   dimension_group: dttm {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
@@ -31,6 +49,15 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
     description: "Dttm"
     label: "Dttm"
   }
+
+  dimension: dttm_hour_formatted {
+    type: string
+    sql: FORMAT_TIMESTAMP('%l %p',
+      TIMESTAMP_TRUNC(CAST(${dttm_raw} AS TIMESTAMP), HOUR)) ;;
+    label: "Hour"
+  }
+
+
 
   # Dimensions
 
@@ -211,7 +238,7 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
   dimension: calculation_1343198652318875651 {
     description: "Calculated field: CASE [eqp_type] WHEN \"C6115\" THEN \"C6115\" ELSE \"C7289\" END"
     type: string
-    sql: CASE ${TABLE}.eqp_type WHEN 'C6115' THEN 'C6115' ELSE 'C7289' END ;;
+    sql: CASE WHEN (${TABLE}.eqp_type = 'C6115') THEN 'C6115' ELSE 'C7289' END ;;
     # Original Tableau formula: CASE [eqp_type] WHEN "C6115" THEN "C6115" ELSE "C7289" END
   }
 
@@ -294,15 +321,15 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
 
   dimension: rolling_36_copy_777433916922368001 {
     description: "Calculated field: {MAX([DTTM])}"
-    type: date_time
-    sql: {TABLE}.MaxDate ;;
+    type: date_raw
+    sql: ${TABLE}.MaxDate ;;
     # Original Tableau formula: {MAX([DTTM])}
   }
 
   dimension: rolling_36_copy_777433916925095938 {
     description: "Calculated field: (DATEDIFF('hour',[Rolling 36 (copy)_777433916922368001],(DATEADD('hour',0,[DTTM])))) > -24 and (DATEDIFF('hour',[Rolling 36 (copy)_777433916922368001],(DATEADD('hour',0,[DTTM])))) < 1"
     type: yesno
-    sql: ((DATETIME_DIFF(DATETIME_ADD(${TABLE}.dttm, INTERVAL 0 HOUR), ${TABLE}.rolling_36_(copy)_777433916922368001, HOUR) > -24) AND (DATETIME_DIFF(DATETIME_ADD(${TABLE}.dttm, INTERVAL 0 HOUR), ${TABLE}.rolling_36_(copy)_777433916922368001, HOUR) < 1)) ;;
+    sql: ((DATETIME_DIFF(DATETIME_ADD(${TABLE}.dttm, INTERVAL 0 HOUR), ${rolling_36_copy_777433916922368001}, HOUR) > -24) AND (DATETIME_DIFF(DATETIME_ADD(${TABLE}.dttm, INTERVAL 0 HOUR), ${rolling_36_copy_777433916922368001}, HOUR) < 1)) ;;
     # Original Tableau formula: (DATEDIFF('hour',[Rolling 36 (copy)_777433916922368001],(DATEADD('hour',0,[DTTM])))) > -24 and (DATEDIFF('hour',[Rolling 36 (copy)_777433916922368001],(DATEADD('hour',0,[DTTM])))) < 1
   }
 
