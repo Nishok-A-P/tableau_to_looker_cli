@@ -12,8 +12,11 @@
 intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.market]
     stacking: normal
+    filters:
+      intradaysales_results_hqa_pd_qmtbls_mock.calculation_1742611641682452480: New
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
+intradaysales_results_hqa_pd_qmtbls_mock.market]
     show_legend: true
-    legend_position: "top"
     x_axis_label: true
     y_axis_label: true
     limit: 500
@@ -28,6 +31,8 @@ intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
     model: bigquery_super_store_sales_model
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
+    filters:
+      intradaysales_results_hqa_pd_qmtbls_mock.calculation_1742611641682452480: New
     show_row_numbers: true
     table_theme: "white"
     limit: 500
@@ -46,6 +51,10 @@ intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
 intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.channel]
     stacking: normal
+    filters:
+      intradaysales_results_hqa_pd_qmtbls_mock.calculation_1742611641682452480: New
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
+intradaysales_results_hqa_pd_qmtbls_mock.channel]
     series_colors:
       "bd6747d30278641e583695d9d1f19d30": "#499894"
       "8d7e99c73cd5a10adaaf4c9f9a520368": "#4e79a7"
@@ -72,7 +81,6 @@ intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
       "C644": "#ff9d9a"
       "053e0bc8b9627b28e2ed8029a34b35bd": "#ffbe7d"
     show_legend: true
-    legend_position: "top"
     x_axis_label: true
     y_axis_label: true
     limit: 500
@@ -87,6 +95,8 @@ intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
     model: bigquery_super_store_sales_model
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
+    filters:
+      intradaysales_results_hqa_pd_qmtbls_mock.calculation_1742611641682452480: New
     show_row_numbers: true
     table_theme: "white"
     limit: 500
