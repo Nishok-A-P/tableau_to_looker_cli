@@ -13,6 +13,15 @@ view: intradaysales_results_day_7_mock {
     label: "Rpt Dt"
   }
 
+  dimension: rpt_dt_hour_formatted {
+    type: string
+    sql: FORMAT_TIMESTAMP('%l %p',
+      TIMESTAMP_TRUNC(CAST(${rpt_dt_raw} AS TIMESTAMP), HOUR)) ;;
+    label: "Hour"
+  }
+
+
+
   # Dimensions
 
   dimension: eqp_grp_desc {
@@ -65,7 +74,7 @@ view: intradaysales_results_day_7_mock {
   dimension: calculation_1343198652318875651 {
     description: "Calculated field: CASE [eqp_type] WHEN \"C6115\" THEN \"C6115\" ELSE \"C7289\" END"
     type: string
-    sql: CASE ${TABLE}.eqp_type WHEN 'C6115' THEN 'C6115' ELSE 'C7289' END ;;
+    sql: CASE WHEN (${TABLE}.eqp_type = 'C6115') THEN 'C6115' ELSE 'C7289' END ;;
     # Original Tableau formula: CASE [eqp_type] WHEN "C6115" THEN "C6115" ELSE "C7289" END
   }
 
