@@ -8,6 +8,8 @@
     model: bigquery_super_store_sales_model
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
+    filters:
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
     show_row_numbers: true
     table_theme: "white"
     limit: 500
