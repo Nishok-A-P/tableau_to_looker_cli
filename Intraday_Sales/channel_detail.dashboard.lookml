@@ -36,12 +36,14 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.calculation_5910989867950081,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales,
 intradaysales_results_hqa_pd_qmtbls_mock.channel]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.calculation_5910989867950081]
     stacking: normal
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.calculation_5910989867950081]
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.calculation_5910989867950081,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     show_row_numbers: true
     table_theme: "white"
     limit: 500
@@ -57,12 +59,14 @@ intradaysales_results_hqa_pd_qmtbls_mock.channel]
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_type,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales,
 intradaysales_results_hqa_pd_qmtbls_mock.channel]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_type]
     stacking: normal
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_type]
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_type,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     show_row_numbers: true
     table_theme: "white"
     limit: 500
@@ -78,12 +82,14 @@ intradaysales_results_hqa_pd_qmtbls_mock.channel]
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.manf,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales,
 intradaysales_results_hqa_pd_qmtbls_mock.channel]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.manf]
     stacking: normal
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.manf]
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.manf,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     show_row_numbers: true
     table_theme: "white"
     limit: 500
@@ -99,12 +105,14 @@ intradaysales_results_hqa_pd_qmtbls_mock.channel]
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales,
 intradaysales_results_hqa_pd_qmtbls_mock.channel]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder]
     stacking: normal
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder]
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     show_row_numbers: true
     table_theme: "white"
     limit: 500
