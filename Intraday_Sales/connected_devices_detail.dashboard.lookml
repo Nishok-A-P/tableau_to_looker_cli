@@ -8,14 +8,8 @@
     model: bigquery_super_store_sales_model
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_bar
-    fields: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc]
-    stacking: normal
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc: 6732e04dc98598f20626af33431614c0,bd5bd896c793c7692d91be9a75fcf2ea,C1940,C2269,Connected Devices,Tablets
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     series_colors:
       "bd5bd896c793c7692d91be9a75fcf2ea": "#4e79a7"
       "C2269": "#76b7b2"
