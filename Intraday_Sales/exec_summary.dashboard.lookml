@@ -154,14 +154,8 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     model: bigquery_super_store_sales_model
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_bar
-    fields: [intradaysales_results_hqa_pd_qmtbls_mock.channel,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.channel]
-    stacking: normal
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.channel,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     series_colors:
       "bd6747d30278641e583695d9d1f19d30": "#499894"
       "8d7e99c73cd5a10adaaf4c9f9a520368": "#4e79a7"
@@ -202,14 +196,8 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     model: bigquery_super_store_sales_model
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_bar
-    fields: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.mkt]
-    stacking: normal
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     series_colors:
       "ec9903c79dd510ffa43f69ee867a9002": "#4e79a7"
       "501a92c9b793cb44dfbfe0ca9ffee563": "#59a14f"
