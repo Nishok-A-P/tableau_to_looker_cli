@@ -8,15 +8,9 @@
     model: bigquery_super_store_sales_model
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_bar
-    fields: [intradaysales_results_hqa_pd_qmtbls_mock.manf,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.manf]
-    stacking: normal
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc: 853ca16bda4f3d303e70e48db81c17c6,C6781,Smartphone
       intradaysales_results_hqa_pd_qmtbls_mock.eqp_class_desc: C4305
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.manf,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     series_colors:
       "5e8c44f6456095c24a57837de8adac7b": "#499894"
       "C3044": "#499894"
