@@ -147,34 +147,51 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     model: bigquery_super_store_sales_model
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_bar
+    fields: [intradaysales_results_hqa_pd_qmtbls_mock.channel,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
+    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.channel]
+    stacking: normal
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.mfg_nm: 4c462d6dd59d782386bb1cdad0060c70,APPLE,C3976
       intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.channel,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     series_colors:
-      "bd6747d30278641e583695d9d1f19d30": "#499894"
-      "8d7e99c73cd5a10adaaf4c9f9a520368": "#4e79a7"
-      "C8527": "#4e79a7"
-      "7446050b848d839fe9847073ff94cfd6": "#59a14f"
-      "C1363": "#79706e"
-      "C7370": "#86bcb6"
-      "cd3c9bb8acb671dbd1faba3deaa1e03e": "#86bcb6"
-      "45084848ec7a713e5a75be2ed21c6ead": "#8cd17d"
-      "C5732": "#9d7660"
-      "51c7d5c508c40e0829bfce9e1c9164cb": "#a0cbe8"
-      "C8955": "#a0cbe8"
-      "C4337": "#b07aa1"
-      "a3d2de7675556553a5f08e4c88d2c228": "#b6992d"
-      "C1729": "#bab0ac"
-      "C1874": "#d37295"
-      "C5666": "#d4a6c8"
-      "C6720": "#d7b5a6"
-      "C8375": "#e15759"
-      "de03f7314621bff43c1259028c190c42": "#e15759"
-      "a202d41fc64cf30db1244c634189c994": "#f1ce63"
-      "77d3a8ff9372498fa97869b8c7832b11": "#f28e2b"
-      "C2161": "#fabfd2"
-      "C644": "#ff9d9a"
-      "053e0bc8b9627b28e2ed8029a34b35bd": "#ffbe7d"
+      "1de58b62915a99d33aef93758d31ceee": "#000000"
+      "B2B": "#000000"
+      "C1729": "#000000"
+      "C8527": "#000000"
+      "de03f7314621bff43c1259028c190c42": "#000000"
+      "%all%": "#000000"
+      "7446050b848d839fe9847073ff94cfd6": "#1b1d1f"
+      "C4337": "#1b1d1f"
+      "Retail": "#1b1d1f"
+      "77d3a8ff9372498fa97869b8c7832b11": "#333333"
+      "C5666": "#333333"
+      "MVO": "#333333"
+      "8d7e99c73cd5a10adaaf4c9f9a520368": "#6f7171"
+      "C5732": "#6f7171"
+      "MVA": "#6f7171"
+      "45084848ec7a713e5a75be2ed21c6ead": "#a7a7a7"
+      "C1874": "#a7a7a7"
+      "Inside Sales": "#a7a7a7"
+      "91e32a5fc05beb6db7bf9cd75b53e586": "#d8dada"
+      "C644": "#d8dada"
+      "CS": "#d8dada"
+      "National Retail": "#d8dada"
+      "053e0bc8b9627b28e2ed8029a34b35bd": "#ee0000"
+      "C1363": "#ee0000"
+      "C7370": "#ee0000"
+      "cd3c9bb8acb671dbd1faba3deaa1e03e": "#ee0000"
+      "Sales Chat": "#ee0000"
+      "a202d41fc64cf30db1244c634189c994": "#f6f6f6"
+      "Agent": "#f6f6f6"
+      "C6720": "#f6f6f6"
+      "RD": "#f6f6f6"
+      "": "#ffffff"
+      "51c7d5c508c40e0829bfce9e1c9164cb": "#ffffff"
+      "C2161": "#ffffff"
+      "D2D": "#ffffff"
     show_legend: true
     x_axis_label: true
     y_axis_label: true
@@ -190,9 +207,15 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     model: bigquery_super_store_sales_model
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_bar
+    fields: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
+    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.mkt]
+    stacking: normal
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.manf: 4c462d6dd59d782386bb1cdad0060c70,APPLE,C8207
       intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     series_colors:
       "ec9903c79dd510ffa43f69ee867a9002": "#4e79a7"
       "501a92c9b793cb44dfbfe0ca9ffee563": "#59a14f"
