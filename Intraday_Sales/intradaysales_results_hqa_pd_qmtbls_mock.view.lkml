@@ -21,6 +21,7 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
     sql: FORMAT_TIMESTAMP('%l %p',
       TIMESTAMP_TRUNC(CAST(${rpt_dt_raw} AS TIMESTAMP), HOUR)) ;;
     label: "Hour"
+    order_by_field: rpt_dt_raw
   }
 
 
@@ -38,6 +39,7 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
     sql: FORMAT_TIMESTAMP('%l %p',
       TIMESTAMP_TRUNC(CAST(${rpt_time_raw} AS TIMESTAMP), HOUR)) ;;
     label: "Hour"
+    order_by_field: rpt_time_raw
   }
 
 
@@ -55,6 +57,7 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
     sql: FORMAT_TIMESTAMP('%l %p',
       TIMESTAMP_TRUNC(CAST(${dttm_raw} AS TIMESTAMP), HOUR)) ;;
     label: "Hour"
+    order_by_field: dttm_raw
   }
 
 
@@ -221,130 +224,123 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
 
   # Calculated Fields (from Tableau formulas)
 
-  dimension: calculation_1181350527289110528 {
+  dimension: model_name {
     description: "Calculated field: IF [eqp_class_desc] = 'C1333' THEN \"C1333\" ELSE [model_nm] END"
     type: string
     sql: CASE WHEN (${TABLE}.eqp_class_desc = 'C1333') THEN 'C1333' ELSE ${TABLE}.model_nm END ;;
     # Original Tableau formula: IF [eqp_class_desc] = 'C1333' THEN "C1333" ELSE [model_nm] END
   }
 
-  dimension: calculation_1343198651864219649 {
+  dimension: notice {
     description: "Calculated field: ''"
     type: string
     sql: '' ;;
     # Original Tableau formula: ''
   }
 
-  dimension: calculation_1343198652318875651 {
+  dimension: phone_only_sales {
     description: "Calculated field: CASE [eqp_type] WHEN \"C6115\" THEN \"C6115\" ELSE \"C7289\" END"
     type: string
     sql: CASE WHEN (${TABLE}.eqp_type = 'C6115') THEN 'C6115' ELSE 'C7289' END ;;
     # Original Tableau formula: CASE [eqp_type] WHEN "C6115" THEN "C6115" ELSE "C7289" END
   }
 
-  dimension: calculation_1371064672907669504 {
+  dimension: iconic_launch_atlantic_north {
     description: "Calculated field: \"Iconic Launch: Atlantic North\""
     type: string
     sql: 'Iconic Launch: Atlantic North' ;;
     # Original Tableau formula: "Iconic Launch: Atlantic North"
   }
 
-  dimension: calculation_1738952406623186945 {
+  dimension: txt_data_refresh {
     description: "Calculated field: IF [Record_Type] = 'BTEQ_LOAD' THEN [Reference] ELSE '' END"
     type: string
     sql: CASE WHEN (${TABLE}.record_type = 'BTEQ_LOAD') THEN ${TABLE}.reference ELSE '' END ;;
     # Original Tableau formula: IF [Record_Type] = 'BTEQ_LOAD' THEN [Reference] ELSE '' END
   }
 
-  dimension: calculation_5910989867950081 {
+  dimension: sale_type {
     description: "Calculated field: IF [trans_type] = 'C7484' then \"Upgrade\" ELSE \"New\" END"
     type: string
     sql: CASE WHEN (${TABLE}.trans_type = 'C7484') THEN 'Upgrade' ELSE 'New' END ;;
     # Original Tableau formula: IF [trans_type] = 'C7484' then "Upgrade" ELSE "New" END
   }
 
-  dimension: calculation_777433918331158531 {
+  dimension: reset_filter {
     description: "Calculated field: 'Reset Filter'"
     type: string
     sql: 'Reset Filter' ;;
     # Original Tableau formula: 'Reset Filter'
   }
 
-  dimension: iconic_launch_atlantic_north_copy_1371064672907792385 {
+  dimension: iconic_launch_atlantic_south {
     description: "Calculated field: \"Iconic Launch: Atlantic South\""
     type: string
     sql: 'Iconic Launch: Atlantic South' ;;
     # Original Tableau formula: "Iconic Launch: Atlantic South"
   }
 
-  dimension: iconic_launch_atlantic_south_copy_1371064672907948034 {
+  dimension: iconic_launch_coastal_plains {
     description: "Calculated field: \"Iconic Launch: Coastal Plains\""
     type: string
     sql: 'Iconic Launch: Coastal Plains' ;;
     # Original Tableau formula: "Iconic Launch: Coastal Plains"
   }
 
-  dimension: iconic_launch_coastal_plains_copy_1371064672908079107 {
+  dimension: iconic_launch_great_lakes {
     description: "Calculated field: \"Iconic Launch: Great Lakes\""
     type: string
     sql: 'Iconic Launch: Great Lakes' ;;
     # Original Tableau formula: "Iconic Launch: Great Lakes"
   }
 
-  dimension: iconic_launch_great_lakes_copy_1371064672908218372 {
+  dimension: iconic_launch_mountain {
     description: "Calculated field: \"Iconic Launch: Mountain\""
     type: string
     sql: 'Iconic Launch: Mountain' ;;
     # Original Tableau formula: "Iconic Launch: Mountain"
   }
 
-  dimension: iconic_launch_mountain_copy_1371064672908279813 {
+  dimension: iconic_launch_pacific {
     description: "Calculated field: \"Iconic Launch: Pacific\""
     type: string
     sql: 'Iconic Launch: Pacific' ;;
     # Original Tableau formula: "Iconic Launch: Pacific"
   }
 
-  dimension: model_name_copy_2681330689597788160 {
+  dimension: model_name_copy {
     description: "Calculated field: IF [eqp_class_desc] = 'C1333' THEN \"C1333\" ELSE [model_nm] END"
     type: string
     sql: CASE WHEN (${TABLE}.eqp_class_desc = 'C1333') THEN 'C1333' ELSE ${TABLE}.model_nm END ;;
     # Original Tableau formula: IF [eqp_class_desc] = 'C1333' THEN "C1333" ELSE [model_nm] END
   }
 
-  dimension: rolling_24_copy_1343198652312211458 {
+  dimension: iphone_16 {
     description: "Calculated field: CONTAINS([model_nm],\"C5591\")"
     type: yesno
     sql: STRPOS(${TABLE}.model_nm, 'C5591') > 0 ;;
     # Original Tableau formula: CONTAINS([model_nm],"C5591")
   }
 
-  dimension: rolling_36_copy_777433916922368001 {
+  dimension: max_dttm {
     description: "Calculated field: {MAX([DTTM])}"
     type: date_raw
     sql: ${TABLE}.MaxDate ;;
     # Original Tableau formula: {MAX([DTTM])}
   }
 
-  dimension: rolling_36_copy_777433916925095938 {
+  dimension: rolling_24 {
     description: "Calculated field: (DATEDIFF('hour',[Rolling 36 (copy)_777433916922368001],(DATEADD('hour',0,[DTTM])))) > -24 and (DATEDIFF('hour',[Rolling 36 (copy)_777433916922368001],(DATEADD('hour',0,[DTTM])))) < 1"
     type: yesno
-    sql: ((DATETIME_DIFF(DATETIME_ADD(${TABLE}.dttm, INTERVAL 0 HOUR), ${rolling_36_copy_777433916922368001}, HOUR) > -24) AND (DATETIME_DIFF(DATETIME_ADD(${TABLE}.dttm, INTERVAL 0 HOUR), ${rolling_36_copy_777433916922368001}, HOUR) < 1)) ;;
+    sql: ((DATETIME_DIFF(DATETIME_ADD(${TABLE}.dttm, INTERVAL 0 HOUR), ${max_dttm}, HOUR) > -24) AND (DATETIME_DIFF(DATETIME_ADD(${TABLE}.dttm, INTERVAL 0 HOUR), ${max_dttm}, HOUR) < 1)) ;;
     # Original Tableau formula: (DATEDIFF('hour',[Rolling 36 (copy)_777433916922368001],(DATEADD('hour',0,[DTTM])))) > -24 and (DATEDIFF('hour',[Rolling 36 (copy)_777433916922368001],(DATEADD('hour',0,[DTTM])))) < 1
   }
 
-  dimension: txt_data_refresh_copy_1738952406629519362 {
+  dimension: txt_report_refresh {
     description: "Calculated field: IF [Record_Type] = 'Report_LOAD' THEN [Reference] ELSE '' END"
     type: string
     sql: CASE WHEN (${TABLE}.record_type = 'Report_LOAD') THEN ${TABLE}.reference ELSE '' END ;;
     # Original Tableau formula: IF [Record_Type] = 'Report_LOAD' THEN [Reference] ELSE '' END
-  }
-
-  dimension: calculation_1742611641682452480 {
-    description: "Calculated field: IF [trans_type] = 'EUP' then \"Upgrade\" ELSE \"New\" END"
-    type: string
-    sql: CASE WHEN (${TABLE}.trans_type = 'EUP') THEN 'Upgrade' ELSE 'New' END ;;
-    # Original Tableau formula: IF [trans_type] = 'EUP' then "Upgrade" ELSE "New" END
   }
 
   # Measures
