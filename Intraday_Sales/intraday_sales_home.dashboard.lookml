@@ -9,14 +9,14 @@
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
     show_row_numbers: true
     table_theme: "white"
     limit: 500
     column_limit: 50
     row: 14
-    col: 14
-    width: 9
+    col: 0
+    width: 30
     height: 5
 
   - title: Iconic Launch: Atlantic South
