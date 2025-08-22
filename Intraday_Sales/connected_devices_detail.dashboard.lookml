@@ -14,7 +14,8 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
     stacking: normal
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc: 6732e04dc98598f20626af33431614c0,bd5bd896c793c7692d91be9a75fcf2ea,C1940,C2269,Connected Devices,Tablets
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc]
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     series_colors:
       "bd5bd896c793c7692d91be9a75fcf2ea": "#4e79a7"
       "C2269": "#76b7b2"
@@ -43,11 +44,12 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc: 6732e04dc98598f20626af33431614c0,bd5bd896c793c7692d91be9a75fcf2ea,C1940,C2269,Connected Devices,Tablets
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
       intradaysales_results_hqa_pd_qmtbls_mock.eqp_class_desc: C4305
     sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
 intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted,
-intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc]
+intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     table_theme: "white"
     header_background_color: "#000000"
     header_font_color: "#ffffff"
@@ -63,14 +65,15 @@ intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc]
     model: bigquery_super_store_sales_model
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
-    fields: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type,
+    fields: [intradaysales_results_hqa_pd_qmtbls_mock.calculation_5910989867950081,
 intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type]
+    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.calculation_5910989867950081]
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc: 6732e04dc98598f20626af33431614c0,bd5bd896c793c7692d91be9a75fcf2ea,C1940,C2269,Connected Devices,Tablets
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
       intradaysales_results_hqa_pd_qmtbls_mock.eqp_class_desc: C4305
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type]
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.calculation_5910989867950081,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     series_colors:
       "New": "#4e79a7"
       "Upgrade": "#f28e2b"
@@ -90,14 +93,15 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
     model: bigquery_super_store_sales_model
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
-    fields: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type,
+    fields: [intradaysales_results_hqa_pd_qmtbls_mock.calculation_5910989867950081,
 intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type]
+    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.calculation_5910989867950081]
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc: 6732e04dc98598f20626af33431614c0,C2269,Tablets
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
       intradaysales_results_hqa_pd_qmtbls_mock.eqp_class_desc: C4305
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type]
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.calculation_5910989867950081,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     series_colors:
       "New": "#4e79a7"
       "Upgrade": "#f28e2b"
@@ -122,8 +126,9 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder]
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc: bd5bd896c793c7692d91be9a75fcf2ea,C1940,Connected Devices
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder]
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     series_colors:
       "93cba07454f06a4a960172bbd6e2a435": "#4e79a7"
       "C8730": "#76b7b2"
@@ -150,8 +155,9 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder]
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc: 6732e04dc98598f20626af33431614c0,C2269,Tablets
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder]
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     series_colors:
       "93cba07454f06a4a960172bbd6e2a435": "#4e79a7"
       "C8730": "#76b7b2"
@@ -178,8 +184,9 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.mkt]
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc: bd5bd896c793c7692d91be9a75fcf2ea,C1940,Connected Devices
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.mkt]
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     series_colors:
       "ec9903c79dd510ffa43f69ee867a9002": "#4e79a7"
       "501a92c9b793cb44dfbfe0ca9ffee563": "#59a14f"
@@ -218,8 +225,9 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.mkt]
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc: 6732e04dc98598f20626af33431614c0,C2269,Tablets
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.mkt]
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     series_colors:
       "ec9903c79dd510ffa43f69ee867a9002": "#4e79a7"
       "501a92c9b793cb44dfbfe0ca9ffee563": "#59a14f"
@@ -258,8 +266,9 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.channel]
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc: bd5bd896c793c7692d91be9a75fcf2ea,C1940,Connected Devices
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.channel]
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.channel,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     series_colors:
       "1de58b62915a99d33aef93758d31ceee": "#000000"
       "B2B": "#000000"
@@ -317,8 +326,9 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.channel]
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc: 6732e04dc98598f20626af33431614c0,C2269,Tablets
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.channel]
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.channel,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     series_colors:
       "1de58b62915a99d33aef93758d31ceee": "#000000"
       "B2B": "#000000"
@@ -377,9 +387,10 @@ intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc: bd5bd896c793c7692d91be9a75fcf2ea,C1940,Connected Devices
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
     sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted,
+intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     show_row_numbers: true
     table_theme: "white"
     limit: 500
