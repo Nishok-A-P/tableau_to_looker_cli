@@ -8,7 +8,14 @@ include: "intradaysales_results_day_7_mock.view.lkml"
 include: "intradaysales_results_hqa_pd_qmtbls_mock.view.lkml"
 
 # Include all dashboards
+include: "apple_summary.dashboard.lookml"
+include: "channel_detail.dashboard.lookml"
 include: "connected_devices_detail.dashboard.lookml"
+include: "exec_summary.dashboard.lookml"
+include: "market_detail.dashboard.lookml"
+include: "phone_detail.dashboard.lookml"
+include: "phone_sales_dod.dashboard.lookml"
+include: "retail_view.dashboard.lookml"
 
 # Explores
 
