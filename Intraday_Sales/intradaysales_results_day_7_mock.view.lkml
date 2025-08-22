@@ -18,6 +18,7 @@ view: intradaysales_results_day_7_mock {
     sql: FORMAT_TIMESTAMP('%l %p',
       TIMESTAMP_TRUNC(CAST(${rpt_dt_raw} AS TIMESTAMP), HOUR)) ;;
     label: "Hour"
+    order_by_field: rpt_dt_raw
   }
 
 
@@ -64,67 +65,11 @@ view: intradaysales_results_day_7_mock {
 
   # Calculated Fields (from Tableau formulas)
 
-  dimension: calculation_1343198651864219649 {
-    description: "Calculated field: ''"
+  dimension: sale_type {
+    description: "Calculated field: IF [trans_type] = 'EUP' then \"Upgrade\" ELSE \"New\" END"
     type: string
-    sql: '' ;;
-    # Original Tableau formula: ''
-  }
-
-  dimension: calculation_1343198652318875651 {
-    description: "Calculated field: CASE [eqp_type] WHEN \"C6115\" THEN \"C6115\" ELSE \"C7289\" END"
-    type: string
-    sql: CASE WHEN (${TABLE}.eqp_type = 'C6115') THEN 'C6115' ELSE 'C7289' END ;;
-    # Original Tableau formula: CASE [eqp_type] WHEN "C6115" THEN "C6115" ELSE "C7289" END
-  }
-
-  dimension: calculation_1371064672907669504 {
-    description: "Calculated field: \"Iconic Launch: Atlantic North\""
-    type: string
-    sql: 'Iconic Launch: Atlantic North' ;;
-    # Original Tableau formula: "Iconic Launch: Atlantic North"
-  }
-
-  dimension: calculation_777433918331158531 {
-    description: "Calculated field: 'Reset Filter'"
-    type: string
-    sql: 'Reset Filter' ;;
-    # Original Tableau formula: 'Reset Filter'
-  }
-
-  dimension: iconic_launch_atlantic_north_copy_1371064672907792385 {
-    description: "Calculated field: \"Iconic Launch: Atlantic South\""
-    type: string
-    sql: 'Iconic Launch: Atlantic South' ;;
-    # Original Tableau formula: "Iconic Launch: Atlantic South"
-  }
-
-  dimension: iconic_launch_atlantic_south_copy_1371064672907948034 {
-    description: "Calculated field: \"Iconic Launch: Coastal Plains\""
-    type: string
-    sql: 'Iconic Launch: Coastal Plains' ;;
-    # Original Tableau formula: "Iconic Launch: Coastal Plains"
-  }
-
-  dimension: iconic_launch_coastal_plains_copy_1371064672908079107 {
-    description: "Calculated field: \"Iconic Launch: Great Lakes\""
-    type: string
-    sql: 'Iconic Launch: Great Lakes' ;;
-    # Original Tableau formula: "Iconic Launch: Great Lakes"
-  }
-
-  dimension: iconic_launch_great_lakes_copy_1371064672908218372 {
-    description: "Calculated field: \"Iconic Launch: Mountain\""
-    type: string
-    sql: 'Iconic Launch: Mountain' ;;
-    # Original Tableau formula: "Iconic Launch: Mountain"
-  }
-
-  dimension: iconic_launch_mountain_copy_1371064672908279813 {
-    description: "Calculated field: \"Iconic Launch: Pacific\""
-    type: string
-    sql: 'Iconic Launch: Pacific' ;;
-    # Original Tableau formula: "Iconic Launch: Pacific"
+    sql: CASE WHEN (${TABLE}.trans_type = 'EUP') THEN 'Upgrade' ELSE 'New' END ;;
+    # Original Tableau formula: IF [trans_type] = 'EUP' then "Upgrade" ELSE "New" END
   }
 
   # Measures
