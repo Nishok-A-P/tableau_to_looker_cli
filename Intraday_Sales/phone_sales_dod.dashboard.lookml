@@ -9,7 +9,7 @@
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.sale_type: New
+      intradaysales_results_hqa_pd_qmtbls_mock.calculation_1742611641682452480: New
     show_row_numbers: true
     table_theme: "white"
     limit: 500
@@ -25,7 +25,7 @@
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.sale_type: New
+      intradaysales_results_hqa_pd_qmtbls_mock.calculation_1742611641682452480: New
     show_row_numbers: true
     table_theme: "white"
     limit: 500
@@ -41,7 +41,7 @@
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.sale_type: New
+      intradaysales_results_hqa_pd_qmtbls_mock.calculation_1742611641682452480: New
     show_row_numbers: true
     table_theme: "white"
     limit: 500
@@ -57,7 +57,7 @@
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.sale_type: New
+      intradaysales_results_hqa_pd_qmtbls_mock.calculation_1742611641682452480: New
     show_row_numbers: true
     table_theme: "white"
     limit: 500
