@@ -15,11 +15,10 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
 intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
     sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
 intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted,
-intradaysales_results_hqa_pd_qmtbls_mock.mkt,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
+intradaysales_results_hqa_pd_qmtbls_mock.mkt]
     table_theme: "white"
     header_background_color: "#000000"
     header_font_color: "#ffffff"
@@ -35,15 +34,14 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     model: bigquery_super_store_sales_model
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
-    fields: [intradaysales_results_hqa_pd_qmtbls_mock.calculation_5910989867950081,
+    fields: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type,
 intradaysales_results_hqa_pd_qmtbls_mock.total_sales,
 intradaysales_results_hqa_pd_qmtbls_mock.mkt]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.calculation_5910989867950081]
+    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type]
     stacking: normal
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.calculation_5910989867950081,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type]
     show_row_numbers: true
     table_theme: "white"
     limit: 500
@@ -64,9 +62,8 @@ intradaysales_results_hqa_pd_qmtbls_mock.mkt]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_type]
     stacking: normal
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_type,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_type]
     show_row_numbers: true
     table_theme: "white"
     limit: 500
@@ -87,9 +84,8 @@ intradaysales_results_hqa_pd_qmtbls_mock.mkt]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.manf]
     stacking: normal
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.manf,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.manf]
     show_row_numbers: true
     table_theme: "white"
     limit: 500
@@ -110,9 +106,8 @@ intradaysales_results_hqa_pd_qmtbls_mock.mkt]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder]
     stacking: normal
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder]
     show_row_numbers: true
     table_theme: "white"
     limit: 500
@@ -132,10 +127,9 @@ intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
 intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
     sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
     show_row_numbers: true
     table_theme: "white"
     limit: 500
@@ -155,9 +149,8 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.mkt]
     stacking: normal
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.mkt]
     series_colors:
       "ec9903c79dd510ffa43f69ee867a9002": "#4e79a7"
       "501a92c9b793cb44dfbfe0ca9ffee563": "#59a14f"
