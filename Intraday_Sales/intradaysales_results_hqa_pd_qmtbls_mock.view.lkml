@@ -6,6 +6,8 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
   }
 
 
+  # Parameters (from Tableau parameters)
+
   # Date dimension groups
 
   dimension_group: rpt_dt {
@@ -213,6 +215,22 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
     label: "Bi Chnl Sub Type Desc"
   }
 
+  dimension: longitude_raw {
+    description: "Raw field for longitude"
+    type: string
+    sql: ${TABLE}.LONGITUDE ;;
+    hidden: yes
+    label: "Longitude (Raw)"
+  }
+
+  dimension: latitude_raw {
+    description: "Raw field for latitude"
+    type: string
+    sql: ${TABLE}.LATITUDE ;;
+    hidden: yes
+    label: "Latitude (Raw)"
+  }
+
   dimension: eqp_type {
     description: "Eqp Type"
     type: string
@@ -359,17 +377,17 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
     label: "Sales"
   }
 
-  measure: longitude {
+  measure: total_longitude {
     description: "Longitude"
-    type: number
-    sql: ${TABLE}.LONGITUDE ;;
+    type: sum
+    sql: ${longitude_raw} ;;
     label: "Longitude"
   }
 
-  measure: latitude {
+  measure: total_latitude {
     description: "Latitude"
-    type: number
-    sql: ${TABLE}.LATITUDE ;;
+    type: sum
+    sql: ${latitude_raw} ;;
     label: "Latitude"
   }
 
