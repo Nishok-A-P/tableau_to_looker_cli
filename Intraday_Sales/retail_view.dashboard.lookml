@@ -17,12 +17,11 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.channel: C4337,C8527
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
     sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
 intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted,
 intradaysales_results_hqa_pd_qmtbls_mock.bi_chnl_ctgry_desc,
-intradaysales_results_hqa_pd_qmtbls_mock.store_design,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
+intradaysales_results_hqa_pd_qmtbls_mock.store_design]
     table_theme: "white"
     limit: 500
     column_limit: 50
