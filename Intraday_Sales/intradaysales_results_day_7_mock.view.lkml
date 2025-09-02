@@ -3,6 +3,8 @@ view: intradaysales_results_day_7_mock {
   sql_table_name: `elastic-pocs.Super_Store_Sales.IntradaySales_RESULTS_DAY-7_Mock` ;;
 
 
+  # Parameters (from Tableau parameters)
+
   # Date dimension groups
 
   dimension_group: rpt_dt {
