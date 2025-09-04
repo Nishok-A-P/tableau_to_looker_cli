@@ -3,7 +3,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   elements:
-  - title: <Sheet Name>
+  - title: "<Sheet Name>
     name: category_vs_sales
     model: bigquery_super_store_sales_model
     explore: order_details
@@ -46,11 +46,21 @@ order_details.None]
     name: sales_by_region
     model: bigquery_super_store_sales_model
     explore: order_details
-    type: looker_column
+    type: looker_bar
+    fields: [order_details.region]
+    pivots: [order_details.region]
+    stacking: normal
     filters:
       order_details.region: Central,East,South,West
-    show_row_numbers: true
-    table_theme: "white"
+    sorts: [order_details.region]
+    series_colors:
+      "East": "#000000"
+      "West": "#6f7171"
+      "South": "#b6a7a9"
+      "Central": "#ef9e93"
+    show_legend: true
+    x_axis_label: true
+    y_axis_label: true
     limit: 500
     column_limit: 50
     row: 14
@@ -62,11 +72,20 @@ order_details.None]
     name: sales_by_segment
     model: bigquery_super_store_sales_model
     explore: order_details
-    type: looker_column
+    type: looker_bar
+    fields: [order_details.segment]
+    pivots: [order_details.segment]
+    stacking: normal
     filters:
       order_details.region: East,West
-    show_row_numbers: true
-    table_theme: "white"
+    sorts: [order_details.segment]
+    series_colors:
+      "Consumer": "#00aa00"
+      "Home Office": "#ffaaff"
+      "Corporate": "#ffff7f"
+    show_legend: true
+    x_axis_label: true
+    y_axis_label: true
     limit: 500
     column_limit: 50
     row: 21
