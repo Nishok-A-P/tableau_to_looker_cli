@@ -5,7 +5,7 @@
   elements:
   - title: "Category Vs Sales"
     name: category_vs_sales
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_152703
     explore: order_details
     type: looker_donut_multiples
     fields: [order_details.category,
@@ -15,6 +15,7 @@ order_details.total_sales]
     show_value_labels: true
     value_labels: "bold"
     show_legend: true
+    hide_legend: true
     legend_position: "right"
     limit: 500
     column_limit: 50
@@ -25,7 +26,7 @@ order_details.total_sales]
 
   - title: "SubCategory Vs Sales"
     name: subcategory_vs_sales
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_152703
     explore: order_details
     type: looker_donut_multiples
     fields: [order_details.sub_category,
@@ -35,6 +36,7 @@ order_details.total_sales]
     show_value_labels: true
     value_labels: "bold"
     show_legend: true
+    hide_legend: true
     legend_position: "right"
     limit: 500
     column_limit: 50
@@ -45,7 +47,7 @@ order_details.total_sales]
 
   - title: "Sales By Region"
     name: sales_by_region
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_152703
     explore: order_details
     type: looker_bar
     fields: [order_details.region,
@@ -53,7 +55,7 @@ order_details.total_sales]
     pivots: [order_details.region]
     stacking: normal
     filters:
-      order_details.region: Central,East,South,West
+      order_details.region: "Central,East,South,West"
     sorts: [order_details.region]
     series_colors:
       "East": "#000000"
@@ -72,7 +74,7 @@ order_details.total_sales]
 
   - title: "Sales By Segment"
     name: sales_by_segment
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_152703
     explore: order_details
     type: looker_bar
     fields: [order_details.segment,
@@ -80,7 +82,7 @@ order_details.total_sales]
     pivots: [order_details.segment]
     stacking: normal
     filters:
-      order_details.region: East,West
+      order_details.region: "East,West"
     sorts: [order_details.segment]
     series_colors:
       "Consumer": "#00aa00"
@@ -98,7 +100,7 @@ order_details.total_sales]
 
   - title: "Category Vs Profit"
     name: category_vs_profit
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_152703
     explore: order_details
     type: looker_donut_multiples
     fields: [order_details.category,
@@ -108,6 +110,7 @@ order_details.total_profit]
     show_value_labels: true
     value_labels: "bold"
     show_legend: true
+    hide_legend: true
     legend_position: "right"
     limit: 500
     column_limit: 50
@@ -118,7 +121,7 @@ order_details.total_profit]
 
   - title: "SubCategory Vs Profit"
     name: subcategory_vs_profit
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_152703
     explore: order_details
     type: looker_donut_multiples
     fields: [order_details.sub_category,
@@ -128,6 +131,7 @@ order_details.total_profit]
     show_value_labels: true
     value_labels: "bold"
     show_legend: true
+    hide_legend: true
     legend_position: "right"
     limit: 500
     column_limit: 50
@@ -138,7 +142,7 @@ order_details.total_profit]
 
   - title: "SubCategory Sales by Day"
     name: subcategory_sales_by_day
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_152703
     explore: order_details
     type: looker_grid
     fields: [order_details.category,
@@ -147,11 +151,11 @@ order_details.order_date_date,
 order_details.total_sales]
     pivots: [order_details.order_date_date]
     filters:
-      order_details.order_date: 2017
+      order_details.order_date_year: "2017"
     sorts: [order_details.order_date_date,
 order_details.category,
 order_details.segment]
-    table_theme: "white"
+    header_background_color: "#000000"
     header_font_color: "#f5f5f5"
     limit: 500
     column_limit: 50
@@ -162,15 +166,17 @@ order_details.segment]
 
   - title: "Yearly Sales"
     name: yearly_sales_2
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_152703
     explore: order_details
     type: looker_column
     fields: [order_details.total_sales,
-order_details.order_date_date]
-    pivots: [order_details.order_date_date]
+order_details.order_date_month,
+order_details.order_date_year]
+    pivots: [order_details.order_date_month]
     filters:
-      order_details.order_date: 2016,2017
-    sorts: [order_details.order_date_date]
+      order_details.order_date_year: "2016,2017"
+    sorts: [order_details.order_date_month,
+order_details.order_date_year]
     show_row_numbers: true
     table_theme: "white"
     limit: 500
