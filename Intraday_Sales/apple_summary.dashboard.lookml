@@ -5,7 +5,7 @@
   elements:
   - title: "By Hour"
     name: bytypes_apple
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_142455
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.total_sales,
@@ -28,7 +28,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
 
   - title: "By Sales Type"
     name: bytype_apple
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_142455
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type,
@@ -44,6 +44,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
     show_value_labels: true
     value_labels: "bold"
     show_legend: true
+    hide_legend: true
     legend_position: "right"
     limit: 500
     column_limit: 50
@@ -54,7 +55,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "By Equipment Type"
     name: byequiptype_apple
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_142455
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_type,
@@ -76,6 +77,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
     show_value_labels: true
     value_labels: "bold"
     show_legend: true
+    hide_legend: true
     legend_position: "right"
     limit: 500
     column_limit: 50
@@ -86,7 +88,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Top 5 Phone Models"
     name: bymodel_apple
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_142455
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.model_name_copy,
@@ -99,6 +101,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
     show_value_labels: true
     value_labels: "bold"
     show_legend: true
+    hide_legend: true
     legend_position: "right"
     limit: 500
     column_limit: 50
@@ -109,7 +112,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "By Preorder/Backorder"
     name: bypreorder_apple
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_142455
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder,
@@ -127,6 +130,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
     show_value_labels: true
     value_labels: "bold"
     show_legend: true
+    hide_legend: true
     legend_position: "right"
     limit: 500
     column_limit: 50
@@ -137,7 +141,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "By VCG Channel"
     name: bychannel_apple
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_142455
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_bar
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.channel,
@@ -196,7 +200,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "By VCG Market"
     name: bymarket_apple
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_142455
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_bar
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
@@ -236,7 +240,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Apple Phone Models"
     name: apple_heat
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_142455
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_grid
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.model_nm,
@@ -253,7 +257,6 @@ intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
     sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
 intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted,
 intradaysales_results_hqa_pd_qmtbls_mock.model_nm]
-    table_theme: "white"
     header_background_color: "#000000"
     header_font_color: "#ffffff"
     limit: 500
