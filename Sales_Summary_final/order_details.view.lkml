@@ -10,7 +10,7 @@ view: order_details {
   dimension_group: order_date {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
-    sql: ${TABLE}.Order_Date ;;
+    sql: TIMESTAMP(${TABLE}.Order_Date) ;;
     description: "Order Date"
     label: "Order Date"
   }
@@ -28,7 +28,7 @@ view: order_details {
   dimension_group: ship_date {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
-    sql: ${TABLE}.Ship_Date ;;
+    sql: TIMESTAMP(${TABLE}.Ship_Date) ;;
     description: "Ship Date"
     label: "Ship Date"
   }
