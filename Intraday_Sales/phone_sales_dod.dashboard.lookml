@@ -8,12 +8,8 @@
     model: bigquery_super_store_sales_model
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
-    fields: [intradaysales_results_hqa_pd_qmtbls_mock.total_orders,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.sale_type: New
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
     show_row_numbers: true
     table_theme: "white"
     limit: 500
@@ -44,12 +40,8 @@ intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
     model: bigquery_super_store_sales_model
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
-    fields: [intradaysales_results_hqa_pd_qmtbls_mock.total_orders,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.sale_type: New
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
     show_row_numbers: true
     table_theme: "white"
     limit: 500
