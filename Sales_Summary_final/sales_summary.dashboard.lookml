@@ -8,10 +8,9 @@
     model: bigquery_super_store_sales_model
     explore: order_details
     type: looker_donut_multiples
-    fields: [order_details.category,
-order_details.total_sales]
-    pivots: [order_details.category]
-    sorts: [order_details.category]
+    fields: [order_details.None]
+    pivots: [order_details.None]
+    sorts: [order_details.None]
     show_value_labels: true
     value_labels: "bold"
     show_legend: true
@@ -29,7 +28,7 @@ order_details.total_sales]
     explore: order_details
     type: looker_donut_multiples
     fields: [order_details.sub_category,
-order_details.total_sales]
+order_details.None]
     pivots: [order_details.sub_category]
     sorts: [order_details.sub_category]
     show_value_labels: true
@@ -47,22 +46,11 @@ order_details.total_sales]
     name: sales_by_region
     model: bigquery_super_store_sales_model
     explore: order_details
-    type: looker_bar
-    fields: [order_details.region,
-order_details.total_sales]
-    pivots: [order_details.region]
-    stacking: normal
+    type: looker_column
     filters:
       order_details.region: Central,East,South,West
-    sorts: [order_details.region]
-    series_colors:
-      "East": "#000000"
-      "West": "#6f7171"
-      "South": "#b6a7a9"
-      "Central": "#ef9e93"
-    show_legend: true
-    x_axis_label: true
-    y_axis_label: true
+    show_row_numbers: true
+    table_theme: "white"
     limit: 500
     column_limit: 50
     row: 14
@@ -74,21 +62,11 @@ order_details.total_sales]
     name: sales_by_segment
     model: bigquery_super_store_sales_model
     explore: order_details
-    type: looker_bar
-    fields: [order_details.segment,
-order_details.total_sales]
-    pivots: [order_details.segment]
-    stacking: normal
+    type: looker_column
     filters:
       order_details.region: East,West
-    sorts: [order_details.segment]
-    series_colors:
-      "Consumer": "#00aa00"
-      "Home Office": "#ffaaff"
-      "Corporate": "#ffff7f"
-    show_legend: true
-    x_axis_label: true
-    y_axis_label: true
+    show_row_numbers: true
+    table_theme: "white"
     limit: 500
     column_limit: 50
     row: 21
@@ -101,10 +79,9 @@ order_details.total_sales]
     model: bigquery_super_store_sales_model
     explore: order_details
     type: looker_donut_multiples
-    fields: [order_details.category,
-order_details.total_profit]
-    pivots: [order_details.category]
-    sorts: [order_details.category]
+    fields: [order_details.None]
+    pivots: [order_details.None]
+    sorts: [order_details.None]
     show_value_labels: true
     value_labels: "bold"
     show_legend: true
@@ -122,7 +99,7 @@ order_details.total_profit]
     explore: order_details
     type: looker_donut_multiples
     fields: [order_details.sub_category,
-order_details.total_profit]
+order_details.None]
     pivots: [order_details.sub_category]
     sorts: [order_details.sub_category]
     show_value_labels: true
@@ -140,19 +117,11 @@ order_details.total_profit]
     name: subcategory_sales_by_day
     model: bigquery_super_store_sales_model
     explore: order_details
-    type: looker_grid
-    fields: [order_details.category,
-order_details.segment,
-order_details.order_date_date,
-order_details.total_sales]
-    pivots: [order_details.order_date_date]
+    type: looker_column
     filters:
       order_details.order_date: 2017
-    sorts: [order_details.order_date_date,
-order_details.category,
-order_details.segment]
+    show_row_numbers: true
     table_theme: "white"
-    header_font_color: "#f5f5f5"
     limit: 500
     column_limit: 50
     row: 28
@@ -165,8 +134,7 @@ order_details.segment]
     model: bigquery_super_store_sales_model
     explore: order_details
     type: looker_column
-    fields: [order_details.total_sales,
-order_details.order_date_date]
+    fields: [order_details.order_date_date]
     pivots: [order_details.order_date_date]
     filters:
       order_details.order_date: 2016,2017
