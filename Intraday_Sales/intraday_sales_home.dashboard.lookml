@@ -5,11 +5,11 @@
   elements:
   - title: "Aarawdata"
     name: aarawdata
-    model: bigquery_super_store_sales_model_generated_20250905_152712
+    model: bigquery_super_store_sales_model_generated_20250905_160753
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: "true"
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
     show_row_numbers: true
     table_theme: "white"
     limit: 500
@@ -21,7 +21,7 @@
 
   - title: "Iconic Launch: Atlantic South"
     name: iconic_launch_atlantic_south
-    model: bigquery_super_store_sales_model_generated_20250905_152712
+    model: bigquery_super_store_sales_model_generated_20250905_160753
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     show_row_numbers: true
@@ -35,7 +35,7 @@
 
   - title: "Iconic Launch: Coastal Plains"
     name: iconic_launch_coastal_plains
-    model: bigquery_super_store_sales_model_generated_20250905_152712
+    model: bigquery_super_store_sales_model_generated_20250905_160753
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     show_row_numbers: true
@@ -49,7 +49,7 @@
 
   - title: "Iconic Launch: Great Lakes"
     name: iconic_launch_great_lakes
-    model: bigquery_super_store_sales_model_generated_20250905_152712
+    model: bigquery_super_store_sales_model_generated_20250905_160753
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     show_row_numbers: true
@@ -63,7 +63,7 @@
 
   - title: "Iconic Launch: Mountain"
     name: iconic_launch_mountain
-    model: bigquery_super_store_sales_model_generated_20250905_152712
+    model: bigquery_super_store_sales_model_generated_20250905_160753
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     show_row_numbers: true
@@ -77,7 +77,7 @@
 
   - title: "Iconic Launch: Pacific"
     name: iconic_launch_pacific
-    model: bigquery_super_store_sales_model_generated_20250905_152712
+    model: bigquery_super_store_sales_model_generated_20250905_160753
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     show_row_numbers: true
