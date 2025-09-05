@@ -10,7 +10,7 @@ view: intradaysales_results_day_7_mock {
   dimension_group: rpt_dt {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
-    sql: ${TABLE}.RPT_DT ;;
+    sql: TIMESTAMP(${TABLE}.RPT_DT) ;;
     description: "Rpt Dt"
     label: "Rpt Dt"
   }
