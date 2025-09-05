@@ -291,3 +291,19 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
     width: 6
     height: 5
 
+  - title: Phone Sales vs All Other Wireless Devices
+    name: phn_wd
+    model: bigquery_super_store_sales_model
+    explore: intradaysales_results_hqa_pd_qmtbls_mock
+    type: looker_column
+    filters:
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+    show_row_numbers: true
+    table_theme: "white"
+    limit: 500
+    column_limit: 50
+    row: 14
+    col: 0
+    width: 24
+    height: 5
+
