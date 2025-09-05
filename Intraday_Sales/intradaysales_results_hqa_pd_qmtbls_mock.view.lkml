@@ -6,6 +6,8 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
   }
 
 
+  # Parameters (from Tableau parameters)
+
   # Date dimension groups
 
   dimension_group: rpt_dt {
