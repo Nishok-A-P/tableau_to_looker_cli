@@ -5,14 +5,14 @@
   elements:
   - title: "Day1 Mkt Graph"
     name: day1_mkt_graph
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_152712
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.total_orders,
 intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.sale_type: New
+      intradaysales_results_hqa_pd_qmtbls_mock.sale_type: "New"
     sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
     show_row_numbers: true
     table_theme: "white"
@@ -25,11 +25,11 @@ intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
 
   - title: "By VCG Market"
     name: day1_mkt_chart
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_152712
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.sale_type: New
+      intradaysales_results_hqa_pd_qmtbls_mock.sale_type: "New"
     show_row_numbers: true
     table_theme: "white"
     limit: 500
@@ -41,14 +41,14 @@ intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
 
   - title: "Day1 Chnl Graph"
     name: day1_chnl_graph
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_152712
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.total_orders,
 intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.sale_type: New
+      intradaysales_results_hqa_pd_qmtbls_mock.sale_type: "New"
     sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
     show_row_numbers: true
     table_theme: "white"
@@ -61,11 +61,11 @@ intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
 
   - title: "By VCG Channel"
     name: day1_chn_chart
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_152712
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.sale_type: New
+      intradaysales_results_hqa_pd_qmtbls_mock.sale_type: "New"
     show_row_numbers: true
     table_theme: "white"
     limit: 500
