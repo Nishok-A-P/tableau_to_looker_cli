@@ -53,7 +53,7 @@ order_details.total_sales]
     pivots: [order_details.region]
     stacking: normal
     filters:
-      order_details.region: "Central,East,South,West"
+      order_details.region: Central,East,South,West
     sorts: [order_details.region]
     series_colors:
       "East": "#000000"
@@ -80,7 +80,7 @@ order_details.total_sales]
     pivots: [order_details.segment]
     stacking: normal
     filters:
-      order_details.region: "East,West"
+      order_details.region: East,West
     sorts: [order_details.segment]
     series_colors:
       "Consumer": "#00aa00"
@@ -147,7 +147,7 @@ order_details.order_date_date,
 order_details.total_sales]
     pivots: [order_details.order_date_date]
     filters:
-      order_details.order_date_year: "2017"
+      order_details.order_date: 2017
     sorts: [order_details.order_date_date,
 order_details.category,
 order_details.segment]
@@ -166,13 +166,11 @@ order_details.segment]
     explore: order_details
     type: looker_column
     fields: [order_details.total_sales,
-order_details.order_date_month,
-order_details.order_date_year]
-    pivots: [order_details.order_date_month]
+order_details.order_date_date]
+    pivots: [order_details.order_date_date]
     filters:
-      order_details.order_date_year: "2016,2017"
-    sorts: [order_details.order_date_month,
-order_details.order_date_year]
+      order_details.order_date: 2016,2017
+    sorts: [order_details.order_date_date]
     show_row_numbers: true
     table_theme: "white"
     limit: 500
