@@ -3,8 +3,6 @@ view: order_details {
   sql_table_name: `elastic-pocs.Super_Store_Sales.Order_Details` ;;
 
 
-  # Parameters (from Tableau parameters)
-
   # Date dimension groups
 
   dimension_group: order_date {
@@ -212,28 +210,28 @@ view: order_details {
   measure: total_sales {
     description: "Original name: [Sales]"
     type: sum
-    sql: ${sales_raw} ;;
+    sql: ${Sales_raw} ;;
     label: "Sales"
   }
 
   measure: total_quantity {
     description: "Original name: [Quantity]"
     type: sum
-    sql: ${quantity_raw} ;;
+    sql: ${Quantity_raw} ;;
     label: "Quantity"
   }
 
   measure: total_discount {
     description: "Original name: [Discount]"
     type: sum
-    sql: ${discount_raw} ;;
+    sql: ${Discount_raw} ;;
     label: "Discount"
   }
 
   measure: total_profit {
     description: "Original name: [Profit]"
     type: sum
-    sql: ${profit_raw} ;;
+    sql: ${Profit_raw} ;;
     label: "Profit"
   }
 
