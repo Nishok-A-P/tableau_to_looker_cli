@@ -5,7 +5,7 @@
   elements:
   - title: "Total Sales by Hour"
     name: mkt_detail_2
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_142455
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_grid
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
@@ -19,7 +19,6 @@ intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
     sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
 intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted,
 intradaysales_results_hqa_pd_qmtbls_mock.mkt]
-    table_theme: "white"
     header_background_color: "#000000"
     header_font_color: "#ffffff"
     limit: 500
@@ -31,7 +30,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.mkt]
 
   - title: "By Sales Type"
     name: mkt_nvu
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_142455
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type,
@@ -53,7 +52,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.mkt]
 
   - title: "By Equipment Type"
     name: mkt_eqp_type
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_142455
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_type,
@@ -75,7 +74,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.mkt]
 
   - title: "By Phone Manufacturer"
     name: mkt_phone_man
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_142455
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.manf,
@@ -97,7 +96,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.mkt]
 
   - title: "By Preorder/Backorder"
     name: mkt_preorder
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_142455
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder,
@@ -119,7 +118,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.mkt]
 
   - title: "By Interval"
     name: mkt_interval
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_142455
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.total_sales,
@@ -141,7 +140,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
 
   - title: "By VCG Market"
     name: bymarket_mark
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20250905_142455
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_bar
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
