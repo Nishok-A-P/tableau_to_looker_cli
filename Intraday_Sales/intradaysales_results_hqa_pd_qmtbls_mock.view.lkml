@@ -13,7 +13,7 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
   dimension_group: rpt_dt {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
-    sql: TIMESTAMP(${TABLE}.RPT_DT) ;;
+    sql: ${TABLE}.RPT_DT ;;
     description: "Rpt Dt"
     label: "Rpt Dt"
   }
@@ -31,7 +31,7 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
   dimension_group: rpt_time {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
-    sql: TIMESTAMP(${TABLE}.RPT_TIME) ;;
+    sql: ${TABLE}.RPT_TIME ;;
     description: "Rpt Time"
     label: "Rpt Time"
   }
@@ -49,7 +49,7 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
   dimension_group: dttm {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
-    sql: TIMESTAMP(${TABLE}.DTTM) ;;
+    sql: ${TABLE}.DTTM ;;
     description: "Dttm"
     label: "Dttm"
   }
