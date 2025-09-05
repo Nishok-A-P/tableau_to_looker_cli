@@ -6,8 +6,6 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
   }
 
 
-  # Parameters (from Tableau parameters)
-
   # Date dimension groups
 
   dimension_group: rpt_dt {
@@ -334,7 +332,7 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
   dimension: rolling_24 {
     description: "Calculated field: (DATEDIFF('hour',[Rolling 36 (copy)_777433916922368001],(DATEADD('hour',0,[DTTM])))) > -24 and (DATEDIFF('hour',[Rolling 36 (copy)_777433916922368001],(DATEADD('hour',0,[DTTM])))) < 1"
     type: yesno
-    sql: ((DATETIME_DIFF(DATETIME_ADD(${TABLE}.dttm, INTERVAL 0 HOUR), ${TABLE}.max_dttm, HOUR) > -24) AND (DATETIME_DIFF(DATETIME_ADD(${TABLE}.dttm, INTERVAL 0 HOUR), ${TABLE}.max_dttm, HOUR) < 1)) ;;
+    sql: ((DATETIME_DIFF(DATETIME_ADD(${TABLE}.dttm, INTERVAL 0 HOUR), ${max_dttm}, HOUR) > -24) AND (DATETIME_DIFF(DATETIME_ADD(${TABLE}.dttm, INTERVAL 0 HOUR), ${max_dttm}, HOUR) < 1)) ;;
     # Original Tableau formula: (DATEDIFF('hour',[Rolling 36 (copy)_777433916922368001],(DATEADD('hour',0,[DTTM])))) > -24 and (DATEDIFF('hour',[Rolling 36 (copy)_777433916922368001],(DATEADD('hour',0,[DTTM])))) < 1
   }
 
