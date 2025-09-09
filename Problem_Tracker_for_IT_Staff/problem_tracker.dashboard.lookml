@@ -5,7 +5,7 @@
   elements:
   - title: "Group Name"
     name: group_name
-    model: tableau_looker_poc_model_generated_20250909_060249
+    model: tableau_looker_poc_model_generated_20250909_061435
     explore: problem
     type: looker_column
     filters:
@@ -21,7 +21,7 @@
 
   - title: "Active Problems:"
     name: summary
-    model: tableau_looker_poc_model_generated_20250909_060249
+    model: tableau_looker_poc_model_generated_20250909_061435
     explore: problem
     type: looker_grid
     fields: [problem.average_age_dd_hh_mm_ss]
@@ -38,7 +38,7 @@
 
   - title: "Æ"
     name: opened_day_of_active_problems
-    model: tableau_looker_poc_model_generated_20250909_060249
+    model: tableau_looker_poc_model_generated_20250909_061435
     explore: problem
     type: looker_column
     fields: [problem.count_distinct_number,
@@ -59,7 +59,7 @@ problem.count_distinct_number]
 
   - title: "Last Update"
     name: last_update
-    model: tableau_looker_poc_model_generated_20250909_060249
+    model: tableau_looker_poc_model_generated_20250909_061435
     explore: problem
     type: looker_bar
     fields: [problem.time_span_breakdown,
@@ -80,7 +80,7 @@ problem.count_distinct_number]
 
   - title: "<Sheet Name>|"
     name: breakdown_by_priority
-    model: tableau_looker_poc_model_generated_20250909_060249
+    model: tableau_looker_poc_model_generated_20250909_061435
     explore: problem
     type: looker_column
     fields: [problem.average_calculation_1103944901411389444,
@@ -103,7 +103,7 @@ problem.count_distinct_number]
 
   - title: "Æ"
     name: list_of_problems
-    model: tableau_looker_poc_model_generated_20250909_060249
+    model: tableau_looker_poc_model_generated_20250909_061435
     explore: problem
     type: looker_grid
     fields: [problem.related_incident,
@@ -126,7 +126,7 @@ problem.short_description]
 
   - title: "Æ"
     name: related_incidents
-    model: tableau_looker_poc_model_generated_20250909_060249
+    model: tableau_looker_poc_model_generated_20250909_061435
     explore: problem
     type: looker_column
     filters:
