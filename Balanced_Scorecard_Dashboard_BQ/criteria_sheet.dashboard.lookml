@@ -5,7 +5,7 @@
   elements:
   - title: "Criteria Table - Sat"
     name: criteria_table_sat
-    model: bigquery_super_store_sales_model_generated_20250912_055659
+    model: bigquery_super_store_sales_model_generated_20250913_113147
     explore: balance_scorecard_ot_bsc
     type: looker_column
     filters:
@@ -16,12 +16,12 @@
     column_limit: 50
     row: 0
     col: 0
-    width: 17
+    width: 24
     height: 5
 
   - title: "Criteria Table - At"
     name: criteria_table_at
-    model: bigquery_super_store_sales_model_generated_20250912_055659
+    model: bigquery_super_store_sales_model_generated_20250913_113147
     explore: balance_scorecard_ot_bsc
     type: looker_column
     filters:
@@ -32,12 +32,12 @@
     column_limit: 50
     row: 7
     col: 0
-    width: 17
+    width: 24
     height: 5
 
   - title: "Criteria Table - Ot"
     name: criteria_table_ot
-    model: bigquery_super_store_sales_model_generated_20250912_055659
+    model: bigquery_super_store_sales_model_generated_20250913_113147
     explore: balance_scorecard_ot_bsc
     type: looker_column
     filters:
@@ -48,12 +48,12 @@
     column_limit: 50
     row: 14
     col: 0
-    width: 17
+    width: 24
     height: 5
 
   - title: "Criteria Table - Bt"
     name: criteria_table_bt
-    model: bigquery_super_store_sales_model_generated_20250912_055659
+    model: bigquery_super_store_sales_model_generated_20250913_113147
     explore: balance_scorecard_ot_bsc
     type: looker_column
     filters:
@@ -64,12 +64,12 @@
     column_limit: 50
     row: 21
     col: 0
-    width: 17
+    width: 24
     height: 5
 
   - title: "Dir Sat"
     name: dir_sat
-    model: bigquery_super_store_sales_model_generated_20250912_055659
+    model: bigquery_super_store_sales_model_generated_20250913_113147
     explore: balance_scorecard_ot_bsc
     type: looker_column
     filters:
@@ -80,12 +80,12 @@
     column_limit: 50
     row: 28
     col: 0
-    width: 17
+    width: 24
     height: 5
 
   - title: "Dir At"
     name: dir_at
-    model: bigquery_super_store_sales_model_generated_20250912_055659
+    model: bigquery_super_store_sales_model_generated_20250913_113147
     explore: balance_scorecard_ot_bsc
     type: looker_column
     filters:
@@ -96,12 +96,12 @@
     column_limit: 50
     row: 35
     col: 0
-    width: 17
+    width: 24
     height: 5
 
   - title: "Dir Ot"
     name: dir_ot
-    model: bigquery_super_store_sales_model_generated_20250912_055659
+    model: bigquery_super_store_sales_model_generated_20250913_113147
     explore: balance_scorecard_ot_bsc
     type: looker_column
     filters:
@@ -112,12 +112,12 @@
     column_limit: 50
     row: 42
     col: 0
-    width: 17
+    width: 24
     height: 5
 
   - title: "Dir Bt"
     name: dir_bt
-    model: bigquery_super_store_sales_model_generated_20250912_055659
+    model: bigquery_super_store_sales_model_generated_20250913_113147
     explore: balance_scorecard_ot_bsc
     type: looker_column
     filters:
@@ -128,6 +128,6 @@
     column_limit: 50
     row: 49
     col: 0
-    width: 17
+    width: 24
     height: 5
 
