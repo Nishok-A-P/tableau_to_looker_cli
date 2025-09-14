@@ -70,7 +70,7 @@ view: intradaysales_results_day_7_mock {
   dimension: sale_type {
     description: "Calculated field: IF [trans_type] = 'EUP' then \"Upgrade\" ELSE \"New\" END"
     type: string
-    sql: CASE WHEN (${TABLE}.trans_type = 'EUP') THEN 'Upgrade' ELSE 'New' END ;;
+    sql: CASE WHEN (${TABLE}.`trans_type` = 'EUP') THEN 'Upgrade' ELSE 'New' END ;;
     # Original Tableau formula: IF [trans_type] = 'EUP' then "Upgrade" ELSE "New" END
   }
 
