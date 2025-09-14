@@ -184,6 +184,14 @@ view: order_details {
 
   # Two-step Pattern Dimensions (hidden calculation dimensions)
 
+  dimension: max_order_date_calc {
+    description: "Row-level calculation for max_order_date: MAX([Order_Date])"
+    type: number
+    sql: MAX(${TABLE}.`Order_Date`) ;;
+    hidden: yes
+    # Original Tableau formula: MAX([Order_Date])
+  }
+
   # Calculated Fields (from Tableau formulas)
 
   measure: 0 {
@@ -196,14 +204,14 @@ view: order_details {
   measure: max_order_date {
     description: "Calculated field: MAX([Order_Date])"
     type: number
-    sql: MAX(${TABLE}.order_date) ;;
+    sql: ${max_order_date_calc} ;;
     # Original Tableau formula: MAX([Order_Date])
   }
 
   dimension: order_date_timestamp {
     description: "Calculated field: DATETIME([Order_Date])"
     type: date_raw
-    sql: DATETIME(${TABLE}.order_date) ;;
+    sql: DATETIME(${TABLE}.`Order_Date`) ;;
     # Original Tableau formula: DATETIME([Order_Date])
   }
 
