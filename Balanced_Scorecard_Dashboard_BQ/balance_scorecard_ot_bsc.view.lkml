@@ -617,7 +617,7 @@ view: balance_scorecard_ot_bsc {
   dimension: month_parameter {
     description: "Calculated field: MONTH([Parameters].[MyDate Month Parameter]) = [Month 1]"
     type: yesno
-    sql: (EXTRACT(MONTH FROM {% parameter mydate_month_parameter %}) = ${TABLE}.month_1) ;;
+    sql: (EXTRACT(MONTH FROM {% parameter mydate_month_parameter %}) = ${TABLE}.`Month 1`) ;;
     # Original Tableau formula: MONTH([Parameters].[MyDate Month Parameter]) = [Month 1]
   }
 
@@ -631,7 +631,7 @@ view: balance_scorecard_ot_bsc {
   dimension: year_parameter {
     description: "Calculated field: YEAR([Parameters].[MyDate Month Parameter]) = [Year 1]"
     type: yesno
-    sql: (EXTRACT(YEAR FROM {% parameter mydate_month_parameter %}) = ${TABLE}.year_1) ;;
+    sql: (EXTRACT(YEAR FROM {% parameter mydate_month_parameter %}) = ${TABLE}.`Year 1`) ;;
     # Original Tableau formula: YEAR([Parameters].[MyDate Month Parameter]) = [Year 1]
   }
 
