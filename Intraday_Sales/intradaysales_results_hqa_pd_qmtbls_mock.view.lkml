@@ -229,7 +229,7 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
   dimension: model_name {
     description: "Calculated field: IF [eqp_class_desc] = 'C1333' THEN \"C1333\" ELSE [model_nm] END"
     type: string
-    sql: CASE WHEN (${TABLE}.eqp_class_desc = 'C1333') THEN 'C1333' ELSE ${TABLE}.model_nm END ;;
+    sql: CASE WHEN (${TABLE}.`eqp_class_desc` = 'C1333') THEN 'C1333' ELSE ${TABLE}.`model_nm` END ;;
     # Original Tableau formula: IF [eqp_class_desc] = 'C1333' THEN "C1333" ELSE [model_nm] END
   }
 
@@ -243,7 +243,7 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
   dimension: phone_only_sales {
     description: "Calculated field: CASE [eqp_type] WHEN \"C6115\" THEN \"C6115\" ELSE \"C7289\" END"
     type: string
-    sql: CASE WHEN (${TABLE}.eqp_type = 'C6115') THEN 'C6115' ELSE 'C7289' END ;;
+    sql: CASE WHEN (${TABLE}.`eqp_type` = 'C6115') THEN 'C6115' ELSE 'C7289' END ;;
     # Original Tableau formula: CASE [eqp_type] WHEN "C6115" THEN "C6115" ELSE "C7289" END
   }
 
@@ -257,14 +257,14 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
   dimension: txt_data_refresh {
     description: "Calculated field: IF [Record_Type] = 'BTEQ_LOAD' THEN [Reference] ELSE '' END"
     type: string
-    sql: CASE WHEN (${TABLE}.record_type = 'BTEQ_LOAD') THEN ${TABLE}.reference ELSE '' END ;;
+    sql: CASE WHEN (${TABLE}.`Record_Type` = 'BTEQ_LOAD') THEN ${TABLE}.`Reference` ELSE '' END ;;
     # Original Tableau formula: IF [Record_Type] = 'BTEQ_LOAD' THEN [Reference] ELSE '' END
   }
 
   dimension: sale_type {
     description: "Calculated field: IF [trans_type] = 'C7484' then \"Upgrade\" ELSE \"New\" END"
     type: string
-    sql: CASE WHEN (${TABLE}.trans_type = 'C7484') THEN 'Upgrade' ELSE 'New' END ;;
+    sql: CASE WHEN (${TABLE}.`trans_type` = 'C7484') THEN 'Upgrade' ELSE 'New' END ;;
     # Original Tableau formula: IF [trans_type] = 'C7484' then "Upgrade" ELSE "New" END
   }
 
@@ -313,14 +313,14 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
   dimension: model_name_copy {
     description: "Calculated field: IF [eqp_class_desc] = 'C1333' THEN \"C1333\" ELSE [model_nm] END"
     type: string
-    sql: CASE WHEN (${TABLE}.eqp_class_desc = 'C1333') THEN 'C1333' ELSE ${TABLE}.model_nm END ;;
+    sql: CASE WHEN (${TABLE}.`eqp_class_desc` = 'C1333') THEN 'C1333' ELSE ${TABLE}.`model_nm` END ;;
     # Original Tableau formula: IF [eqp_class_desc] = 'C1333' THEN "C1333" ELSE [model_nm] END
   }
 
   dimension: iphone_16 {
     description: "Calculated field: CONTAINS([model_nm],\"C5591\")"
     type: yesno
-    sql: STRPOS(${TABLE}.model_nm, 'C5591') > 0 ;;
+    sql: STRPOS(${TABLE}.`model_nm`, 'C5591') > 0 ;;
     # Original Tableau formula: CONTAINS([model_nm],"C5591")
   }
 
@@ -334,14 +334,14 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
   dimension: rolling_24 {
     description: "Calculated field: (DATEDIFF('hour',[Rolling 36 (copy)_777433916922368001],(DATEADD('hour',0,[DTTM])))) > -24 and (DATEDIFF('hour',[Rolling 36 (copy)_777433916922368001],(DATEADD('hour',0,[DTTM])))) < 1"
     type: yesno
-    sql: ((DATETIME_DIFF(DATETIME_ADD(${TABLE}.dttm, INTERVAL 0 HOUR), ${max_dttm}, HOUR) > -24) AND (DATETIME_DIFF(DATETIME_ADD(${TABLE}.dttm, INTERVAL 0 HOUR), ${max_dttm}, HOUR) < 1)) ;;
+    sql: ((DATETIME_DIFF(DATETIME_ADD(${TABLE}.`DTTM`, INTERVAL 0 HOUR), ${max_dttm}, HOUR) > -24) AND (DATETIME_DIFF(DATETIME_ADD(${TABLE}.`DTTM`, INTERVAL 0 HOUR), ${max_dttm}, HOUR) < 1)) ;;
     # Original Tableau formula: (DATEDIFF('hour',[Rolling 36 (copy)_777433916922368001],(DATEADD('hour',0,[DTTM])))) > -24 and (DATEDIFF('hour',[Rolling 36 (copy)_777433916922368001],(DATEADD('hour',0,[DTTM])))) < 1
   }
 
   dimension: txt_report_refresh {
     description: "Calculated field: IF [Record_Type] = 'Report_LOAD' THEN [Reference] ELSE '' END"
     type: string
-    sql: CASE WHEN (${TABLE}.record_type = 'Report_LOAD') THEN ${TABLE}.reference ELSE '' END ;;
+    sql: CASE WHEN (${TABLE}.`Record_Type` = 'Report_LOAD') THEN ${TABLE}.`Reference` ELSE '' END ;;
     # Original Tableau formula: IF [Record_Type] = 'Report_LOAD' THEN [Reference] ELSE '' END
   }
 
