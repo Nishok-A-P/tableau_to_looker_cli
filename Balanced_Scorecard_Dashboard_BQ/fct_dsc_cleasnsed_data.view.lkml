@@ -1365,42 +1365,362 @@ view: fct_dsc_cleasnsed_data {
 
   # Two-step Pattern Dimensions (hidden calculation dimensions)
 
+  dimension: om_completion_numeric_calc {
+    description: "Row-level calculation for om_completion_numeric: Case [Completion Percent Score] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${TABLE}.`Completion Percent Score` = 'SAT') THEN 5 WHEN (${TABLE}.`Completion Percent Score` = 'AT') THEN 4 WHEN (${TABLE}.`Completion Percent Score` = 'OT') THEN 3 WHEN (${TABLE}.`Completion Percent Score` = 'BT') THEN 2 WHEN (${TABLE}.`Completion Percent Score` = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [Completion Percent Score] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
+  }
+
+  dimension: om_np_tx_accepted_per_np_num_calc {
+    description: "Row-level calculation for om_np_tx_accepted_per_np_num: Case [NP Tx Accepted Per NP Score] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${TABLE}.`NP Tx Accepted Per NP Score` = 'SAT') THEN 5 WHEN (${TABLE}.`NP Tx Accepted Per NP Score` = 'AT') THEN 4 WHEN (${TABLE}.`NP Tx Accepted Per NP Score` = 'OT') THEN 3 WHEN (${TABLE}.`NP Tx Accepted Per NP Score` = 'BT') THEN 2 WHEN (${TABLE}.`NP Tx Accepted Per NP Score` = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [NP Tx Accepted Per NP Score] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
+  }
+
+  dimension: om_gross_profit_variance_to_budget_num_calc {
+    description: "Row-level calculation for om_gross_profit_variance_to_budget_num: Case [Gross Profit Varianceto Budget Score] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${TABLE}.`Gross Profit Varianceto Budget Score` = 'SAT') THEN 5 WHEN (${TABLE}.`Gross Profit Varianceto Budget Score` = 'AT') THEN 4 WHEN (${TABLE}.`Gross Profit Varianceto Budget Score` = 'OT') THEN 3 WHEN (${TABLE}.`Gross Profit Varianceto Budget Score` = 'BT') THEN 2 WHEN (${TABLE}.`Gross Profit Varianceto Budget Score` = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [Gross Profit Varianceto Budget Score] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
+  }
+
+  dimension: ebitda_margin_calc {
+    description: "Row-level calculation for ebitda_margin: Sum([EBITDA Bal])/Sum([Net Patient Revenue])"
+    type: number
+    sql: (SUM(${TABLE}.`EBITDA Bal`) / NULLIF(SUM(${TABLE}.`Net Patient Revenue`), 0)) ;;
+    hidden: yes
+    # Original Tableau formula: Sum([EBITDA Bal])/Sum([Net Patient Revenue])
+  }
+
+  dimension: sortfield_om_calc {
+    description: "Row-level calculation for sortfield_om: Case [Parameters].[Parameter 2 1] When 'Alphabetical' Then FLOAT(STR(MIN(UPPER([Facility Code])))+STR(MIN(UPPER(MID([Facility Code],2,1))))) When 'Overall' Then Sum([Calculation_2087136979572551699]) * INT([Parameters].[Parameter 3 1]) When 'Net Promoter Score' Then Sum([NetPromoterScore]) * INT([Parameters].[Parameter 3 1]) When 'Rolling 12-month TO %' Then Sum([Office TO]) * INT([Parameters].[Parameter 3 1]) When 'Credit App %' Then Sum([Credit App]) * INT([Parameters].[Parameter 3 1]) When 'NP Completion %' Then Sum([Completion Percent]) * INT([Parameters].[Parameter 3 1]) When 'Gross Profit vs Budget' Then [Calculation_555068665991815169] * INT([Parameters].[Parameter 3 1]) When 'EBITDA vs Budget' Then Sum([EBITD Avs Bud]) * INT([Parameters].[Parameter 3 1]) END"
+    type: number
+    sql: CASE WHEN ({% parameter parameter_2_1 %} = 'Alphabetical') THEN CAST((CAST(MIN(UPPER(${TABLE}.`Facility Code`)) AS STRING) || CAST(MIN(UPPER(SUBSTR(${TABLE}.`Facility Code`, 2, 1))) AS STRING)) AS FLOAT64) WHEN ({% parameter parameter_2_1 %} = 'Overall') THEN (SUM(${om_overall_score_num_calc}) * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Net Promoter Score') THEN (SUM(${TABLE}.`NetPromoterScore`) * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Rolling 12-month TO %') THEN (SUM(${TABLE}.`Office TO`) * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Credit App %') THEN (SUM(${TABLE}.`Credit App`) * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'NP Completion %') THEN (SUM(${TABLE}.`Completion Percent`) * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Gross Profit vs Budget') THEN (${gross_profit_rollup_om_calc} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'EBITDA vs Budget') THEN (SUM(${TABLE}.`EBITD Avs Bud`) * CAST({% parameter parameter_3_1 %} AS INT64)) END ;;
+    hidden: yes
+    # Original Tableau formula: Case [Parameters].[Parameter 2 1] When 'Alphabetical' Then FLOAT(STR(MIN(UPPER([Facility Code])))+STR(MIN(UPPER(MID([Facility Code],2,1))))) When 'Overall' Then Sum([Calculation_2087136979572551699]) * INT([Parameters].[Parameter 3 1]) When 'Net Promoter Score' Then Sum([NetPromoterScore]) * INT([Parameters].[Parameter 3 1]) When 'Rolling 12-month TO %' Then Sum([Office TO]) * INT([Parameters].[Parameter 3 1]) When 'Credit App %' Then Sum([Credit App]) * INT([Parameters].[Parameter 3 1]) When 'NP Completion %' Then Sum([Completion Percent]) * INT([Parameters].[Parameter 3 1]) When 'Gross Profit vs Budget' Then [Calculation_555068665991815169] * INT([Parameters].[Parameter 3 1]) When 'EBITDA vs Budget' Then Sum([EBITD Avs Bud]) * INT([Parameters].[Parameter 3 1]) END
+  }
+
   dimension: om_overall_score_num_calc {
     description: "Row-level calculation for om_overall_score_num: IF [Year] = 2024 THEN (Round(((IFNull([OM - Oral Health Numeric (copy)_2087136979572797460], 3)*0.10)+(IFNull([OM - Showrate Numeric (copy)_2087136979571781647], 3)*0.20)+(IFNull([Completion Numeric (copy)_2087136979570245643], 3)*0.20) +(IFNull([Avg Rev and Dep Numeric (copy)_2087136979570114570], 3)*0.20)+(IFNull([Calculation_1472114181295722497], 3)*0.10)+(IFNull([Calculation_1472114181295464448], 3)*0.20)),2)) ELSEIF [Year] = 2025 THEN (Round(((IFNull([OM - Oral Health Numeric (copy)_2087136979572797460], 3)*0.167)+(IFNull([OM - Showrate Numeric (copy)_2087136979571781647], 3)*0.167)+(IFNull([Completion Numeric (copy)_2087136979570245643], 3)*0.167) +(IFNull([Avg Rev and Dep Numeric (copy)_2087136979570114570], 3)*0.167)+(IFNull([Calculation_1472114181295722497], 3)*0.167)+(IFNull([Calculation_1472114181295464448], 3)*0.167)),2)) END"
     type: number
-    sql: CASE WHEN (${TABLE}.year = 2024) THEN ROUND(((((((IFNULL(${om_nps_numeric}, 3) * 0.1) + (IFNULL(${om_officeto_numeric}, 3) * 0.2)) || (IFNULL(${om_credit_app_numeric}, 3) * 0.2)) || (IFNULL(${om_completion_numeric}, 3) * 0.2)) || (IFNULL(${om_gross_profit_variance_to_budget_num}, 3) * 0.1)) || (IFNULL(${om_np_tx_accepted_per_np_num}, 3) * 0.2)), 2) ELSE CASE WHEN (${TABLE}.year = 2025) THEN ROUND(((((((IFNULL(${om_nps_numeric}, 3) * 0.167) + (IFNULL(${om_officeto_numeric}, 3) * 0.167)) || (IFNULL(${om_credit_app_numeric}, 3) * 0.167)) || (IFNULL(${om_completion_numeric}, 3) * 0.167)) || (IFNULL(${om_gross_profit_variance_to_budget_num}, 3) * 0.167)) || (IFNULL(${om_np_tx_accepted_per_np_num}, 3) * 0.167)), 2) ELSE NULL END END ;;
+    sql: CASE WHEN (${TABLE}.`Year` = 2024) THEN ROUND(((((((IFNULL(${om_nps_numeric_calc}, 3) * 0.1) + (IFNULL(${om_officeto_numeric_calc}, 3) * 0.2)) + (IFNULL(${om_credit_app_numeric_calc}, 3) * 0.2)) + (IFNULL(${om_completion_numeric_calc}, 3) * 0.2)) + (IFNULL(${om_gross_profit_variance_to_budget_num_calc}, 3) * 0.1)) + (IFNULL(${om_np_tx_accepted_per_np_num_calc}, 3) * 0.2)), 2) ELSE CASE WHEN (${TABLE}.`Year` = 2025) THEN ROUND(((((((IFNULL(${om_nps_numeric_calc}, 3) * 0.167) + (IFNULL(${om_officeto_numeric_calc}, 3) * 0.167)) + (IFNULL(${om_credit_app_numeric_calc}, 3) * 0.167)) + (IFNULL(${om_completion_numeric_calc}, 3) * 0.167)) + (IFNULL(${om_gross_profit_variance_to_budget_num_calc}, 3) * 0.167)) + (IFNULL(${om_np_tx_accepted_per_np_num_calc}, 3) * 0.167)), 2) ELSE NULL END END ;;
     hidden: yes
     # Original Tableau formula: IF [Year] = 2024 THEN (Round(((IFNull([OM - Oral Health Numeric (copy)_2087136979572797460], 3)*0.10)+(IFNull([OM - Showrate Numeric (copy)_2087136979571781647], 3)*0.20)+(IFNull([Completion Numeric (copy)_2087136979570245643], 3)*0.20) +(IFNull([Avg Rev and Dep Numeric (copy)_2087136979570114570], 3)*0.20)+(IFNull([Calculation_1472114181295722497], 3)*0.10)+(IFNull([Calculation_1472114181295464448], 3)*0.20)),2)) ELSEIF [Year] = 2025 THEN (Round(((IFNull([OM - Oral Health Numeric (copy)_2087136979572797460], 3)*0.167)+(IFNull([OM - Showrate Numeric (copy)_2087136979571781647], 3)*0.167)+(IFNull([Completion Numeric (copy)_2087136979570245643], 3)*0.167) +(IFNull([Avg Rev and Dep Numeric (copy)_2087136979570114570], 3)*0.167)+(IFNull([Calculation_1472114181295722497], 3)*0.167)+(IFNull([Calculation_1472114181295464448], 3)*0.167)),2)) END
+  }
+
+  dimension: ebitda_rollup_calc {
+    description: "Row-level calculation for ebitda_rollup: Round(Sum([EBITDA Bal])/Sum([EBITDA Bud])-1, 4)"
+    type: number
+    sql: ROUND(((SUM(${TABLE}.`EBITDA Bal`) / NULLIF(SUM(${TABLE}.`EBITDA Bud`), 0)) - 1), 4) ;;
+    hidden: yes
+    # Original Tableau formula: Round(Sum([EBITDA Bal])/Sum([EBITDA Bud])-1, 4)
+  }
+
+  dimension: net_promoter_score_rollup_calc {
+    description: "Row-level calculation for net_promoter_score_rollup: Round(Sum([NetPromoterNum])/Sum([NetPromoterDen]), 3)"
+    type: number
+    sql: ROUND((SUM(${TABLE}.`NetPromoterNum`) / NULLIF(SUM(${TABLE}.`NetPromoterDen`), 0)), 3) ;;
+    hidden: yes
+    # Original Tableau formula: Round(Sum([NetPromoterNum])/Sum([NetPromoterDen]), 3)
+  }
+
+  dimension: office_to_rollup_calc {
+    description: "Row-level calculation for office_to_rollup: Round(Sum([Office Terminations])/Sum([Office HC]), 4)*2"
+    type: number
+    sql: (ROUND((SUM(${TABLE}.`Office Terminations`) / NULLIF(SUM(${TABLE}.`Office HC`), 0)), 4) * 2) ;;
+    hidden: yes
+    # Original Tableau formula: Round(Sum([Office Terminations])/Sum([Office HC]), 4)*2
+  }
+
+  dimension: gross_profit_rollup_om_calc {
+    description: "Row-level calculation for gross_profit_rollup_om: Round((Sum([OMGrossProfitBal])/SUM([OMGrossProfitBud]))-1, 4)"
+    type: number
+    sql: ROUND(((SUM(${TABLE}.`OMGrossProfitBal`) / NULLIF(SUM(${TABLE}.`OMGrossProfitBud`), 0)) - 1), 4) ;;
+    hidden: yes
+    # Original Tableau formula: Round((Sum([OMGrossProfitBal])/SUM([OMGrossProfitBud]))-1, 4)
+  }
+
+  dimension: completion_rollup_calc {
+    description: "Row-level calculation for completion_rollup: Round(SUM([New Patient Tx Plan Completion Rate Num])/Sum([New Patient Tx Plan Completion Rate Den]), 3)"
+    type: number
+    sql: ROUND((SUM(${TABLE}.`New Patient Tx Plan Completion Rate Num`) / NULLIF(SUM(${TABLE}.`New Patient Tx Plan Completion Rate Den`), 0)), 3) ;;
+    hidden: yes
+    # Original Tableau formula: Round(SUM([New Patient Tx Plan Completion Rate Num])/Sum([New Patient Tx Plan Completion Rate Den]), 3)
+  }
+
+  dimension: credit_app_rollup_calc {
+    description: "Row-level calculation for credit_app_rollup: Round(Sum([PercentCreditApplicationsWithTxOver500Num])/Sum([PercentCreditApplicationsWithTxOver500Den]), 3)"
+    type: number
+    sql: ROUND((SUM(${TABLE}.`PercentCreditApplicationsWithTxOver500Num`) / NULLIF(SUM(${TABLE}.`PercentCreditApplicationsWithTxOver500Den`), 0)), 3) ;;
+    hidden: yes
+    # Original Tableau formula: Round(Sum([PercentCreditApplicationsWithTxOver500Num])/Sum([PercentCreditApplicationsWithTxOver500Den]), 3)
   }
 
   dimension: usernameposition_calc {
     description: "Row-level calculation for usernameposition: FIND([User Names],\":\"+[Calculation_853432193642749954]+\",\")"
     type: number
-    sql: STRPOS(${TABLE}.user_names, ((':' || ${usernamecalculated}) || ',')) ;;
+    sql: STRPOS(${TABLE}.`User Names`, ((':' || ${usernamecalculated}) || ',')) ;;
     hidden: yes
     # Original Tableau formula: FIND([User Names],":"+[Calculation_853432193642749954]+",")
+  }
+
+  dimension: gross_profit_rollup_calc {
+    description: "Row-level calculation for gross_profit_rollup: Round(Sum([Gross Profit Bal])/SUM([Gross Profit Bud])-1, 4)"
+    type: number
+    sql: ROUND(((SUM(${TABLE}.`Gross Profit Bal`) / NULLIF(SUM(${TABLE}.`Gross Profit Bud`), 0)) - 1), 4) ;;
+    hidden: yes
+    # Original Tableau formula: Round(Sum([Gross Profit Bal])/SUM([Gross Profit Bud])-1, 4)
+  }
+
+  dimension: om_credit_app_numeric_calc {
+    description: "Row-level calculation for om_credit_app_numeric: Case [Credit App Score] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${TABLE}.`Credit App Score` = 'SAT') THEN 5 WHEN (${TABLE}.`Credit App Score` = 'AT') THEN 4 WHEN (${TABLE}.`Credit App Score` = 'OT') THEN 3 WHEN (${TABLE}.`Credit App Score` = 'BT') THEN 2 WHEN (${TABLE}.`Credit App Score` = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [Credit App Score] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
+  }
+
+  dimension: dvp_completion_numeric_calc {
+    description: "Row-level calculation for dvp_completion_numeric: Case [TD Scores - Implant Units (copy)_2087136981061386382] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${dvp_scores_completion} = 'SAT') THEN 5 WHEN (${dvp_scores_completion} = 'AT') THEN 4 WHEN (${dvp_scores_completion} = 'OT') THEN 3 WHEN (${dvp_scores_completion} = 'BT') THEN 2 WHEN (${dvp_scores_completion} = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [TD Scores - Implant Units (copy)_2087136981061386382] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
+  }
+
+  dimension: ebitda_margin_mature_calc {
+    description: "Row-level calculation for ebitda_margin_mature: Sum(Case Mature When 1 Then [EBITDA Bal] Else 0 END)/Sum(Case Mature When 1 Then [Net Patient Revenue] Else 0 END)"
+    type: number
+    sql: (SUM(CASE WHEN (${TABLE}.`Mature` = 1) THEN ${TABLE}.`EBITDA Bal` ELSE 0 END) / NULLIF(SUM(CASE WHEN (${TABLE}.`Mature` = 1) THEN ${TABLE}.`Net Patient Revenue` ELSE 0 END), 0)) ;;
+    hidden: yes
+    # Original Tableau formula: Sum(Case Mature When 1 Then [EBITDA Bal] Else 0 END)/Sum(Case Mature When 1 Then [Net Patient Revenue] Else 0 END)
+  }
+
+  dimension: gross_profit_rollup_rm_calc {
+    description: "Row-level calculation for gross_profit_rollup_rm: Round(Sum([RMGrossProfitBal])/SUM([RMGrossProfitBud])-1, 4)"
+    type: number
+    sql: ROUND(((SUM(${TABLE}.`RMGrossProfitBal`) / NULLIF(SUM(${TABLE}.`RMGrossProfitBud`), 0)) - 1), 4) ;;
+    hidden: yes
+    # Original Tableau formula: Round(Sum([RMGrossProfitBal])/SUM([RMGrossProfitBud])-1, 4)
+  }
+
+  dimension: metric_selector_map_metric_calc {
+    description: "Row-level calculation for metric_selector_map_metric: Case [Parameters].[Parameter 3] When 'Net Promoter Score' Then STR(ROUND([Calculation_361976852010156036], 1)) When 'Office TO Rollup' Then STR(ROUND([Calculation_361976852014145543]*100, 1))+\"%\" When 'Completion Percent' Then STR(ROUND([Calculation_705376323849363457]*100, 1))+\"%\" When 'Credit App' Then STR(ROUND([Calculation_705376323849728002]*100, 1))+\"%\" When 'NP Tx Accepted Per NP' Then \"$\"+STR(ROUND([Net Promoter All Rollup (copy)_342555104449536003],0)) When 'Gross Profit vs Budget' Then STR(ROUND([Calculation_945193025160646656]*100,1))+\"%\" When 'EBITDA vs Budget' Then STR(ROUND([Calculation_2699345059241832452],1))+\"%\" When 'Overall' Then STR(Round(sum([Calculation_2087136979572551699]), 1)) END"
+    type: number
+    sql: CASE WHEN ({% parameter parameter_3 %} = 'Net Promoter Score') THEN CAST(ROUND(${net_promoter_score_rollup_calc}, 1) AS STRING) WHEN ({% parameter parameter_3 %} = 'Office TO Rollup') THEN (CAST(ROUND((${office_to_rollup_calc} * 100), 1) AS STRING) || '%') WHEN ({% parameter parameter_3 %} = 'Completion Percent') THEN (CAST(ROUND((${completion_rollup_calc} * 100), 1) AS STRING) || '%') WHEN ({% parameter parameter_3 %} = 'Credit App') THEN (CAST(ROUND((${credit_app_rollup_calc} * 100), 1) AS STRING) || '%') WHEN ({% parameter parameter_3 %} = 'NP Tx Accepted Per NP') THEN ('$' || CAST(ROUND(${np_tx_accepted_rollup_calc}, 0) AS STRING)) WHEN ({% parameter parameter_3 %} = 'Gross Profit vs Budget') THEN (CAST(ROUND((${gross_profit_rollup_calc} * 100), 1) AS STRING) || '%') WHEN ({% parameter parameter_3 %} = 'EBITDA vs Budget') THEN (CAST(ROUND(${ebitda_rollup_calc}, 1) AS STRING) || '%') WHEN ({% parameter parameter_3 %} = 'Overall') THEN CAST(ROUND(SUM(${om_overall_score_num_calc}), 1) AS STRING) END ;;
+    hidden: yes
+    # Original Tableau formula: Case [Parameters].[Parameter 3] When 'Net Promoter Score' Then STR(ROUND([Calculation_361976852010156036], 1)) When 'Office TO Rollup' Then STR(ROUND([Calculation_361976852014145543]*100, 1))+"%" When 'Completion Percent' Then STR(ROUND([Calculation_705376323849363457]*100, 1))+"%" When 'Credit App' Then STR(ROUND([Calculation_705376323849728002]*100, 1))+"%" When 'NP Tx Accepted Per NP' Then "$"+STR(ROUND([Net Promoter All Rollup (copy)_342555104449536003],0)) When 'Gross Profit vs Budget' Then STR(ROUND([Calculation_945193025160646656]*100,1))+"%" When 'EBITDA vs Budget' Then STR(ROUND([Calculation_2699345059241832452],1))+"%" When 'Overall' Then STR(Round(sum([Calculation_2087136979572551699]), 1)) END
+  }
+
+  dimension: np_tx_accepted_rollup_calc {
+    description: "Row-level calculation for np_tx_accepted_rollup: Round(Sum([NP Tx Accepted Per NP Num])/Sum([NP Tx Accepted Per NP Den]), 0)"
+    type: number
+    sql: ROUND((SUM(${TABLE}.`NP Tx Accepted Per NP Num`) / NULLIF(SUM(${TABLE}.`NP Tx Accepted Per NP Den`), 0)), 0) ;;
+    hidden: yes
+    # Original Tableau formula: Round(Sum([NP Tx Accepted Per NP Num])/Sum([NP Tx Accepted Per NP Den]), 0)
+  }
+
+  dimension: rm_nps_numeric_calc {
+    description: "Row-level calculation for rm_nps_numeric: Case [Calculation_2087136979976179744] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${rm_scores_nps} = 'SAT') THEN 5 WHEN (${rm_scores_nps} = 'AT') THEN 4 WHEN (${rm_scores_nps} = 'OT') THEN 3 WHEN (${rm_scores_nps} = 'BT') THEN 2 WHEN (${rm_scores_nps} = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [Calculation_2087136979976179744] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
+  }
+
+  dimension: rm_officeto_numeric_calc {
+    description: "Row-level calculation for rm_officeto_numeric: Case [RM Scores - Credit Apps (copy)_2087136979990208548] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${rm_scores_officeto} = 'SAT') THEN 5 WHEN (${rm_scores_officeto} = 'AT') THEN 4 WHEN (${rm_scores_officeto} = 'OT') THEN 3 WHEN (${rm_scores_officeto} = 'BT') THEN 2 WHEN (${rm_scores_officeto} = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [RM Scores - Credit Apps (copy)_2087136979990208548] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
+  }
+
+  dimension: om_nps_numeric_calc {
+    description: "Row-level calculation for om_nps_numeric: Case [NPSScore] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${TABLE}.`NPSScore` = 'SAT') THEN 5 WHEN (${TABLE}.`NPSScore` = 'AT') THEN 4 WHEN (${TABLE}.`NPSScore` = 'OT') THEN 3 WHEN (${TABLE}.`NPSScore` = 'BT') THEN 2 WHEN (${TABLE}.`NPSScore` = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [NPSScore] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
+  }
+
+  dimension: om_officeto_numeric_calc {
+    description: "Row-level calculation for om_officeto_numeric: Case [Turnover Score] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 When NULL Then NULL END"
+    type: number
+    sql: CASE WHEN (${TABLE}.`Turnover Score` = 'SAT') THEN 5 WHEN (${TABLE}.`Turnover Score` = 'AT') THEN 4 WHEN (${TABLE}.`Turnover Score` = 'OT') THEN 3 WHEN (${TABLE}.`Turnover Score` = 'BT') THEN 2 WHEN (${TABLE}.`Turnover Score` = 'SBT') THEN 1 WHEN (${TABLE}.`Turnover Score` IS NULL) THEN NULL END ;;
+    hidden: yes
+    # Original Tableau formula: Case [Turnover Score] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 When NULL Then NULL END
+  }
+
+  dimension: rm_gross_profit_numeric_calc {
+    description: "Row-level calculation for rm_gross_profit_numeric: Case [RM Scores - ShowRate (copy)_2087136979990921256] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${rm_scores_gross_profit} = 'SAT') THEN 5 WHEN (${rm_scores_gross_profit} = 'AT') THEN 4 WHEN (${rm_scores_gross_profit} = 'OT') THEN 3 WHEN (${rm_scores_gross_profit} = 'BT') THEN 2 WHEN (${rm_scores_gross_profit} = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [RM Scores - ShowRate (copy)_2087136979990921256] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
+  }
+
+  dimension: rm_np_tx_accepted_per_np_numeric_calc {
+    description: "Row-level calculation for rm_np_tx_accepted_per_np_numeric: Case [RM Scores - Wage Rate (copy)_2087136979991613481] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${rm_scores_np_tx_accepted_per_np} = 'SAT') THEN 5 WHEN (${rm_scores_np_tx_accepted_per_np} = 'AT') THEN 4 WHEN (${rm_scores_np_tx_accepted_per_np} = 'OT') THEN 3 WHEN (${rm_scores_np_tx_accepted_per_np} = 'BT') THEN 2 WHEN (${rm_scores_np_tx_accepted_per_np} = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [RM Scores - Wage Rate (copy)_2087136979991613481] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
+  }
+
+  dimension: rm_completion_numeric_calc {
+    description: "Row-level calculation for rm_completion_numeric: Case [RM Scores - AvgRev&Dep (copy)_2087136979977338914] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${rm_scores_completion} = 'SAT') THEN 5 WHEN (${rm_scores_completion} = 'AT') THEN 4 WHEN (${rm_scores_completion} = 'OT') THEN 3 WHEN (${rm_scores_completion} = 'BT') THEN 2 WHEN (${rm_scores_completion} = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [RM Scores - AvgRev&Dep (copy)_2087136979977338914] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
+  }
+
+  dimension: rm_credit_app_numeric_calc {
+    description: "Row-level calculation for rm_credit_app_numeric: Case [RM Scores - Completion (copy)_2087136979990028323] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${rm_scores_credit_apps} = 'SAT') THEN 5 WHEN (${rm_scores_credit_apps} = 'AT') THEN 4 WHEN (${rm_scores_credit_apps} = 'OT') THEN 3 WHEN (${rm_scores_credit_apps} = 'BT') THEN 2 WHEN (${rm_scores_credit_apps} = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [RM Scores - Completion (copy)_2087136979990028323] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
   dimension: rm_overall_score_num_calc {
     description: "Row-level calculation for rm_overall_score_num: IF [Year] = 2024 THEN (Round(((IFNull([OM - NPS Numeric (copy)_2087136980012261424], 3)*0.10)+(IFNull([OM - OfficeTO Numeric (copy)_2087136980012261426], 3)*0.20)+(IFNull([OM - Credit App Numeric (copy)_2087136980012261421], 3)*0.20) +(IFNull([OM - Completion Numeric (copy)_2087136980012261418], 3)*0.20)+(IFNull([OM - Wage Rate Numeric (copy)_2087136980012261422], 3)*0.10)+(IFNull([OM - Yes Today Numeric (copy)_2087136980012261423], 3)*0.20)),2)) ELSEIF [Year] = 2025 THEN (Round(((IFNull([OM - NPS Numeric (copy)_2087136980012261424], 3)*0.167)+(IFNull([OM - OfficeTO Numeric (copy)_2087136980012261426], 3)*0.167)+(IFNull([OM - Credit App Numeric (copy)_2087136980012261421], 3)*0.167) +(IFNull([OM - Completion Numeric (copy)_2087136980012261418], 3)*0.167)+(IFNull([OM - Wage Rate Numeric (copy)_2087136980012261422], 3)*0.167)+(IFNull([OM - Yes Today Numeric (copy)_2087136980012261423], 3)*0.167)),2)) END"
     type: number
-    sql: CASE WHEN (${TABLE}.year = 2024) THEN ROUND(((((((IFNULL(${rm_nps_numeric}, 3) * 0.1) + (IFNULL(${rm_officeto_numeric}, 3) * 0.2)) || (IFNULL(${rm_credit_app_numeric}, 3) * 0.2)) || (IFNULL(${rm_completion_numeric}, 3) * 0.2)) || (IFNULL(${rm_gross_profit_numeric}, 3) * 0.1)) || (IFNULL(${rm_np_tx_accepted_per_np_numeric}, 3) * 0.2)), 2) ELSE CASE WHEN (${TABLE}.year = 2025) THEN ROUND(((((((IFNULL(${rm_nps_numeric}, 3) * 0.167) + (IFNULL(${rm_officeto_numeric}, 3) * 0.167)) || (IFNULL(${rm_credit_app_numeric}, 3) * 0.167)) || (IFNULL(${rm_completion_numeric}, 3) * 0.167)) || (IFNULL(${rm_gross_profit_numeric}, 3) * 0.167)) || (IFNULL(${rm_np_tx_accepted_per_np_numeric}, 3) * 0.167)), 2) ELSE NULL END END ;;
+    sql: CASE WHEN (${TABLE}.`Year` = 2024) THEN ROUND(((((((IFNULL(${rm_nps_numeric_calc}, 3) * 0.1) + (IFNULL(${rm_officeto_numeric_calc}, 3) * 0.2)) + (IFNULL(${rm_credit_app_numeric_calc}, 3) * 0.2)) + (IFNULL(${rm_completion_numeric_calc}, 3) * 0.2)) + (IFNULL(${rm_gross_profit_numeric_calc}, 3) * 0.1)) + (IFNULL(${rm_np_tx_accepted_per_np_numeric_calc}, 3) * 0.2)), 2) ELSE CASE WHEN (${TABLE}.`Year` = 2025) THEN ROUND(((((((IFNULL(${rm_nps_numeric_calc}, 3) * 0.167) + (IFNULL(${rm_officeto_numeric_calc}, 3) * 0.167)) + (IFNULL(${rm_credit_app_numeric_calc}, 3) * 0.167)) + (IFNULL(${rm_completion_numeric_calc}, 3) * 0.167)) + (IFNULL(${rm_gross_profit_numeric_calc}, 3) * 0.167)) + (IFNULL(${rm_np_tx_accepted_per_np_numeric_calc}, 3) * 0.167)), 2) ELSE NULL END END ;;
     hidden: yes
     # Original Tableau formula: IF [Year] = 2024 THEN (Round(((IFNull([OM - NPS Numeric (copy)_2087136980012261424], 3)*0.10)+(IFNull([OM - OfficeTO Numeric (copy)_2087136980012261426], 3)*0.20)+(IFNull([OM - Credit App Numeric (copy)_2087136980012261421], 3)*0.20) +(IFNull([OM - Completion Numeric (copy)_2087136980012261418], 3)*0.20)+(IFNull([OM - Wage Rate Numeric (copy)_2087136980012261422], 3)*0.10)+(IFNull([OM - Yes Today Numeric (copy)_2087136980012261423], 3)*0.20)),2)) ELSEIF [Year] = 2025 THEN (Round(((IFNull([OM - NPS Numeric (copy)_2087136980012261424], 3)*0.167)+(IFNull([OM - OfficeTO Numeric (copy)_2087136980012261426], 3)*0.167)+(IFNull([OM - Credit App Numeric (copy)_2087136980012261421], 3)*0.167) +(IFNull([OM - Completion Numeric (copy)_2087136980012261418], 3)*0.167)+(IFNull([OM - Wage Rate Numeric (copy)_2087136980012261422], 3)*0.167)+(IFNull([OM - Yes Today Numeric (copy)_2087136980012261423], 3)*0.167)),2)) END
+  }
+
+  dimension: td_nps_numeric_calc {
+    description: "Row-level calculation for td_nps_numeric: Case [RM Scores - NPS (copy)_2087136981006102608] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${td_scores_nps} = 'SAT') THEN 5 WHEN (${td_scores_nps} = 'AT') THEN 4 WHEN (${td_scores_nps} = 'OT') THEN 3 WHEN (${td_scores_nps} = 'BT') THEN 2 WHEN (${td_scores_nps} = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [RM Scores - NPS (copy)_2087136981006102608] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
+  }
+
+  dimension: td_officeto_numeric_calc {
+    description: "Row-level calculation for td_officeto_numeric: Case [RM Scores - OfficeTO (copy 2)_2087136981006102612] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${td_scores_officeto} = 'SAT') THEN 5 WHEN (${td_scores_officeto} = 'AT') THEN 4 WHEN (${td_scores_officeto} = 'OT') THEN 3 WHEN (${td_scores_officeto} = 'BT') THEN 2 WHEN (${td_scores_officeto} = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [RM Scores - OfficeTO (copy 2)_2087136981006102612] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
+  }
+
+  dimension: td_ebitda_numeric_calc {
+    description: "Row-level calculation for td_ebitda_numeric: Case [RM Scores - Yes Today (copy)_2087136981006102617] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${td_scores_ebitda} = 'SAT') THEN 5 WHEN (${td_scores_ebitda} = 'AT') THEN 4 WHEN (${td_scores_ebitda} = 'OT') THEN 3 WHEN (${td_scores_ebitda} = 'BT') THEN 2 WHEN (${td_scores_ebitda} = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [RM Scores - Yes Today (copy)_2087136981006102617] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
   dimension: td_overall_score_num_calc {
     description: "Row-level calculation for td_overall_score_num: IF [Year] = 2024 THEN (Round(((IFNull([RM - NPS Numeric (copy)_2087136981005688892], 3)*0.10)+(IFNull([RM - OfficeTO Numeric (copy)_2087136981005688893], 3)*0.20)+(IFNull([TD - OfficeTO Numeric (copy)_2087136981043130483], 3)*0.20) +(IFNull([TD - OfficeTO Numeric (copy)_2087136981043945591], 3)*0.20)+(IFNull([RM - Yes Today Numeric (copy)_2087136981005688897], 3)*0.10)+(IFNull([TD - Showrate Numeric (copy)_2087136981043130484], 3)*0.20)),2)) ELSEIF [Year] = 2025 THEN (Round(((IFNull([RM - NPS Numeric (copy)_2087136981005688892], 3)*0.167)+(IFNull([RM - OfficeTO Numeric (copy)_2087136981005688893], 3)*0.167)+(IFNull([TD - OfficeTO Numeric (copy)_2087136981043130483], 3)*0.167) +(IFNull([TD - OfficeTO Numeric (copy)_2087136981043945591], 3)*0.167)+(IFNull([RM - Yes Today Numeric (copy)_2087136981005688897], 3)*0.167)+(IFNull([TD - Showrate Numeric (copy)_2087136981043130484], 3)*0.167)),2)) END"
     type: number
-    sql: CASE WHEN (${TABLE}.year = 2024) THEN ROUND(((((((IFNULL(${td_nps_numeric}, 3) * 0.1) + (IFNULL(${td_officeto_numeric}, 3) * 0.2)) || (IFNULL(${td_credit_apps_numeric}, 3) * 0.2)) || (IFNULL(${td_completion_numeric}, 3) * 0.2)) || (IFNULL(${td_ebitda_numeric}, 3) * 0.1)) || (IFNULL(${td_np_tx_accepted_numeric}, 3) * 0.2)), 2) ELSE CASE WHEN (${TABLE}.year = 2025) THEN ROUND(((((((IFNULL(${td_nps_numeric}, 3) * 0.167) + (IFNULL(${td_officeto_numeric}, 3) * 0.167)) || (IFNULL(${td_credit_apps_numeric}, 3) * 0.167)) || (IFNULL(${td_completion_numeric}, 3) * 0.167)) || (IFNULL(${td_ebitda_numeric}, 3) * 0.167)) || (IFNULL(${td_np_tx_accepted_numeric}, 3) * 0.167)), 2) ELSE NULL END END ;;
+    sql: CASE WHEN (${TABLE}.`Year` = 2024) THEN ROUND(((((((IFNULL(${td_nps_numeric_calc}, 3) * 0.1) + (IFNULL(${td_officeto_numeric_calc}, 3) * 0.2)) + (IFNULL(${td_credit_apps_numeric_calc}, 3) * 0.2)) + (IFNULL(${td_completion_numeric_calc}, 3) * 0.2)) + (IFNULL(${td_ebitda_numeric_calc}, 3) * 0.1)) + (IFNULL(${td_np_tx_accepted_numeric_calc}, 3) * 0.2)), 2) ELSE CASE WHEN (${TABLE}.`Year` = 2025) THEN ROUND(((((((IFNULL(${td_nps_numeric_calc}, 3) * 0.167) + (IFNULL(${td_officeto_numeric_calc}, 3) * 0.167)) + (IFNULL(${td_credit_apps_numeric_calc}, 3) * 0.167)) + (IFNULL(${td_completion_numeric_calc}, 3) * 0.167)) + (IFNULL(${td_ebitda_numeric_calc}, 3) * 0.167)) + (IFNULL(${td_np_tx_accepted_numeric_calc}, 3) * 0.167)), 2) ELSE NULL END END ;;
     hidden: yes
     # Original Tableau formula: IF [Year] = 2024 THEN (Round(((IFNull([RM - NPS Numeric (copy)_2087136981005688892], 3)*0.10)+(IFNull([RM - OfficeTO Numeric (copy)_2087136981005688893], 3)*0.20)+(IFNull([TD - OfficeTO Numeric (copy)_2087136981043130483], 3)*0.20) +(IFNull([TD - OfficeTO Numeric (copy)_2087136981043945591], 3)*0.20)+(IFNull([RM - Yes Today Numeric (copy)_2087136981005688897], 3)*0.10)+(IFNull([TD - Showrate Numeric (copy)_2087136981043130484], 3)*0.20)),2)) ELSEIF [Year] = 2025 THEN (Round(((IFNull([RM - NPS Numeric (copy)_2087136981005688892], 3)*0.167)+(IFNull([RM - OfficeTO Numeric (copy)_2087136981005688893], 3)*0.167)+(IFNull([TD - OfficeTO Numeric (copy)_2087136981043130483], 3)*0.167) +(IFNull([TD - OfficeTO Numeric (copy)_2087136981043945591], 3)*0.167)+(IFNull([RM - Yes Today Numeric (copy)_2087136981005688897], 3)*0.167)+(IFNull([TD - Showrate Numeric (copy)_2087136981043130484], 3)*0.167)),2)) END
+  }
+
+  dimension: sortfield_rm_calc {
+    description: "Row-level calculation for sortfield_rm: Case [Parameters].[Parameter 2 1] When 'Alphabetical' Then FLOAT(STR(MIN(UPPER([Region Description])))+STR(MIN(UPPER(MID([Region Description],2,1))))) When 'Overall' Then Avg([OM Overall Score Num (copy)_2087136980012261420]) * INT([Parameters].[Parameter 3 1]) When 'Net Promoter Score' Then [Calculation_361976852010156036]* INT([Parameters].[Parameter 3 1]) When 'Office TO' Then [Calculation_361976852014145543] * INT([Parameters].[Parameter 3 1]) When 'Credit App %' Then [Calculation_705376323849728002]* INT([Parameters].[Parameter 3 1]) When 'NP Completion %' Then [Calculation_705376323849363457]* INT([Parameters].[Parameter 3 1]) When 'EBITDA vs Budget' Then [Calculation_2699345059241832452] * INT([Parameters].[Parameter 3 1]) When 'Gross Profit vs Budget' Then [Gross Profit Rollup (copy)_547750316289679360]* INT([Parameters].[Parameter 3 1]) WHEN 'NP Tx Accepted Per NP' Then [Net Promoter All Rollup (copy)_342555104449536003]* INT([Parameters].[Parameter 3 1]) END"
+    type: number
+    sql: CASE WHEN ({% parameter parameter_2_1 %} = 'Alphabetical') THEN CAST((CAST(MIN(UPPER(${TABLE}.`Region Description`)) AS STRING) || CAST(MIN(UPPER(SUBSTR(${TABLE}.`Region Description`, 2, 1))) AS STRING)) AS FLOAT64) WHEN ({% parameter parameter_2_1 %} = 'Overall') THEN (AVG(${rm_overall_score_num_calc}) * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Net Promoter Score') THEN (${net_promoter_score_rollup_calc} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Office TO') THEN (${office_to_rollup_calc} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Credit App %') THEN (${credit_app_rollup_calc} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'NP Completion %') THEN (${completion_rollup_calc} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'EBITDA vs Budget') THEN (${ebitda_rollup_calc} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Gross Profit vs Budget') THEN (${gross_profit_rollup_rm_calc} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'NP Tx Accepted Per NP') THEN (${np_tx_accepted_rollup_calc} * CAST({% parameter parameter_3_1 %} AS INT64)) END ;;
+    hidden: yes
+    # Original Tableau formula: Case [Parameters].[Parameter 2 1] When 'Alphabetical' Then FLOAT(STR(MIN(UPPER([Region Description])))+STR(MIN(UPPER(MID([Region Description],2,1))))) When 'Overall' Then Avg([OM Overall Score Num (copy)_2087136980012261420]) * INT([Parameters].[Parameter 3 1]) When 'Net Promoter Score' Then [Calculation_361976852010156036]* INT([Parameters].[Parameter 3 1]) When 'Office TO' Then [Calculation_361976852014145543] * INT([Parameters].[Parameter 3 1]) When 'Credit App %' Then [Calculation_705376323849728002]* INT([Parameters].[Parameter 3 1]) When 'NP Completion %' Then [Calculation_705376323849363457]* INT([Parameters].[Parameter 3 1]) When 'EBITDA vs Budget' Then [Calculation_2699345059241832452] * INT([Parameters].[Parameter 3 1]) When 'Gross Profit vs Budget' Then [Gross Profit Rollup (copy)_547750316289679360]* INT([Parameters].[Parameter 3 1]) WHEN 'NP Tx Accepted Per NP' Then [Net Promoter All Rollup (copy)_342555104449536003]* INT([Parameters].[Parameter 3 1]) END
+  }
+
+  dimension: sortfield_td_calc {
+    description: "Row-level calculation for sortfield_td: Case [Parameters].[Parameter 2 1] When 'Alphabetical' Then FLOAT(STR(MIN(UPPER([Territory])))+STR(MIN(UPPER(MID([Territory],2,1))))) When 'Overall' Then AVG([RM Overall Score Num (copy)_2087136981005688901]) * INT([Parameters].[Parameter 3 1]) When 'Net Promoter Score' Then [Calculation_361976852010156036]* INT([Parameters].[Parameter 3 1]) When 'Office TO' Then [Calculation_361976852014145543] * INT([Parameters].[Parameter 3 1]) When 'NP Tx Accepted Per NP' Then [Net Promoter All Rollup (copy)_342555104449536003] * INT([Parameters].[Parameter 3 1]) When 'Credit App %' Then [Calculation_705376323849728002]* INT([Parameters].[Parameter 3 1]) When 'NP Completion %' Then [Calculation_705376323849363457]* INT([Parameters].[Parameter 3 1]) When 'EBITDA vs Budget' Then [Calculation_2699345059241832452]* INT([Parameters].[Parameter 3 1]) When 'Gross Profit vs Budget' Then [Calculation_945193025160646656]* INT([Parameters].[Parameter 3 1]) END"
+    type: number
+    sql: CASE WHEN ({% parameter parameter_2_1 %} = 'Alphabetical') THEN CAST((CAST(MIN(UPPER(${TABLE}.`Territory`)) AS STRING) || CAST(MIN(UPPER(SUBSTR(${TABLE}.`Territory`, 2, 1))) AS STRING)) AS FLOAT64) WHEN ({% parameter parameter_2_1 %} = 'Overall') THEN (AVG(${td_overall_score_num_calc}) * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Net Promoter Score') THEN (${net_promoter_score_rollup_calc} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Office TO') THEN (${office_to_rollup_calc} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'NP Tx Accepted Per NP') THEN (${np_tx_accepted_rollup_calc} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Credit App %') THEN (${credit_app_rollup_calc} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'NP Completion %') THEN (${completion_rollup_calc} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'EBITDA vs Budget') THEN (${ebitda_rollup_calc} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Gross Profit vs Budget') THEN (${gross_profit_rollup_calc} * CAST({% parameter parameter_3_1 %} AS INT64)) END ;;
+    hidden: yes
+    # Original Tableau formula: Case [Parameters].[Parameter 2 1] When 'Alphabetical' Then FLOAT(STR(MIN(UPPER([Territory])))+STR(MIN(UPPER(MID([Territory],2,1))))) When 'Overall' Then AVG([RM Overall Score Num (copy)_2087136981005688901]) * INT([Parameters].[Parameter 3 1]) When 'Net Promoter Score' Then [Calculation_361976852010156036]* INT([Parameters].[Parameter 3 1]) When 'Office TO' Then [Calculation_361976852014145543] * INT([Parameters].[Parameter 3 1]) When 'NP Tx Accepted Per NP' Then [Net Promoter All Rollup (copy)_342555104449536003] * INT([Parameters].[Parameter 3 1]) When 'Credit App %' Then [Calculation_705376323849728002]* INT([Parameters].[Parameter 3 1]) When 'NP Completion %' Then [Calculation_705376323849363457]* INT([Parameters].[Parameter 3 1]) When 'EBITDA vs Budget' Then [Calculation_2699345059241832452]* INT([Parameters].[Parameter 3 1]) When 'Gross Profit vs Budget' Then [Calculation_945193025160646656]* INT([Parameters].[Parameter 3 1]) END
+  }
+
+  dimension: sortfield_dvp_calc {
+    description: "Row-level calculation for sortfield_dvp: Case [Parameters].[Parameter 2 1] When 'Alphabetical' Then FLOAT(STR(MIN(UPPER([Division VP])))+STR(MIN(UPPER(MID([Division VP],2,1))))) When 'Overall' Then AVG([TD Overall Score Num (copy)_2087136981061210236]) * INT([Parameters].[Parameter 3 1]) When 'Net Promoter Score' Then [Calculation_361976852010156036]* INT([Parameters].[Parameter 3 1]) When 'Office TO' Then [Calculation_361976852014145543] * INT([Parameters].[Parameter 3 1]) When 'NP Tx Accepted Per NP' Then [Net Promoter All Rollup (copy)_342555104449536003] * INT([Parameters].[Parameter 3 1]) When 'Credit App %' Then [Calculation_705376323849728002] * INT([Parameters].[Parameter 3 1]) When 'NP Completion %' Then [Calculation_705376323849363457] * INT([Parameters].[Parameter 3 1]) When 'EBITDA vs Budget' Then [Calculation_2699345059241832452] * INT([Parameters].[Parameter 3 1]) When 'Gross Profit vs Budget' Then [Calculation_945193025160646656] * INT([Parameters].[Parameter 3 1]) END"
+    type: number
+    sql: CASE WHEN ({% parameter parameter_2_1 %} = 'Alphabetical') THEN CAST((CAST(MIN(UPPER(${TABLE}.`Division VP`)) AS STRING) || CAST(MIN(UPPER(SUBSTR(${TABLE}.`Division VP`, 2, 1))) AS STRING)) AS FLOAT64) WHEN ({% parameter parameter_2_1 %} = 'Overall') THEN (AVG(${dvp_overall_score_num_calc}) * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Net Promoter Score') THEN (${net_promoter_score_rollup_calc} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Office TO') THEN (${office_to_rollup_calc} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'NP Tx Accepted Per NP') THEN (${np_tx_accepted_rollup_calc} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Credit App %') THEN (${credit_app_rollup_calc} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'NP Completion %') THEN (${completion_rollup_calc} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'EBITDA vs Budget') THEN (${ebitda_rollup_calc} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Gross Profit vs Budget') THEN (${gross_profit_rollup_calc} * CAST({% parameter parameter_3_1 %} AS INT64)) END ;;
+    hidden: yes
+    # Original Tableau formula: Case [Parameters].[Parameter 2 1] When 'Alphabetical' Then FLOAT(STR(MIN(UPPER([Division VP])))+STR(MIN(UPPER(MID([Division VP],2,1))))) When 'Overall' Then AVG([TD Overall Score Num (copy)_2087136981061210236]) * INT([Parameters].[Parameter 3 1]) When 'Net Promoter Score' Then [Calculation_361976852010156036]* INT([Parameters].[Parameter 3 1]) When 'Office TO' Then [Calculation_361976852014145543] * INT([Parameters].[Parameter 3 1]) When 'NP Tx Accepted Per NP' Then [Net Promoter All Rollup (copy)_342555104449536003] * INT([Parameters].[Parameter 3 1]) When 'Credit App %' Then [Calculation_705376323849728002] * INT([Parameters].[Parameter 3 1]) When 'NP Completion %' Then [Calculation_705376323849363457] * INT([Parameters].[Parameter 3 1]) When 'EBITDA vs Budget' Then [Calculation_2699345059241832452] * INT([Parameters].[Parameter 3 1]) When 'Gross Profit vs Budget' Then [Calculation_945193025160646656] * INT([Parameters].[Parameter 3 1]) END
+  }
+
+  dimension: dvp_np_tx_accepted_numeric_calc {
+    description: "Row-level calculation for dvp_np_tx_accepted_numeric: Case [TD Scores - Hygiene FTE (copy)_2087136981061386381] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${dvp_scores_np_tx_accepted} = 'SAT') THEN 5 WHEN (${dvp_scores_np_tx_accepted} = 'AT') THEN 4 WHEN (${dvp_scores_np_tx_accepted} = 'OT') THEN 3 WHEN (${dvp_scores_np_tx_accepted} = 'BT') THEN 2 WHEN (${dvp_scores_np_tx_accepted} = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [TD Scores - Hygiene FTE (copy)_2087136981061386381] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
+  }
+
+  dimension: dvp_nps_numeric_calc {
+    description: "Row-level calculation for dvp_nps_numeric: Case [TD Scores - NPS (copy)_2087136981061386375] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${dvp_scores_nps} = 'SAT') THEN 5 WHEN (${dvp_scores_nps} = 'AT') THEN 4 WHEN (${dvp_scores_nps} = 'OT') THEN 3 WHEN (${dvp_scores_nps} = 'BT') THEN 2 WHEN (${dvp_scores_nps} = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [TD Scores - NPS (copy)_2087136981061386375] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
+  }
+
+  dimension: dvp_credit_apps_numeric_calc {
+    description: "Row-level calculation for dvp_credit_apps_numeric: Case [TD Scores - Office Hours (copy)_2087136981061386384] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${dvp_scores_credit_apps} = 'SAT') THEN 5 WHEN (${dvp_scores_credit_apps} = 'AT') THEN 4 WHEN (${dvp_scores_credit_apps} = 'OT') THEN 3 WHEN (${dvp_scores_credit_apps} = 'BT') THEN 2 WHEN (${dvp_scores_credit_apps} = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [TD Scores - Office Hours (copy)_2087136981061386384] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
+  }
+
+  dimension: td_credit_apps_numeric_calc {
+    description: "Row-level calculation for td_credit_apps_numeric: Case [RM Scores - Credit Apps (copy)_2087136981006102611] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${td_scores_credit_apps} = 'SAT') THEN 5 WHEN (${td_scores_credit_apps} = 'AT') THEN 4 WHEN (${td_scores_credit_apps} = 'OT') THEN 3 WHEN (${td_scores_credit_apps} = 'BT') THEN 2 WHEN (${td_scores_credit_apps} = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [RM Scores - Credit Apps (copy)_2087136981006102611] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
+  }
+
+  dimension: td_completion_numeric_calc {
+    description: "Row-level calculation for td_completion_numeric: Case [RM Scores - Completion (copy)_2087136981006102610] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${td_scores_completion} = 'SAT') THEN 5 WHEN (${td_scores_completion} = 'AT') THEN 4 WHEN (${td_scores_completion} = 'OT') THEN 3 WHEN (${td_scores_completion} = 'BT') THEN 2 WHEN (${td_scores_completion} = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [RM Scores - Completion (copy)_2087136981006102610] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
+  }
+
+  dimension: dvp_officeto_numeric_calc {
+    description: "Row-level calculation for dvp_officeto_numeric: Case [TD Scores - OfficeTO (copy)_2087136981061386376] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${dvp_scores_officeto} = 'SAT') THEN 5 WHEN (${dvp_scores_officeto} = 'AT') THEN 4 WHEN (${dvp_scores_officeto} = 'OT') THEN 3 WHEN (${dvp_scores_officeto} = 'BT') THEN 2 WHEN (${dvp_scores_officeto} = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [TD Scores - OfficeTO (copy)_2087136981061386376] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
+  }
+
+  dimension: td_np_tx_accepted_numeric_calc {
+    description: "Row-level calculation for td_np_tx_accepted_numeric: Case [TD Scores - Doctor FTE (copy)_2087136981030867047] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${td_scores_np_tx_accepted} = 'SAT') THEN 5 WHEN (${td_scores_np_tx_accepted} = 'AT') THEN 4 WHEN (${td_scores_np_tx_accepted} = 'OT') THEN 3 WHEN (${td_scores_np_tx_accepted} = 'BT') THEN 2 WHEN (${td_scores_np_tx_accepted} = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [TD Scores - Doctor FTE (copy)_2087136981030867047] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
+  }
+
+  dimension: dvp_ebitda_numeric_calc {
+    description: "Row-level calculation for dvp_ebitda_numeric: Case [TD Scores - Yes Today (copy)_2087136981061386380] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
+    type: number
+    sql: CASE WHEN (${dvp_scores_ebitda} = 'SAT') THEN 5 WHEN (${dvp_scores_ebitda} = 'AT') THEN 4 WHEN (${dvp_scores_ebitda} = 'OT') THEN 3 WHEN (${dvp_scores_ebitda} = 'BT') THEN 2 WHEN (${dvp_scores_ebitda} = 'SBT') THEN 1 END ;;
+    hidden: yes
+    # Original Tableau formula: Case [TD Scores - Yes Today (copy)_2087136981061386380] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
   dimension: dvp_overall_score_num_calc {
     description: "Row-level calculation for dvp_overall_score_num: IF [Year] = 2024 THEN (Round(((IFNull([TD - NPS Numeric (copy)_2087136981061210232], 3)*0.10)+(IFNull([TD - OfficeTO Numeric (copy)_2087136981061210233], 3)*0.20)+(IFNull([TD - Office Hours Numeric (copy)_2087136981061210237], 3)*0.20) +(IFNull([DVP - NPS Numeric (copy)_342555104460296196], 3)*0.20)+(IFNull([TD - Yes Today Numeric (copy)_2087136981061210235], 3)*0.10)+(IFNull([TD - HygFTE Numeric (copy)_2087136981061210238], 3)*0.20)),2)) ELSEIF [Year] = 2025 THEN (Round(((IFNull([TD - NPS Numeric (copy)_2087136981061210232], 3)*0.167)+(IFNull([TD - OfficeTO Numeric (copy)_2087136981061210233], 3)*0.167)+(IFNull([TD - Office Hours Numeric (copy)_2087136981061210237], 3)*0.167) +(IFNull([DVP - NPS Numeric (copy)_342555104460296196], 3)*0.167)+(IFNull([TD - Yes Today Numeric (copy)_2087136981061210235], 3)*0.167)+(IFNull([TD - HygFTE Numeric (copy)_2087136981061210238], 3)*0.167)),2)) END"
     type: number
-    sql: CASE WHEN (${TABLE}.year = 2024) THEN ROUND(((((((IFNULL(${dvp_nps_numeric}, 3) * 0.1) + (IFNULL(${dvp_officeto_numeric}, 3) * 0.2)) || (IFNULL(${dvp_credit_apps_numeric}, 3) * 0.2)) || (IFNULL(${dvp_completion_numeric}, 3) * 0.2)) || (IFNULL(${dvp_ebitda_numeric}, 3) * 0.1)) || (IFNULL(${dvp_np_tx_accepted_numeric}, 3) * 0.2)), 2) ELSE CASE WHEN (${TABLE}.year = 2025) THEN ROUND(((((((IFNULL(${dvp_nps_numeric}, 3) * 0.167) + (IFNULL(${dvp_officeto_numeric}, 3) * 0.167)) || (IFNULL(${dvp_credit_apps_numeric}, 3) * 0.167)) || (IFNULL(${dvp_completion_numeric}, 3) * 0.167)) || (IFNULL(${dvp_ebitda_numeric}, 3) * 0.167)) || (IFNULL(${dvp_np_tx_accepted_numeric}, 3) * 0.167)), 2) ELSE NULL END END ;;
+    sql: CASE WHEN (${TABLE}.`Year` = 2024) THEN ROUND(((((((IFNULL(${dvp_nps_numeric_calc}, 3) * 0.1) + (IFNULL(${dvp_officeto_numeric_calc}, 3) * 0.2)) + (IFNULL(${dvp_credit_apps_numeric_calc}, 3) * 0.2)) + (IFNULL(${dvp_completion_numeric_calc}, 3) * 0.2)) + (IFNULL(${dvp_ebitda_numeric_calc}, 3) * 0.1)) + (IFNULL(${dvp_np_tx_accepted_numeric_calc}, 3) * 0.2)), 2) ELSE CASE WHEN (${TABLE}.`Year` = 2025) THEN ROUND(((((((IFNULL(${dvp_nps_numeric_calc}, 3) * 0.167) + (IFNULL(${dvp_officeto_numeric_calc}, 3) * 0.167)) + (IFNULL(${dvp_credit_apps_numeric_calc}, 3) * 0.167)) + (IFNULL(${dvp_completion_numeric_calc}, 3) * 0.167)) + (IFNULL(${dvp_ebitda_numeric_calc}, 3) * 0.167)) + (IFNULL(${dvp_np_tx_accepted_numeric_calc}, 3) * 0.167)), 2) ELSE NULL END END ;;
     hidden: yes
     # Original Tableau formula: IF [Year] = 2024 THEN (Round(((IFNull([TD - NPS Numeric (copy)_2087136981061210232], 3)*0.10)+(IFNull([TD - OfficeTO Numeric (copy)_2087136981061210233], 3)*0.20)+(IFNull([TD - Office Hours Numeric (copy)_2087136981061210237], 3)*0.20) +(IFNull([DVP - NPS Numeric (copy)_342555104460296196], 3)*0.20)+(IFNull([TD - Yes Today Numeric (copy)_2087136981061210235], 3)*0.10)+(IFNull([TD - HygFTE Numeric (copy)_2087136981061210238], 3)*0.20)),2)) ELSEIF [Year] = 2025 THEN (Round(((IFNull([TD - NPS Numeric (copy)_2087136981061210232], 3)*0.167)+(IFNull([TD - OfficeTO Numeric (copy)_2087136981061210233], 3)*0.167)+(IFNull([TD - Office Hours Numeric (copy)_2087136981061210237], 3)*0.167) +(IFNull([DVP - NPS Numeric (copy)_342555104460296196], 3)*0.167)+(IFNull([TD - Yes Today Numeric (copy)_2087136981061210235], 3)*0.167)+(IFNull([TD - HygFTE Numeric (copy)_2087136981061210238], 3)*0.167)),2)) END
   }
@@ -1410,21 +1730,21 @@ view: fct_dsc_cleasnsed_data {
   measure: om_completion_numeric {
     description: "Calculated field: Case [Completion Percent Score] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${TABLE}.completion_percent_score = 'SAT') THEN 5 WHEN (${TABLE}.completion_percent_score = 'AT') THEN 4 WHEN (${TABLE}.completion_percent_score = 'OT') THEN 3 WHEN (${TABLE}.completion_percent_score = 'BT') THEN 2 WHEN (${TABLE}.completion_percent_score = 'SBT') THEN 1 END ;;
+    sql: ${om_completion_numeric_calc} ;;
     # Original Tableau formula: Case [Completion Percent Score] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
   measure: om_np_tx_accepted_per_np_num {
     description: "Calculated field: Case [NP Tx Accepted Per NP Score] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${TABLE}.np_tx_accepted_per_np_score = 'SAT') THEN 5 WHEN (${TABLE}.np_tx_accepted_per_np_score = 'AT') THEN 4 WHEN (${TABLE}.np_tx_accepted_per_np_score = 'OT') THEN 3 WHEN (${TABLE}.np_tx_accepted_per_np_score = 'BT') THEN 2 WHEN (${TABLE}.np_tx_accepted_per_np_score = 'SBT') THEN 1 END ;;
+    sql: ${om_np_tx_accepted_per_np_num_calc} ;;
     # Original Tableau formula: Case [NP Tx Accepted Per NP Score] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
   measure: om_gross_profit_variance_to_budget_num {
     description: "Calculated field: Case [Gross Profit Varianceto Budget Score] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${TABLE}.gross_profit_varianceto_budget_score = 'SAT') THEN 5 WHEN (${TABLE}.gross_profit_varianceto_budget_score = 'AT') THEN 4 WHEN (${TABLE}.gross_profit_varianceto_budget_score = 'OT') THEN 3 WHEN (${TABLE}.gross_profit_varianceto_budget_score = 'BT') THEN 2 WHEN (${TABLE}.gross_profit_varianceto_budget_score = 'SBT') THEN 1 END ;;
+    sql: ${om_gross_profit_variance_to_budget_num_calc} ;;
     # Original Tableau formula: Case [Gross Profit Varianceto Budget Score] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
@@ -1438,28 +1758,28 @@ view: fct_dsc_cleasnsed_data {
   measure: ebitda_margin {
     description: "Calculated field: Sum([EBITDA Bal])/Sum([Net Patient Revenue])"
     type: number
-    sql: (SUM(${TABLE}.ebitda_bal) / SUM(${TABLE}.net_patient_revenue)) ;;
+    sql: ${ebitda_margin_calc} ;;
     # Original Tableau formula: Sum([EBITDA Bal])/Sum([Net Patient Revenue])
   }
 
   dimension: facility {
     description: "Calculated field: [Facility Name]+\" - \"+[Facility Code]"
     type: string
-    sql: ((${TABLE}.facility_name || ' - ') || ${TABLE}.facility_code) ;;
+    sql: ((${TABLE}.`Facility Name` || ' - ') || ${TABLE}.`Facility Code`) ;;
     # Original Tableau formula: [Facility Name]+" - "+[Facility Code]
   }
 
   measure: sortfield_om {
     description: "Calculated field: Case [Parameters].[Parameter 2 1] When 'Alphabetical' Then FLOAT(STR(MIN(UPPER([Facility Code])))+STR(MIN(UPPER(MID([Facility Code],2,1))))) When 'Overall' Then Sum([Calculation_2087136979572551699]) * INT([Parameters].[Parameter 3 1]) When 'Net Promoter Score' Then Sum([NetPromoterScore]) * INT([Parameters].[Parameter 3 1]) When 'Rolling 12-month TO %' Then Sum([Office TO]) * INT([Parameters].[Parameter 3 1]) When 'Credit App %' Then Sum([Credit App]) * INT([Parameters].[Parameter 3 1]) When 'NP Completion %' Then Sum([Completion Percent]) * INT([Parameters].[Parameter 3 1]) When 'Gross Profit vs Budget' Then [Calculation_555068665991815169] * INT([Parameters].[Parameter 3 1]) When 'EBITDA vs Budget' Then Sum([EBITD Avs Bud]) * INT([Parameters].[Parameter 3 1]) END"
     type: number
-    sql: CASE WHEN ({% parameter parameter_2_1 %} = 'Alphabetical') THEN CAST((CAST(MIN(UPPER(${TABLE}.facility_code)) AS STRING) + CAST(MIN(UPPER(SUBSTR(${TABLE}.facility_code, 2, 1))) AS STRING)) AS FLOAT64) WHEN ({% parameter parameter_2_1 %} = 'Overall') THEN (SUM(${om_overall_score_num}) * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Net Promoter Score') THEN (SUM(${TABLE}.netpromoterscore) * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Rolling 12-month TO %') THEN (SUM(${TABLE}.office_to) * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Credit App %') THEN (SUM(${TABLE}.credit_app) * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'NP Completion %') THEN (SUM(${TABLE}.completion_percent) * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Gross Profit vs Budget') THEN (${gross_profit_rollup_om} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'EBITDA vs Budget') THEN (SUM(${TABLE}.ebitd_avs_bud) * CAST({% parameter parameter_3_1 %} AS INT64)) END ;;
+    sql: ${sortfield_om_calc} ;;
     # Original Tableau formula: Case [Parameters].[Parameter 2 1] When 'Alphabetical' Then FLOAT(STR(MIN(UPPER([Facility Code])))+STR(MIN(UPPER(MID([Facility Code],2,1))))) When 'Overall' Then Sum([Calculation_2087136979572551699]) * INT([Parameters].[Parameter 3 1]) When 'Net Promoter Score' Then Sum([NetPromoterScore]) * INT([Parameters].[Parameter 3 1]) When 'Rolling 12-month TO %' Then Sum([Office TO]) * INT([Parameters].[Parameter 3 1]) When 'Credit App %' Then Sum([Credit App]) * INT([Parameters].[Parameter 3 1]) When 'NP Completion %' Then Sum([Completion Percent]) * INT([Parameters].[Parameter 3 1]) When 'Gross Profit vs Budget' Then [Calculation_555068665991815169] * INT([Parameters].[Parameter 3 1]) When 'EBITDA vs Budget' Then Sum([EBITD Avs Bud]) * INT([Parameters].[Parameter 3 1]) END
   }
 
   dimension: territory_new_2 {
     description: "Calculated field: { FIXED [Territory Director], [Calculation_361976851997593603], [Calculation_2699345060414803975]: If COUNTD([Territory]) > 1 Then 1 ELSE 0 END} + { FIXED [Territory], [Calculation_361976851997593603], [Calculation_2699345060414803975]: If COUNTD([Territory Director]) > 1 Then 1 else 0 END} >= 1"
     type: yesno
-    sql: (((SELECT CASE WHEN (COUNT(DISTINCT ${TABLE}.territory) > 1) THEN 1 ELSE 0 END FROM ${TABLE} GROUP BY territory_director, ${first_of_month}, ${unopened_office_filter}) + (SELECT CASE WHEN (COUNT(DISTINCT ${TABLE}.territory_director) > 1) THEN 1 ELSE 0 END FROM ${TABLE} GROUP BY territory, ${first_of_month}, ${unopened_office_filter})) >= 1) ;;
+    sql: (((SELECT CASE WHEN (COUNT(DISTINCT ${TABLE}.`Territory`) > 1) THEN 1 ELSE 0 END FROM ${TABLE} GROUP BY `Territory Director`, ${first_of_month}, ${unopened_office_filter}) + (SELECT CASE WHEN (COUNT(DISTINCT ${TABLE}.`Territory Director`) > 1) THEN 1 ELSE 0 END FROM ${TABLE} GROUP BY `Territory`, ${first_of_month}, ${unopened_office_filter})) >= 1) ;;
     # Original Tableau formula: { FIXED [Territory Director], [Calculation_361976851997593603], [Calculation_2699345060414803975]: If COUNTD([Territory]) > 1 Then 1 ELSE 0 END} + { FIXED [Territory], [Calculation_361976851997593603], [Calculation_2699345060414803975]: If COUNTD([Territory Director]) > 1 Then 1 else 0 END} >= 1
   }
 
@@ -1473,14 +1793,14 @@ view: fct_dsc_cleasnsed_data {
   dimension: timing_parameter {
     description: "Calculated field: [Timing] = [Parameters].[Parameter 1]"
     type: yesno
-    sql: (${TABLE}.timing = {% parameter parameter_1 %}) ;;
+    sql: (${TABLE}.`Timing` = {% parameter parameter_1 %}) ;;
     # Original Tableau formula: [Timing] = [Parameters].[Parameter 1]
   }
 
   dimension: month_year {
     description: "Calculated field: STR([Year])+\", \"+Str([Month])"
     type: string
-    sql: ((CAST(${TABLE}.year AS STRING) || ', ') || CAST(${TABLE}.month AS STRING)) ;;
+    sql: ((CAST(${TABLE}.`Year` AS STRING) || ', ') || CAST(${TABLE}.`Month` AS STRING)) ;;
     # Original Tableau formula: STR([Year])+", "+Str([Month])
   }
 
@@ -1494,21 +1814,21 @@ view: fct_dsc_cleasnsed_data {
   dimension: overall_om_score_1 {
     description: "Calculated field: IF [Calculation_2087136979572551699] >= 3.9 Then 'SAT' ELSEIF [Calculation_2087136979572551699] >= 3.4 Then 'AT' ELSEIF [Calculation_2087136979572551699] >= 2.7 Then 'OT' ELSEIF [Calculation_2087136979572551699] >= 2.0 Then 'BT' ELSEIF [Calculation_2087136979572551699] >= 0 Then 'SBT' ELSE Null END"
     type: string
-    sql: CASE WHEN (${om_overall_score_num} >= 3.9) THEN 'SAT' ELSE CASE WHEN (${om_overall_score_num} >= 3.4) THEN 'AT' ELSE CASE WHEN (${om_overall_score_num} >= 2.7) THEN 'OT' ELSE CASE WHEN (${om_overall_score_num} >= 2.0) THEN 'BT' ELSE CASE WHEN (${om_overall_score_num} >= 0) THEN 'SBT' ELSE NULL END END END END END ;;
+    sql: CASE WHEN (${om_overall_score_num_calc} >= 3.9) THEN 'SAT' ELSE CASE WHEN (${om_overall_score_num_calc} >= 3.4) THEN 'AT' ELSE CASE WHEN (${om_overall_score_num_calc} >= 2.7) THEN 'OT' ELSE CASE WHEN (${om_overall_score_num_calc} >= 2.0) THEN 'BT' ELSE CASE WHEN (${om_overall_score_num_calc} >= 0) THEN 'SBT' ELSE NULL END END END END END ;;
     # Original Tableau formula: IF [Calculation_2087136979572551699] >= 3.9 Then 'SAT' ELSEIF [Calculation_2087136979572551699] >= 3.4 Then 'AT' ELSEIF [Calculation_2087136979572551699] >= 2.7 Then 'OT' ELSEIF [Calculation_2087136979572551699] >= 2.0 Then 'BT' ELSEIF [Calculation_2087136979572551699] >= 0 Then 'SBT' ELSE Null END
   }
 
   dimension: rm_scores_nps {
     description: "Calculated field: { FIXED [Region Description],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF [Calculation_361976852010156036] >= Round(AVG([NPSSAT _Union_]),3) Then 'SAT' ELSEIF [Calculation_361976852010156036] >= Round(AVG([NPSATLow _Union_]),3) Then 'AT' ELSEIF [Calculation_361976852010156036] >= Round(AVG([NPSOTLow _Union_]),3) OR ISNULL([Calculation_361976852010156036]) Then 'OT' ELSEIF [Calculation_361976852010156036] >= Round(AVG([NPSBTLow _Union_]),3) Then 'BT' ELSEIF [Calculation_361976852010156036] < Round(AVG([NPSBTLow _Union_]),3) Then 'SBT' END)}"
     type: string
-    sql: (SELECT CASE WHEN (${net_promoter_score_rollup} >= ROUND(AVG(${TABLE}.npssat_union), 3)) THEN 'SAT' ELSE CASE WHEN (${net_promoter_score_rollup} >= ROUND(AVG(${TABLE}.npsatlow_union), 3)) THEN 'AT' ELSE CASE WHEN ((${net_promoter_score_rollup} >= ROUND(AVG(${TABLE}.npsotlow_union), 3)) OR ${net_promoter_score_rollup} IS NULL) THEN 'OT' ELSE CASE WHEN (${net_promoter_score_rollup} >= ROUND(AVG(${TABLE}.npsbtlow_union), 3)) THEN 'BT' ELSE CASE WHEN (${net_promoter_score_rollup} < ROUND(AVG(${TABLE}.npsbtlow_union), 3)) THEN 'SBT' ELSE NULL END END END END END FROM ${TABLE} GROUP BY region_description, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
+    sql: (SELECT CASE WHEN (${net_promoter_score_rollup_calc} >= ROUND(AVG(${TABLE}.`NPSSAT _Union_`), 3)) THEN 'SAT' ELSE CASE WHEN (${net_promoter_score_rollup_calc} >= ROUND(AVG(${TABLE}.`NPSATLow _Union_`), 3)) THEN 'AT' ELSE CASE WHEN ((${net_promoter_score_rollup_calc} >= ROUND(AVG(${TABLE}.`NPSOTLow _Union_`), 3)) OR ${net_promoter_score_rollup_calc} IS NULL) THEN 'OT' ELSE CASE WHEN (${net_promoter_score_rollup_calc} >= ROUND(AVG(${TABLE}.`NPSBTLow _Union_`), 3)) THEN 'BT' ELSE CASE WHEN (${net_promoter_score_rollup_calc} < ROUND(AVG(${TABLE}.`NPSBTLow _Union_`), 3)) THEN 'SBT' ELSE NULL END END END END END FROM ${TABLE} GROUP BY `Region Description`, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
     # Original Tableau formula: { FIXED [Region Description],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF [Calculation_361976852010156036] >= Round(AVG([NPSSAT _Union_]),3) Then 'SAT' ELSEIF [Calculation_361976852010156036] >= Round(AVG([NPSATLow _Union_]),3) Then 'AT' ELSEIF [Calculation_361976852010156036] >= Round(AVG([NPSOTLow _Union_]),3) OR ISNULL([Calculation_361976852010156036]) Then 'OT' ELSEIF [Calculation_361976852010156036] >= Round(AVG([NPSBTLow _Union_]),3) Then 'BT' ELSEIF [Calculation_361976852010156036] < Round(AVG([NPSBTLow _Union_]),3) Then 'SBT' END)}
   }
 
   measure: ebitda_rollup {
     description: "Calculated field: Round(Sum([EBITDA Bal])/Sum([EBITDA Bud])-1, 4)"
     type: number
-    sql: ROUND(((SUM(${TABLE}.ebitda_bal) / SUM(${TABLE}.ebitda_bud)) - 1), 4) ;;
+    sql: ${ebitda_rollup_calc} ;;
     # Original Tableau formula: Round(Sum([EBITDA Bal])/Sum([EBITDA Bud])-1, 4)
   }
 
@@ -1522,7 +1842,7 @@ view: fct_dsc_cleasnsed_data {
   dimension: unopened_office_filter {
     description: "Calculated field: [Facility Opening Date] < DATEADD('month', 1,[Calculation_361976851997593603])"
     type: yesno
-    sql: (${TABLE}.facility_opening_date < DATE_ADD(${first_of_month}, INTERVAL 1 MONTH)) ;;
+    sql: (${TABLE}.`Facility Opening Date` < DATE_ADD(${first_of_month}, INTERVAL 1 MONTH)) ;;
     # Original Tableau formula: [Facility Opening Date] < DATEADD('month', 1,[Calculation_361976851997593603])
   }
 
@@ -1543,21 +1863,21 @@ view: fct_dsc_cleasnsed_data {
   dimension: first_of_month {
     description: "Calculated field: DATE(Str([Year])+\"-\"+STR([Month])+\"-01\")"
     type: string
-    sql: DATE((((CAST(${TABLE}.year AS STRING) || '-') || CAST(${TABLE}.month AS STRING)) || '-01')) ;;
+    sql: TIMESTAMP(DATE((((CAST(${TABLE}.`Year` AS STRING) || '-') || CAST(${TABLE}.`Month` AS STRING)) || '-01'))) ;;
     # Original Tableau formula: DATE(Str([Year])+"-"+STR([Month])+"-01")
   }
 
   measure: net_promoter_score_rollup {
     description: "Calculated field: Round(Sum([NetPromoterNum])/Sum([NetPromoterDen]), 3)"
     type: number
-    sql: ROUND((SUM(${TABLE}.netpromoternum) / SUM(${TABLE}.netpromoterden)), 3) ;;
+    sql: ${net_promoter_score_rollup_calc} ;;
     # Original Tableau formula: Round(Sum([NetPromoterNum])/Sum([NetPromoterDen]), 3)
   }
 
   measure: office_to_rollup {
     description: "Calculated field: Round(Sum([Office Terminations])/Sum([Office HC]), 4)*2"
     type: number
-    sql: (ROUND((SUM(${TABLE}.office_terminations) / SUM(${TABLE}.office_hc)), 4) * 2) ;;
+    sql: ${office_to_rollup_calc} ;;
     # Original Tableau formula: Round(Sum([Office Terminations])/Sum([Office HC]), 4)*2
   }
 
@@ -1571,35 +1891,35 @@ view: fct_dsc_cleasnsed_data {
   dimension: territory_dir_new {
     description: "Calculated field: IF [Calculation_1997627949834194945] = TRUE Then 'Not 1 to 1' ELSE [Territory Director] END"
     type: string
-    sql: CASE WHEN (${territory_new_2} = TRUE) THEN 'Not 1 to 1' ELSE ${TABLE}.territory_director END ;;
+    sql: CASE WHEN (${territory_new_2} = TRUE) THEN 'Not 1 to 1' ELSE ${TABLE}.`Territory Director` END ;;
     # Original Tableau formula: IF [Calculation_1997627949834194945] = TRUE Then 'Not 1 to 1' ELSE [Territory Director] END
   }
 
   measure: gross_profit_rollup_om {
     description: "Calculated field: Round((Sum([OMGrossProfitBal])/SUM([OMGrossProfitBud]))-1, 4)"
     type: number
-    sql: ROUND(((SUM(${TABLE}.omgrossprofitbal) / SUM(${TABLE}.omgrossprofitbud)) - 1), 4) ;;
+    sql: ${gross_profit_rollup_om_calc} ;;
     # Original Tableau formula: Round((Sum([OMGrossProfitBal])/SUM([OMGrossProfitBud]))-1, 4)
   }
 
   measure: completion_rollup {
     description: "Calculated field: Round(SUM([New Patient Tx Plan Completion Rate Num])/Sum([New Patient Tx Plan Completion Rate Den]), 3)"
     type: number
-    sql: ROUND((SUM(${TABLE}.new_patient_tx_plan_completion_rate_num) / SUM(${TABLE}.new_patient_tx_plan_completion_rate_den)), 3) ;;
+    sql: ${completion_rollup_calc} ;;
     # Original Tableau formula: Round(SUM([New Patient Tx Plan Completion Rate Num])/Sum([New Patient Tx Plan Completion Rate Den]), 3)
   }
 
   measure: credit_app_rollup {
     description: "Calculated field: Round(Sum([PercentCreditApplicationsWithTxOver500Num])/Sum([PercentCreditApplicationsWithTxOver500Den]), 3)"
     type: number
-    sql: ROUND((SUM(${TABLE}.percentcreditapplicationswithtxover500num) / SUM(${TABLE}.percentcreditapplicationswithtxover500den)), 3) ;;
+    sql: ${credit_app_rollup_calc} ;;
     # Original Tableau formula: Round(Sum([PercentCreditApplicationsWithTxOver500Num])/Sum([PercentCreditApplicationsWithTxOver500Den]), 3)
   }
 
   dimension: metric_selector_map {
     description: "Calculated field: Case [Parameters].[Parameter 3] When 'Net Promoter Score' Then [NPSScore] When 'Non Provider TO' Then [Turnover Score] When 'Completion %' Then [Completion Percent Score] When 'Credit App %' Then [Credit App Score] When 'NP Tx Accepted Per NP' Then [NP Tx Accepted Per NP Score] When 'Gross Profit vs Budget' Then [Gross Profit Varianceto Budget Score] When 'EBITDA vs Budget' Then [EBITDA Varianceto Budget Score] When 'Overall' Then [Calculation_2087136979961171989] END"
     type: string
-    sql: CASE WHEN ({% parameter parameter_3 %} = 'Net Promoter Score') THEN ${TABLE}.npsscore WHEN ({% parameter parameter_3 %} = 'Non Provider TO') THEN ${TABLE}.turnover_score WHEN ({% parameter parameter_3 %} = 'Completion %') THEN ${TABLE}.completion_percent_score WHEN ({% parameter parameter_3 %} = 'Credit App %') THEN ${TABLE}.credit_app_score WHEN ({% parameter parameter_3 %} = 'NP Tx Accepted Per NP') THEN ${TABLE}.np_tx_accepted_per_np_score WHEN ({% parameter parameter_3 %} = 'Gross Profit vs Budget') THEN ${TABLE}.gross_profit_varianceto_budget_score WHEN ({% parameter parameter_3 %} = 'EBITDA vs Budget') THEN ${TABLE}.ebitda_varianceto_budget_score WHEN ({% parameter parameter_3 %} = 'Overall') THEN ${overall_om_score_1} END ;;
+    sql: CASE WHEN ({% parameter parameter_3 %} = 'Net Promoter Score') THEN ${TABLE}.`NPSScore` WHEN ({% parameter parameter_3 %} = 'Non Provider TO') THEN ${TABLE}.`Turnover Score` WHEN ({% parameter parameter_3 %} = 'Completion %') THEN ${TABLE}.`Completion Percent Score` WHEN ({% parameter parameter_3 %} = 'Credit App %') THEN ${TABLE}.`Credit App Score` WHEN ({% parameter parameter_3 %} = 'NP Tx Accepted Per NP') THEN ${TABLE}.`NP Tx Accepted Per NP Score` WHEN ({% parameter parameter_3 %} = 'Gross Profit vs Budget') THEN ${TABLE}.`Gross Profit Varianceto Budget Score` WHEN ({% parameter parameter_3 %} = 'EBITDA vs Budget') THEN ${TABLE}.`EBITDA Varianceto Budget Score` WHEN ({% parameter parameter_3 %} = 'Overall') THEN ${overall_om_score_1} END ;;
     # Original Tableau formula: Case [Parameters].[Parameter 3] When 'Net Promoter Score' Then [NPSScore] When 'Non Provider TO' Then [Turnover Score] When 'Completion %' Then [Completion Percent Score] When 'Credit App %' Then [Credit App Score] When 'NP Tx Accepted Per NP' Then [NP Tx Accepted Per NP Score] When 'Gross Profit vs Budget' Then [Gross Profit Varianceto Budget Score] When 'EBITDA vs Budget' Then [EBITDA Varianceto Budget Score] When 'Overall' Then [Calculation_2087136979961171989] END
   }
 
@@ -1655,42 +1975,42 @@ view: fct_dsc_cleasnsed_data {
   dimension: in_hierarchy {
     description: "Calculated field: { FIXED : SUM([Calculation_853432193643511813])} <> 0"
     type: yesno
-    sql: ((SELECT SUM(${usernameposition}) FROM ${TABLE}) != 0) ;;
+    sql: ((SELECT SUM(${usernameposition_calc}) FROM ${TABLE}) != 0) ;;
     # Original Tableau formula: { FIXED : SUM([Calculation_853432193643511813])} <> 0
   }
 
   dimension: usernumber {
     description: "Calculated field: IF [Calculation_853432193643511813] > 0 THEN MID([User Names],[Calculation_853432193643511813]-2,2) END"
     type: string
-    sql: CASE WHEN (${usernameposition} > 0) THEN SUBSTR(${TABLE}.user_names, (${usernameposition} - 2), 2) ELSE NULL END ;;
+    sql: CASE WHEN (${usernameposition_calc} > 0) THEN SUBSTR(${TABLE}.`User Names`, (${usernameposition_calc} - 2), 2) ELSE NULL END ;;
     # Original Tableau formula: IF [Calculation_853432193643511813] > 0 THEN MID([User Names],[Calculation_853432193643511813]-2,2) END
   }
 
   dimension: userfilter {
     description: "Calculated field: [Calculation_853432193643511813] > 0 OR NOT [Calculation_853432193643671558]"
     type: yesno
-    sql: ((${usernameposition} > 0) OR NOT ${in_hierarchy}) ;;
+    sql: ((${usernameposition_calc} > 0) OR NOT ${in_hierarchy}) ;;
     # Original Tableau formula: [Calculation_853432193643511813] > 0 OR NOT [Calculation_853432193643671558]
   }
 
   dimension: usertype {
     description: "Calculated field: IF [Calculation_853432193643511813] > 0 THEN LEFT(MID([User Types],FIND([User Types],[Calculation_853432193643757575])+3,100),FIND(MID([User Types],FIND([User Types],[Calculation_853432193643757575])+3,100) ,',')-1) END"
     type: string
-    sql: CASE WHEN (${usernameposition} > 0) THEN LEFT(SUBSTR(${TABLE}.user_types, (STRPOS(${TABLE}.user_types, ${usernumber}) + 3), 100), (STRPOS(SUBSTR(${TABLE}.user_types, (STRPOS(${TABLE}.user_types, ${usernumber}) + 3), 100), ',') - 1)) ELSE NULL END ;;
+    sql: CASE WHEN (${usernameposition_calc} > 0) THEN LEFT(SUBSTR(${TABLE}.`User Types`, (STRPOS(${TABLE}.`User Types`, ${usernumber}) || 3), 100), (STRPOS(SUBSTR(${TABLE}.`User Types`, (STRPOS(${TABLE}.`User Types`, ${usernumber}) || 3), 100), ',') - 1)) ELSE NULL END ;;
     # Original Tableau formula: IF [Calculation_853432193643511813] > 0 THEN LEFT(MID([User Types],FIND([User Types],[Calculation_853432193643757575])+3,100),FIND(MID([User Types],FIND([User Types],[Calculation_853432193643757575])+3,100) ,',')-1) END
   }
 
   dimension: firstname {
     description: "Calculated field: IF [Calculation_853432193643511813] > 0 THEN LEFT(MID([First Names],FIND([First Names],[Calculation_853432193643757575])+3,100),FIND(MID([First Names],FIND([First Names],[Calculation_853432193643757575])+3,100) ,',')-1) END"
     type: string
-    sql: CASE WHEN (${usernameposition} > 0) THEN LEFT(SUBSTR(${TABLE}.first_names, (STRPOS(${TABLE}.first_names, ${usernumber}) + 3), 100), (STRPOS(SUBSTR(${TABLE}.first_names, (STRPOS(${TABLE}.first_names, ${usernumber}) + 3), 100), ',') - 1)) ELSE NULL END ;;
+    sql: CASE WHEN (${usernameposition_calc} > 0) THEN LEFT(SUBSTR(${TABLE}.`First Names`, (STRPOS(${TABLE}.`First Names`, ${usernumber}) || 3), 100), (STRPOS(SUBSTR(${TABLE}.`First Names`, (STRPOS(${TABLE}.`First Names`, ${usernumber}) || 3), 100), ',') - 1)) ELSE NULL END ;;
     # Original Tableau formula: IF [Calculation_853432193643511813] > 0 THEN LEFT(MID([First Names],FIND([First Names],[Calculation_853432193643757575])+3,100),FIND(MID([First Names],FIND([First Names],[Calculation_853432193643757575])+3,100) ,',')-1) END
   }
 
   dimension: lastname {
     description: "Calculated field: IF [Calculation_853432193643511813] > 0 THEN LEFT(MID([Last Names],FIND([Last Names],[Calculation_853432193643757575])+3,100),FIND(MID([Last Names],FIND([Last Names],[Calculation_853432193643757575])+3,100) ,',')-1) END"
     type: string
-    sql: CASE WHEN (${usernameposition} > 0) THEN LEFT(SUBSTR(${TABLE}.last_names, (STRPOS(${TABLE}.last_names, ${usernumber}) + 3), 100), (STRPOS(SUBSTR(${TABLE}.last_names, (STRPOS(${TABLE}.last_names, ${usernumber}) + 3), 100), ',') - 1)) ELSE NULL END ;;
+    sql: CASE WHEN (${usernameposition_calc} > 0) THEN LEFT(SUBSTR(${TABLE}.`Last Names`, (STRPOS(${TABLE}.`Last Names`, ${usernumber}) || 3), 100), (STRPOS(SUBSTR(${TABLE}.`Last Names`, (STRPOS(${TABLE}.`Last Names`, ${usernumber}) || 3), 100), ',') - 1)) ELSE NULL END ;;
     # Original Tableau formula: IF [Calculation_853432193643511813] > 0 THEN LEFT(MID([Last Names],FIND([Last Names],[Calculation_853432193643757575])+3,100),FIND(MID([Last Names],FIND([Last Names],[Calculation_853432193643757575])+3,100) ,',')-1) END
   }
 
@@ -1711,105 +2031,105 @@ view: fct_dsc_cleasnsed_data {
   measure: gross_profit_rollup {
     description: "Calculated field: Round(Sum([Gross Profit Bal])/SUM([Gross Profit Bud])-1, 4)"
     type: number
-    sql: ROUND(((SUM(${TABLE}.gross_profit_bal) / SUM(${TABLE}.gross_profit_bud)) - 1), 4) ;;
+    sql: ${gross_profit_rollup_calc} ;;
     # Original Tableau formula: Round(Sum([Gross Profit Bal])/SUM([Gross Profit Bud])-1, 4)
   }
 
   measure: om_credit_app_numeric {
     description: "Calculated field: Case [Credit App Score] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${TABLE}.credit_app_score = 'SAT') THEN 5 WHEN (${TABLE}.credit_app_score = 'AT') THEN 4 WHEN (${TABLE}.credit_app_score = 'OT') THEN 3 WHEN (${TABLE}.credit_app_score = 'BT') THEN 2 WHEN (${TABLE}.credit_app_score = 'SBT') THEN 1 END ;;
+    sql: ${om_credit_app_numeric_calc} ;;
     # Original Tableau formula: Case [Credit App Score] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
   measure: dvp_completion_numeric {
     description: "Calculated field: Case [TD Scores - Implant Units (copy)_2087136981061386382] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${dvp_scores_completion} = 'SAT') THEN 5 WHEN (${dvp_scores_completion} = 'AT') THEN 4 WHEN (${dvp_scores_completion} = 'OT') THEN 3 WHEN (${dvp_scores_completion} = 'BT') THEN 2 WHEN (${dvp_scores_completion} = 'SBT') THEN 1 END ;;
+    sql: ${dvp_completion_numeric_calc} ;;
     # Original Tableau formula: Case [TD Scores - Implant Units (copy)_2087136981061386382] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
   measure: ebitda_margin_mature {
     description: "Calculated field: Sum(Case Mature When 1 Then [EBITDA Bal] Else 0 END)/Sum(Case Mature When 1 Then [Net Patient Revenue] Else 0 END)"
     type: number
-    sql: (SUM(CASE WHEN (${TABLE}.mature = 1) THEN ${TABLE}.ebitda_bal ELSE 0 END) / SUM(CASE WHEN (${TABLE}.mature = 1) THEN ${TABLE}.net_patient_revenue ELSE 0 END)) ;;
+    sql: ${ebitda_margin_mature_calc} ;;
     # Original Tableau formula: Sum(Case Mature When 1 Then [EBITDA Bal] Else 0 END)/Sum(Case Mature When 1 Then [Net Patient Revenue] Else 0 END)
   }
 
   measure: gross_profit_rollup_rm {
     description: "Calculated field: Round(Sum([RMGrossProfitBal])/SUM([RMGrossProfitBud])-1, 4)"
     type: number
-    sql: ROUND(((SUM(${TABLE}.rmgrossprofitbal) / SUM(${TABLE}.rmgrossprofitbud)) - 1), 4) ;;
+    sql: ${gross_profit_rollup_rm_calc} ;;
     # Original Tableau formula: Round(Sum([RMGrossProfitBal])/SUM([RMGrossProfitBud])-1, 4)
   }
 
   measure: metric_selector_map_metric {
     description: "Calculated field: Case [Parameters].[Parameter 3] When 'Net Promoter Score' Then STR(ROUND([Calculation_361976852010156036], 1)) When 'Office TO Rollup' Then STR(ROUND([Calculation_361976852014145543]*100, 1))+\"%\" When 'Completion Percent' Then STR(ROUND([Calculation_705376323849363457]*100, 1))+\"%\" When 'Credit App' Then STR(ROUND([Calculation_705376323849728002]*100, 1))+\"%\" When 'NP Tx Accepted Per NP' Then \"$\"+STR(ROUND([Net Promoter All Rollup (copy)_342555104449536003],0)) When 'Gross Profit vs Budget' Then STR(ROUND([Calculation_945193025160646656]*100,1))+\"%\" When 'EBITDA vs Budget' Then STR(ROUND([Calculation_2699345059241832452],1))+\"%\" When 'Overall' Then STR(Round(sum([Calculation_2087136979572551699]), 1)) END"
     type: number
-    sql: CASE WHEN ({% parameter parameter_3 %} = 'Net Promoter Score') THEN CAST(ROUND(${net_promoter_score_rollup}, 1) AS STRING) WHEN ({% parameter parameter_3 %} = 'Office TO Rollup') THEN (CAST(ROUND((${office_to_rollup} * 100), 1) AS STRING) || '%') WHEN ({% parameter parameter_3 %} = 'Completion Percent') THEN (CAST(ROUND((${completion_rollup} * 100), 1) AS STRING) || '%') WHEN ({% parameter parameter_3 %} = 'Credit App') THEN (CAST(ROUND((${credit_app_rollup} * 100), 1) AS STRING) || '%') WHEN ({% parameter parameter_3 %} = 'NP Tx Accepted Per NP') THEN ('$' || CAST(ROUND(${np_tx_accepted_rollup}, 0) AS STRING)) WHEN ({% parameter parameter_3 %} = 'Gross Profit vs Budget') THEN (CAST(ROUND((${gross_profit_rollup} * 100), 1) AS STRING) || '%') WHEN ({% parameter parameter_3 %} = 'EBITDA vs Budget') THEN (CAST(ROUND(${ebitda_rollup}, 1) AS STRING) || '%') WHEN ({% parameter parameter_3 %} = 'Overall') THEN CAST(ROUND(SUM(${om_overall_score_num}), 1) AS STRING) END ;;
+    sql: ${metric_selector_map_metric_calc} ;;
     # Original Tableau formula: Case [Parameters].[Parameter 3] When 'Net Promoter Score' Then STR(ROUND([Calculation_361976852010156036], 1)) When 'Office TO Rollup' Then STR(ROUND([Calculation_361976852014145543]*100, 1))+"%" When 'Completion Percent' Then STR(ROUND([Calculation_705376323849363457]*100, 1))+"%" When 'Credit App' Then STR(ROUND([Calculation_705376323849728002]*100, 1))+"%" When 'NP Tx Accepted Per NP' Then "$"+STR(ROUND([Net Promoter All Rollup (copy)_342555104449536003],0)) When 'Gross Profit vs Budget' Then STR(ROUND([Calculation_945193025160646656]*100,1))+"%" When 'EBITDA vs Budget' Then STR(ROUND([Calculation_2699345059241832452],1))+"%" When 'Overall' Then STR(Round(sum([Calculation_2087136979572551699]), 1)) END
   }
 
   measure: np_tx_accepted_rollup {
     description: "Calculated field: Round(Sum([NP Tx Accepted Per NP Num])/Sum([NP Tx Accepted Per NP Den]), 0)"
     type: number
-    sql: ROUND((SUM(${TABLE}.np_tx_accepted_per_np_num) / SUM(${TABLE}.np_tx_accepted_per_np_den)), 0) ;;
+    sql: ${np_tx_accepted_rollup_calc} ;;
     # Original Tableau formula: Round(Sum([NP Tx Accepted Per NP Num])/Sum([NP Tx Accepted Per NP Den]), 0)
   }
 
   measure: rm_nps_numeric {
     description: "Calculated field: Case [Calculation_2087136979976179744] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${rm_scores_nps} = 'SAT') THEN 5 WHEN (${rm_scores_nps} = 'AT') THEN 4 WHEN (${rm_scores_nps} = 'OT') THEN 3 WHEN (${rm_scores_nps} = 'BT') THEN 2 WHEN (${rm_scores_nps} = 'SBT') THEN 1 END ;;
+    sql: ${rm_nps_numeric_calc} ;;
     # Original Tableau formula: Case [Calculation_2087136979976179744] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
   measure: rm_officeto_numeric {
     description: "Calculated field: Case [RM Scores - Credit Apps (copy)_2087136979990208548] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${rm_scores_officeto} = 'SAT') THEN 5 WHEN (${rm_scores_officeto} = 'AT') THEN 4 WHEN (${rm_scores_officeto} = 'OT') THEN 3 WHEN (${rm_scores_officeto} = 'BT') THEN 2 WHEN (${rm_scores_officeto} = 'SBT') THEN 1 END ;;
+    sql: ${rm_officeto_numeric_calc} ;;
     # Original Tableau formula: Case [RM Scores - Credit Apps (copy)_2087136979990208548] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
   measure: om_nps_numeric {
     description: "Calculated field: Case [NPSScore] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${TABLE}.npsscore = 'SAT') THEN 5 WHEN (${TABLE}.npsscore = 'AT') THEN 4 WHEN (${TABLE}.npsscore = 'OT') THEN 3 WHEN (${TABLE}.npsscore = 'BT') THEN 2 WHEN (${TABLE}.npsscore = 'SBT') THEN 1 END ;;
+    sql: ${om_nps_numeric_calc} ;;
     # Original Tableau formula: Case [NPSScore] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
   measure: om_officeto_numeric {
     description: "Calculated field: Case [Turnover Score] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 When NULL Then NULL END"
     type: number
-    sql: CASE WHEN (${TABLE}.turnover_score = 'SAT') THEN 5 WHEN (${TABLE}.turnover_score = 'AT') THEN 4 WHEN (${TABLE}.turnover_score = 'OT') THEN 3 WHEN (${TABLE}.turnover_score = 'BT') THEN 2 WHEN (${TABLE}.turnover_score = 'SBT') THEN 1 WHEN (${TABLE}.turnover_score = NULL) THEN NULL END ;;
+    sql: ${om_officeto_numeric_calc} ;;
     # Original Tableau formula: Case [Turnover Score] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 When NULL Then NULL END
   }
 
   measure: rm_gross_profit_numeric {
     description: "Calculated field: Case [RM Scores - ShowRate (copy)_2087136979990921256] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${rm_scores_gross_profit} = 'SAT') THEN 5 WHEN (${rm_scores_gross_profit} = 'AT') THEN 4 WHEN (${rm_scores_gross_profit} = 'OT') THEN 3 WHEN (${rm_scores_gross_profit} = 'BT') THEN 2 WHEN (${rm_scores_gross_profit} = 'SBT') THEN 1 END ;;
+    sql: ${rm_gross_profit_numeric_calc} ;;
     # Original Tableau formula: Case [RM Scores - ShowRate (copy)_2087136979990921256] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
   measure: rm_np_tx_accepted_per_np_numeric {
     description: "Calculated field: Case [RM Scores - Wage Rate (copy)_2087136979991613481] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${rm_scores_np_tx_accepted_per_np} = 'SAT') THEN 5 WHEN (${rm_scores_np_tx_accepted_per_np} = 'AT') THEN 4 WHEN (${rm_scores_np_tx_accepted_per_np} = 'OT') THEN 3 WHEN (${rm_scores_np_tx_accepted_per_np} = 'BT') THEN 2 WHEN (${rm_scores_np_tx_accepted_per_np} = 'SBT') THEN 1 END ;;
+    sql: ${rm_np_tx_accepted_per_np_numeric_calc} ;;
     # Original Tableau formula: Case [RM Scores - Wage Rate (copy)_2087136979991613481] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
   measure: rm_completion_numeric {
     description: "Calculated field: Case [RM Scores - AvgRev&Dep (copy)_2087136979977338914] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${rm_scores_completion} = 'SAT') THEN 5 WHEN (${rm_scores_completion} = 'AT') THEN 4 WHEN (${rm_scores_completion} = 'OT') THEN 3 WHEN (${rm_scores_completion} = 'BT') THEN 2 WHEN (${rm_scores_completion} = 'SBT') THEN 1 END ;;
+    sql: ${rm_completion_numeric_calc} ;;
     # Original Tableau formula: Case [RM Scores - AvgRev&Dep (copy)_2087136979977338914] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
   measure: rm_credit_app_numeric {
     description: "Calculated field: Case [RM Scores - Completion (copy)_2087136979990028323] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${rm_scores_credit_apps} = 'SAT') THEN 5 WHEN (${rm_scores_credit_apps} = 'AT') THEN 4 WHEN (${rm_scores_credit_apps} = 'OT') THEN 3 WHEN (${rm_scores_credit_apps} = 'BT') THEN 2 WHEN (${rm_scores_credit_apps} = 'SBT') THEN 1 END ;;
+    sql: ${rm_credit_app_numeric_calc} ;;
     # Original Tableau formula: Case [RM Scores - Completion (copy)_2087136979990028323] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
@@ -1823,42 +2143,42 @@ view: fct_dsc_cleasnsed_data {
   dimension: overall_rm_score {
     description: "Calculated field: IF [OM Overall Score Num (copy)_2087136980012261420] >= 3.9 Then 'SAT' ELSEIF [OM Overall Score Num (copy)_2087136980012261420] >= 3.4 Then 'AT' ELSEIF [OM Overall Score Num (copy)_2087136980012261420] >= 2.7 Then 'OT' ELSEIF [OM Overall Score Num (copy)_2087136980012261420] >= 2.0 Then 'BT' ELSEIF [OM Overall Score Num (copy)_2087136980012261420] >= 0 Then 'SBT' ELSE Null END"
     type: string
-    sql: CASE WHEN (${rm_overall_score_num} >= 3.9) THEN 'SAT' ELSE CASE WHEN (${rm_overall_score_num} >= 3.4) THEN 'AT' ELSE CASE WHEN (${rm_overall_score_num} >= 2.7) THEN 'OT' ELSE CASE WHEN (${rm_overall_score_num} >= 2.0) THEN 'BT' ELSE CASE WHEN (${rm_overall_score_num} >= 0) THEN 'SBT' ELSE NULL END END END END END ;;
+    sql: CASE WHEN (${rm_overall_score_num_calc} >= 3.9) THEN 'SAT' ELSE CASE WHEN (${rm_overall_score_num_calc} >= 3.4) THEN 'AT' ELSE CASE WHEN (${rm_overall_score_num_calc} >= 2.7) THEN 'OT' ELSE CASE WHEN (${rm_overall_score_num_calc} >= 2.0) THEN 'BT' ELSE CASE WHEN (${rm_overall_score_num_calc} >= 0) THEN 'SBT' ELSE NULL END END END END END ;;
     # Original Tableau formula: IF [OM Overall Score Num (copy)_2087136980012261420] >= 3.9 Then 'SAT' ELSEIF [OM Overall Score Num (copy)_2087136980012261420] >= 3.4 Then 'AT' ELSEIF [OM Overall Score Num (copy)_2087136980012261420] >= 2.7 Then 'OT' ELSEIF [OM Overall Score Num (copy)_2087136980012261420] >= 2.0 Then 'BT' ELSEIF [OM Overall Score Num (copy)_2087136980012261420] >= 0 Then 'SBT' ELSE Null END
   }
 
   dimension: overall_td_score {
     description: "Calculated field: IF [RM Overall Score Num (copy)_2087136981005688901] >= 3.9 Then 'SAT' ELSEIF [RM Overall Score Num (copy)_2087136981005688901] >= 3.4 Then 'AT' ELSEIF [RM Overall Score Num (copy)_2087136981005688901] >= 2.7 Then 'OT' ELSEIF [RM Overall Score Num (copy)_2087136981005688901] >= 2.0 Then 'BT' ELSEIF [RM Overall Score Num (copy)_2087136981005688901] >= 0 Then 'SBT' ELSE Null END"
     type: string
-    sql: CASE WHEN (${td_overall_score_num} >= 3.9) THEN 'SAT' ELSE CASE WHEN (${td_overall_score_num} >= 3.4) THEN 'AT' ELSE CASE WHEN (${td_overall_score_num} >= 2.7) THEN 'OT' ELSE CASE WHEN (${td_overall_score_num} >= 2.0) THEN 'BT' ELSE CASE WHEN (${td_overall_score_num} >= 0) THEN 'SBT' ELSE NULL END END END END END ;;
+    sql: CASE WHEN (${td_overall_score_num_calc} >= 3.9) THEN 'SAT' ELSE CASE WHEN (${td_overall_score_num_calc} >= 3.4) THEN 'AT' ELSE CASE WHEN (${td_overall_score_num_calc} >= 2.7) THEN 'OT' ELSE CASE WHEN (${td_overall_score_num_calc} >= 2.0) THEN 'BT' ELSE CASE WHEN (${td_overall_score_num_calc} >= 0) THEN 'SBT' ELSE NULL END END END END END ;;
     # Original Tableau formula: IF [RM Overall Score Num (copy)_2087136981005688901] >= 3.9 Then 'SAT' ELSEIF [RM Overall Score Num (copy)_2087136981005688901] >= 3.4 Then 'AT' ELSEIF [RM Overall Score Num (copy)_2087136981005688901] >= 2.7 Then 'OT' ELSEIF [RM Overall Score Num (copy)_2087136981005688901] >= 2.0 Then 'BT' ELSEIF [RM Overall Score Num (copy)_2087136981005688901] >= 0 Then 'SBT' ELSE Null END
   }
 
   dimension: overall_dvp_score {
     description: "Calculated field: IF [TD Overall Score Num (copy)_2087136981061210236] >= 3.9 Then 'SAT' ELSEIF [TD Overall Score Num (copy)_2087136981061210236] >= 3.4 Then 'AT' ELSEIF [TD Overall Score Num (copy)_2087136981061210236] >= 2.7 Then 'OT' ELSEIF [TD Overall Score Num (copy)_2087136981061210236] >= 2.0 Then 'BT' ELSEIF [TD Overall Score Num (copy)_2087136981061210236] >= 0 Then 'SBT' ELSE Null END"
     type: string
-    sql: CASE WHEN (${dvp_overall_score_num} >= 3.9) THEN 'SAT' ELSE CASE WHEN (${dvp_overall_score_num} >= 3.4) THEN 'AT' ELSE CASE WHEN (${dvp_overall_score_num} >= 2.7) THEN 'OT' ELSE CASE WHEN (${dvp_overall_score_num} >= 2.0) THEN 'BT' ELSE CASE WHEN (${dvp_overall_score_num} >= 0) THEN 'SBT' ELSE NULL END END END END END ;;
+    sql: CASE WHEN (${dvp_overall_score_num_calc} >= 3.9) THEN 'SAT' ELSE CASE WHEN (${dvp_overall_score_num_calc} >= 3.4) THEN 'AT' ELSE CASE WHEN (${dvp_overall_score_num_calc} >= 2.7) THEN 'OT' ELSE CASE WHEN (${dvp_overall_score_num_calc} >= 2.0) THEN 'BT' ELSE CASE WHEN (${dvp_overall_score_num_calc} >= 0) THEN 'SBT' ELSE NULL END END END END END ;;
     # Original Tableau formula: IF [TD Overall Score Num (copy)_2087136981061210236] >= 3.9 Then 'SAT' ELSEIF [TD Overall Score Num (copy)_2087136981061210236] >= 3.4 Then 'AT' ELSEIF [TD Overall Score Num (copy)_2087136981061210236] >= 2.7 Then 'OT' ELSEIF [TD Overall Score Num (copy)_2087136981061210236] >= 2.0 Then 'BT' ELSEIF [TD Overall Score Num (copy)_2087136981061210236] >= 0 Then 'SBT' ELSE Null END
   }
 
   measure: td_nps_numeric {
     description: "Calculated field: Case [RM Scores - NPS (copy)_2087136981006102608] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${td_scores_nps} = 'SAT') THEN 5 WHEN (${td_scores_nps} = 'AT') THEN 4 WHEN (${td_scores_nps} = 'OT') THEN 3 WHEN (${td_scores_nps} = 'BT') THEN 2 WHEN (${td_scores_nps} = 'SBT') THEN 1 END ;;
+    sql: ${td_nps_numeric_calc} ;;
     # Original Tableau formula: Case [RM Scores - NPS (copy)_2087136981006102608] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
   measure: td_officeto_numeric {
     description: "Calculated field: Case [RM Scores - OfficeTO (copy 2)_2087136981006102612] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${td_scores_officeto} = 'SAT') THEN 5 WHEN (${td_scores_officeto} = 'AT') THEN 4 WHEN (${td_scores_officeto} = 'OT') THEN 3 WHEN (${td_scores_officeto} = 'BT') THEN 2 WHEN (${td_scores_officeto} = 'SBT') THEN 1 END ;;
+    sql: ${td_officeto_numeric_calc} ;;
     # Original Tableau formula: Case [RM Scores - OfficeTO (copy 2)_2087136981006102612] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
   measure: td_ebitda_numeric {
     description: "Calculated field: Case [RM Scores - Yes Today (copy)_2087136981006102617] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${td_scores_ebitda} = 'SAT') THEN 5 WHEN (${td_scores_ebitda} = 'AT') THEN 4 WHEN (${td_scores_ebitda} = 'OT') THEN 3 WHEN (${td_scores_ebitda} = 'BT') THEN 2 WHEN (${td_scores_ebitda} = 'SBT') THEN 1 END ;;
+    sql: ${td_ebitda_numeric_calc} ;;
     # Original Tableau formula: Case [RM Scores - Yes Today (copy)_2087136981006102617] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
@@ -1872,147 +2192,147 @@ view: fct_dsc_cleasnsed_data {
   dimension: rm_scores_completion {
     description: "Calculated field: { FIXED [Region Description],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF [Calculation_705376323849363457] >= Round(AVG([NPCompletionSAT _Union_]),3) Then 'SAT' ELSEIF [Calculation_705376323849363457] >= Round(AVG([NPCompletionATLow _Union_]),3) Then 'AT' ELSEIF [Calculation_705376323849363457] >= Round(AVG([NPCompletionOTLow _Union_]),3) OR ISNULL([Calculation_705376323849363457]) Then 'OT' ELSEIF [Calculation_705376323849363457] >= Round(AVG([NPCompletionBTLow _Union_]),3) Then 'BT' ELSEIF [Calculation_705376323849363457] < Round(AVG([NPCompletionBTLow _Union_]),3) Then 'SBT' END)}"
     type: string
-    sql: (SELECT CASE WHEN (${completion_rollup} >= ROUND(AVG(${TABLE}.npcompletionsat_union), 3)) THEN 'SAT' ELSE CASE WHEN (${completion_rollup} >= ROUND(AVG(${TABLE}.npcompletionatlow_union), 3)) THEN 'AT' ELSE CASE WHEN ((${completion_rollup} >= ROUND(AVG(${TABLE}.npcompletionotlow_union), 3)) OR ${completion_rollup} IS NULL) THEN 'OT' ELSE CASE WHEN (${completion_rollup} >= ROUND(AVG(${TABLE}.npcompletionbtlow_union), 3)) THEN 'BT' ELSE CASE WHEN (${completion_rollup} < ROUND(AVG(${TABLE}.npcompletionbtlow_union), 3)) THEN 'SBT' ELSE NULL END END END END END FROM ${TABLE} GROUP BY region_description, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
+    sql: (SELECT CASE WHEN (${completion_rollup_calc} >= ROUND(AVG(${TABLE}.`NPCompletionSAT _Union_`), 3)) THEN 'SAT' ELSE CASE WHEN (${completion_rollup_calc} >= ROUND(AVG(${TABLE}.`NPCompletionATLow _Union_`), 3)) THEN 'AT' ELSE CASE WHEN ((${completion_rollup_calc} >= ROUND(AVG(${TABLE}.`NPCompletionOTLow _Union_`), 3)) OR ${completion_rollup_calc} IS NULL) THEN 'OT' ELSE CASE WHEN (${completion_rollup_calc} >= ROUND(AVG(${TABLE}.`NPCompletionBTLow _Union_`), 3)) THEN 'BT' ELSE CASE WHEN (${completion_rollup_calc} < ROUND(AVG(${TABLE}.`NPCompletionBTLow _Union_`), 3)) THEN 'SBT' ELSE NULL END END END END END FROM ${TABLE} GROUP BY `Region Description`, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
     # Original Tableau formula: { FIXED [Region Description],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF [Calculation_705376323849363457] >= Round(AVG([NPCompletionSAT _Union_]),3) Then 'SAT' ELSEIF [Calculation_705376323849363457] >= Round(AVG([NPCompletionATLow _Union_]),3) Then 'AT' ELSEIF [Calculation_705376323849363457] >= Round(AVG([NPCompletionOTLow _Union_]),3) OR ISNULL([Calculation_705376323849363457]) Then 'OT' ELSEIF [Calculation_705376323849363457] >= Round(AVG([NPCompletionBTLow _Union_]),3) Then 'BT' ELSEIF [Calculation_705376323849363457] < Round(AVG([NPCompletionBTLow _Union_]),3) Then 'SBT' END)}
   }
 
   dimension: rm_scores_credit_apps {
     description: "Calculated field: { FIXED [Region Description],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF [Calculation_705376323849728002] >= Round(AVG([CreditAppsSAT _Union_]),3) Then 'SAT' ELSEIF [Calculation_705376323849728002] >= Round(AVG([CreditAppsATLow _Union_]),3) Then 'AT' ELSEIF [Calculation_705376323849728002] >= Round(AVG([CreditAppsOTLow _Union_]),3) OR ISNULL([Calculation_705376323849728002]) Then 'OT' ELSEIF [Calculation_705376323849728002] >= Round(AVG([CreditAppsBTLow _Union_]),3) Then 'BT' ELSEIF [Calculation_705376323849728002] < Round(AVG([CreditAppsBTLow _Union_]),3) Then 'SBT' END)}"
     type: string
-    sql: (SELECT CASE WHEN (${credit_app_rollup} >= ROUND(AVG(${TABLE}.creditappssat_union), 3)) THEN 'SAT' ELSE CASE WHEN (${credit_app_rollup} >= ROUND(AVG(${TABLE}.creditappsatlow_union), 3)) THEN 'AT' ELSE CASE WHEN ((${credit_app_rollup} >= ROUND(AVG(${TABLE}.creditappsotlow_union), 3)) OR ${credit_app_rollup} IS NULL) THEN 'OT' ELSE CASE WHEN (${credit_app_rollup} >= ROUND(AVG(${TABLE}.creditappsbtlow_union), 3)) THEN 'BT' ELSE CASE WHEN (${credit_app_rollup} < ROUND(AVG(${TABLE}.creditappsbtlow_union), 3)) THEN 'SBT' ELSE NULL END END END END END FROM ${TABLE} GROUP BY region_description, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
+    sql: (SELECT CASE WHEN (${credit_app_rollup_calc} >= ROUND(AVG(${TABLE}.`CreditAppsSAT _Union_`), 3)) THEN 'SAT' ELSE CASE WHEN (${credit_app_rollup_calc} >= ROUND(AVG(${TABLE}.`CreditAppsATLow _Union_`), 3)) THEN 'AT' ELSE CASE WHEN ((${credit_app_rollup_calc} >= ROUND(AVG(${TABLE}.`CreditAppsOTLow _Union_`), 3)) OR ${credit_app_rollup_calc} IS NULL) THEN 'OT' ELSE CASE WHEN (${credit_app_rollup_calc} >= ROUND(AVG(${TABLE}.`CreditAppsBTLow _Union_`), 3)) THEN 'BT' ELSE CASE WHEN (${credit_app_rollup_calc} < ROUND(AVG(${TABLE}.`CreditAppsBTLow _Union_`), 3)) THEN 'SBT' ELSE NULL END END END END END FROM ${TABLE} GROUP BY `Region Description`, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
     # Original Tableau formula: { FIXED [Region Description],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF [Calculation_705376323849728002] >= Round(AVG([CreditAppsSAT _Union_]),3) Then 'SAT' ELSEIF [Calculation_705376323849728002] >= Round(AVG([CreditAppsATLow _Union_]),3) Then 'AT' ELSEIF [Calculation_705376323849728002] >= Round(AVG([CreditAppsOTLow _Union_]),3) OR ISNULL([Calculation_705376323849728002]) Then 'OT' ELSEIF [Calculation_705376323849728002] >= Round(AVG([CreditAppsBTLow _Union_]),3) Then 'BT' ELSEIF [Calculation_705376323849728002] < Round(AVG([CreditAppsBTLow _Union_]),3) Then 'SBT' END)}
   }
 
   dimension: td_scores_completion {
     description: "Calculated field: { FIXED [Territory],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: IF [Calculation_705376323849363457] >= Round(AVG([NPCompletionSAT _Union_]),3) Then 'SAT'ELSEIF ISNULL([Calculation_705376323849363457]) then NULL ELSEIF [Calculation_705376323849363457] >= Round(AVG([NPCompletionATLow _Union_]),3) Then 'AT' ELSEIF [Calculation_705376323849363457] >= Round(Avg([NPCompletionOTLow _Union_]),3) Then 'OT' ELSEIF [Calculation_705376323849363457] >= Round(Avg([NPCompletionBTLow _Union_]),3) Then 'BT' ELSEIF [Calculation_705376323849363457] < Round(Avg([NPCompletionBTLow _Union_]),3) Then 'SBT' END}"
     type: string
-    sql: (SELECT CASE WHEN (${completion_rollup} >= ROUND(AVG(${TABLE}.npcompletionsat_union), 3)) THEN 'SAT' ELSE CASE WHEN ${completion_rollup} IS NULL THEN NULL ELSE CASE WHEN (${completion_rollup} >= ROUND(AVG(${TABLE}.npcompletionatlow_union), 3)) THEN 'AT' ELSE CASE WHEN (${completion_rollup} >= ROUND(AVG(${TABLE}.npcompletionotlow_union), 3)) THEN 'OT' ELSE CASE WHEN (${completion_rollup} >= ROUND(AVG(${TABLE}.npcompletionbtlow_union), 3)) THEN 'BT' ELSE CASE WHEN (${completion_rollup} < ROUND(AVG(${TABLE}.npcompletionbtlow_union), 3)) THEN 'SBT' ELSE NULL END END END END END END FROM ${TABLE} GROUP BY territory, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
+    sql: (SELECT CASE WHEN (${completion_rollup_calc} >= ROUND(AVG(${TABLE}.`NPCompletionSAT _Union_`), 3)) THEN 'SAT' ELSE CASE WHEN ${completion_rollup_calc} IS NULL THEN NULL ELSE CASE WHEN (${completion_rollup_calc} >= ROUND(AVG(${TABLE}.`NPCompletionATLow _Union_`), 3)) THEN 'AT' ELSE CASE WHEN (${completion_rollup_calc} >= ROUND(AVG(${TABLE}.`NPCompletionOTLow _Union_`), 3)) THEN 'OT' ELSE CASE WHEN (${completion_rollup_calc} >= ROUND(AVG(${TABLE}.`NPCompletionBTLow _Union_`), 3)) THEN 'BT' ELSE CASE WHEN (${completion_rollup_calc} < ROUND(AVG(${TABLE}.`NPCompletionBTLow _Union_`), 3)) THEN 'SBT' ELSE NULL END END END END END END FROM ${TABLE} GROUP BY `Territory`, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
     # Original Tableau formula: { FIXED [Territory],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: IF [Calculation_705376323849363457] >= Round(AVG([NPCompletionSAT _Union_]),3) Then 'SAT'ELSEIF ISNULL([Calculation_705376323849363457]) then NULL ELSEIF [Calculation_705376323849363457] >= Round(AVG([NPCompletionATLow _Union_]),3) Then 'AT' ELSEIF [Calculation_705376323849363457] >= Round(Avg([NPCompletionOTLow _Union_]),3) Then 'OT' ELSEIF [Calculation_705376323849363457] >= Round(Avg([NPCompletionBTLow _Union_]),3) Then 'BT' ELSEIF [Calculation_705376323849363457] < Round(Avg([NPCompletionBTLow _Union_]),3) Then 'SBT' END}
   }
 
   dimension: rm_scores_officeto {
     description: "Calculated field: { FIXED [Region Description],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF Month(TODAY()) = Month([Parameters].[MyDate Month Parameter]) and Year(TODAY()) = Year([Parameters].[MyDate Month Parameter]) Then 'NULL' ELSEIF [Calculation_361976852014145543] < Round(AVG([TurnoverSAT _Union_]),4) Then 'SAT' ELSEIF [Calculation_361976852014145543] <= Round(AVG([TurnoverATLow _Union_]),4) Then 'AT' ELSEIF [Calculation_361976852014145543] <= Round(AVG([TurnoverOTLow _Union_]),4) OR ISNULL([Calculation_361976852014145543]) Then 'OT' ELSEIF [Calculation_361976852014145543] <= Round(AVG([TurnoverBTLow _Union_]),4) Then 'BT' ELSEIF [Calculation_361976852014145543] > Round(AVG([TurnoverBTLow _Union_]),4) Then 'SBT' END)}"
     type: string
-    sql: (SELECT CASE WHEN ((EXTRACT(MONTH FROM CURRENT_DATE()) = EXTRACT(MONTH FROM {% parameter mydate_month_parameter %})) AND (EXTRACT(YEAR FROM CURRENT_DATE()) = EXTRACT(YEAR FROM {% parameter mydate_month_parameter %}))) THEN 'NULL' ELSE CASE WHEN (${office_to_rollup} < ROUND(AVG(${TABLE}.turnoversat_union), 4)) THEN 'SAT' ELSE CASE WHEN (${office_to_rollup} <= ROUND(AVG(${TABLE}.turnoveratlow_union), 4)) THEN 'AT' ELSE CASE WHEN ((${office_to_rollup} <= ROUND(AVG(${TABLE}.turnoverotlow_union), 4)) OR ${office_to_rollup} IS NULL) THEN 'OT' ELSE CASE WHEN (${office_to_rollup} <= ROUND(AVG(${TABLE}.turnoverbtlow_union), 4)) THEN 'BT' ELSE CASE WHEN (${office_to_rollup} > ROUND(AVG(${TABLE}.turnoverbtlow_union), 4)) THEN 'SBT' ELSE NULL END END END END END END FROM ${TABLE} GROUP BY region_description, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
+    sql: (SELECT CASE WHEN ((EXTRACT(MONTH FROM CURRENT_DATE()) = EXTRACT(MONTH FROM {% parameter mydate_month_parameter %})) AND (EXTRACT(YEAR FROM CURRENT_DATE()) = EXTRACT(YEAR FROM {% parameter mydate_month_parameter %}))) THEN 'NULL' ELSE CASE WHEN (${office_to_rollup_calc} < ROUND(AVG(${TABLE}.`TurnoverSAT _Union_`), 4)) THEN 'SAT' ELSE CASE WHEN (${office_to_rollup_calc} <= ROUND(AVG(${TABLE}.`TurnoverATLow _Union_`), 4)) THEN 'AT' ELSE CASE WHEN ((${office_to_rollup_calc} <= ROUND(AVG(${TABLE}.`TurnoverOTLow _Union_`), 4)) OR ${office_to_rollup_calc} IS NULL) THEN 'OT' ELSE CASE WHEN (${office_to_rollup_calc} <= ROUND(AVG(${TABLE}.`TurnoverBTLow _Union_`), 4)) THEN 'BT' ELSE CASE WHEN (${office_to_rollup_calc} > ROUND(AVG(${TABLE}.`TurnoverBTLow _Union_`), 4)) THEN 'SBT' ELSE NULL END END END END END END FROM ${TABLE} GROUP BY `Region Description`, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
     # Original Tableau formula: { FIXED [Region Description],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF Month(TODAY()) = Month([Parameters].[MyDate Month Parameter]) and Year(TODAY()) = Year([Parameters].[MyDate Month Parameter]) Then 'NULL' ELSEIF [Calculation_361976852014145543] < Round(AVG([TurnoverSAT _Union_]),4) Then 'SAT' ELSEIF [Calculation_361976852014145543] <= Round(AVG([TurnoverATLow _Union_]),4) Then 'AT' ELSEIF [Calculation_361976852014145543] <= Round(AVG([TurnoverOTLow _Union_]),4) OR ISNULL([Calculation_361976852014145543]) Then 'OT' ELSEIF [Calculation_361976852014145543] <= Round(AVG([TurnoverBTLow _Union_]),4) Then 'BT' ELSEIF [Calculation_361976852014145543] > Round(AVG([TurnoverBTLow _Union_]),4) Then 'SBT' END)}
   }
 
   dimension: td_scores_credit_apps {
     description: "Calculated field: { FIXED [Territory],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF [Calculation_705376323849728002] >= Round(AVG([CreditAppsSAT _Union_]),3) Then 'SAT' ELSEIF [Calculation_705376323849728002] >= Round(AVG([CreditAppsATLow _Union_]),3) Then 'AT' ELSEIF [Calculation_705376323849728002] >= Round(AVG([CreditAppsOTLow _Union_]),3) OR ISNULL([Calculation_705376323849728002]) Then 'OT' ELSEIF [Calculation_705376323849728002] >= Round(AVG([CreditAppsBTLow _Union_]),3) Then 'BT' ELSEIF [Calculation_705376323849728002] < Round(AVG([CreditAppsBTLow _Union_]),3) Then 'SBT' END)}"
     type: string
-    sql: (SELECT CASE WHEN (${credit_app_rollup} >= ROUND(AVG(${TABLE}.creditappssat_union), 3)) THEN 'SAT' ELSE CASE WHEN (${credit_app_rollup} >= ROUND(AVG(${TABLE}.creditappsatlow_union), 3)) THEN 'AT' ELSE CASE WHEN ((${credit_app_rollup} >= ROUND(AVG(${TABLE}.creditappsotlow_union), 3)) OR ${credit_app_rollup} IS NULL) THEN 'OT' ELSE CASE WHEN (${credit_app_rollup} >= ROUND(AVG(${TABLE}.creditappsbtlow_union), 3)) THEN 'BT' ELSE CASE WHEN (${credit_app_rollup} < ROUND(AVG(${TABLE}.creditappsbtlow_union), 3)) THEN 'SBT' ELSE NULL END END END END END FROM ${TABLE} GROUP BY territory, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
+    sql: (SELECT CASE WHEN (${credit_app_rollup_calc} >= ROUND(AVG(${TABLE}.`CreditAppsSAT _Union_`), 3)) THEN 'SAT' ELSE CASE WHEN (${credit_app_rollup_calc} >= ROUND(AVG(${TABLE}.`CreditAppsATLow _Union_`), 3)) THEN 'AT' ELSE CASE WHEN ((${credit_app_rollup_calc} >= ROUND(AVG(${TABLE}.`CreditAppsOTLow _Union_`), 3)) OR ${credit_app_rollup_calc} IS NULL) THEN 'OT' ELSE CASE WHEN (${credit_app_rollup_calc} >= ROUND(AVG(${TABLE}.`CreditAppsBTLow _Union_`), 3)) THEN 'BT' ELSE CASE WHEN (${credit_app_rollup_calc} < ROUND(AVG(${TABLE}.`CreditAppsBTLow _Union_`), 3)) THEN 'SBT' ELSE NULL END END END END END FROM ${TABLE} GROUP BY `Territory`, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
     # Original Tableau formula: { FIXED [Territory],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF [Calculation_705376323849728002] >= Round(AVG([CreditAppsSAT _Union_]),3) Then 'SAT' ELSEIF [Calculation_705376323849728002] >= Round(AVG([CreditAppsATLow _Union_]),3) Then 'AT' ELSEIF [Calculation_705376323849728002] >= Round(AVG([CreditAppsOTLow _Union_]),3) OR ISNULL([Calculation_705376323849728002]) Then 'OT' ELSEIF [Calculation_705376323849728002] >= Round(AVG([CreditAppsBTLow _Union_]),3) Then 'BT' ELSEIF [Calculation_705376323849728002] < Round(AVG([CreditAppsBTLow _Union_]),3) Then 'SBT' END)}
   }
 
   dimension: td_scores_nps {
     description: "Calculated field: { FIXED [Territory],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]:(IF [Calculation_361976852010156036] >= Round(AVG([NPSSAT _Union_]),3) Then 'SAT' ELSEIF [Calculation_361976852010156036] >= Round(AVG([NPSATLow _Union_]),3) Then 'AT' ELSEIF [Calculation_361976852010156036] >= Round(AVG([NPSOTLow _Union_]),3) OR ISNULL([Calculation_361976852010156036]) Then 'OT' ELSEIF [Calculation_361976852010156036] >= Round(AVG([NPSBTLow _Union_]),3) Then 'BT' ELSEIF [Calculation_361976852010156036] < Round(AVG([NPSBTLow _Union_]),3) Then 'SBT' END)}"
     type: string
-    sql: (SELECT CASE WHEN (${net_promoter_score_rollup} >= ROUND(AVG(${TABLE}.npssat_union), 3)) THEN 'SAT' ELSE CASE WHEN (${net_promoter_score_rollup} >= ROUND(AVG(${TABLE}.npsatlow_union), 3)) THEN 'AT' ELSE CASE WHEN ((${net_promoter_score_rollup} >= ROUND(AVG(${TABLE}.npsotlow_union), 3)) OR ${net_promoter_score_rollup} IS NULL) THEN 'OT' ELSE CASE WHEN (${net_promoter_score_rollup} >= ROUND(AVG(${TABLE}.npsbtlow_union), 3)) THEN 'BT' ELSE CASE WHEN (${net_promoter_score_rollup} < ROUND(AVG(${TABLE}.npsbtlow_union), 3)) THEN 'SBT' ELSE NULL END END END END END FROM ${TABLE} GROUP BY territory, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
+    sql: (SELECT CASE WHEN (${net_promoter_score_rollup_calc} >= ROUND(AVG(${TABLE}.`NPSSAT _Union_`), 3)) THEN 'SAT' ELSE CASE WHEN (${net_promoter_score_rollup_calc} >= ROUND(AVG(${TABLE}.`NPSATLow _Union_`), 3)) THEN 'AT' ELSE CASE WHEN ((${net_promoter_score_rollup_calc} >= ROUND(AVG(${TABLE}.`NPSOTLow _Union_`), 3)) OR ${net_promoter_score_rollup_calc} IS NULL) THEN 'OT' ELSE CASE WHEN (${net_promoter_score_rollup_calc} >= ROUND(AVG(${TABLE}.`NPSBTLow _Union_`), 3)) THEN 'BT' ELSE CASE WHEN (${net_promoter_score_rollup_calc} < ROUND(AVG(${TABLE}.`NPSBTLow _Union_`), 3)) THEN 'SBT' ELSE NULL END END END END END FROM ${TABLE} GROUP BY `Territory`, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
     # Original Tableau formula: { FIXED [Territory],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]:(IF [Calculation_361976852010156036] >= Round(AVG([NPSSAT _Union_]),3) Then 'SAT' ELSEIF [Calculation_361976852010156036] >= Round(AVG([NPSATLow _Union_]),3) Then 'AT' ELSEIF [Calculation_361976852010156036] >= Round(AVG([NPSOTLow _Union_]),3) OR ISNULL([Calculation_361976852010156036]) Then 'OT' ELSEIF [Calculation_361976852010156036] >= Round(AVG([NPSBTLow _Union_]),3) Then 'BT' ELSEIF [Calculation_361976852010156036] < Round(AVG([NPSBTLow _Union_]),3) Then 'SBT' END)}
   }
 
   dimension: td_scores_officeto {
     description: "Calculated field: { FIXED [Territory],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF Month(TODAY()) = Month([Parameters].[MyDate Month Parameter]) and Year(TODAY()) = Year([Parameters].[MyDate Month Parameter]) Then 'NULL' ELSEIF [Calculation_361976852014145543] < Round(AVG([TurnoverSAT _Union_]),4) Then 'SAT' ELSEIF [Calculation_361976852014145543] <= Round(AVG([TurnoverATLow _Union_]),4) Then 'AT' ELSEIF [Calculation_361976852014145543] <= Round(AVG([TurnoverOTLow _Union_]),4) OR ISNULL([Calculation_361976852014145543]) Then 'OT' ELSEIF [Calculation_361976852014145543] <= Round(AVG([TurnoverBTLow _Union_]),4) Then 'BT' ELSEIF [Calculation_361976852014145543] > Round(AVG([TurnoverBTLow _Union_]),4) Then 'SBT' END)}"
     type: string
-    sql: (SELECT CASE WHEN ((EXTRACT(MONTH FROM CURRENT_DATE()) = EXTRACT(MONTH FROM {% parameter mydate_month_parameter %})) AND (EXTRACT(YEAR FROM CURRENT_DATE()) = EXTRACT(YEAR FROM {% parameter mydate_month_parameter %}))) THEN 'NULL' ELSE CASE WHEN (${office_to_rollup} < ROUND(AVG(${TABLE}.turnoversat_union), 4)) THEN 'SAT' ELSE CASE WHEN (${office_to_rollup} <= ROUND(AVG(${TABLE}.turnoveratlow_union), 4)) THEN 'AT' ELSE CASE WHEN ((${office_to_rollup} <= ROUND(AVG(${TABLE}.turnoverotlow_union), 4)) OR ${office_to_rollup} IS NULL) THEN 'OT' ELSE CASE WHEN (${office_to_rollup} <= ROUND(AVG(${TABLE}.turnoverbtlow_union), 4)) THEN 'BT' ELSE CASE WHEN (${office_to_rollup} > ROUND(AVG(${TABLE}.turnoverbtlow_union), 4)) THEN 'SBT' ELSE NULL END END END END END END FROM ${TABLE} GROUP BY territory, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
+    sql: (SELECT CASE WHEN ((EXTRACT(MONTH FROM CURRENT_DATE()) = EXTRACT(MONTH FROM {% parameter mydate_month_parameter %})) AND (EXTRACT(YEAR FROM CURRENT_DATE()) = EXTRACT(YEAR FROM {% parameter mydate_month_parameter %}))) THEN 'NULL' ELSE CASE WHEN (${office_to_rollup_calc} < ROUND(AVG(${TABLE}.`TurnoverSAT _Union_`), 4)) THEN 'SAT' ELSE CASE WHEN (${office_to_rollup_calc} <= ROUND(AVG(${TABLE}.`TurnoverATLow _Union_`), 4)) THEN 'AT' ELSE CASE WHEN ((${office_to_rollup_calc} <= ROUND(AVG(${TABLE}.`TurnoverOTLow _Union_`), 4)) OR ${office_to_rollup_calc} IS NULL) THEN 'OT' ELSE CASE WHEN (${office_to_rollup_calc} <= ROUND(AVG(${TABLE}.`TurnoverBTLow _Union_`), 4)) THEN 'BT' ELSE CASE WHEN (${office_to_rollup_calc} > ROUND(AVG(${TABLE}.`TurnoverBTLow _Union_`), 4)) THEN 'SBT' ELSE NULL END END END END END END FROM ${TABLE} GROUP BY `Territory`, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
     # Original Tableau formula: { FIXED [Territory],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF Month(TODAY()) = Month([Parameters].[MyDate Month Parameter]) and Year(TODAY()) = Year([Parameters].[MyDate Month Parameter]) Then 'NULL' ELSEIF [Calculation_361976852014145543] < Round(AVG([TurnoverSAT _Union_]),4) Then 'SAT' ELSEIF [Calculation_361976852014145543] <= Round(AVG([TurnoverATLow _Union_]),4) Then 'AT' ELSEIF [Calculation_361976852014145543] <= Round(AVG([TurnoverOTLow _Union_]),4) OR ISNULL([Calculation_361976852014145543]) Then 'OT' ELSEIF [Calculation_361976852014145543] <= Round(AVG([TurnoverBTLow _Union_]),4) Then 'BT' ELSEIF [Calculation_361976852014145543] > Round(AVG([TurnoverBTLow _Union_]),4) Then 'SBT' END)}
   }
 
   dimension: rm_scores_gross_profit {
     description: "Calculated field: { FIXED [Region Description],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF Month(TODAY()) = Month([Parameters].[MyDate Month Parameter]) and Year(TODAY()) = Year([Parameters].[MyDate Month Parameter]) Then 'NULL' ElseIF [Gross Profit Rollup (copy)_547750316289679360] >= Round(AVG([GPvsBudgetSAT _Union_]),4) Then 'SAT' ELSEIF [Gross Profit Rollup (copy)_547750316289679360] >= Round(AVG([GPvsBudgetATLow _Union_]),4) Then 'AT' ELSEIF [Gross Profit Rollup (copy)_547750316289679360] >= Round(AVG([GPvsBudgetOTLow _Union_]),4) OR ISNULL([Gross Profit Rollup (copy)_547750316289679360]) Then 'OT' ELSEIF [Gross Profit Rollup (copy)_547750316289679360] >= Round(AVG([GPvsBudgetBTLow _Union_]),4) Then 'BT' ELSEIF [Gross Profit Rollup (copy)_547750316289679360] < Round(AVG([GPvsBudgetBTLow _Union_]),4) Then 'SBT' END)}"
     type: string
-    sql: (SELECT CASE WHEN ((EXTRACT(MONTH FROM CURRENT_DATE()) = EXTRACT(MONTH FROM {% parameter mydate_month_parameter %})) AND (EXTRACT(YEAR FROM CURRENT_DATE()) = EXTRACT(YEAR FROM {% parameter mydate_month_parameter %}))) THEN 'NULL' ELSE CASE WHEN (${gross_profit_rollup_rm} >= ROUND(AVG(${TABLE}.gpvsbudgetsat_union), 4)) THEN 'SAT' ELSE CASE WHEN (${gross_profit_rollup_rm} >= ROUND(AVG(${TABLE}.gpvsbudgetatlow_union), 4)) THEN 'AT' ELSE CASE WHEN ((${gross_profit_rollup_rm} >= ROUND(AVG(${TABLE}.gpvsbudgetotlow_union), 4)) OR ${gross_profit_rollup_rm} IS NULL) THEN 'OT' ELSE CASE WHEN (${gross_profit_rollup_rm} >= ROUND(AVG(${TABLE}.gpvsbudgetbtlow_union), 4)) THEN 'BT' ELSE CASE WHEN (${gross_profit_rollup_rm} < ROUND(AVG(${TABLE}.gpvsbudgetbtlow_union), 4)) THEN 'SBT' ELSE NULL END END END END END END FROM ${TABLE} GROUP BY region_description, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
+    sql: (SELECT CASE WHEN ((EXTRACT(MONTH FROM CURRENT_DATE()) = EXTRACT(MONTH FROM {% parameter mydate_month_parameter %})) AND (EXTRACT(YEAR FROM CURRENT_DATE()) = EXTRACT(YEAR FROM {% parameter mydate_month_parameter %}))) THEN 'NULL' ELSE CASE WHEN (${gross_profit_rollup_rm_calc} >= ROUND(AVG(${TABLE}.`GPvsBudgetSAT _Union_`), 4)) THEN 'SAT' ELSE CASE WHEN (${gross_profit_rollup_rm_calc} >= ROUND(AVG(${TABLE}.`GPvsBudgetATLow _Union_`), 4)) THEN 'AT' ELSE CASE WHEN ((${gross_profit_rollup_rm_calc} >= ROUND(AVG(${TABLE}.`GPvsBudgetOTLow _Union_`), 4)) OR ${gross_profit_rollup_rm_calc} IS NULL) THEN 'OT' ELSE CASE WHEN (${gross_profit_rollup_rm_calc} >= ROUND(AVG(${TABLE}.`GPvsBudgetBTLow _Union_`), 4)) THEN 'BT' ELSE CASE WHEN (${gross_profit_rollup_rm_calc} < ROUND(AVG(${TABLE}.`GPvsBudgetBTLow _Union_`), 4)) THEN 'SBT' ELSE NULL END END END END END END FROM ${TABLE} GROUP BY `Region Description`, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
     # Original Tableau formula: { FIXED [Region Description],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF Month(TODAY()) = Month([Parameters].[MyDate Month Parameter]) and Year(TODAY()) = Year([Parameters].[MyDate Month Parameter]) Then 'NULL' ElseIF [Gross Profit Rollup (copy)_547750316289679360] >= Round(AVG([GPvsBudgetSAT _Union_]),4) Then 'SAT' ELSEIF [Gross Profit Rollup (copy)_547750316289679360] >= Round(AVG([GPvsBudgetATLow _Union_]),4) Then 'AT' ELSEIF [Gross Profit Rollup (copy)_547750316289679360] >= Round(AVG([GPvsBudgetOTLow _Union_]),4) OR ISNULL([Gross Profit Rollup (copy)_547750316289679360]) Then 'OT' ELSEIF [Gross Profit Rollup (copy)_547750316289679360] >= Round(AVG([GPvsBudgetBTLow _Union_]),4) Then 'BT' ELSEIF [Gross Profit Rollup (copy)_547750316289679360] < Round(AVG([GPvsBudgetBTLow _Union_]),4) Then 'SBT' END)}
   }
 
   dimension: rm_scores_np_tx_accepted_per_np {
     description: "Calculated field: { FIXED [Region Description],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(AVG([NPTxAcceptedSAT _Union_]),0) Then 'SAT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(AVG([NPTxAcceptedATLow _Union_]),0) Then 'AT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(AVG([NPTxAcceptedOTLow _Union_]),0) OR ISNULL([Calculation_2699345059241832452]) Then 'OT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(AVG([NPTxAcceptedBTLow _Union_]),0) Then 'BT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] < Round(AVG([NPTxAcceptedBTLow _Union_]),0) Then 'SBT' END)}"
     type: string
-    sql: (SELECT CASE WHEN (${np_tx_accepted_rollup} >= ROUND(AVG(${TABLE}.nptxacceptedsat_union), 0)) THEN 'SAT' ELSE CASE WHEN (${np_tx_accepted_rollup} >= ROUND(AVG(${TABLE}.nptxacceptedatlow_union), 0)) THEN 'AT' ELSE CASE WHEN ((${np_tx_accepted_rollup} >= ROUND(AVG(${TABLE}.nptxacceptedotlow_union), 0)) OR ${ebitda_rollup} IS NULL) THEN 'OT' ELSE CASE WHEN (${np_tx_accepted_rollup} >= ROUND(AVG(${TABLE}.nptxacceptedbtlow_union), 0)) THEN 'BT' ELSE CASE WHEN (${np_tx_accepted_rollup} < ROUND(AVG(${TABLE}.nptxacceptedbtlow_union), 0)) THEN 'SBT' ELSE NULL END END END END END FROM ${TABLE} GROUP BY region_description, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
+    sql: (SELECT CASE WHEN (${np_tx_accepted_rollup_calc} >= ROUND(AVG(${TABLE}.`NPTxAcceptedSAT _Union_`), 0)) THEN 'SAT' ELSE CASE WHEN (${np_tx_accepted_rollup_calc} >= ROUND(AVG(${TABLE}.`NPTxAcceptedATLow _Union_`), 0)) THEN 'AT' ELSE CASE WHEN ((${np_tx_accepted_rollup_calc} >= ROUND(AVG(${TABLE}.`NPTxAcceptedOTLow _Union_`), 0)) OR ${ebitda_rollup_calc} IS NULL) THEN 'OT' ELSE CASE WHEN (${np_tx_accepted_rollup_calc} >= ROUND(AVG(${TABLE}.`NPTxAcceptedBTLow _Union_`), 0)) THEN 'BT' ELSE CASE WHEN (${np_tx_accepted_rollup_calc} < ROUND(AVG(${TABLE}.`NPTxAcceptedBTLow _Union_`), 0)) THEN 'SBT' ELSE NULL END END END END END FROM ${TABLE} GROUP BY `Region Description`, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
     # Original Tableau formula: { FIXED [Region Description],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(AVG([NPTxAcceptedSAT _Union_]),0) Then 'SAT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(AVG([NPTxAcceptedATLow _Union_]),0) Then 'AT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(AVG([NPTxAcceptedOTLow _Union_]),0) OR ISNULL([Calculation_2699345059241832452]) Then 'OT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(AVG([NPTxAcceptedBTLow _Union_]),0) Then 'BT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] < Round(AVG([NPTxAcceptedBTLow _Union_]),0) Then 'SBT' END)}
   }
 
   dimension: td_scores_ebitda {
     description: "Calculated field: { FIXED [Territory],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF Month(TODAY()) = Month([Parameters].[MyDate Month Parameter]) and Year(TODAY()) = Year([Parameters].[MyDate Month Parameter]) Then 'NULL' ELSEIF [Calculation_2699345059241832452] >= Round(AVG([EBITDAvsBudSAT _Union_]),4) Then 'SAT' ELSEIF [Calculation_2699345059241832452] >= Round(AVG([EBITDAvsBudATLow _Union_]),4) Then 'AT' ELSEIF [Calculation_2699345059241832452] >= Round(AVG([EBITDAvsBudOTLow _Union_]),4) OR ISNULL([Calculation_2699345059241832452]) Then 'OT' ELSEIF [Calculation_2699345059241832452] >= Round(AVG([EBITDAvsBudBTLow _Union_]),4) Then 'BT' ELSEIF [Calculation_2699345059241832452] < Round(AVG([EBITDAvsBudBTLow _Union_]),4) Then 'SBT' END)}"
     type: string
-    sql: (SELECT CASE WHEN ((EXTRACT(MONTH FROM CURRENT_DATE()) = EXTRACT(MONTH FROM {% parameter mydate_month_parameter %})) AND (EXTRACT(YEAR FROM CURRENT_DATE()) = EXTRACT(YEAR FROM {% parameter mydate_month_parameter %}))) THEN 'NULL' ELSE CASE WHEN (${ebitda_rollup} >= ROUND(AVG(${TABLE}.ebitdavsbudsat_union), 4)) THEN 'SAT' ELSE CASE WHEN (${ebitda_rollup} >= ROUND(AVG(${TABLE}.ebitdavsbudatlow_union), 4)) THEN 'AT' ELSE CASE WHEN ((${ebitda_rollup} >= ROUND(AVG(${TABLE}.ebitdavsbudotlow_union), 4)) OR ${ebitda_rollup} IS NULL) THEN 'OT' ELSE CASE WHEN (${ebitda_rollup} >= ROUND(AVG(${TABLE}.ebitdavsbudbtlow_union), 4)) THEN 'BT' ELSE CASE WHEN (${ebitda_rollup} < ROUND(AVG(${TABLE}.ebitdavsbudbtlow_union), 4)) THEN 'SBT' ELSE NULL END END END END END END FROM ${TABLE} GROUP BY territory, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
+    sql: (SELECT CASE WHEN ((EXTRACT(MONTH FROM CURRENT_DATE()) = EXTRACT(MONTH FROM {% parameter mydate_month_parameter %})) AND (EXTRACT(YEAR FROM CURRENT_DATE()) = EXTRACT(YEAR FROM {% parameter mydate_month_parameter %}))) THEN 'NULL' ELSE CASE WHEN (${ebitda_rollup_calc} >= ROUND(AVG(${TABLE}.`EBITDAvsBudSAT _Union_`), 4)) THEN 'SAT' ELSE CASE WHEN (${ebitda_rollup_calc} >= ROUND(AVG(${TABLE}.`EBITDAvsBudATLow _Union_`), 4)) THEN 'AT' ELSE CASE WHEN ((${ebitda_rollup_calc} >= ROUND(AVG(${TABLE}.`EBITDAvsBudOTLow _Union_`), 4)) OR ${ebitda_rollup_calc} IS NULL) THEN 'OT' ELSE CASE WHEN (${ebitda_rollup_calc} >= ROUND(AVG(${TABLE}.`EBITDAvsBudBTLow _Union_`), 4)) THEN 'BT' ELSE CASE WHEN (${ebitda_rollup_calc} < ROUND(AVG(${TABLE}.`EBITDAvsBudBTLow _Union_`), 4)) THEN 'SBT' ELSE NULL END END END END END END FROM ${TABLE} GROUP BY `Territory`, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
     # Original Tableau formula: { FIXED [Territory],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF Month(TODAY()) = Month([Parameters].[MyDate Month Parameter]) and Year(TODAY()) = Year([Parameters].[MyDate Month Parameter]) Then 'NULL' ELSEIF [Calculation_2699345059241832452] >= Round(AVG([EBITDAvsBudSAT _Union_]),4) Then 'SAT' ELSEIF [Calculation_2699345059241832452] >= Round(AVG([EBITDAvsBudATLow _Union_]),4) Then 'AT' ELSEIF [Calculation_2699345059241832452] >= Round(AVG([EBITDAvsBudOTLow _Union_]),4) OR ISNULL([Calculation_2699345059241832452]) Then 'OT' ELSEIF [Calculation_2699345059241832452] >= Round(AVG([EBITDAvsBudBTLow _Union_]),4) Then 'BT' ELSEIF [Calculation_2699345059241832452] < Round(AVG([EBITDAvsBudBTLow _Union_]),4) Then 'SBT' END)}
   }
 
   measure: sortfield_rm {
     description: "Calculated field: Case [Parameters].[Parameter 2 1] When 'Alphabetical' Then FLOAT(STR(MIN(UPPER([Region Description])))+STR(MIN(UPPER(MID([Region Description],2,1))))) When 'Overall' Then Avg([OM Overall Score Num (copy)_2087136980012261420]) * INT([Parameters].[Parameter 3 1]) When 'Net Promoter Score' Then [Calculation_361976852010156036]* INT([Parameters].[Parameter 3 1]) When 'Office TO' Then [Calculation_361976852014145543] * INT([Parameters].[Parameter 3 1]) When 'Credit App %' Then [Calculation_705376323849728002]* INT([Parameters].[Parameter 3 1]) When 'NP Completion %' Then [Calculation_705376323849363457]* INT([Parameters].[Parameter 3 1]) When 'EBITDA vs Budget' Then [Calculation_2699345059241832452] * INT([Parameters].[Parameter 3 1]) When 'Gross Profit vs Budget' Then [Gross Profit Rollup (copy)_547750316289679360]* INT([Parameters].[Parameter 3 1]) WHEN 'NP Tx Accepted Per NP' Then [Net Promoter All Rollup (copy)_342555104449536003]* INT([Parameters].[Parameter 3 1]) END"
     type: number
-    sql: CASE WHEN ({% parameter parameter_2_1 %} = 'Alphabetical') THEN CAST((CAST(MIN(UPPER(${TABLE}.region_description)) AS STRING) + CAST(MIN(UPPER(SUBSTR(${TABLE}.region_description, 2, 1))) AS STRING)) AS FLOAT64) WHEN ({% parameter parameter_2_1 %} = 'Overall') THEN (AVG(${rm_overall_score_num}) * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Net Promoter Score') THEN (${net_promoter_score_rollup} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Office TO') THEN (${office_to_rollup} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Credit App %') THEN (${credit_app_rollup} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'NP Completion %') THEN (${completion_rollup} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'EBITDA vs Budget') THEN (${ebitda_rollup} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Gross Profit vs Budget') THEN (${gross_profit_rollup_rm} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'NP Tx Accepted Per NP') THEN (${np_tx_accepted_rollup} * CAST({% parameter parameter_3_1 %} AS INT64)) END ;;
+    sql: ${sortfield_rm_calc} ;;
     # Original Tableau formula: Case [Parameters].[Parameter 2 1] When 'Alphabetical' Then FLOAT(STR(MIN(UPPER([Region Description])))+STR(MIN(UPPER(MID([Region Description],2,1))))) When 'Overall' Then Avg([OM Overall Score Num (copy)_2087136980012261420]) * INT([Parameters].[Parameter 3 1]) When 'Net Promoter Score' Then [Calculation_361976852010156036]* INT([Parameters].[Parameter 3 1]) When 'Office TO' Then [Calculation_361976852014145543] * INT([Parameters].[Parameter 3 1]) When 'Credit App %' Then [Calculation_705376323849728002]* INT([Parameters].[Parameter 3 1]) When 'NP Completion %' Then [Calculation_705376323849363457]* INT([Parameters].[Parameter 3 1]) When 'EBITDA vs Budget' Then [Calculation_2699345059241832452] * INT([Parameters].[Parameter 3 1]) When 'Gross Profit vs Budget' Then [Gross Profit Rollup (copy)_547750316289679360]* INT([Parameters].[Parameter 3 1]) WHEN 'NP Tx Accepted Per NP' Then [Net Promoter All Rollup (copy)_342555104449536003]* INT([Parameters].[Parameter 3 1]) END
   }
 
   measure: sortfield_td {
     description: "Calculated field: Case [Parameters].[Parameter 2 1] When 'Alphabetical' Then FLOAT(STR(MIN(UPPER([Territory])))+STR(MIN(UPPER(MID([Territory],2,1))))) When 'Overall' Then AVG([RM Overall Score Num (copy)_2087136981005688901]) * INT([Parameters].[Parameter 3 1]) When 'Net Promoter Score' Then [Calculation_361976852010156036]* INT([Parameters].[Parameter 3 1]) When 'Office TO' Then [Calculation_361976852014145543] * INT([Parameters].[Parameter 3 1]) When 'NP Tx Accepted Per NP' Then [Net Promoter All Rollup (copy)_342555104449536003] * INT([Parameters].[Parameter 3 1]) When 'Credit App %' Then [Calculation_705376323849728002]* INT([Parameters].[Parameter 3 1]) When 'NP Completion %' Then [Calculation_705376323849363457]* INT([Parameters].[Parameter 3 1]) When 'EBITDA vs Budget' Then [Calculation_2699345059241832452]* INT([Parameters].[Parameter 3 1]) When 'Gross Profit vs Budget' Then [Calculation_945193025160646656]* INT([Parameters].[Parameter 3 1]) END"
     type: number
-    sql: CASE WHEN ({% parameter parameter_2_1 %} = 'Alphabetical') THEN CAST((CAST(MIN(UPPER(${TABLE}.territory)) AS STRING) + CAST(MIN(UPPER(SUBSTR(${TABLE}.territory, 2, 1))) AS STRING)) AS FLOAT64) WHEN ({% parameter parameter_2_1 %} = 'Overall') THEN (AVG(${td_overall_score_num}) * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Net Promoter Score') THEN (${net_promoter_score_rollup} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Office TO') THEN (${office_to_rollup} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'NP Tx Accepted Per NP') THEN (${np_tx_accepted_rollup} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Credit App %') THEN (${credit_app_rollup} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'NP Completion %') THEN (${completion_rollup} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'EBITDA vs Budget') THEN (${ebitda_rollup} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Gross Profit vs Budget') THEN (${gross_profit_rollup} * CAST({% parameter parameter_3_1 %} AS INT64)) END ;;
+    sql: ${sortfield_td_calc} ;;
     # Original Tableau formula: Case [Parameters].[Parameter 2 1] When 'Alphabetical' Then FLOAT(STR(MIN(UPPER([Territory])))+STR(MIN(UPPER(MID([Territory],2,1))))) When 'Overall' Then AVG([RM Overall Score Num (copy)_2087136981005688901]) * INT([Parameters].[Parameter 3 1]) When 'Net Promoter Score' Then [Calculation_361976852010156036]* INT([Parameters].[Parameter 3 1]) When 'Office TO' Then [Calculation_361976852014145543] * INT([Parameters].[Parameter 3 1]) When 'NP Tx Accepted Per NP' Then [Net Promoter All Rollup (copy)_342555104449536003] * INT([Parameters].[Parameter 3 1]) When 'Credit App %' Then [Calculation_705376323849728002]* INT([Parameters].[Parameter 3 1]) When 'NP Completion %' Then [Calculation_705376323849363457]* INT([Parameters].[Parameter 3 1]) When 'EBITDA vs Budget' Then [Calculation_2699345059241832452]* INT([Parameters].[Parameter 3 1]) When 'Gross Profit vs Budget' Then [Calculation_945193025160646656]* INT([Parameters].[Parameter 3 1]) END
   }
 
   measure: sortfield_dvp {
     description: "Calculated field: Case [Parameters].[Parameter 2 1] When 'Alphabetical' Then FLOAT(STR(MIN(UPPER([Division VP])))+STR(MIN(UPPER(MID([Division VP],2,1))))) When 'Overall' Then AVG([TD Overall Score Num (copy)_2087136981061210236]) * INT([Parameters].[Parameter 3 1]) When 'Net Promoter Score' Then [Calculation_361976852010156036]* INT([Parameters].[Parameter 3 1]) When 'Office TO' Then [Calculation_361976852014145543] * INT([Parameters].[Parameter 3 1]) When 'NP Tx Accepted Per NP' Then [Net Promoter All Rollup (copy)_342555104449536003] * INT([Parameters].[Parameter 3 1]) When 'Credit App %' Then [Calculation_705376323849728002] * INT([Parameters].[Parameter 3 1]) When 'NP Completion %' Then [Calculation_705376323849363457] * INT([Parameters].[Parameter 3 1]) When 'EBITDA vs Budget' Then [Calculation_2699345059241832452] * INT([Parameters].[Parameter 3 1]) When 'Gross Profit vs Budget' Then [Calculation_945193025160646656] * INT([Parameters].[Parameter 3 1]) END"
     type: number
-    sql: CASE WHEN ({% parameter parameter_2_1 %} = 'Alphabetical') THEN CAST((CAST(MIN(UPPER(${TABLE}.division_vp)) AS STRING) + CAST(MIN(UPPER(SUBSTR(${TABLE}.division_vp, 2, 1))) AS STRING)) AS FLOAT64) WHEN ({% parameter parameter_2_1 %} = 'Overall') THEN (AVG(${dvp_overall_score_num}) * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Net Promoter Score') THEN (${net_promoter_score_rollup} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Office TO') THEN (${office_to_rollup} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'NP Tx Accepted Per NP') THEN (${np_tx_accepted_rollup} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Credit App %') THEN (${credit_app_rollup} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'NP Completion %') THEN (${completion_rollup} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'EBITDA vs Budget') THEN (${ebitda_rollup} * CAST({% parameter parameter_3_1 %} AS INT64)) WHEN ({% parameter parameter_2_1 %} = 'Gross Profit vs Budget') THEN (${gross_profit_rollup} * CAST({% parameter parameter_3_1 %} AS INT64)) END ;;
+    sql: ${sortfield_dvp_calc} ;;
     # Original Tableau formula: Case [Parameters].[Parameter 2 1] When 'Alphabetical' Then FLOAT(STR(MIN(UPPER([Division VP])))+STR(MIN(UPPER(MID([Division VP],2,1))))) When 'Overall' Then AVG([TD Overall Score Num (copy)_2087136981061210236]) * INT([Parameters].[Parameter 3 1]) When 'Net Promoter Score' Then [Calculation_361976852010156036]* INT([Parameters].[Parameter 3 1]) When 'Office TO' Then [Calculation_361976852014145543] * INT([Parameters].[Parameter 3 1]) When 'NP Tx Accepted Per NP' Then [Net Promoter All Rollup (copy)_342555104449536003] * INT([Parameters].[Parameter 3 1]) When 'Credit App %' Then [Calculation_705376323849728002] * INT([Parameters].[Parameter 3 1]) When 'NP Completion %' Then [Calculation_705376323849363457] * INT([Parameters].[Parameter 3 1]) When 'EBITDA vs Budget' Then [Calculation_2699345059241832452] * INT([Parameters].[Parameter 3 1]) When 'Gross Profit vs Budget' Then [Calculation_945193025160646656] * INT([Parameters].[Parameter 3 1]) END
   }
 
   measure: dvp_np_tx_accepted_numeric {
     description: "Calculated field: Case [TD Scores - Hygiene FTE (copy)_2087136981061386381] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${dvp_scores_np_tx_accepted} = 'SAT') THEN 5 WHEN (${dvp_scores_np_tx_accepted} = 'AT') THEN 4 WHEN (${dvp_scores_np_tx_accepted} = 'OT') THEN 3 WHEN (${dvp_scores_np_tx_accepted} = 'BT') THEN 2 WHEN (${dvp_scores_np_tx_accepted} = 'SBT') THEN 1 END ;;
+    sql: ${dvp_np_tx_accepted_numeric_calc} ;;
     # Original Tableau formula: Case [TD Scores - Hygiene FTE (copy)_2087136981061386381] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
   measure: dvp_nps_numeric {
     description: "Calculated field: Case [TD Scores - NPS (copy)_2087136981061386375] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${dvp_scores_nps} = 'SAT') THEN 5 WHEN (${dvp_scores_nps} = 'AT') THEN 4 WHEN (${dvp_scores_nps} = 'OT') THEN 3 WHEN (${dvp_scores_nps} = 'BT') THEN 2 WHEN (${dvp_scores_nps} = 'SBT') THEN 1 END ;;
+    sql: ${dvp_nps_numeric_calc} ;;
     # Original Tableau formula: Case [TD Scores - NPS (copy)_2087136981061386375] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
   measure: dvp_credit_apps_numeric {
     description: "Calculated field: Case [TD Scores - Office Hours (copy)_2087136981061386384] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${dvp_scores_credit_apps} = 'SAT') THEN 5 WHEN (${dvp_scores_credit_apps} = 'AT') THEN 4 WHEN (${dvp_scores_credit_apps} = 'OT') THEN 3 WHEN (${dvp_scores_credit_apps} = 'BT') THEN 2 WHEN (${dvp_scores_credit_apps} = 'SBT') THEN 1 END ;;
+    sql: ${dvp_credit_apps_numeric_calc} ;;
     # Original Tableau formula: Case [TD Scores - Office Hours (copy)_2087136981061386384] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
   measure: td_credit_apps_numeric {
     description: "Calculated field: Case [RM Scores - Credit Apps (copy)_2087136981006102611] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${td_scores_credit_apps} = 'SAT') THEN 5 WHEN (${td_scores_credit_apps} = 'AT') THEN 4 WHEN (${td_scores_credit_apps} = 'OT') THEN 3 WHEN (${td_scores_credit_apps} = 'BT') THEN 2 WHEN (${td_scores_credit_apps} = 'SBT') THEN 1 END ;;
+    sql: ${td_credit_apps_numeric_calc} ;;
     # Original Tableau formula: Case [RM Scores - Credit Apps (copy)_2087136981006102611] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
   measure: td_completion_numeric {
     description: "Calculated field: Case [RM Scores - Completion (copy)_2087136981006102610] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${td_scores_completion} = 'SAT') THEN 5 WHEN (${td_scores_completion} = 'AT') THEN 4 WHEN (${td_scores_completion} = 'OT') THEN 3 WHEN (${td_scores_completion} = 'BT') THEN 2 WHEN (${td_scores_completion} = 'SBT') THEN 1 END ;;
+    sql: ${td_completion_numeric_calc} ;;
     # Original Tableau formula: Case [RM Scores - Completion (copy)_2087136981006102610] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
   measure: dvp_officeto_numeric {
     description: "Calculated field: Case [TD Scores - OfficeTO (copy)_2087136981061386376] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${dvp_scores_officeto} = 'SAT') THEN 5 WHEN (${dvp_scores_officeto} = 'AT') THEN 4 WHEN (${dvp_scores_officeto} = 'OT') THEN 3 WHEN (${dvp_scores_officeto} = 'BT') THEN 2 WHEN (${dvp_scores_officeto} = 'SBT') THEN 1 END ;;
+    sql: ${dvp_officeto_numeric_calc} ;;
     # Original Tableau formula: Case [TD Scores - OfficeTO (copy)_2087136981061386376] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
   measure: td_np_tx_accepted_numeric {
     description: "Calculated field: Case [TD Scores - Doctor FTE (copy)_2087136981030867047] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${td_scores_np_tx_accepted} = 'SAT') THEN 5 WHEN (${td_scores_np_tx_accepted} = 'AT') THEN 4 WHEN (${td_scores_np_tx_accepted} = 'OT') THEN 3 WHEN (${td_scores_np_tx_accepted} = 'BT') THEN 2 WHEN (${td_scores_np_tx_accepted} = 'SBT') THEN 1 END ;;
+    sql: ${td_np_tx_accepted_numeric_calc} ;;
     # Original Tableau formula: Case [TD Scores - Doctor FTE (copy)_2087136981030867047] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
   measure: dvp_ebitda_numeric {
     description: "Calculated field: Case [TD Scores - Yes Today (copy)_2087136981061386380] When \"SAT\" Then 5 When \"AT\" Then 4 When \"OT\" Then 3 When \"BT\" Then 2 When \"SBT\" Then 1 END"
     type: number
-    sql: CASE WHEN (${dvp_scores_ebitda} = 'SAT') THEN 5 WHEN (${dvp_scores_ebitda} = 'AT') THEN 4 WHEN (${dvp_scores_ebitda} = 'OT') THEN 3 WHEN (${dvp_scores_ebitda} = 'BT') THEN 2 WHEN (${dvp_scores_ebitda} = 'SBT') THEN 1 END ;;
+    sql: ${dvp_ebitda_numeric_calc} ;;
     # Original Tableau formula: Case [TD Scores - Yes Today (copy)_2087136981061386380] When "SAT" Then 5 When "AT" Then 4 When "OT" Then 3 When "BT" Then 2 When "SBT" Then 1 END
   }
 
@@ -2026,56 +2346,56 @@ view: fct_dsc_cleasnsed_data {
   dimension: td_scores_np_tx_accepted {
     description: "Calculated field: { FIXED [Territory],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(AVG([NPTxAcceptedSAT _Union_]),2) Then 'SAT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(AVG([NPTxAcceptedATLow _Union_]),2) Then 'AT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(Avg([NPTxAcceptedOTLow _Union_]),2) Then 'OT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(Avg([NPTxAcceptedBTLow _Union_]),2) Then 'BT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] < Round(Avg([NPTxAcceptedBTLow _Union_]),2) Then 'SBT' END)}"
     type: string
-    sql: (SELECT CASE WHEN (${np_tx_accepted_rollup} >= ROUND(AVG(${TABLE}.nptxacceptedsat_union), 2)) THEN 'SAT' ELSE CASE WHEN (${np_tx_accepted_rollup} >= ROUND(AVG(${TABLE}.nptxacceptedatlow_union), 2)) THEN 'AT' ELSE CASE WHEN (${np_tx_accepted_rollup} >= ROUND(AVG(${TABLE}.nptxacceptedotlow_union), 2)) THEN 'OT' ELSE CASE WHEN (${np_tx_accepted_rollup} >= ROUND(AVG(${TABLE}.nptxacceptedbtlow_union), 2)) THEN 'BT' ELSE CASE WHEN (${np_tx_accepted_rollup} < ROUND(AVG(${TABLE}.nptxacceptedbtlow_union), 2)) THEN 'SBT' ELSE NULL END END END END END FROM ${TABLE} GROUP BY territory, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
+    sql: (SELECT CASE WHEN (${np_tx_accepted_rollup_calc} >= ROUND(AVG(${TABLE}.`NPTxAcceptedSAT _Union_`), 2)) THEN 'SAT' ELSE CASE WHEN (${np_tx_accepted_rollup_calc} >= ROUND(AVG(${TABLE}.`NPTxAcceptedATLow _Union_`), 2)) THEN 'AT' ELSE CASE WHEN (${np_tx_accepted_rollup_calc} >= ROUND(AVG(${TABLE}.`NPTxAcceptedOTLow _Union_`), 2)) THEN 'OT' ELSE CASE WHEN (${np_tx_accepted_rollup_calc} >= ROUND(AVG(${TABLE}.`NPTxAcceptedBTLow _Union_`), 2)) THEN 'BT' ELSE CASE WHEN (${np_tx_accepted_rollup_calc} < ROUND(AVG(${TABLE}.`NPTxAcceptedBTLow _Union_`), 2)) THEN 'SBT' ELSE NULL END END END END END FROM ${TABLE} GROUP BY `Territory`, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
     # Original Tableau formula: { FIXED [Territory],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(AVG([NPTxAcceptedSAT _Union_]),2) Then 'SAT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(AVG([NPTxAcceptedATLow _Union_]),2) Then 'AT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(Avg([NPTxAcceptedOTLow _Union_]),2) Then 'OT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(Avg([NPTxAcceptedBTLow _Union_]),2) Then 'BT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] < Round(Avg([NPTxAcceptedBTLow _Union_]),2) Then 'SBT' END)}
   }
 
   dimension: dvp_scores_np_tx_accepted {
     description: "Calculated field: { FIXED [Division VP],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: IF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(AVG([NPTxAcceptedSAT _Union_]),2) Then 'SAT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(AVG([NPTxAcceptedATLow _Union_]),2) Then 'AT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(Avg([NPTxAcceptedOTLow _Union_]),2) Then 'OT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(Avg([NPTxAcceptedBTLow _Union_]),2) Then 'BT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] < Round(Avg([NPTxAcceptedBTLow _Union_]),2) Then 'SBT' END}"
     type: string
-    sql: (SELECT CASE WHEN (${np_tx_accepted_rollup} >= ROUND(AVG(${TABLE}.nptxacceptedsat_union), 2)) THEN 'SAT' ELSE CASE WHEN (${np_tx_accepted_rollup} >= ROUND(AVG(${TABLE}.nptxacceptedatlow_union), 2)) THEN 'AT' ELSE CASE WHEN (${np_tx_accepted_rollup} >= ROUND(AVG(${TABLE}.nptxacceptedotlow_union), 2)) THEN 'OT' ELSE CASE WHEN (${np_tx_accepted_rollup} >= ROUND(AVG(${TABLE}.nptxacceptedbtlow_union), 2)) THEN 'BT' ELSE CASE WHEN (${np_tx_accepted_rollup} < ROUND(AVG(${TABLE}.nptxacceptedbtlow_union), 2)) THEN 'SBT' ELSE NULL END END END END END FROM ${TABLE} GROUP BY division_vp, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
+    sql: (SELECT CASE WHEN (${np_tx_accepted_rollup_calc} >= ROUND(AVG(${TABLE}.`NPTxAcceptedSAT _Union_`), 2)) THEN 'SAT' ELSE CASE WHEN (${np_tx_accepted_rollup_calc} >= ROUND(AVG(${TABLE}.`NPTxAcceptedATLow _Union_`), 2)) THEN 'AT' ELSE CASE WHEN (${np_tx_accepted_rollup_calc} >= ROUND(AVG(${TABLE}.`NPTxAcceptedOTLow _Union_`), 2)) THEN 'OT' ELSE CASE WHEN (${np_tx_accepted_rollup_calc} >= ROUND(AVG(${TABLE}.`NPTxAcceptedBTLow _Union_`), 2)) THEN 'BT' ELSE CASE WHEN (${np_tx_accepted_rollup_calc} < ROUND(AVG(${TABLE}.`NPTxAcceptedBTLow _Union_`), 2)) THEN 'SBT' ELSE NULL END END END END END FROM ${TABLE} GROUP BY `Division VP`, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
     # Original Tableau formula: { FIXED [Division VP],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: IF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(AVG([NPTxAcceptedSAT _Union_]),2) Then 'SAT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(AVG([NPTxAcceptedATLow _Union_]),2) Then 'AT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(Avg([NPTxAcceptedOTLow _Union_]),2) Then 'OT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] >= Round(Avg([NPTxAcceptedBTLow _Union_]),2) Then 'BT' ELSEIF [Net Promoter All Rollup (copy)_342555104449536003] < Round(Avg([NPTxAcceptedBTLow _Union_]),2) Then 'SBT' END}
   }
 
   dimension: dvp_scores_completion {
     description: "Calculated field: { FIXED [Division VP],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: IF [Calculation_705376323849363457] >= Round(AVG([NPCompletionSAT _Union_]),3) Then 'SAT'ELSEIF ISNULL([Calculation_705376323849363457]) then NULL ELSEIF [Calculation_705376323849363457] >= Round(AVG([NPCompletionATLow _Union_]),3) Then 'AT' ELSEIF [Calculation_705376323849363457] >= Round(Avg([NPCompletionOTLow _Union_]),3) Then 'OT' ELSEIF [Calculation_705376323849363457] >= Round(Avg([NPCompletionBTLow _Union_]),3) Then 'BT' ELSEIF [Calculation_705376323849363457] < Round(Avg([NPCompletionBTLow _Union_]),3) Then 'SBT' END}"
     type: string
-    sql: (SELECT CASE WHEN (${completion_rollup} >= ROUND(AVG(${TABLE}.npcompletionsat_union), 3)) THEN 'SAT' ELSE CASE WHEN ${completion_rollup} IS NULL THEN NULL ELSE CASE WHEN (${completion_rollup} >= ROUND(AVG(${TABLE}.npcompletionatlow_union), 3)) THEN 'AT' ELSE CASE WHEN (${completion_rollup} >= ROUND(AVG(${TABLE}.npcompletionotlow_union), 3)) THEN 'OT' ELSE CASE WHEN (${completion_rollup} >= ROUND(AVG(${TABLE}.npcompletionbtlow_union), 3)) THEN 'BT' ELSE CASE WHEN (${completion_rollup} < ROUND(AVG(${TABLE}.npcompletionbtlow_union), 3)) THEN 'SBT' ELSE NULL END END END END END END FROM ${TABLE} GROUP BY division_vp, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
+    sql: (SELECT CASE WHEN (${completion_rollup_calc} >= ROUND(AVG(${TABLE}.`NPCompletionSAT _Union_`), 3)) THEN 'SAT' ELSE CASE WHEN ${completion_rollup_calc} IS NULL THEN NULL ELSE CASE WHEN (${completion_rollup_calc} >= ROUND(AVG(${TABLE}.`NPCompletionATLow _Union_`), 3)) THEN 'AT' ELSE CASE WHEN (${completion_rollup_calc} >= ROUND(AVG(${TABLE}.`NPCompletionOTLow _Union_`), 3)) THEN 'OT' ELSE CASE WHEN (${completion_rollup_calc} >= ROUND(AVG(${TABLE}.`NPCompletionBTLow _Union_`), 3)) THEN 'BT' ELSE CASE WHEN (${completion_rollup_calc} < ROUND(AVG(${TABLE}.`NPCompletionBTLow _Union_`), 3)) THEN 'SBT' ELSE NULL END END END END END END FROM ${TABLE} GROUP BY `Division VP`, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
     # Original Tableau formula: { FIXED [Division VP],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: IF [Calculation_705376323849363457] >= Round(AVG([NPCompletionSAT _Union_]),3) Then 'SAT'ELSEIF ISNULL([Calculation_705376323849363457]) then NULL ELSEIF [Calculation_705376323849363457] >= Round(AVG([NPCompletionATLow _Union_]),3) Then 'AT' ELSEIF [Calculation_705376323849363457] >= Round(Avg([NPCompletionOTLow _Union_]),3) Then 'OT' ELSEIF [Calculation_705376323849363457] >= Round(Avg([NPCompletionBTLow _Union_]),3) Then 'BT' ELSEIF [Calculation_705376323849363457] < Round(Avg([NPCompletionBTLow _Union_]),3) Then 'SBT' END}
   }
 
   dimension: dvp_scores_nps {
     description: "Calculated field: { FIXED [Division VP],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF [Calculation_361976852010156036] >= Round(AVG([NPSSAT _Union_]),3) Then 'SAT' ELSEIF [Calculation_361976852010156036] >= Round(AVG([NPSATLow _Union_]),3) Then 'AT' ELSEIF [Calculation_361976852010156036] >= Round(AVG([NPSOTLow _Union_]),3) OR ISNULL([Calculation_361976852010156036]) Then 'OT' ELSEIF [Calculation_361976852010156036] >= Round(AVG([NPSBTLow _Union_]),3) Then 'BT' ELSEIF [Calculation_361976852010156036] < Round(AVG([NPSBTLow _Union_]),3) Then 'SBT' END)}"
     type: string
-    sql: (SELECT CASE WHEN (${net_promoter_score_rollup} >= ROUND(AVG(${TABLE}.npssat_union), 3)) THEN 'SAT' ELSE CASE WHEN (${net_promoter_score_rollup} >= ROUND(AVG(${TABLE}.npsatlow_union), 3)) THEN 'AT' ELSE CASE WHEN ((${net_promoter_score_rollup} >= ROUND(AVG(${TABLE}.npsotlow_union), 3)) OR ${net_promoter_score_rollup} IS NULL) THEN 'OT' ELSE CASE WHEN (${net_promoter_score_rollup} >= ROUND(AVG(${TABLE}.npsbtlow_union), 3)) THEN 'BT' ELSE CASE WHEN (${net_promoter_score_rollup} < ROUND(AVG(${TABLE}.npsbtlow_union), 3)) THEN 'SBT' ELSE NULL END END END END END FROM ${TABLE} GROUP BY division_vp, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
+    sql: (SELECT CASE WHEN (${net_promoter_score_rollup_calc} >= ROUND(AVG(${TABLE}.`NPSSAT _Union_`), 3)) THEN 'SAT' ELSE CASE WHEN (${net_promoter_score_rollup_calc} >= ROUND(AVG(${TABLE}.`NPSATLow _Union_`), 3)) THEN 'AT' ELSE CASE WHEN ((${net_promoter_score_rollup_calc} >= ROUND(AVG(${TABLE}.`NPSOTLow _Union_`), 3)) OR ${net_promoter_score_rollup_calc} IS NULL) THEN 'OT' ELSE CASE WHEN (${net_promoter_score_rollup_calc} >= ROUND(AVG(${TABLE}.`NPSBTLow _Union_`), 3)) THEN 'BT' ELSE CASE WHEN (${net_promoter_score_rollup_calc} < ROUND(AVG(${TABLE}.`NPSBTLow _Union_`), 3)) THEN 'SBT' ELSE NULL END END END END END FROM ${TABLE} GROUP BY `Division VP`, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
     # Original Tableau formula: { FIXED [Division VP],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF [Calculation_361976852010156036] >= Round(AVG([NPSSAT _Union_]),3) Then 'SAT' ELSEIF [Calculation_361976852010156036] >= Round(AVG([NPSATLow _Union_]),3) Then 'AT' ELSEIF [Calculation_361976852010156036] >= Round(AVG([NPSOTLow _Union_]),3) OR ISNULL([Calculation_361976852010156036]) Then 'OT' ELSEIF [Calculation_361976852010156036] >= Round(AVG([NPSBTLow _Union_]),3) Then 'BT' ELSEIF [Calculation_361976852010156036] < Round(AVG([NPSBTLow _Union_]),3) Then 'SBT' END)}
   }
 
   dimension: dvp_scores_credit_apps {
     description: "Calculated field: { FIXED [Division VP],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF [Calculation_705376323849728002] >= Round(AVG([CreditAppsSAT _Union_]),3) Then 'SAT' ELSEIF [Calculation_705376323849728002] >= Round(AVG([CreditAppsATLow _Union_]),3) Then 'AT' ELSEIF [Calculation_705376323849728002] >= Round(Avg([CreditAppsOTLow _Union_]),3) OR ISNULL([Calculation_705376323849728002]) Then 'OT' ELSEIF [Calculation_705376323849728002] >= Round(Avg([CreditAppsBTLow _Union_]),3) Then 'BT' ELSEIF [Calculation_705376323849728002] < Round(Avg([CreditAppsBTLow _Union_]),3) Then 'SBT' END)}"
     type: string
-    sql: (SELECT CASE WHEN (${credit_app_rollup} >= ROUND(AVG(${TABLE}.creditappssat_union), 3)) THEN 'SAT' ELSE CASE WHEN (${credit_app_rollup} >= ROUND(AVG(${TABLE}.creditappsatlow_union), 3)) THEN 'AT' ELSE CASE WHEN ((${credit_app_rollup} >= ROUND(AVG(${TABLE}.creditappsotlow_union), 3)) OR ${credit_app_rollup} IS NULL) THEN 'OT' ELSE CASE WHEN (${credit_app_rollup} >= ROUND(AVG(${TABLE}.creditappsbtlow_union), 3)) THEN 'BT' ELSE CASE WHEN (${credit_app_rollup} < ROUND(AVG(${TABLE}.creditappsbtlow_union), 3)) THEN 'SBT' ELSE NULL END END END END END FROM ${TABLE} GROUP BY division_vp, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
+    sql: (SELECT CASE WHEN (${credit_app_rollup_calc} >= ROUND(AVG(${TABLE}.`CreditAppsSAT _Union_`), 3)) THEN 'SAT' ELSE CASE WHEN (${credit_app_rollup_calc} >= ROUND(AVG(${TABLE}.`CreditAppsATLow _Union_`), 3)) THEN 'AT' ELSE CASE WHEN ((${credit_app_rollup_calc} >= ROUND(AVG(${TABLE}.`CreditAppsOTLow _Union_`), 3)) OR ${credit_app_rollup_calc} IS NULL) THEN 'OT' ELSE CASE WHEN (${credit_app_rollup_calc} >= ROUND(AVG(${TABLE}.`CreditAppsBTLow _Union_`), 3)) THEN 'BT' ELSE CASE WHEN (${credit_app_rollup_calc} < ROUND(AVG(${TABLE}.`CreditAppsBTLow _Union_`), 3)) THEN 'SBT' ELSE NULL END END END END END FROM ${TABLE} GROUP BY `Division VP`, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
     # Original Tableau formula: { FIXED [Division VP],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF [Calculation_705376323849728002] >= Round(AVG([CreditAppsSAT _Union_]),3) Then 'SAT' ELSEIF [Calculation_705376323849728002] >= Round(AVG([CreditAppsATLow _Union_]),3) Then 'AT' ELSEIF [Calculation_705376323849728002] >= Round(Avg([CreditAppsOTLow _Union_]),3) OR ISNULL([Calculation_705376323849728002]) Then 'OT' ELSEIF [Calculation_705376323849728002] >= Round(Avg([CreditAppsBTLow _Union_]),3) Then 'BT' ELSEIF [Calculation_705376323849728002] < Round(Avg([CreditAppsBTLow _Union_]),3) Then 'SBT' END)}
   }
 
   dimension: dvp_scores_officeto {
     description: "Calculated field: { FIXED [Division VP],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF Month(TODAY()) = Month([Parameters].[MyDate Month Parameter]) and Year(TODAY()) = Year([Parameters].[MyDate Month Parameter]) Then 'NULL' ELSEIF [Calculation_361976852014145543] <= Round(AVG([TurnoverSAT _Union_]),4) Then 'SAT' ELSEIF [Calculation_361976852014145543] <= Round(AVG([TurnoverATLow _Union_]),4) Then 'AT' ELSEIF [Calculation_361976852014145543] <= Round(AVG([TurnoverOTLow _Union_]),4) OR ISNULL([Calculation_361976852014145543]) Then 'OT' ELSEIF [Calculation_361976852014145543] <= Round(AVG([TurnoverBTLow _Union_]),4) Then 'BT' ELSEIF [Calculation_361976852014145543] > Round(AVG([TurnoverBTLow _Union_]),4) Then 'SBT' END)}"
     type: string
-    sql: (SELECT CASE WHEN ((EXTRACT(MONTH FROM CURRENT_DATE()) = EXTRACT(MONTH FROM {% parameter mydate_month_parameter %})) AND (EXTRACT(YEAR FROM CURRENT_DATE()) = EXTRACT(YEAR FROM {% parameter mydate_month_parameter %}))) THEN 'NULL' ELSE CASE WHEN (${office_to_rollup} <= ROUND(AVG(${TABLE}.turnoversat_union), 4)) THEN 'SAT' ELSE CASE WHEN (${office_to_rollup} <= ROUND(AVG(${TABLE}.turnoveratlow_union), 4)) THEN 'AT' ELSE CASE WHEN ((${office_to_rollup} <= ROUND(AVG(${TABLE}.turnoverotlow_union), 4)) OR ${office_to_rollup} IS NULL) THEN 'OT' ELSE CASE WHEN (${office_to_rollup} <= ROUND(AVG(${TABLE}.turnoverbtlow_union), 4)) THEN 'BT' ELSE CASE WHEN (${office_to_rollup} > ROUND(AVG(${TABLE}.turnoverbtlow_union), 4)) THEN 'SBT' ELSE NULL END END END END END END FROM ${TABLE} GROUP BY division_vp, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
+    sql: (SELECT CASE WHEN ((EXTRACT(MONTH FROM CURRENT_DATE()) = EXTRACT(MONTH FROM {% parameter mydate_month_parameter %})) AND (EXTRACT(YEAR FROM CURRENT_DATE()) = EXTRACT(YEAR FROM {% parameter mydate_month_parameter %}))) THEN 'NULL' ELSE CASE WHEN (${office_to_rollup_calc} <= ROUND(AVG(${TABLE}.`TurnoverSAT _Union_`), 4)) THEN 'SAT' ELSE CASE WHEN (${office_to_rollup_calc} <= ROUND(AVG(${TABLE}.`TurnoverATLow _Union_`), 4)) THEN 'AT' ELSE CASE WHEN ((${office_to_rollup_calc} <= ROUND(AVG(${TABLE}.`TurnoverOTLow _Union_`), 4)) OR ${office_to_rollup_calc} IS NULL) THEN 'OT' ELSE CASE WHEN (${office_to_rollup_calc} <= ROUND(AVG(${TABLE}.`TurnoverBTLow _Union_`), 4)) THEN 'BT' ELSE CASE WHEN (${office_to_rollup_calc} > ROUND(AVG(${TABLE}.`TurnoverBTLow _Union_`), 4)) THEN 'SBT' ELSE NULL END END END END END END FROM ${TABLE} GROUP BY `Division VP`, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
     # Original Tableau formula: { FIXED [Division VP],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF Month(TODAY()) = Month([Parameters].[MyDate Month Parameter]) and Year(TODAY()) = Year([Parameters].[MyDate Month Parameter]) Then 'NULL' ELSEIF [Calculation_361976852014145543] <= Round(AVG([TurnoverSAT _Union_]),4) Then 'SAT' ELSEIF [Calculation_361976852014145543] <= Round(AVG([TurnoverATLow _Union_]),4) Then 'AT' ELSEIF [Calculation_361976852014145543] <= Round(AVG([TurnoverOTLow _Union_]),4) OR ISNULL([Calculation_361976852014145543]) Then 'OT' ELSEIF [Calculation_361976852014145543] <= Round(AVG([TurnoverBTLow _Union_]),4) Then 'BT' ELSEIF [Calculation_361976852014145543] > Round(AVG([TurnoverBTLow _Union_]),4) Then 'SBT' END)}
   }
 
   dimension: dvp_scores_ebitda {
     description: "Calculated field: { FIXED [Division VP],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF Month(TODAY()) = Month([Parameters].[MyDate Month Parameter]) and Year(TODAY()) = Year([Parameters].[MyDate Month Parameter]) Then 'NULL' ELSEIF [Calculation_2699345059241832452] >= Round(AVG([EBITDAvsBudSAT _Union_]),4) Then 'SAT' ELSEIF [Calculation_2699345059241832452] >= Round(AVG([EBITDAvsBudATLow _Union_]),4) Then 'AT' ELSEIF [Calculation_2699345059241832452] >= Round(AVG([EBITDAvsBudOTLow _Union_]),4) OR ISNULL([Calculation_2699345059241832452]) Then 'OT' ELSEIF [Calculation_2699345059241832452] >= Round(AVG([EBITDAvsBudBTLow _Union_]),4) Then 'BT' ELSEIF [Calculation_2699345059241832452] < Round(AVG([EBITDAvsBudBTLow _Union_]),4) Then 'SBT' END)}"
     type: string
-    sql: (SELECT CASE WHEN ((EXTRACT(MONTH FROM CURRENT_DATE()) = EXTRACT(MONTH FROM {% parameter mydate_month_parameter %})) AND (EXTRACT(YEAR FROM CURRENT_DATE()) = EXTRACT(YEAR FROM {% parameter mydate_month_parameter %}))) THEN 'NULL' ELSE CASE WHEN (${ebitda_rollup} >= ROUND(AVG(${TABLE}.ebitdavsbudsat_union), 4)) THEN 'SAT' ELSE CASE WHEN (${ebitda_rollup} >= ROUND(AVG(${TABLE}.ebitdavsbudatlow_union), 4)) THEN 'AT' ELSE CASE WHEN ((${ebitda_rollup} >= ROUND(AVG(${TABLE}.ebitdavsbudotlow_union), 4)) OR ${ebitda_rollup} IS NULL) THEN 'OT' ELSE CASE WHEN (${ebitda_rollup} >= ROUND(AVG(${TABLE}.ebitdavsbudbtlow_union), 4)) THEN 'BT' ELSE CASE WHEN (${ebitda_rollup} < ROUND(AVG(${TABLE}.ebitdavsbudbtlow_union), 4)) THEN 'SBT' ELSE NULL END END END END END END FROM ${TABLE} GROUP BY division_vp, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
+    sql: (SELECT CASE WHEN ((EXTRACT(MONTH FROM CURRENT_DATE()) = EXTRACT(MONTH FROM {% parameter mydate_month_parameter %})) AND (EXTRACT(YEAR FROM CURRENT_DATE()) = EXTRACT(YEAR FROM {% parameter mydate_month_parameter %}))) THEN 'NULL' ELSE CASE WHEN (${ebitda_rollup_calc} >= ROUND(AVG(${TABLE}.`EBITDAvsBudSAT _Union_`), 4)) THEN 'SAT' ELSE CASE WHEN (${ebitda_rollup_calc} >= ROUND(AVG(${TABLE}.`EBITDAvsBudATLow _Union_`), 4)) THEN 'AT' ELSE CASE WHEN ((${ebitda_rollup_calc} >= ROUND(AVG(${TABLE}.`EBITDAvsBudOTLow _Union_`), 4)) OR ${ebitda_rollup_calc} IS NULL) THEN 'OT' ELSE CASE WHEN (${ebitda_rollup_calc} >= ROUND(AVG(${TABLE}.`EBITDAvsBudBTLow _Union_`), 4)) THEN 'BT' ELSE CASE WHEN (${ebitda_rollup_calc} < ROUND(AVG(${TABLE}.`EBITDAvsBudBTLow _Union_`), 4)) THEN 'SBT' ELSE NULL END END END END END END FROM ${TABLE} GROUP BY `Division VP`, ${timing_parameter}, ${month_year}, ${unopened_office_filter}) ;;
     # Original Tableau formula: { FIXED [Division VP],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF Month(TODAY()) = Month([Parameters].[MyDate Month Parameter]) and Year(TODAY()) = Year([Parameters].[MyDate Month Parameter]) Then 'NULL' ELSEIF [Calculation_2699345059241832452] >= Round(AVG([EBITDAvsBudSAT _Union_]),4) Then 'SAT' ELSEIF [Calculation_2699345059241832452] >= Round(AVG([EBITDAvsBudATLow _Union_]),4) Then 'AT' ELSEIF [Calculation_2699345059241832452] >= Round(AVG([EBITDAvsBudOTLow _Union_]),4) OR ISNULL([Calculation_2699345059241832452]) Then 'OT' ELSEIF [Calculation_2699345059241832452] >= Round(AVG([EBITDAvsBudBTLow _Union_]),4) Then 'BT' ELSEIF [Calculation_2699345059241832452] < Round(AVG([EBITDAvsBudBTLow _Union_]),4) Then 'SBT' END)}
   }
 
   dimension: territory_ebitda_filter {
     description: "Calculated field: [Territory]"
     type: string
-    sql: ${TABLE}.territory ;;
+    sql: ${TABLE}.`Territory` ;;
     # Original Tableau formula: [Territory]
   }
 
