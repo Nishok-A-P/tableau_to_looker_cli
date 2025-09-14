@@ -5,13 +5,16 @@
   elements:
   - title: "Aarawdata"
     name: aarawdata
-    model: bigquery_super_store_sales_model_generated_20250913_113338
+    model: bigquery_super_store_sales_model_generated_20250914_161849
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
-    show_row_numbers: true
-    table_theme: "white"
+    show_value_labels: true
+    show_legend: true
+    x_axis_label: true
+    y_axis_label: true
+    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
     row: 14
@@ -21,11 +24,14 @@
 
   - title: "Iconic Launch: Atlantic South"
     name: iconic_launch_atlantic_south
-    model: bigquery_super_store_sales_model_generated_20250913_113338
+    model: bigquery_super_store_sales_model_generated_20250914_161849
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
-    show_row_numbers: true
-    table_theme: "white"
+    show_value_labels: true
+    show_legend: true
+    x_axis_label: true
+    y_axis_label: true
+    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
     row: 7
@@ -35,11 +41,14 @@
 
   - title: "Iconic Launch: Coastal Plains"
     name: iconic_launch_coastal_plains
-    model: bigquery_super_store_sales_model_generated_20250913_113338
+    model: bigquery_super_store_sales_model_generated_20250914_161849
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
-    show_row_numbers: true
-    table_theme: "white"
+    show_value_labels: true
+    show_legend: true
+    x_axis_label: true
+    y_axis_label: true
+    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
     row: 7
@@ -49,11 +58,14 @@
 
   - title: "Iconic Launch: Great Lakes"
     name: iconic_launch_great_lakes
-    model: bigquery_super_store_sales_model_generated_20250913_113338
+    model: bigquery_super_store_sales_model_generated_20250914_161849
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
-    show_row_numbers: true
-    table_theme: "white"
+    show_value_labels: true
+    show_legend: true
+    x_axis_label: true
+    y_axis_label: true
+    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
     row: 7
@@ -63,11 +75,14 @@
 
   - title: "Iconic Launch: Mountain"
     name: iconic_launch_mountain
-    model: bigquery_super_store_sales_model_generated_20250913_113338
+    model: bigquery_super_store_sales_model_generated_20250914_161849
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
-    show_row_numbers: true
-    table_theme: "white"
+    show_value_labels: true
+    show_legend: true
+    x_axis_label: true
+    y_axis_label: true
+    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
     row: 7
@@ -77,11 +92,14 @@
 
   - title: "Iconic Launch: Pacific"
     name: iconic_launch_pacific
-    model: bigquery_super_store_sales_model_generated_20250913_113338
+    model: bigquery_super_store_sales_model_generated_20250914_161849
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
-    show_row_numbers: true
-    table_theme: "white"
+    show_value_labels: true
+    show_legend: true
+    x_axis_label: true
+    y_axis_label: true
+    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
     row: 7
