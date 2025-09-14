@@ -5,7 +5,7 @@
   elements:
   - title: "Net Promoter Score"
     name: rm_nps
-    model: bigquery_super_store_sales_model_generated_20250913_113147
+    model: bigquery_super_store_sales_model_generated_20250914_161815
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.rm_scores_nps,
@@ -16,8 +16,17 @@ fct_dsc_cleasnsed_data.None]
       fct_dsc_cleasnsed_data.rm_scores_nps: Other
       fct_dsc_cleasnsed_data.month_parameter: true
     sorts: [fct_dsc_cleasnsed_data.rm_scores_nps]
-    show_row_numbers: true
-    table_theme: "white"
+    series_colors:
+      "SBT": "#4e79a7"
+      "SAT": "#59a14f"
+      "AT": "#76b7b2"
+      "OT": "#e15759"
+      "BT": "#f28e2b"
+    show_value_labels: true
+    show_legend: true
+    x_axis_label: true
+    y_axis_label: true
+    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
     row: 7
@@ -27,7 +36,7 @@ fct_dsc_cleasnsed_data.None]
 
   - title: "Rolling 6-month TO % (annualized)"
     name: rm_officeto
-    model: bigquery_super_store_sales_model_generated_20250913_113147
+    model: bigquery_super_store_sales_model_generated_20250914_161815
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.rm_scores_officeto,
@@ -38,8 +47,17 @@ fct_dsc_cleasnsed_data.None]
       fct_dsc_cleasnsed_data.month_parameter: true
       fct_dsc_cleasnsed_data.rm_scores_officeto: NULL, NUll
     sorts: [fct_dsc_cleasnsed_data.rm_scores_officeto]
-    show_row_numbers: true
-    table_theme: "white"
+    series_colors:
+      "SBT": "#4e79a7"
+      "SAT": "#59a14f"
+      "AT": "#76b7b2"
+      "OT": "#e15759"
+      "BT": "#f28e2b"
+    show_value_labels: true
+    show_legend: true
+    x_axis_label: true
+    y_axis_label: true
+    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
     row: 7
@@ -49,7 +67,7 @@ fct_dsc_cleasnsed_data.None]
 
   - title: "NP Completion %"
     name: rm_completion
-    model: bigquery_super_store_sales_model_generated_20250913_113147
+    model: bigquery_super_store_sales_model_generated_20250914_161815
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.rm_scores_completion,
@@ -59,8 +77,17 @@ fct_dsc_cleasnsed_data.None]
       fct_dsc_cleasnsed_data.timing_parameter: true
       fct_dsc_cleasnsed_data.month_parameter: true
     sorts: [fct_dsc_cleasnsed_data.rm_scores_completion]
-    show_row_numbers: true
-    table_theme: "white"
+    series_colors:
+      "SBT": "#4e79a7"
+      "SAT": "#59a14f"
+      "AT": "#76b7b2"
+      "OT": "#e15759"
+      "BT": "#f28e2b"
+    show_value_labels: true
+    show_legend: true
+    x_axis_label: true
+    y_axis_label: true
+    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
     row: 7
@@ -70,7 +97,7 @@ fct_dsc_cleasnsed_data.None]
 
   - title: "Credit App %"
     name: rm_credit_app
-    model: bigquery_super_store_sales_model_generated_20250913_113147
+    model: bigquery_super_store_sales_model_generated_20250914_161815
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.rm_scores_credit_apps,
@@ -80,8 +107,17 @@ fct_dsc_cleasnsed_data.None]
       fct_dsc_cleasnsed_data.timing_parameter: true
       fct_dsc_cleasnsed_data.month_parameter: true
     sorts: [fct_dsc_cleasnsed_data.rm_scores_credit_apps]
-    show_row_numbers: true
-    table_theme: "white"
+    series_colors:
+      "SBT": "#4e79a7"
+      "SAT": "#59a14f"
+      "AT": "#76b7b2"
+      "OT": "#e15759"
+      "BT": "#f28e2b"
+    show_value_labels: true
+    show_legend: true
+    x_axis_label: true
+    y_axis_label: true
+    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
     row: 14
@@ -91,7 +127,7 @@ fct_dsc_cleasnsed_data.None]
 
   - title: "NP Tx Accepted Per NP"
     name: rm_np_tx_accepted_per_np
-    model: bigquery_super_store_sales_model_generated_20250913_113147
+    model: bigquery_super_store_sales_model_generated_20250914_161815
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.rm_scores_np_tx_accepted_per_np,
@@ -101,8 +137,17 @@ fct_dsc_cleasnsed_data.None]
       fct_dsc_cleasnsed_data.timing_parameter: true
       fct_dsc_cleasnsed_data.month_parameter: true
     sorts: [fct_dsc_cleasnsed_data.rm_scores_np_tx_accepted_per_np]
-    show_row_numbers: true
-    table_theme: "white"
+    series_colors:
+      "SBT": "#4e79a7"
+      "SAT": "#59a14f"
+      "AT": "#76b7b2"
+      "OT": "#e15759"
+      "BT": "#f28e2b"
+    show_value_labels: true
+    show_legend: true
+    x_axis_label: true
+    y_axis_label: true
+    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
     row: 14
@@ -112,7 +157,7 @@ fct_dsc_cleasnsed_data.None]
 
   - title: "Gross Profit Variance to Budget %"
     name: rm_gross_profit
-    model: bigquery_super_store_sales_model_generated_20250913_113147
+    model: bigquery_super_store_sales_model_generated_20250914_161815
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.rm_scores_gross_profit,
@@ -123,8 +168,17 @@ fct_dsc_cleasnsed_data.None]
       fct_dsc_cleasnsed_data.month_parameter: true
       fct_dsc_cleasnsed_data.rm_scores_gross_profit: NULL, NUll
     sorts: [fct_dsc_cleasnsed_data.rm_scores_gross_profit]
-    show_row_numbers: true
-    table_theme: "white"
+    series_colors:
+      "SBT": "#4e79a7"
+      "SAT": "#59a14f"
+      "AT": "#76b7b2"
+      "OT": "#e15759"
+      "BT": "#f28e2b"
+    show_value_labels: true
+    show_legend: true
+    x_axis_label: true
+    y_axis_label: true
+    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
     row: 14
@@ -134,7 +188,7 @@ fct_dsc_cleasnsed_data.None]
 
   - title: "Overall Score"
     name: rm_overall
-    model: bigquery_super_store_sales_model_generated_20250913_113147
+    model: bigquery_super_store_sales_model_generated_20250914_161815
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.overall_rm_score,
@@ -144,8 +198,17 @@ fct_dsc_cleasnsed_data.None]
       fct_dsc_cleasnsed_data.timing_parameter: true
       fct_dsc_cleasnsed_data.month_parameter: true
     sorts: [fct_dsc_cleasnsed_data.overall_rm_score]
-    show_row_numbers: true
-    table_theme: "white"
+    series_colors:
+      "SBT": "#4e79a7"
+      "SAT": "#59a14f"
+      "AT": "#76b7b2"
+      "OT": "#e15759"
+      "BT": "#f28e2b"
+    show_value_labels: true
+    show_legend: true
+    x_axis_label: true
+    y_axis_label: true
+    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
     row: 14
@@ -155,15 +218,18 @@ fct_dsc_cleasnsed_data.None]
 
   - title: "Download Rm Data"
     name: download_rm_data
-    model: bigquery_super_store_sales_model_generated_20250913_113147
+    model: bigquery_super_store_sales_model_generated_20250914_161815
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     filters:
       fct_dsc_cleasnsed_data.Measure Names: [federated.0jkiv7u05kn7hg16o2s5b0txaodx].[usr:EBITDA Margin (copy)_1582452381035732994:qk], [federated.0jkiv7u05kn7hg16o2s5b0txaodx].[usr:Calculation_361976852010156036:qk], [federated.0jkiv7u05kn7hg16o2s5b0txaodx].[sum:OM -  NPS Numeric (copy)_2087136980012261424:qk], [federated.0jkiv7u05kn7hg16o2s5b0txaodx].[usr:Calculation_361976852014145543:qk], [federated.0jkiv7u05kn7hg16o2s5b0txaodx].[sum:OM -  OfficeTO Numeric (copy)_2087136980012261426:qk], [federated.0jkiv7u05kn7hg16o2s5b0txaodx].[usr:Calculation_705376323849363457:qk], [federated.0jkiv7u05kn7hg16o2s5b0txaodx].[sum:OM - Completion Numeric (copy)_2087136980012261418:qk], [federated.0jkiv7u05kn7hg16o2s5b0txaodx].[usr:Calculation_705376323849728002:qk], [federated.0jkiv7u05kn7hg16o2s5b0txaodx].[sum:OM - Credit App Numeric (copy)_2087136980012261421:qk], [federated.0jkiv7u05kn7hg16o2s5b0txaodx].[usr:Net Promoter All Rollup (copy)_342555104449536003:qk], [federated.0jkiv7u05kn7hg16o2s5b0txaodx].[sum:OM -  Yes Today Numeric (copy)_2087136980012261423:qk], [federated.0jkiv7u05kn7hg16o2s5b0txaodx].[usr:Gross Profit Rollup (copy)_547750316289679360:qk], [federated.0jkiv7u05kn7hg16o2s5b0txaodx].[sum:OM -  Wage Rate Numeric (copy)_2087136980012261422:qk], [federated.0jkiv7u05kn7hg16o2s5b0txaodx].[avg:OM Overall Score Num (copy)_2087136980012261420:qk]
       fct_dsc_cleasnsed_data.timing_parameter: true
       fct_dsc_cleasnsed_data.month_parameter: true
-    show_row_numbers: true
-    table_theme: "white"
+    show_value_labels: true
+    show_legend: true
+    x_axis_label: true
+    y_axis_label: true
+    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
     row: 35
@@ -173,14 +239,31 @@ fct_dsc_cleasnsed_data.None]
 
   - title: "Rm List"
     name: rm_list
-    model: bigquery_super_store_sales_model_generated_20250913_113147
+    model: bigquery_super_store_sales_model_generated_20250914_161815
     explore: fct_dsc_cleasnsed_data
-    type: looker_column
+    type: looker_grid
+    fields: [fct_dsc_cleasnsed_data.division_vp,
+fct_dsc_cleasnsed_data.overall_rm_score,
+fct_dsc_cleasnsed_data.region_description,
+fct_dsc_cleasnsed_data.regional_manager,
+fct_dsc_cleasnsed_data.territory,
+fct_dsc_cleasnsed_data.placeholder,
+fct_dsc_cleasnsed_data.None]
     filters:
       fct_dsc_cleasnsed_data.timing_parameter: true
       fct_dsc_cleasnsed_data.month_parameter: true
       fct_dsc_cleasnsed_data.region_description: Closed Offices
-    show_row_numbers: true
+    sorts: [fct_dsc_cleasnsed_data.division_vp,
+fct_dsc_cleasnsed_data.overall_rm_score,
+fct_dsc_cleasnsed_data.region_description,
+fct_dsc_cleasnsed_data.regional_manager,
+fct_dsc_cleasnsed_data.territory]
+    series_colors:
+      "SBT": "#4e79a7"
+      "SAT": "#59a14f"
+      "AT": "#76b7b2"
+      "OT": "#e15759"
+      "BT": "#f28e2b"
     table_theme: "white"
     limit: 500
     column_limit: 50
