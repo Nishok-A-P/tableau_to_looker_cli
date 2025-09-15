@@ -5,7 +5,7 @@
   elements:
   - title: "Net Promoter Score"
     name: rm_nps
-    model: bigquery_super_store_sales_model_generated_20250914_161815
+    model: bigquery_super_store_sales_model_generated_20250915_052211
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.rm_scores_nps,
@@ -36,7 +36,7 @@ fct_dsc_cleasnsed_data.None]
 
   - title: "Rolling 6-month TO % (annualized)"
     name: rm_officeto
-    model: bigquery_super_store_sales_model_generated_20250914_161815
+    model: bigquery_super_store_sales_model_generated_20250915_052211
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.rm_scores_officeto,
@@ -67,7 +67,7 @@ fct_dsc_cleasnsed_data.None]
 
   - title: "NP Completion %"
     name: rm_completion
-    model: bigquery_super_store_sales_model_generated_20250914_161815
+    model: bigquery_super_store_sales_model_generated_20250915_052211
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.rm_scores_completion,
@@ -97,7 +97,7 @@ fct_dsc_cleasnsed_data.None]
 
   - title: "Credit App %"
     name: rm_credit_app
-    model: bigquery_super_store_sales_model_generated_20250914_161815
+    model: bigquery_super_store_sales_model_generated_20250915_052211
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.rm_scores_credit_apps,
@@ -127,7 +127,7 @@ fct_dsc_cleasnsed_data.None]
 
   - title: "NP Tx Accepted Per NP"
     name: rm_np_tx_accepted_per_np
-    model: bigquery_super_store_sales_model_generated_20250914_161815
+    model: bigquery_super_store_sales_model_generated_20250915_052211
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.rm_scores_np_tx_accepted_per_np,
@@ -157,7 +157,7 @@ fct_dsc_cleasnsed_data.None]
 
   - title: "Gross Profit Variance to Budget %"
     name: rm_gross_profit
-    model: bigquery_super_store_sales_model_generated_20250914_161815
+    model: bigquery_super_store_sales_model_generated_20250915_052211
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.rm_scores_gross_profit,
@@ -188,7 +188,7 @@ fct_dsc_cleasnsed_data.None]
 
   - title: "Overall Score"
     name: rm_overall
-    model: bigquery_super_store_sales_model_generated_20250914_161815
+    model: bigquery_super_store_sales_model_generated_20250915_052211
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.overall_rm_score,
@@ -218,7 +218,7 @@ fct_dsc_cleasnsed_data.None]
 
   - title: "Download Rm Data"
     name: download_rm_data
-    model: bigquery_super_store_sales_model_generated_20250914_161815
+    model: bigquery_super_store_sales_model_generated_20250915_052211
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     filters:
@@ -239,7 +239,7 @@ fct_dsc_cleasnsed_data.None]
 
   - title: "Rm List"
     name: rm_list
-    model: bigquery_super_store_sales_model_generated_20250914_161815
+    model: bigquery_super_store_sales_model_generated_20250915_052211
     explore: fct_dsc_cleasnsed_data
     type: looker_grid
     fields: [fct_dsc_cleasnsed_data.division_vp,
