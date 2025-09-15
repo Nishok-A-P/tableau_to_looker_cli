@@ -315,11 +315,11 @@ view: balance_scorecard_ot_bsc {
       value: "Overall"
     }
   }
-  parameter: parameter_4 {
-    label: "month"
-    type: datetime
-    default_value: "2025-09-11 17:58:55.637"
-  }
+  # parameter: parameter_4 {
+  #   label: "month"
+  #   type: datetime
+  #   default_value: "2025-09-11 17:58:55.637"
+  # }
   parameter: parameter_5 {
     label: "view_selection"
     type: string
