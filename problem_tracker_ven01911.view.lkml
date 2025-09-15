@@ -1425,18 +1425,10 @@ view: problem_tracker_ven01911 {
 
   # Two-step Pattern Dimensions (hidden calculation dimensions)
 
-  dimension: average_age_dd_hh_mm_ss_calc {
-    description: "Row-level calculation for average_age_dd_hh_mm_ss: // This is a calculated field // It transforms time in seconds in DD:HH:MM:SS format STR(INT(AVG([Calculation_1103944901411389444])/86400)) + \" day(s) \" + IF (INT(AVG([Calculation_1103944901411389444])%86400/3600)) < 10 THEN \"0\" ELSE \"\" END + STR(INT(AVG([Calculation_1103944901411389444])%86400/3600)) + \":\" + IF INT(AVG([Calculation_1103944901411389444])%3600/60) < 10 THEN \"0\" ELSE \"\" END + STR(INT(AVG([Calculation_1103944901411389444])%3600/60)) + \":\" + IF INT(AVG([Calculation_1103944901411389444]) %3600 %60) < 10 THEN \"0\" ELSE \"\" END + STR(INT(AVG([Calculation_1103944901411389444]) %3600 %60))"
-    type: number
-    sql: (((((((((CAST(CAST((AVG(${problem_age_seconds_calc}) / NULLIF(86400, 0)) AS INT64) AS STRING) || ' day(s) ') || CASE WHEN (CAST((MOD(AVG(${problem_age_seconds_calc}), 86400) / NULLIF(3600, 0)) AS INT64) < 10) THEN '0' ELSE '' END) || CAST(CAST((MOD(AVG(${problem_age_seconds_calc}), 86400) / NULLIF(3600, 0)) AS INT64) AS STRING)) || ':') || CASE WHEN (CAST((MOD(AVG(${problem_age_seconds_calc}), 3600) / NULLIF(60, 0)) AS INT64) < 10) THEN '0' ELSE '' END) || CAST(CAST((MOD(AVG(${problem_age_seconds_calc}), 3600) / NULLIF(60, 0)) AS INT64) AS STRING)) || ':') || CASE WHEN (CAST(MOD(MOD(AVG(${problem_age_seconds_calc}), 3600), 60) AS INT64) < 10) THEN '0' ELSE '' END) || CAST(CAST(MOD(MOD(AVG(${problem_age_seconds_calc}), 3600), 60) AS INT64) AS STRING)) ;;
-    hidden: yes
-    # Original Tableau formula: // This is a calculated field // It transforms time in seconds in DD:HH:MM:SS format STR(INT(AVG([Calculation_1103944901411389444])/86400)) + " day(s) " + IF (INT(AVG([Calculation_1103944901411389444])%86400/3600)) < 10 THEN "0" ELSE "" END + STR(INT(AVG([Calculation_1103944901411389444])%86400/3600)) + ":" + IF INT(AVG([Calculation_1103944901411389444])%3600/60) < 10 THEN "0" ELSE "" END + STR(INT(AVG([Calculation_1103944901411389444])%3600/60)) + ":" + IF INT(AVG([Calculation_1103944901411389444]) %3600 %60) < 10 THEN "0" ELSE "" END + STR(INT(AVG([Calculation_1103944901411389444]) %3600 %60))
-  }
-
   dimension: percent_not_worked_90_days_calc {
     description: "Row-level calculation for percent_not_worked_90_days: // This is a calculated field //It shows the percentage of problems which is more than 90 days old COUNTD(IF [Calculation_217580207391584262]= \"+ than 90d\" THEN [Number] END)/ COUNTD([Number])"
     type: number
-    sql: (COUNT(DISTINCT CASE WHEN (${time_span_breakdown} = '+ than 90d') THEN ${TABLE}.`Number` ELSE NULL END) / NULLIF(COUNT(DISTINCT ${TABLE}.`Number`), 0)) ;;
+    sql: (COUNT(DISTINCT CASE WHEN (${time_span_breakdown} = '+ than 90d') THEN ${TABLE}.number ELSE NULL END) / COUNT(DISTINCT ${TABLE}.number)) ;;
     hidden: yes
     # Original Tableau formula: // This is a calculated field //It shows the percentage of problems which is more than 90 days old COUNTD(IF [Calculation_217580207391584262]= "+ than 90d" THEN [Number] END)/ COUNTD([Number])
   }
@@ -1444,7 +1436,7 @@ view: problem_tracker_ven01911 {
   dimension: percent_with_related_incident_calc {
     description: "Row-level calculation for percent_with_related_incident: // This is a calculated field //It shows the percentage of problems which has a related incident COUNTD(IF [Related_Incidents]>0 THEN [Number] END)/ COUNTD([Number])"
     type: number
-    sql: (COUNT(DISTINCT CASE WHEN (${TABLE}.`Related_Incidents` > 0) THEN ${TABLE}.`Number` ELSE NULL END) / NULLIF(COUNT(DISTINCT ${TABLE}.`Number`), 0)) ;;
+    sql: (COUNT(DISTINCT CASE WHEN (${TABLE}.related_incidents > 0) THEN ${TABLE}.number ELSE NULL END) / COUNT(DISTINCT ${TABLE}.number)) ;;
     hidden: yes
     # Original Tableau formula: // This is a calculated field //It shows the percentage of problems which has a related incident COUNTD(IF [Related_Incidents]>0 THEN [Number] END)/ COUNTD([Number])
   }
@@ -1452,23 +1444,15 @@ view: problem_tracker_ven01911 {
   dimension: show_group_calc {
     description: "Row-level calculation for show_group: // This is a calculated field // It shows the name of a group when the dashboard is filtered IF COUNTD([Name])=1 THEN ATTR([Name]) ELSE \"Showing All Groups\" END"
     type: number
-    sql: CASE WHEN (COUNT(DISTINCT ${TABLE}.`Name`) = 1) THEN ATTR(${TABLE}.`Name`) ELSE 'Showing All Groups' END ;;
+    sql: CASE WHEN (COUNT(DISTINCT ${TABLE}.name) = 1) THEN ATTR(${TABLE}.name) ELSE 'Showing All Groups' END ;;
     hidden: yes
     # Original Tableau formula: // This is a calculated field // It shows the name of a group when the dashboard is filtered IF COUNTD([Name])=1 THEN ATTR([Name]) ELSE "Showing All Groups" END
-  }
-
-  dimension: known_errors_calc {
-    description: "Row-level calculation for known_errors: // This is a calculated field // It shows the percentage of problems which are known errors COUNTD(IF [Known_error] = TRUE THEN [Number] END) / COUNT([Number])"
-    type: number
-    sql: (COUNT(DISTINCT CASE WHEN (${TABLE}.`Known_error` = TRUE) THEN ${TABLE}.`Number` ELSE NULL END) / NULLIF(COUNT(${TABLE}.`Number`), 0)) ;;
-    hidden: yes
-    # Original Tableau formula: // This is a calculated field // It shows the percentage of problems which are known errors COUNTD(IF [Known_error] = TRUE THEN [Number] END) / COUNT([Number])
   }
 
   dimension: active_total_calc {
     description: "Row-level calculation for active_total: // This is a calculated field // It counts each distinct problem which is still active COUNTD (IF [Active]=TRUE THEN [Number] END)"
     type: number
-    sql: COUNT(DISTINCT CASE WHEN (${TABLE}.`Active` = TRUE) THEN ${TABLE}.`Number` ELSE NULL END) ;;
+    sql: COUNT(DISTINCT CASE WHEN (${TABLE}.active = TRUE) THEN ${TABLE}.number ELSE NULL END) ;;
     hidden: yes
     # Original Tableau formula: // This is a calculated field // It counts each distinct problem which is still active COUNTD (IF [Active]=TRUE THEN [Number] END)
   }
@@ -1476,9 +1460,17 @@ view: problem_tracker_ven01911 {
   dimension: incidents_attached_calc {
     description: "Row-level calculation for incidents_attached: // This is a calculated field // It counts each distinct incident attached to a problem COUNTD([Number__Incident_])"
     type: number
-    sql: COUNT(DISTINCT ${TABLE}.`Number__Incident_`) ;;
+    sql: COUNT(DISTINCT ${TABLE}.number_incident) ;;
     hidden: yes
     # Original Tableau formula: // This is a calculated field // It counts each distinct incident attached to a problem COUNTD([Number__Incident_])
+  }
+
+  dimension: count_distinct_number_calc {
+    description: "Row-level calculation for count_distinct_number: COUNTD([Number])"
+    type: number
+    sql: COUNT(DISTINCT ${TABLE}.number) ;;
+    hidden: yes
+    # Original Tableau formula: COUNTD([Number])
   }
 
   # Calculated Fields (from Tableau formulas)
@@ -1486,14 +1478,14 @@ view: problem_tracker_ven01911 {
   measure: average_age_dd_hh_mm_ss {
     description: "Calculated field: // This is a calculated field // It transforms time in seconds in DD:HH:MM:SS format STR(INT(AVG([Calculation_1103944901411389444])/86400)) + \" day(s) \" + IF (INT(AVG([Calculation_1103944901411389444])%86400/3600)) < 10 THEN \"0\" ELSE \"\" END + STR(INT(AVG([Calculation_1103944901411389444])%86400/3600)) + \":\" + IF INT(AVG([Calculation_1103944901411389444])%3600/60) < 10 THEN \"0\" ELSE \"\" END + STR(INT(AVG([Calculation_1103944901411389444])%3600/60)) + \":\" + IF INT(AVG([Calculation_1103944901411389444]) %3600 %60) < 10 THEN \"0\" ELSE \"\" END + STR(INT(AVG([Calculation_1103944901411389444]) %3600 %60))"
     type: number
-    sql: ${average_age_dd_hh_mm_ss_calc} ;;
+    sql: (((((((((CAST(CAST((AVG(${problem_age_seconds}) / 86400) AS INT64) AS STRING) + ' day(s) ') + CASE WHEN (CAST((MOD(AVG(${problem_age_seconds}), 86400) / 3600) AS INT64) < 10) THEN '0' ELSE '' END) + CAST(CAST((MOD(AVG(${problem_age_seconds}), 86400) / 3600) AS INT64) AS STRING)) + ':') + CASE WHEN (CAST((MOD(AVG(${problem_age_seconds}), 3600) / 60) AS INT64) < 10) THEN '0' ELSE '' END) + CAST(CAST((MOD(AVG(${problem_age_seconds}), 3600) / 60) AS INT64) AS STRING)) + ':') + CASE WHEN (CAST(MOD(MOD(AVG(${problem_age_seconds}), 3600), 60) AS INT64) < 10) THEN '0' ELSE '' END) + CAST(CAST(MOD(MOD(AVG(${problem_age_seconds}), 3600), 60) AS INT64) AS STRING)) ;;
     # Original Tableau formula: // This is a calculated field // It transforms time in seconds in DD:HH:MM:SS format STR(INT(AVG([Calculation_1103944901411389444])/86400)) + " day(s) " + IF (INT(AVG([Calculation_1103944901411389444])%86400/3600)) < 10 THEN "0" ELSE "" END + STR(INT(AVG([Calculation_1103944901411389444])%86400/3600)) + ":" + IF INT(AVG([Calculation_1103944901411389444])%3600/60) < 10 THEN "0" ELSE "" END + STR(INT(AVG([Calculation_1103944901411389444])%3600/60)) + ":" + IF INT(AVG([Calculation_1103944901411389444]) %3600 %60) < 10 THEN "0" ELSE "" END + STR(INT(AVG([Calculation_1103944901411389444]) %3600 %60))
   }
 
   dimension: ticket_url {
     description: "Calculated field: //Calc generates individual links to each one of the problems in the system //Please note that the same problem can appear more than once \"https://\"+[Calculation_890586873171009545]+\".service-now.com/nav_to.do?uri=problem.do?sys_id=\"+[Sys_ID]"
     type: string
-    sql: ((('https://' || ${instance_name}) || '.service-now.com/nav_to.do?uri=problem.do?sys_id=') || ${TABLE}.`Sys_ID`) ;;
+    sql: ((('https://' + ${instance_name}) + '.service-now.com/nav_to.do?uri=problem.do?sys_id=') + ${TABLE}.sys_id) ;;
     # Original Tableau formula: //Calc generates individual links to each one of the problems in the system //Please note that the same problem can appear more than once "https://"+[Calculation_890586873171009545]+".service-now.com/nav_to.do?uri=problem.do?sys_id="+[Sys_ID]
   }
 
@@ -1521,35 +1513,35 @@ view: problem_tracker_ven01911 {
   measure: known_errors {
     description: "Calculated field: // This is a calculated field // It shows the percentage of problems which are known errors COUNTD(IF [Known_error] = TRUE THEN [Number] END) / COUNT([Number])"
     type: number
-    sql: ${known_errors_calc} ;;
+    sql: (COUNT(DISTINCT CASE WHEN (${TABLE}.known_error = TRUE) THEN ${TABLE}.number ELSE NULL END) / COUNT(${TABLE}.number)) ;;
     # Original Tableau formula: // This is a calculated field // It shows the percentage of problems which are known errors COUNTD(IF [Known_error] = TRUE THEN [Number] END) / COUNT([Number])
   }
 
   measure: problem_age_seconds {
     description: "Calculated field: // This is a calculated field // It returns the difference in seconds between opening a problem and now { FIXED [Number]: DATEDIFF(\"second\", max([Opened]), NOW())}"
     type: number
-    sql: (SELECT DATETIME_DIFF(CURRENT_TIMESTAMP(), MAX(${TABLE}.`Opened`), SECOND) FROM ${TABLE} GROUP BY `Number`) ;;
+    sql: (SELECT DATETIME_DIFF(CURRENT_TIMESTAMP(), MAX(${TABLE}.opened), SECOND) FROM ${TABLE} GROUP BY number) ;;
     # Original Tableau formula: // This is a calculated field // It returns the difference in seconds between opening a problem and now { FIXED [Number]: DATEDIFF("second", max([Opened]), NOW())}
   }
 
   dimension: related_incident {
     description: "Calculated field: // This is a calculated field //It adds a mark to all problems with related incidents IF { FIXED [Number]: SUM([Related_Incidents])}>0 THEN \"●\" ELSE \" \" END"
     type: string
-    sql: CASE WHEN ((SELECT SUM(${TABLE}.`Related_Incidents`) FROM ${TABLE} GROUP BY `Number`) > 0) THEN '●' ELSE ' ' END ;;
+    sql: CASE WHEN ((SELECT SUM(${TABLE}.related_incidents) FROM ${TABLE} GROUP BY number) > 0) THEN '●' ELSE ' ' END ;;
     # Original Tableau formula: // This is a calculated field //It adds a mark to all problems with related incidents IF { FIXED [Number]: SUM([Related_Incidents])}>0 THEN "●" ELSE " " END
   }
 
   dimension: time_span_breakdown {
     description: "Calculated field: // This is a calculated field // It groups the problems accordingly their last update date IF DATEDIFF(\"day\", [Updated], TODAY()) < 30 THEN \"Under 30 d\" ELSEIF DATEDIFF(\"day\", [Updated], TODAY()) > 90 THEN \"+ than 90d\" ELSE \" 30-90 d\" END"
     type: string
-    sql: CASE WHEN (DATE_DIFF(CURRENT_DATE(), ${TABLE}.`Updated`, DAY) < 30) THEN 'Under 30 d' ELSE CASE WHEN (DATE_DIFF(CURRENT_DATE(), ${TABLE}.`Updated`, DAY) > 90) THEN '+ than 90d' ELSE ' 30-90 d' END END ;;
+    sql: CASE WHEN (DATE_DIFF(CURRENT_DATE(), ${TABLE}.updated, DAY) < 30) THEN 'Under 30 d' ELSE CASE WHEN (DATE_DIFF(CURRENT_DATE(), ${TABLE}.updated, DAY) > 90) THEN '+ than 90d' ELSE ' 30-90 d' END END ;;
     # Original Tableau formula: // This is a calculated field // It groups the problems accordingly their last update date IF DATEDIFF("day", [Updated], TODAY()) < 30 THEN "Under 30 d" ELSEIF DATEDIFF("day", [Updated], TODAY()) > 90 THEN "+ than 90d" ELSE " 30-90 d" END
   }
 
   dimension: filter_by_related_incident {
     description: "Calculated field: // This is a calculated field containing a level of detail expression (LOD) // It shows true if a problems has one or more associated incidents IIF({ FIXED [Number]: MAX([Related_Incidents])}>0, \"TRUE\", \"FALSE\")"
     type: string
-    sql: IIF(((SELECT MAX(${TABLE}.`Related_Incidents`) FROM ${TABLE} GROUP BY `Number`) > 0), 'TRUE', 'FALSE') ;;
+    sql: IIF(((SELECT MAX(${TABLE}.related_incidents) FROM ${TABLE} GROUP BY number) > 0), 'TRUE', 'FALSE') ;;
     # Original Tableau formula: // This is a calculated field containing a level of detail expression (LOD) // It shows true if a problems has one or more associated incidents IIF({ FIXED [Number]: MAX([Related_Incidents])}>0, "TRUE", "FALSE")
   }
 
@@ -1572,6 +1564,13 @@ view: problem_tracker_ven01911 {
     type: string
     sql: {% parameter parameter_1 %} ;;
     # Original Tableau formula: // This is a calculated field // It gets any value typed in the parameter "Instance Name" [Parameters].[Parameter 1]
+  }
+
+  measure: count_distinct_number {
+    description: "Calculated field: COUNTD([Number])"
+    type: number
+    sql: ${count_distinct_number_calc} ;;
+    # Original Tableau formula: COUNTD([Number])
   }
 
   # Measures
