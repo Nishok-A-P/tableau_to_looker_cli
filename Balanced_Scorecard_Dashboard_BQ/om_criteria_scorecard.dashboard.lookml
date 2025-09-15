@@ -9,13 +9,13 @@
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.npsscore,
-fct_dsc_cleasnsed_data.facilitycode1]
+fct_dsc_cleasnsed_data.cntd_facilitycode1]
     pivots: [fct_dsc_cleasnsed_data.npsscore]
     filters:
       fct_dsc_cleasnsed_data.timing_parameter: true
       fct_dsc_cleasnsed_data.month_parameter: true
     sorts: [fct_dsc_cleasnsed_data.npsscore,
-fct_dsc_cleasnsed_data.facilitycode1]
+fct_dsc_cleasnsed_data.cntd_facilitycode1]
     series_colors:
       "SBT": "#4e79a7"
       "SAT": "#59a14f"
@@ -40,13 +40,13 @@ fct_dsc_cleasnsed_data.facilitycode1]
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.turnover_score,
-fct_dsc_cleasnsed_data.facilitycode1]
+fct_dsc_cleasnsed_data.cntd_facilitycode1]
     pivots: [fct_dsc_cleasnsed_data.turnover_score]
     filters:
       fct_dsc_cleasnsed_data.timing_parameter: true
       fct_dsc_cleasnsed_data.month_parameter: true
     sorts: [fct_dsc_cleasnsed_data.turnover_score,
-fct_dsc_cleasnsed_data.facilitycode1]
+fct_dsc_cleasnsed_data.cntd_facilitycode1]
     series_colors:
       "%null%": "#4e79a7"
       "SAT": "#59a14f"
@@ -72,13 +72,13 @@ fct_dsc_cleasnsed_data.facilitycode1]
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.completion_percent_score,
-fct_dsc_cleasnsed_data.facilitycode1]
+fct_dsc_cleasnsed_data.cntd_facilitycode1]
     pivots: [fct_dsc_cleasnsed_data.completion_percent_score]
     filters:
       fct_dsc_cleasnsed_data.timing_parameter: true
       fct_dsc_cleasnsed_data.month_parameter: true
     sorts: [fct_dsc_cleasnsed_data.completion_percent_score,
-fct_dsc_cleasnsed_data.facilitycode1]
+fct_dsc_cleasnsed_data.cntd_facilitycode1]
     series_colors:
       "SAT": "#59a14f"
       "AT": "#8cd17d"
@@ -104,13 +104,13 @@ fct_dsc_cleasnsed_data.facilitycode1]
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.credit_app_score,
-fct_dsc_cleasnsed_data.facilitycode1]
+fct_dsc_cleasnsed_data.cntd_facilitycode1]
     pivots: [fct_dsc_cleasnsed_data.credit_app_score]
     filters:
       fct_dsc_cleasnsed_data.timing_parameter: true
       fct_dsc_cleasnsed_data.month_parameter: true
     sorts: [fct_dsc_cleasnsed_data.credit_app_score,
-fct_dsc_cleasnsed_data.facilitycode1]
+fct_dsc_cleasnsed_data.cntd_facilitycode1]
     series_colors:
       "SAT": "#59a14f"
       "AT": "#8cd17d"
@@ -136,13 +136,13 @@ fct_dsc_cleasnsed_data.facilitycode1]
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.np_tx_accepted_per_np_score,
-fct_dsc_cleasnsed_data.facilitycode1]
+fct_dsc_cleasnsed_data.cntd_facilitycode1]
     pivots: [fct_dsc_cleasnsed_data.np_tx_accepted_per_np_score]
     filters:
       fct_dsc_cleasnsed_data.timing_parameter: true
       fct_dsc_cleasnsed_data.month_parameter: true
     sorts: [fct_dsc_cleasnsed_data.np_tx_accepted_per_np_score,
-fct_dsc_cleasnsed_data.facilitycode1]
+fct_dsc_cleasnsed_data.cntd_facilitycode1]
     series_colors:
       "SAT": "#59a14f"
       "AT": "#8cd17d"
@@ -168,13 +168,13 @@ fct_dsc_cleasnsed_data.facilitycode1]
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.gross_profit_varianceto_budget_score,
-fct_dsc_cleasnsed_data.facilitycode1]
+fct_dsc_cleasnsed_data.cntd_facilitycode1]
     pivots: [fct_dsc_cleasnsed_data.gross_profit_varianceto_budget_score]
     filters:
       fct_dsc_cleasnsed_data.timing_parameter: true
       fct_dsc_cleasnsed_data.month_parameter: true
     sorts: [fct_dsc_cleasnsed_data.gross_profit_varianceto_budget_score,
-fct_dsc_cleasnsed_data.facilitycode1]
+fct_dsc_cleasnsed_data.cntd_facilitycode1]
     series_colors:
       "%null%": "#4e79a7"
       "SAT": "#59a14f"
@@ -200,13 +200,13 @@ fct_dsc_cleasnsed_data.facilitycode1]
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.overall_om_score_1,
-fct_dsc_cleasnsed_data.facilitycode1]
+fct_dsc_cleasnsed_data.cntd_facilitycode1]
     pivots: [fct_dsc_cleasnsed_data.overall_om_score_1]
     filters:
       fct_dsc_cleasnsed_data.timing_parameter: true
       fct_dsc_cleasnsed_data.month_parameter: true
     sorts: [fct_dsc_cleasnsed_data.overall_om_score_1,
-fct_dsc_cleasnsed_data.facilitycode1]
+fct_dsc_cleasnsed_data.cntd_facilitycode1]
     series_colors:
       "SBT": "#4e79a7"
       "SAT": "#59a14f"
@@ -237,7 +237,6 @@ fct_dsc_cleasnsed_data.region_description,
 fct_dsc_cleasnsed_data.territory,
 fct_dsc_cleasnsed_data.placeholder,
 fct_dsc_cleasnsed_data.overall_om_score_1,
-fct_dsc_cleasnsed_data.None,
 fct_dsc_cleasnsed_data.total_completion_percent,
 fct_dsc_cleasnsed_data.total_credit_app,
 fct_dsc_cleasnsed_data.total_np_tx_accepted_per_np,
@@ -264,4 +263,3 @@ fct_dsc_cleasnsed_data.territory]
     col: 0
     width: 24
     height: 10
-

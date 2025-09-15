@@ -1825,6 +1825,11 @@ view: fct_dsc_cleasnsed_data {
     # Original Tableau formula: { FIXED [Region Description],[Calculation_2087136979212263426],[Calculation_2087136979212402691], [Calculation_2699345060414803975]: (IF [Calculation_361976852010156036] >= Round(AVG([NPSSAT _Union_]),3) Then 'SAT' ELSEIF [Calculation_361976852010156036] >= Round(AVG([NPSATLow _Union_]),3) Then 'AT' ELSEIF [Calculation_361976852010156036] >= Round(AVG([NPSOTLow _Union_]),3) OR ISNULL([Calculation_361976852010156036]) Then 'OT' ELSEIF [Calculation_361976852010156036] >= Round(AVG([NPSBTLow _Union_]),3) Then 'BT' ELSEIF [Calculation_361976852010156036] < Round(AVG([NPSBTLow _Union_]),3) Then 'SBT' END)}
   }
 
+  measure: cntd_facilitycode1 {
+    description: "Original name: [FacilityCode1]"
+    type: count_distinct
+    sql: ${facilitycode1} ;;
+  }
   measure: ebitda_rollup {
     description: "Calculated field: Round(Sum([EBITDA Bal])/Sum([EBITDA Bud])-1, 4)"
     type: number
