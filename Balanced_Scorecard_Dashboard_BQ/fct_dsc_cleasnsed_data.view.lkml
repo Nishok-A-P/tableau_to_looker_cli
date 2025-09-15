@@ -315,11 +315,11 @@ view: fct_dsc_cleasnsed_data {
       value: "Overall"
     }
   }
-  parameter: parameter_4 {
-    label: "month"
-    type: datetime
-    default_value: "2025-09-11 17:58:55.637"
-  }
+  # parameter: parameter_4 {
+  #   label: "month"
+  #   type: datetime
+  #   default_value: "2025-09-11 17:58:55.637"
+  # }
   parameter: parameter_5 {
     label: "view_selection"
     type: string
@@ -1851,19 +1851,19 @@ view: fct_dsc_cleasnsed_data {
     # Original Tableau formula: [Facility Opening Date] < DATEADD('month', 1,[Calculation_361976851997593603])
   }
 
-  measure: 1 {
-    description: "Calculated field: Avg(1)"
-    type: number
-    sql: AVG(1) ;;
-    # Original Tableau formula: Avg(1)
-  }
+  # measure: 1 {
+  #   description: "Calculated field: Avg(1)"
+  #   type: number
+  #   sql: AVG(1) ;;
+  #   # Original Tableau formula: Avg(1)
+  # }
 
-  measure: 2 {
-    description: "Calculated field: Min(30)"
-    type: number
-    sql: MIN(30) ;;
-    # Original Tableau formula: Min(30)
-  }
+  # measure: 2 {
+  #   description: "Calculated field: Min(30)"
+  #   type: number
+  #   sql: MIN(30) ;;
+  #   # Original Tableau formula: Min(30)
+  # }
 
   dimension: first_of_month {
     description: "Calculated field: DATE(Str([Year])+\"-\"+STR([Month])+\"-01\")"
