@@ -5,7 +5,7 @@
   elements:
   - title: "<Sheet Name> - <[Parameters].[Parameter 3]>"
     name: heat_map
-    model: bigquery_super_store_sales_model_generated_20250914_161815
+    model: bigquery_super_store_sales_model_generated_20250915_052211
     explore: fct_dsc_cleasnsed_data
     type: looker_scatter
     filters:
@@ -22,7 +22,7 @@
 
   - title: "4 Month Trend"
     name: 4_month_trend
-    model: bigquery_super_store_sales_model_generated_20250914_161815
+    model: bigquery_super_store_sales_model_generated_20250915_052211
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     filters:
