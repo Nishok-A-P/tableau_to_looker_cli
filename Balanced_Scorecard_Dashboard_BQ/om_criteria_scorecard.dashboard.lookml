@@ -5,7 +5,7 @@
   elements:
   - title: "Net Promoter Score"
     name: om_nps
-    model: bigquery_super_store_sales_model_generated_20250914_161815
+    model: bigquery_super_store_sales_model_generated_20250915_052211
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.npsscore,
@@ -36,7 +36,7 @@ fct_dsc_cleasnsed_data.facilitycode1]
 
   - title: "Rolling 6-month TO % (annualized)"
     name: om_turnover
-    model: bigquery_super_store_sales_model_generated_20250914_161815
+    model: bigquery_super_store_sales_model_generated_20250915_052211
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.turnover_score,
@@ -68,7 +68,7 @@ fct_dsc_cleasnsed_data.facilitycode1]
 
   - title: "NP Completion %"
     name: om_completion
-    model: bigquery_super_store_sales_model_generated_20250914_161815
+    model: bigquery_super_store_sales_model_generated_20250915_052211
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.completion_percent_score,
@@ -100,7 +100,7 @@ fct_dsc_cleasnsed_data.facilitycode1]
 
   - title: "Credit App %"
     name: om_credit_app
-    model: bigquery_super_store_sales_model_generated_20250914_161815
+    model: bigquery_super_store_sales_model_generated_20250915_052211
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.credit_app_score,
@@ -132,7 +132,7 @@ fct_dsc_cleasnsed_data.facilitycode1]
 
   - title: "NP Tx Accepted Per NP"
     name: om_np_tx_accepted_per_np
-    model: bigquery_super_store_sales_model_generated_20250914_161815
+    model: bigquery_super_store_sales_model_generated_20250915_052211
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.np_tx_accepted_per_np_score,
@@ -164,7 +164,7 @@ fct_dsc_cleasnsed_data.facilitycode1]
 
   - title: "Gross Profit Variance to Budget %"
     name: om_gpvartobud
-    model: bigquery_super_store_sales_model_generated_20250914_161815
+    model: bigquery_super_store_sales_model_generated_20250915_052211
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.gross_profit_varianceto_budget_score,
@@ -196,7 +196,7 @@ fct_dsc_cleasnsed_data.facilitycode1]
 
   - title: "Overall Score"
     name: om_overall
-    model: bigquery_super_store_sales_model_generated_20250914_161815
+    model: bigquery_super_store_sales_model_generated_20250915_052211
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.overall_om_score_1,
@@ -227,7 +227,7 @@ fct_dsc_cleasnsed_data.facilitycode1]
 
   - title: "Om List"
     name: om_list
-    model: bigquery_super_store_sales_model_generated_20250914_161815
+    model: bigquery_super_store_sales_model_generated_20250915_052211
     explore: fct_dsc_cleasnsed_data
     type: looker_grid
     fields: [fct_dsc_cleasnsed_data.facility,
