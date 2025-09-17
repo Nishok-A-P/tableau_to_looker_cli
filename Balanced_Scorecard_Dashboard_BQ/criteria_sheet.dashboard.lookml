@@ -5,7 +5,7 @@
   elements:
   - title: "Criteria Table - Sat"
     name: criteria_table_sat
-    model: bigquery_super_store_sales_model_generated_20250915_114600
+    model: bigquery_super_store_sales_model_generated_20250917_052416
     explore: balance_scorecard_ot_bsc
     type: looker_column
     filters:
@@ -24,7 +24,7 @@
 
   - title: "Criteria Table - At"
     name: criteria_table_at
-    model: bigquery_super_store_sales_model_generated_20250915_114600
+    model: bigquery_super_store_sales_model_generated_20250917_052416
     explore: balance_scorecard_ot_bsc
     type: looker_column
     filters:
@@ -43,7 +43,7 @@
 
   - title: "Criteria Table - Ot"
     name: criteria_table_ot
-    model: bigquery_super_store_sales_model_generated_20250915_114600
+    model: bigquery_super_store_sales_model_generated_20250917_052416
     explore: balance_scorecard_ot_bsc
     type: looker_column
     filters:
@@ -62,7 +62,7 @@
 
   - title: "Criteria Table - Bt"
     name: criteria_table_bt
-    model: bigquery_super_store_sales_model_generated_20250915_114600
+    model: bigquery_super_store_sales_model_generated_20250917_052416
     explore: balance_scorecard_ot_bsc
     type: looker_column
     filters:
@@ -81,7 +81,7 @@
 
   - title: "Dir Sat"
     name: dir_sat
-    model: bigquery_super_store_sales_model_generated_20250915_114600
+    model: bigquery_super_store_sales_model_generated_20250917_052416
     explore: balance_scorecard_ot_bsc
     type: looker_column
     filters:
@@ -100,7 +100,7 @@
 
   - title: "Dir At"
     name: dir_at
-    model: bigquery_super_store_sales_model_generated_20250915_114600
+    model: bigquery_super_store_sales_model_generated_20250917_052416
     explore: balance_scorecard_ot_bsc
     type: looker_column
     filters:
@@ -119,7 +119,7 @@
 
   - title: "Dir Ot"
     name: dir_ot
-    model: bigquery_super_store_sales_model_generated_20250915_114600
+    model: bigquery_super_store_sales_model_generated_20250917_052416
     explore: balance_scorecard_ot_bsc
     type: looker_column
     filters:
@@ -138,7 +138,7 @@
 
   - title: "Dir Bt"
     name: dir_bt
-    model: bigquery_super_store_sales_model_generated_20250915_114600
+    model: bigquery_super_store_sales_model_generated_20250917_052416
     explore: balance_scorecard_ot_bsc
     type: looker_column
     filters:
