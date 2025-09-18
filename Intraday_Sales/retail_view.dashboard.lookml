@@ -5,7 +5,7 @@
   elements:
   - title: "Retail Heat"
     name: retail_heat
-    model: bigquery_super_store_sales_model_generated_20250917_052424
+    model: bigquery_super_store_sales_model_generated_20250918_104501
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_grid
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.bi_chnl_ctgry_desc,
