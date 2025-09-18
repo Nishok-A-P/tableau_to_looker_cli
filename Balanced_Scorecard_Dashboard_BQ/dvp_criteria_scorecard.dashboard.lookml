@@ -5,7 +5,7 @@
   elements:
   - title: "Net Promoter Score"
     name: dvp_nps
-    model: bigquery_super_store_sales_model_generated_20250917_052416
+    model: bigquery_super_store_sales_model_generated_20250918_104516
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.dvp_scores_nps,
@@ -36,7 +36,7 @@ fct_dsc_cleasnsed_data.division_vp]
 
   - title: "Rolling 6-month TO % (annualized)"
     name: dvp_officeto
-    model: bigquery_super_store_sales_model_generated_20250917_052416
+    model: bigquery_super_store_sales_model_generated_20250918_104516
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.dvp_scores_officeto,
@@ -67,7 +67,7 @@ fct_dsc_cleasnsed_data.division_vp]
 
   - title: "NP Completion %"
     name: dvp_completion
-    model: bigquery_super_store_sales_model_generated_20250917_052416
+    model: bigquery_super_store_sales_model_generated_20250918_104516
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.dvp_scores_completion,
@@ -97,7 +97,7 @@ fct_dsc_cleasnsed_data.division_vp]
 
   - title: "Credit App %"
     name: dvp_credit_app
-    model: bigquery_super_store_sales_model_generated_20250917_052416
+    model: bigquery_super_store_sales_model_generated_20250918_104516
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.dvp_scores_credit_apps,
@@ -128,7 +128,7 @@ fct_dsc_cleasnsed_data.division_vp]
 
   - title: "NP Tx Accepted per NP"
     name: dvp_tx_accepted
-    model: bigquery_super_store_sales_model_generated_20250917_052416
+    model: bigquery_super_store_sales_model_generated_20250918_104516
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.dvp_scores_np_tx_accepted,
@@ -160,7 +160,7 @@ fct_dsc_cleasnsed_data.division_vp]
 
   - title: "EBITDA Variance to Budget %"
     name: dvp_ebitda
-    model: bigquery_super_store_sales_model_generated_20250917_052416
+    model: bigquery_super_store_sales_model_generated_20250918_104516
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.dvp_scores_ebitda,
@@ -191,7 +191,7 @@ fct_dsc_cleasnsed_data.division_vp]
 
   - title: "Overall Score"
     name: dvp_overall
-    model: bigquery_super_store_sales_model_generated_20250917_052416
+    model: bigquery_super_store_sales_model_generated_20250918_104516
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     fields: [fct_dsc_cleasnsed_data.overall_dvp_score,
@@ -221,7 +221,7 @@ fct_dsc_cleasnsed_data.division_vp]
 
   - title: "Download Dvp Data"
     name: download_dvp_data
-    model: bigquery_super_store_sales_model_generated_20250917_052416
+    model: bigquery_super_store_sales_model_generated_20250918_104516
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     filters:
@@ -243,7 +243,7 @@ fct_dsc_cleasnsed_data.division_vp]
 
   - title: "Dvp List"
     name: dvp_list
-    model: bigquery_super_store_sales_model_generated_20250917_052416
+    model: bigquery_super_store_sales_model_generated_20250918_104516
     explore: fct_dsc_cleasnsed_data
     type: looker_column
     filters:
