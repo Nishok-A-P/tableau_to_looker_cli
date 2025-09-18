@@ -5,7 +5,7 @@
   elements:
   - title: "DNA Report"
     name: multi_day_view
-    model: tableau_looker_poc_model_generated_20250917_052506
+    model: tableau_looker_poc_model_generated_20250918_104437
     explore: sheet1
     type: looker_column
     filters:
