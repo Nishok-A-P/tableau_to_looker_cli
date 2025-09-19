@@ -366,7 +366,7 @@ sheet1.rpt_mth_month]
     explore: sheet1
     type: looker_column
     filters:
-      sheet1.Measure Names: [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Rev & Run (copy)_681732406200926213:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_978688514352406528:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_990510463077076997:qk]
+      # sheet1.Measure Names: [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Rev & Run (copy)_681732406200926213:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_978688514352406528:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_990510463077076997:qk]
       sheet1.rpt_mth: 202504
       sheet1.district: -NULL
       sheet1.sls_outlet_nm: -NULL
@@ -381,4 +381,3 @@ sheet1.rpt_mth_month]
     col: 0
     width: 24
     height: 5
-

@@ -1,6 +1,6 @@
-view: sheet1 {
-  # Generated from Tableau view: Sheet1
-  sql_table_name: `Sheet1$` ;;
+view: sheet {
+  # Generated from Tableau view: sheet
+  sql_table_name: `tableau-to-looker-migration.Super_Store_Sales.SetUp_Go` ;;
 
 
   # Parameters (from Tableau parameters)
@@ -1617,7 +1617,13 @@ view: sheet1 {
   dimension: suag_num_new_calc {
     description: "Row-level calculation for suag_num_new: If ISNULL([SUAG_NUM]) then 0 elseif [SUAG_ITEM_CD] = 'C3518' then [SUAG_NUM] ELSEIF [SUAG_ITEM_CD] = 'C65' then [SUAG_NUM] elseif [SUAG_ITEM_CD] = 'C5697' then [SUAG_NUM] END"
     type: number
-    sql: CASE WHEN ${TABLE}.`SUAG_NUM` IS NULL THEN 0 ELSE CASE WHEN (${TABLE}.`SUAG_ITEM_CD` = 'C3518') THEN ${TABLE}.`SUAG_NUM` ELSE CASE WHEN (${TABLE}.`SUAG_ITEM_CD` = 'C65') THEN ${TABLE}.`SUAG_NUM` ELSE CASE WHEN (${TABLE}.`SUAG_ITEM_CD` = 'C5697') THEN ${TABLE}.`SUAG_NUM` ELSE NULL END END END END ;;
+    sql: CASE
+  WHEN sheet.`SUAG_NUM` IS NULL THEN 0
+  WHEN sheet.`SUAG_ITEM_CD` = 'C3518' THEN sheet.`SUAG_NUM`
+  WHEN sheet.`SUAG_ITEM_CD` = 'C65' THEN sheet.`SUAG_NUM`
+  WHEN sheet.`SUAG_ITEM_CD` = 'C5697' THEN sheet.`SUAG_NUM`
+  ELSE 0
+END;;
     hidden: yes
     # Original Tableau formula: If ISNULL([SUAG_NUM]) then 0 elseif [SUAG_ITEM_CD] = 'C3518' then [SUAG_NUM] ELSEIF [SUAG_ITEM_CD] = 'C65' then [SUAG_NUM] elseif [SUAG_ITEM_CD] = 'C5697' then [SUAG_NUM] END
   }
@@ -2184,19 +2190,19 @@ view: sheet1 {
     # Original Tableau formula: Case [Parameters].[Dynamic 1 (copy) (copy)_1581607899270795273] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
   }
 
-  dimension: level_1_copy {
-    description: "Calculated field: Case [Parameters].[Parameter 1 1] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
-    type: string
-    sql: CASE WHEN ({% parameter parameter_1_1 %} = 'Market') THEN ${TABLE}.`REGION` WHEN ({% parameter parameter_1_1 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter parameter_1_1 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter parameter_1_1 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` WHEN ({% parameter parameter_1_1 %} = 'Rep') THEN ${TABLE}.`EmployeeName` END ;;
-    # Original Tableau formula: Case [Parameters].[Parameter 1 1] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
-  }
+  # dimension: level_1_copy {
+  #   description: "Calculated field: Case [Parameters].[Parameter 1 1] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
+  #   type: string
+  #   sql: CASE WHEN ({% parameter parameter_1_1 %} = 'Market') THEN ${TABLE}.`REGION` WHEN ({% parameter parameter_1_1 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter parameter_1_1 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter parameter_1_1 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` WHEN ({% parameter parameter_1_1 %} = 'Rep') THEN ${TABLE}.`EmployeeName` END ;;
+  #   # Original Tableau formula: Case [Parameters].[Parameter 1 1] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
+  # }
 
-  dimension: level_1 {
-    description: "Calculated field: Case [Parameters].[Dynamic 1 (copy) (copy)_1581607899270795273] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
-    type: string
-    sql: CASE WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Market') THEN ${TABLE}.`REGION` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Zone') THEN ${zone} WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Rep') THEN ${TABLE}.`EmployeeName` END ;;
-    # Original Tableau formula: Case [Parameters].[Dynamic 1 (copy) (copy)_1581607899270795273] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
-  }
+  # dimension: level_1 {
+  #   description: "Calculated field: Case [Parameters].[Dynamic 1 (copy) (copy)_1581607899270795273] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
+  #   type: string
+  #   sql: CASE WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Market') THEN ${TABLE}.`REGION` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Zone') THEN ${zone} WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Rep') THEN ${TABLE}.`EmployeeName` END ;;
+  #   # Original Tableau formula: Case [Parameters].[Dynamic 1 (copy) (copy)_1581607899270795273] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
+  # }
 
   dimension: level_2 {
     description: "Calculated field: Case [Parameters].[Dynamic 1 (copy)_1717841844705943552] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
@@ -2205,12 +2211,12 @@ view: sheet1 {
     # Original Tableau formula: Case [Parameters].[Dynamic 1 (copy)_1717841844705943552] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
   }
 
-  dimension: level_2 {
-    description: "Calculated field: Case [Parameters].[Dynamic 2 (copy) (copy)_1581607899270803466] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
-    type: string
-    sql: CASE WHEN ({% parameter dynamic_2_copy_copy_1581607899270803466 %} = 'Market') THEN ${TABLE}.`REGION` WHEN ({% parameter dynamic_2_copy_copy_1581607899270803466 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter dynamic_2_copy_copy_1581607899270803466 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter dynamic_2_copy_copy_1581607899270803466 %} = 'Zone') THEN ${zone} WHEN ({% parameter dynamic_2_copy_copy_1581607899270803466 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` WHEN ({% parameter dynamic_2_copy_copy_1581607899270803466 %} = 'Rep') THEN ${TABLE}.`EmployeeName` END ;;
-    # Original Tableau formula: Case [Parameters].[Dynamic 2 (copy) (copy)_1581607899270803466] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
-  }
+  # dimension: level_2 {
+  #   description: "Calculated field: Case [Parameters].[Dynamic 2 (copy) (copy)_1581607899270803466] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
+  #   type: string
+  #   sql: CASE WHEN ({% parameter dynamic_2_copy_copy_1581607899270803466 %} = 'Market') THEN ${TABLE}.`REGION` WHEN ({% parameter dynamic_2_copy_copy_1581607899270803466 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter dynamic_2_copy_copy_1581607899270803466 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter dynamic_2_copy_copy_1581607899270803466 %} = 'Zone') THEN ${zone} WHEN ({% parameter dynamic_2_copy_copy_1581607899270803466 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` WHEN ({% parameter dynamic_2_copy_copy_1581607899270803466 %} = 'Rep') THEN ${TABLE}.`EmployeeName` END ;;
+  #   # Original Tableau formula: Case [Parameters].[Dynamic 2 (copy) (copy)_1581607899270803466] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
+  # }
 
   dimension: level_3 {
     description: "Calculated field: Case [Parameters].[Dynamic 2 (copy)_1717841844705996801] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
@@ -2219,12 +2225,12 @@ view: sheet1 {
     # Original Tableau formula: Case [Parameters].[Dynamic 2 (copy)_1717841844705996801] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
   }
 
-  dimension: level_3 {
-    description: "Calculated field: Case [Parameters].[Dynamic 3 (copy) (copy)_1581607899270819851] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
-    type: string
-    sql: CASE WHEN ({% parameter dynamic_3_copy_copy_1581607899270819851 %} = 'Market') THEN ${TABLE}.`REGION` WHEN ({% parameter dynamic_3_copy_copy_1581607899270819851 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter dynamic_3_copy_copy_1581607899270819851 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter dynamic_3_copy_copy_1581607899270819851 %} = 'Zone') THEN ${zone} WHEN ({% parameter dynamic_3_copy_copy_1581607899270819851 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` WHEN ({% parameter dynamic_3_copy_copy_1581607899270819851 %} = 'Rep') THEN ${TABLE}.`EmployeeName` END ;;
-    # Original Tableau formula: Case [Parameters].[Dynamic 3 (copy) (copy)_1581607899270819851] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
-  }
+  # dimension: level_3 {
+  #   description: "Calculated field: Case [Parameters].[Dynamic 3 (copy) (copy)_1581607899270819851] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
+  #   type: string
+  #   sql: CASE WHEN ({% parameter dynamic_3_copy_copy_1581607899270819851 %} = 'Market') THEN ${TABLE}.`REGION` WHEN ({% parameter dynamic_3_copy_copy_1581607899270819851 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter dynamic_3_copy_copy_1581607899270819851 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter dynamic_3_copy_copy_1581607899270819851 %} = 'Zone') THEN ${zone} WHEN ({% parameter dynamic_3_copy_copy_1581607899270819851 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` WHEN ({% parameter dynamic_3_copy_copy_1581607899270819851 %} = 'Rep') THEN ${TABLE}.`EmployeeName` END ;;
+  #   # Original Tableau formula: Case [Parameters].[Dynamic 3 (copy) (copy)_1581607899270819851] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
+  # }
 
   dimension: level_4 {
     description: "Calculated field: Case [Parameters].[Dynamic 3 (copy)_1717841844706041858] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
@@ -2417,7 +2423,7 @@ view: sheet1 {
 
   measure: suag_num_new {
     description: "Calculated field: If ISNULL([SUAG_NUM]) then 0 elseif [SUAG_ITEM_CD] = 'C3518' then [SUAG_NUM] ELSEIF [SUAG_ITEM_CD] = 'C65' then [SUAG_NUM] elseif [SUAG_ITEM_CD] = 'C5697' then [SUAG_NUM] END"
-    type: number
+    type: sum
     sql: ${suag_num_new_calc} ;;
     # Original Tableau formula: If ISNULL([SUAG_NUM]) then 0 elseif [SUAG_ITEM_CD] = 'C3518' then [SUAG_NUM] ELSEIF [SUAG_ITEM_CD] = 'C65' then [SUAG_NUM] elseif [SUAG_ITEM_CD] = 'C5697' then [SUAG_NUM] END
   }

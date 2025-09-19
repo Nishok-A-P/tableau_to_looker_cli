@@ -6,18 +6,18 @@
   - title: "<"
     name: device_tr_ranking
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_grid
     filters:
-      sheet1.Measure Names: [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_978688514352406528:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:SUAG_NUM (new) (copy)_788692951555125248:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:SU&G Single (copy)_788692951555624961:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:SU&G MD (copy)_788692951569780741:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:MD All In (copy)_1664924554372804609:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:SUAG_NUM (copy)_452048844292403200:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:SUAG_DEN:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:Revenue (copy)_788692951560839171:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:Revenue (Single) (copy)_788692951561256964:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_1581607899260530688:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_1664924554374983683:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_990510463077076997:qk]
-      sheet1.district: -NULL
-      sheet1.region: -NULL
-      sheet1.territory: Best Buy Exclusive - Atlantic North, Best Buy Exclusive - Pacific, Retail Agent Proof of Concept, -NULL
-      sheet1.zone: Closed-NIC0297, Closed-NMW0297, Indirect-AKH9001, Indirect-CPN9001, Indirect-DMN9001, Indirect-NMW9001, Indirect-SNI9001, -NULL
-      sheet1.date_selection_true: true
-      sheet1.is_eligible: Y
-      sheet1.outlet_name: -NULL
-      sheet1.Top/Bottom 5 (TR) (copy)_388435489321582607: Bottom 5, Top 5
+      # sheet.Measure Names: [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_978688514352406528:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:SUAG_NUM (new) (copy)_788692951555125248:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:SU&G Single (copy)_788692951555624961:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:SU&G MD (copy)_788692951569780741:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:MD All In (copy)_1664924554372804609:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:SUAG_NUM (copy)_452048844292403200:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:SUAG_DEN:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:Revenue (copy)_788692951560839171:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:Revenue (Single) (copy)_788692951561256964:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_1581607899260530688:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_1664924554374983683:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_990510463077076997:qk]
+      sheet.district: -NULL
+      sheet.region: -NULL
+      sheet.territory: Best Buy Exclusive - Atlantic North, Best Buy Exclusive - Pacific, Retail Agent Proof of Concept, -NULL
+      sheet.zone: Closed-NIC0297, Closed-NMW0297, Indirect-AKH9001, Indirect-CPN9001, Indirect-DMN9001, Indirect-NMW9001, Indirect-SNI9001, -NULL
+      sheet.date_selection_true: true
+      sheet.is_eligible: Y
+      sheet.outlet_name: -NULL
+      sheet.Top/Bottom 5 (TR) (copy)_388435489321582607: Bottom 5, Top 5
     series_colors:
       "Top 5": "#008330"
       "Others": "#136598"
@@ -33,16 +33,16 @@
   - title: "Take Rate By Device Group"
     name: device_grouping_tr
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_column
-    fields: [sheet1.total_suag_num_copy_452048844292403200]
+    fields: [sheet.total_suag_num_copy_452048844292403200]
     filters:
-      sheet1.zone: Closed-NIC0297, Closed-NMW0297, Indirect-AKH9001, Indirect-CPN9001, Indirect-DMN9001, Indirect-NMW9001, Indirect-SNI9001, -NULL
-      sheet1.date_selection_true: true
-      sheet1.district: -NULL
-      sheet1.region: -NULL
-      sheet1.outlet_name: -NULL
-      sheet1.territory: Best Buy Exclusive - Atlantic North, Best Buy Exclusive - Pacific, Retail Agent Proof of Concept, -NULL
+      sheet.zone: Closed-NIC0297, Closed-NMW0297, Indirect-AKH9001, Indirect-CPN9001, Indirect-DMN9001, Indirect-NMW9001, Indirect-SNI9001, -NULL
+      sheet.date_selection_true: true
+      sheet.district: -NULL
+      sheet.region: -NULL
+      sheet.outlet_name: -NULL
+      sheet.territory: Best Buy Exclusive - Atlantic North, Best Buy Exclusive - Pacific, Retail Agent Proof of Concept, -NULL
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -58,18 +58,18 @@
   - title: "Take Rate & Sales By Device"
     name: device_grouping_tr_2
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_column
-    fields: [sheet1.total_suag_net_sales,
-sheet1.device_brand_nm]
+    fields: [sheet.total_suag_net_sales,
+sheet.device_brand_nm]
     filters:
-      sheet1.Measure Names: [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:SUAG_NUM (copy)_452048844292403200:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:SUAG_DEN:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_978688514352406528:qk]
-      sheet1.zone: Closed-NIC0297, Closed-NMW0297, Indirect-AKH9001, Indirect-CPN9001, Indirect-DMN9001, Indirect-NMW9001, Indirect-SNI9001, -NULL
-      sheet1.date_selection_true: true
-      sheet1.district: -NULL
-      sheet1.region: -NULL
-      sheet1.outlet_name: -NULL
-      sheet1.territory: Best Buy Exclusive - Atlantic North, Best Buy Exclusive - Pacific, Retail Agent Proof of Concept, -NULL
+      # sheet.Measure Names: [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:SUAG_NUM (copy)_452048844292403200:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:SUAG_DEN:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_978688514352406528:qk]
+      sheet.zone: Closed-NIC0297, Closed-NMW0297, Indirect-AKH9001, Indirect-CPN9001, Indirect-DMN9001, Indirect-NMW9001, Indirect-SNI9001, -NULL
+      sheet.date_selection_true: true
+      sheet.district: -NULL
+      sheet.region: -NULL
+      sheet.outlet_name: -NULL
+      sheet.territory: Best Buy Exclusive - Atlantic North, Best Buy Exclusive - Pacific, Retail Agent Proof of Concept, -NULL
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -85,20 +85,20 @@ sheet1.device_brand_nm]
   - title: "SU&G Category"
     name: mva_pie
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_donut_multiples
-    fields: [sheet1.suag_item_cd,
-sheet1.None]
-    pivots: [sheet1.suag_item_cd]
+    fields: [sheet.suag_item_cd,
+sheet.None]
+    pivots: [sheet.suag_item_cd]
     filters:
-      sheet1.zone: Closed-NIC0297, Closed-NMW0297, Indirect-AKH9001, Indirect-CPN9001, Indirect-DMN9001, Indirect-NMW9001, Indirect-SNI9001, -NULL
-      sheet1.date_selection_true: true
-      sheet1.district: -NULL
-      sheet1.region: -NULL
-      sheet1.outlet_name: -NULL
-      sheet1.suag_item_cd: -NULL
-      sheet1.territory: Best Buy Exclusive - Atlantic North, Best Buy Exclusive - Pacific, Retail Agent Proof of Concept, -NULL
-    sorts: [sheet1.suag_item_cd]
+      sheet.zone: Closed-NIC0297, Closed-NMW0297, Indirect-AKH9001, Indirect-CPN9001, Indirect-DMN9001, Indirect-NMW9001, Indirect-SNI9001, -NULL
+      sheet.date_selection_true: true
+      sheet.district: -NULL
+      sheet.region: -NULL
+      sheet.outlet_name: -NULL
+      sheet.suag_item_cd: -NULL
+      sheet.territory: Best Buy Exclusive - Atlantic North, Best Buy Exclusive - Pacific, Retail Agent Proof of Concept, -NULL
+    sorts: [sheet.suag_item_cd]
     series_colors:
       "SETUPANDGO": "#4e79a7"
       "50b36d256ef35d98e8e913b475eb8f50": "#59a14f"
@@ -127,19 +127,19 @@ sheet1.None]
   - title: "New vs Existing Customer: SU&G"
     name: new_vs_existing
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_donut_multiples
-    fields: [sheet1.acct_status,
-sheet1.None]
-    pivots: [sheet1.acct_status]
+    fields: [sheet.acct_status,
+sheet.suag_num_new]
+    pivots: [sheet.acct_status]
     filters:
-      sheet1.zone: Closed-NIC0297, Closed-NMW0297, Indirect-AKH9001, Indirect-CPN9001, Indirect-DMN9001, Indirect-NMW9001, Indirect-SNI9001, -NULL
-      sheet1.date_selection_true: true
-      sheet1.district: -NULL
-      sheet1.region: -NULL
-      sheet1.outlet_name: -NULL
-      sheet1.territory: Best Buy Exclusive - Atlantic North, Best Buy Exclusive - Pacific, Retail Agent Proof of Concept, -NULL
-    sorts: [sheet1.acct_status]
+      sheet.zone: Closed-NIC0297, Closed-NMW0297, Indirect-AKH9001, Indirect-CPN9001, Indirect-DMN9001, Indirect-NMW9001, Indirect-SNI9001, -NULL
+      sheet.date_selection_true: true
+      sheet.district: -NULL
+      sheet.region: -NULL
+      sheet.outlet_name: -NULL
+      sheet.territory: Best Buy Exclusive - Atlantic North, Best Buy Exclusive - Pacific, Retail Agent Proof of Concept, -NULL
+    sorts: [sheet.acct_status]
     series_colors:
       "New Acct 60 Days": "#4e79a7"
       "C343": "#59a14f"
@@ -162,19 +162,19 @@ sheet1.None]
   - title: "Take Rate By Purchase Type"
     name: upg_aal_new
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_column
-    fields: [sheet1.total_suag_num_copy_452048844292403200,
-sheet1.new_aal_upg_ind]
-    pivots: [sheet1.new_aal_upg_ind]
+    fields: [sheet.total_suag_num_copy_452048844292403200,
+sheet.new_aal_upg_ind]
+    pivots: [sheet.new_aal_upg_ind]
     filters:
-      sheet1.zone: Closed-NIC0297, Closed-NMW0297, Indirect-AKH9001, Indirect-CPN9001, Indirect-DMN9001, Indirect-NMW9001, Indirect-SNI9001, -NULL
-      sheet1.date_selection_true: true
-      sheet1.district: -NULL
-      sheet1.region: -NULL
-      sheet1.outlet_name: -NULL
-      sheet1.territory: Best Buy Exclusive - Atlantic North, Best Buy Exclusive - Pacific, Retail Agent Proof of Concept, -NULL
-    sorts: [sheet1.new_aal_upg_ind]
+      sheet.zone: Closed-NIC0297, Closed-NMW0297, Indirect-AKH9001, Indirect-CPN9001, Indirect-DMN9001, Indirect-NMW9001, Indirect-SNI9001, -NULL
+      sheet.date_selection_true: true
+      sheet.district: -NULL
+      sheet.region: -NULL
+      sheet.outlet_name: -NULL
+      sheet.territory: Best Buy Exclusive - Atlantic North, Best Buy Exclusive - Pacific, Retail Agent Proof of Concept, -NULL
+    sorts: [sheet.new_aal_upg_ind]
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -186,4 +186,3 @@ sheet1.new_aal_upg_ind]
     col: 18
     width: 6
     height: 5
-

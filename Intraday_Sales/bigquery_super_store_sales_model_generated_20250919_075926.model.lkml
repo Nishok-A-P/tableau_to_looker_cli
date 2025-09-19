@@ -16,6 +16,7 @@ include: "market_detail.dashboard.lookml"
 include: "phone_detail.dashboard.lookml"
 include: "phone_sales_dod.dashboard.lookml"
 include: "retail_view.dashboard.lookml"
+include: "intraday_sales_home.dashboard.lookml"
 
 # Explores
 
