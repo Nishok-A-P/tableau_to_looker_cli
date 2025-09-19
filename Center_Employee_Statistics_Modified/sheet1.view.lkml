@@ -2855,11 +2855,18 @@ view: sheet1 {
     # Original Tableau formula: [NM_FULL_DMGR]
   }
 
+  # dimension: employee_name {
+  #   description: "Calculated field: IF [Parameters].[Parameter 1]='Supervisor' THEN [NM_FULL_SUPV] ELSEIF [Parameters].[Parameter 1]='Senior Manager' THEN [NM_FULL_DMGR] ELSE [NM_FULL] END"
+  #   type: string
+  #   sql: CASE WHEN ({% parameter parameter_1 %} = 'Supervisor') THEN ${TABLE}.`NM_FULL_SUPV` ELSE CASE WHEN ({% parameter parameter_1 %} = 'Senior Manager') THEN ${TABLE}.`NM_FULL_DMGR` ELSE ${TABLE}.`NM_FULL` END END ;;
+  #   # Original Tableau formula: IF [Parameters].[Parameter 1]='Supervisor' THEN [NM_FULL_SUPV] ELSEIF [Parameters].[Parameter 1]='Senior Manager' THEN [NM_FULL_DMGR] ELSE [NM_FULL] END
+  # }
+
   dimension: employee_name {
-    description: "Calculated field: IF [Parameters].[Parameter 1]='Supervisor' THEN [NM_FULL_SUPV] ELSEIF [Parameters].[Parameter 1]='Senior Manager' THEN [NM_FULL_DMGR] ELSE [NM_FULL] END"
+    description: "Original name: [EMPLOYEE_NAME]"
     type: string
-    sql: CASE WHEN ({% parameter parameter_1 %} = 'Supervisor') THEN ${TABLE}.`NM_FULL_SUPV` ELSE CASE WHEN ({% parameter parameter_1 %} = 'Senior Manager') THEN ${TABLE}.`NM_FULL_DMGR` ELSE ${TABLE}.`NM_FULL` END END ;;
-    # Original Tableau formula: IF [Parameters].[Parameter 1]='Supervisor' THEN [NM_FULL_SUPV] ELSEIF [Parameters].[Parameter 1]='Senior Manager' THEN [NM_FULL_DMGR] ELSE [NM_FULL] END
+    sql: ${TABLE}.EMPLOYEE_NAME ;;
+    label: "EMPLOYEE NAME"
   }
 
   measure: sign_on_hours {
