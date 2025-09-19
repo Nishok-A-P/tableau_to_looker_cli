@@ -5,7 +5,7 @@
   elements:
   - title: "Dynamic Score"
     name: dynamic_score
-    model: tableau_looker_poc_model_generated_20250919_070816
+    model: tableau_looker_poc_model_generated_20250919_075909
     explore: sheet1
     type: looker_column
     filters:
@@ -26,7 +26,7 @@
 
   - title: "Sheet 59"
     name: sheet_59
-    model: tableau_looker_poc_model_generated_20250919_070816
+    model: tableau_looker_poc_model_generated_20250919_075909
     explore: sheet1
     type: looker_column
     filters:
@@ -45,7 +45,7 @@
 
   - title: "Data Refreshed: <Data Update Time>"
     name: sheet_54
-    model: tableau_looker_poc_model_generated_20250919_070816
+    model: tableau_looker_poc_model_generated_20250919_075909
     explore: sheet1
     type: looker_column
     show_value_labels: true
