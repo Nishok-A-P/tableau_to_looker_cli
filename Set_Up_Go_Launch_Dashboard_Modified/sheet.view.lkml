@@ -1295,11 +1295,11 @@ view: sheet {
   }
 
   dimension: mva_den_calc {
-    description: "Row-level calculation for mva_den: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = 'Y' AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END"
+    description: "Row-level calculation for mva_den: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END"
     type: number
-    sql: CASE WHEN ((((${TABLE}.`SUAG_SALES_QTY` > 0) AND (${TABLE}.`IS_ELIGIBLE` = 'Y')) AND ((${TABLE}.`REG_DT` >= ${TABLE}.`PYMNT_DT`) OR ${TABLE}.`REG_DT` IS NULL)) AND ((${TABLE}.`DEVICE_GROUPING` = 'C2212') OR (${TABLE}.`DEVICE_GROUPING` = 'C3913'))) THEN ${TABLE}.`NET_SALES` ELSE 0 END ;;
+    sql: CASE WHEN ((((${TABLE}.`SUAG_SALES_QTY` > 0) AND (${TABLE}.`IS_ELIGIBLE` = True)) AND ((${TABLE}.`REG_DT` >= ${TABLE}.`PYMNT_DT`) OR ${TABLE}.`REG_DT` IS NULL)) AND ((${TABLE}.`DEVICE_GROUPING` = 'C2212') OR (${TABLE}.`DEVICE_GROUPING` = 'C3913'))) THEN ${TABLE}.`NET_SALES` ELSE 0 END ;;
     hidden: yes
-    # Original Tableau formula: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = 'Y' AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END
+    # Original Tableau formula: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END
   }
 
   dimension: revenue_calc {
@@ -1439,11 +1439,11 @@ view: sheet {
   }
 
   dimension: ris_num_suag_calc {
-    description: "Row-level calculation for ris_num_suag: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = 'Y' THEN [RIS_NUM] ELSE NULL END)"
+    description: "Row-level calculation for ris_num_suag: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = True THEN [RIS_NUM] ELSE NULL END)"
     type: number
-    sql: SUM(CASE WHEN ((${TABLE}.`SUAG_SALES_QTY` > 0) AND (${TABLE}.`IS_ELIGIBLE` = 'Y')) THEN ${TABLE}.`RIS_NUM` ELSE NULL END) ;;
+    sql: SUM(CASE WHEN ((${TABLE}.`SUAG_SALES_QTY` > 0) AND (${TABLE}.`IS_ELIGIBLE` = True)) THEN ${TABLE}.`RIS_NUM` ELSE NULL END) ;;
     hidden: yes
-    # Original Tableau formula: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = 'Y' THEN [RIS_NUM] ELSE NULL END)
+    # Original Tableau formula: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = True THEN [RIS_NUM] ELSE NULL END)
   }
 
   dimension: suag_ris_percent_calc {
@@ -1471,19 +1471,19 @@ view: sheet {
   }
 
   dimension: mva_den_copy_calc {
-    description: "Row-level calculation for mva_den_copy: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = 'Y' AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END"
+    description: "Row-level calculation for mva_den_copy: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END"
     type: number
-    sql: CASE WHEN ((((${TABLE}.`SUAG_SALES_QTY` > 0) AND (${TABLE}.`IS_ELIGIBLE` = 'Y')) AND ((${TABLE}.`REG_DT` >= ${TABLE}.`PYMNT_DT`) OR ${TABLE}.`REG_DT` IS NULL)) AND ((${TABLE}.`DEVICE_GROUPING` = 'C2212') OR (${TABLE}.`DEVICE_GROUPING` = 'C3913'))) THEN ${TABLE}.`NET_SALES` ELSE 0 END ;;
+    sql: CASE WHEN ((((${TABLE}.`SUAG_SALES_QTY` > 0) AND (${TABLE}.`IS_ELIGIBLE` = True)) AND ((${TABLE}.`REG_DT` >= ${TABLE}.`PYMNT_DT`) OR ${TABLE}.`REG_DT` IS NULL)) AND ((${TABLE}.`DEVICE_GROUPING` = 'C2212') OR (${TABLE}.`DEVICE_GROUPING` = 'C3913'))) THEN ${TABLE}.`NET_SALES` ELSE 0 END ;;
     hidden: yes
-    # Original Tableau formula: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = 'Y' AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END
+    # Original Tableau formula: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END
   }
 
   dimension: mva_num_calc {
-    description: "Row-level calculation for mva_num: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = 'Y' AND [REG_DT] = [PYMNT_DT] AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END"
+    description: "Row-level calculation for mva_num: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND [REG_DT] = [PYMNT_DT] AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END"
     type: number
-    sql: CASE WHEN ((((${TABLE}.`SUAG_SALES_QTY` > 0) AND (${TABLE}.`IS_ELIGIBLE` = 'Y')) AND (${TABLE}.`REG_DT` = ${TABLE}.`PYMNT_DT`)) AND ((${TABLE}.`DEVICE_GROUPING` = 'C2212') OR (${TABLE}.`DEVICE_GROUPING` = 'C3913'))) THEN ${TABLE}.`NET_SALES` ELSE 0 END ;;
+    sql: CASE WHEN ((((${TABLE}.`SUAG_SALES_QTY` > 0) AND (${TABLE}.`IS_ELIGIBLE` = True)) AND (${TABLE}.`REG_DT` = ${TABLE}.`PYMNT_DT`)) AND ((${TABLE}.`DEVICE_GROUPING` = 'C2212') OR (${TABLE}.`DEVICE_GROUPING` = 'C3913'))) THEN ${TABLE}.`NET_SALES` ELSE 0 END ;;
     hidden: yes
-    # Original Tableau formula: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = 'Y' AND [REG_DT] = [PYMNT_DT] AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END
+    # Original Tableau formula: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND [REG_DT] = [PYMNT_DT] AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END
   }
 
   dimension: mva_calc {
@@ -1511,11 +1511,11 @@ view: sheet {
   }
 
   dimension: suag_returns_calc {
-    description: "Row-level calculation for suag_returns: SUM(If [IS_ELIGIBLE] = 'Y' and [SUAG_NUM] >0 then [RETURN_QTY] END )"
+    description: "Row-level calculation for suag_returns: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] >0 then [RETURN_QTY] END )"
     type: number
-    sql: SUM(CASE WHEN ((${TABLE}.`IS_ELIGIBLE` = 'Y') AND (${TABLE}.`SUAG_NUM` > 0)) THEN ${TABLE}.`RETURN_QTY` ELSE NULL END) ;;
+    sql: SUM(CASE WHEN ((${TABLE}.`IS_ELIGIBLE` = True) AND (${TABLE}.`SUAG_NUM` > 0)) THEN ${TABLE}.`RETURN_QTY` ELSE NULL END) ;;
     hidden: yes
-    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = 'Y' and [SUAG_NUM] >0 then [RETURN_QTY] END )
+    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] >0 then [RETURN_QTY] END )
   }
 
   dimension: previous_month_mvanum_calc {
@@ -1543,35 +1543,35 @@ view: sheet {
   }
 
   dimension: non_ris_den_calc {
-    description: "Row-level calculation for non_ris_den: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = 'Y' THEN [RIS_DEN] ELSE null END)"
+    description: "Row-level calculation for non_ris_den: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = True THEN [RIS_DEN] ELSE null END)"
     type: number
-    sql: SUM(CASE WHEN ((${TABLE}.`SUAG_SALES_QTY` = 0) OR (${TABLE}.`SUAG_SALES_QTY` IS NULL AND (${TABLE}.`IS_ELIGIBLE` = 'Y'))) THEN ${TABLE}.`RIS_DEN` ELSE NULL END) ;;
+    sql: SUM(CASE WHEN ((${TABLE}.`SUAG_SALES_QTY` = 0) OR (${TABLE}.`SUAG_SALES_QTY` IS NULL AND (${TABLE}.`IS_ELIGIBLE` = True))) THEN ${TABLE}.`RIS_DEN` ELSE NULL END) ;;
     hidden: yes
-    # Original Tableau formula: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = 'Y' THEN [RIS_DEN] ELSE null END)
+    # Original Tableau formula: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = True THEN [RIS_DEN] ELSE null END)
   }
 
   dimension: eligible_devices_calc {
-    description: "Row-level calculation for eligible_devices: SUM(IF IS_ELIGIBLE = 'Y' THEN [SUAG_DEN] ELSE null END)"
+    description: "Row-level calculation for eligible_devices: SUM(IF IS_ELIGIBLE = True THEN [SUAG_DEN] ELSE null END)"
     type: number
-    sql: SUM(CASE WHEN (${TABLE}.`IS_ELIGIBLE` = 'Y') THEN ${TABLE}.`SUAG_DEN` ELSE NULL END) ;;
+    sql: SUM(CASE WHEN (${TABLE}.`IS_ELIGIBLE` = True) THEN ${TABLE}.`SUAG_DEN` ELSE NULL END) ;;
     hidden: yes
-    # Original Tableau formula: SUM(IF IS_ELIGIBLE = 'Y' THEN [SUAG_DEN] ELSE null END)
+    # Original Tableau formula: SUM(IF IS_ELIGIBLE = True THEN [SUAG_DEN] ELSE null END)
   }
 
   dimension: non_ris_num_calc {
-    description: "Row-level calculation for non_ris_num: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = 'Y' THEN [RIS_NUM] ELSE null END)"
+    description: "Row-level calculation for non_ris_num: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = True THEN [RIS_NUM] ELSE null END)"
     type: number
-    sql: SUM(CASE WHEN ((${TABLE}.`SUAG_SALES_QTY` = 0) OR (${TABLE}.`SUAG_SALES_QTY` IS NULL AND (${TABLE}.`IS_ELIGIBLE` = 'Y'))) THEN ${TABLE}.`RIS_NUM` ELSE NULL END) ;;
+    sql: SUM(CASE WHEN ((${TABLE}.`SUAG_SALES_QTY` = 0) OR (${TABLE}.`SUAG_SALES_QTY` IS NULL AND (${TABLE}.`IS_ELIGIBLE` = True))) THEN ${TABLE}.`RIS_NUM` ELSE NULL END) ;;
     hidden: yes
-    # Original Tableau formula: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = 'Y' THEN [RIS_NUM] ELSE null END)
+    # Original Tableau formula: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = True THEN [RIS_NUM] ELSE null END)
   }
 
   dimension: ris_denom_suag_calc {
-    description: "Row-level calculation for ris_denom_suag: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = 'Y' THEN [RIS_DEN] ELSE null END)"
+    description: "Row-level calculation for ris_denom_suag: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = True THEN [RIS_DEN] ELSE null END)"
     type: number
-    sql: SUM(CASE WHEN ((${TABLE}.`SUAG_SALES_QTY` > 0) AND (${TABLE}.`IS_ELIGIBLE` = 'Y')) THEN ${TABLE}.`RIS_DEN` ELSE NULL END) ;;
+    sql: SUM(CASE WHEN ((${TABLE}.`SUAG_SALES_QTY` > 0) AND (${TABLE}.`IS_ELIGIBLE` = True)) THEN ${TABLE}.`RIS_DEN` ELSE NULL END) ;;
     hidden: yes
-    # Original Tableau formula: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = 'Y' THEN [RIS_DEN] ELSE null END)
+    # Original Tableau formula: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = True THEN [RIS_DEN] ELSE null END)
   }
 
   dimension: rev_run_para_calc {
@@ -1749,27 +1749,27 @@ END;;
   }
 
   dimension: suag_sales_calc {
-    description: "Row-level calculation for suag_sales: SUM(If [IS_ELIGIBLE] = 'Y' and [SUAG_NUM] >0 then [SALES_QTY] END )"
+    description: "Row-level calculation for suag_sales: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] >0 then [SALES_QTY] END )"
     type: number
-    sql: SUM(CASE WHEN ((${TABLE}.`IS_ELIGIBLE` = 'Y') AND (${TABLE}.`SUAG_NUM` > 0)) THEN ${TABLE}.`SALES_QTY` ELSE NULL END) ;;
+    sql: SUM(CASE WHEN ((${TABLE}.`IS_ELIGIBLE` = True) AND (${TABLE}.`SUAG_NUM` > 0)) THEN ${TABLE}.`SALES_QTY` ELSE NULL END) ;;
     hidden: yes
-    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = 'Y' and [SUAG_NUM] >0 then [SALES_QTY] END )
+    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] >0 then [SALES_QTY] END )
   }
 
   dimension: non_suag_returns_calc {
-    description: "Row-level calculation for non_suag_returns: SUM(If [IS_ELIGIBLE] = 'Y' and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [RETURN_QTY] END )"
+    description: "Row-level calculation for non_suag_returns: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [RETURN_QTY] END )"
     type: number
-    sql: SUM(CASE WHEN (((${TABLE}.`IS_ELIGIBLE` = 'Y') AND (${TABLE}.`SUAG_NUM` = 0)) OR ${TABLE}.`SUAG_NUM` IS NULL) THEN ${TABLE}.`RETURN_QTY` ELSE NULL END) ;;
+    sql: SUM(CASE WHEN (((${TABLE}.`IS_ELIGIBLE` = True) AND (${TABLE}.`SUAG_NUM` = 0)) OR ${TABLE}.`SUAG_NUM` IS NULL) THEN ${TABLE}.`RETURN_QTY` ELSE NULL END) ;;
     hidden: yes
-    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = 'Y' and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [RETURN_QTY] END )
+    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [RETURN_QTY] END )
   }
 
   dimension: non_suag_sales_calc {
-    description: "Row-level calculation for non_suag_sales: SUM(If [IS_ELIGIBLE] = 'Y' and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [SALES_QTY] END )"
+    description: "Row-level calculation for non_suag_sales: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [SALES_QTY] END )"
     type: number
-    sql: SUM(CASE WHEN (((${TABLE}.`IS_ELIGIBLE` = 'Y') AND (${TABLE}.`SUAG_NUM` = 0)) OR ${TABLE}.`SUAG_NUM` IS NULL) THEN ${TABLE}.`SALES_QTY` ELSE NULL END) ;;
+    sql: SUM(CASE WHEN (((${TABLE}.`IS_ELIGIBLE` = True) AND (${TABLE}.`SUAG_NUM` = 0)) OR ${TABLE}.`SUAG_NUM` IS NULL) THEN ${TABLE}.`SALES_QTY` ELSE NULL END) ;;
     hidden: yes
-    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = 'Y' and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [SALES_QTY] END )
+    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [SALES_QTY] END )
   }
 
   dimension: ris_color_calc {
@@ -1821,11 +1821,11 @@ END;;
   }
 
   dimension: vmp_denom_suag_calc {
-    description: "Row-level calculation for vmp_denom_suag: If [SUAG_SALES_QTY] > 0 and [IS_ELIGIBLE] = 'Y' then [NET_SALES] else 0 END"
+    description: "Row-level calculation for vmp_denom_suag: If [SUAG_SALES_QTY] > 0 and [IS_ELIGIBLE] = True then [NET_SALES] else 0 END"
     type: number
-    sql: CASE WHEN ((${TABLE}.`SUAG_SALES_QTY` > 0) AND (${TABLE}.`IS_ELIGIBLE` = 'Y')) THEN ${TABLE}.`NET_SALES` ELSE 0 END ;;
+    sql: CASE WHEN ((${TABLE}.`SUAG_SALES_QTY` > 0) AND (${TABLE}.`IS_ELIGIBLE` = True)) THEN ${TABLE}.`NET_SALES` ELSE 0 END ;;
     hidden: yes
-    # Original Tableau formula: If [SUAG_SALES_QTY] > 0 and [IS_ELIGIBLE] = 'Y' then [NET_SALES] else 0 END
+    # Original Tableau formula: If [SUAG_SALES_QTY] > 0 and [IS_ELIGIBLE] = True then [NET_SALES] else 0 END
   }
 
   dimension: difference_in_mva_calc {
@@ -1897,10 +1897,10 @@ END;;
   }
 
   measure: mva_den {
-    description: "Calculated field: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = 'Y' AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END"
+    description: "Calculated field: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END"
     type: number
     sql: ${mva_den_calc} ;;
-    # Original Tableau formula: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = 'Y' AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END
+    # Original Tableau formula: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END
   }
 
   dimension: calculation_1573726602467061764 {
@@ -1967,17 +1967,17 @@ END;;
   }
 
   dimension: su_g_indicator {
-    description: "Calculated field: IF [SUAG_NUM (copy)_452048844292403200] >0 then 'Y' Else 'N' END"
+    description: "Calculated field: IF [SUAG_NUM (copy)_452048844292403200] >0 then True Else 'N' END"
     type: string
-    sql: CASE WHEN (${suag_num_new_calc} > 0) THEN 'Y' ELSE 'N' END ;;
-    # Original Tableau formula: IF [SUAG_NUM (copy)_452048844292403200] >0 then 'Y' Else 'N' END
+    sql: CASE WHEN (${suag_num_new_calc} > 0) THEN True ELSE 'N' END ;;
+    # Original Tableau formula: IF [SUAG_NUM (copy)_452048844292403200] >0 then True Else 'N' END
   }
 
   dimension: mva_indicator {
-    description: "Calculated field: If [MVA_Den (copy)_1365153658450157570] > 0 then 'Y' Else 'N' END"
+    description: "Calculated field: If [MVA_Den (copy)_1365153658450157570] > 0 then True Else 'N' END"
     type: string
-    sql: CASE WHEN (${mva_num_calc} > 0) THEN 'Y' ELSE 'N' END ;;
-    # Original Tableau formula: If [MVA_Den (copy)_1365153658450157570] > 0 then 'Y' Else 'N' END
+    sql: CASE WHEN (${mva_num_calc} > 0) THEN True ELSE 'N' END ;;
+    # Original Tableau formula: If [MVA_Den (copy)_1365153658450157570] > 0 then True Else 'N' END
   }
 
   dimension: overall_ris_num {
@@ -2001,10 +2001,10 @@ END;;
     # Original Tableau formula: [ZONE_NM]
   }
 
-  dimension: date_selection_true {
+  dimension: date_selection_True {
     description: "Calculated field: If [PYMNT_DT] >= [Parameters].[Parameter 9] and [PYMNT_DT] <= [Parameters].[Start Date (copy)_456270959335051266] Then True END"
     type: yesno
-    sql: CASE WHEN ((${TABLE}.`PYMNT_DT` >= {% parameter parameter_9 %}) AND (${TABLE}.`PYMNT_DT` <= {% parameter start_date_copy_456270959335051266 %})) THEN TRUE ELSE NULL END ;;
+    sql: CASE WHEN ((${TABLE}.`PYMNT_DT` >= {% parameter parameter_9 %}) AND (${TABLE}.`PYMNT_DT` <= {% parameter start_date_copy_456270959335051266 %})) THEN True ELSE NULL END ;;
     # Original Tableau formula: If [PYMNT_DT] >= [Parameters].[Parameter 9] and [PYMNT_DT] <= [Parameters].[Start Date (copy)_456270959335051266] Then True END
   }
 
@@ -2149,10 +2149,10 @@ END;;
   }
 
   measure: ris_num_suag {
-    description: "Calculated field: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = 'Y' THEN [RIS_NUM] ELSE NULL END)"
+    description: "Calculated field: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = True THEN [RIS_NUM] ELSE NULL END)"
     type: number
     sql: ${ris_num_suag_calc} ;;
-    # Original Tableau formula: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = 'Y' THEN [RIS_NUM] ELSE NULL END)
+    # Original Tableau formula: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = True THEN [RIS_NUM] ELSE NULL END)
   }
 
   measure: suag_ris_percent {
@@ -2254,17 +2254,17 @@ END;;
   }
 
   measure: mva_den_copy {
-    description: "Calculated field: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = 'Y' AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END"
+    description: "Calculated field: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END"
     type: number
     sql: ${mva_den_copy_calc} ;;
-    # Original Tableau formula: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = 'Y' AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END
+    # Original Tableau formula: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END
   }
 
   measure: mva_num {
-    description: "Calculated field: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = 'Y' AND [REG_DT] = [PYMNT_DT] AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END"
+    description: "Calculated field: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND [REG_DT] = [PYMNT_DT] AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END"
     type: number
     sql: ${mva_num_calc} ;;
-    # Original Tableau formula: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = 'Y' AND [REG_DT] = [PYMNT_DT] AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END
+    # Original Tableau formula: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND [REG_DT] = [PYMNT_DT] AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END
   }
 
   measure: mva {
@@ -2296,10 +2296,10 @@ END;;
   }
 
   measure: suag_returns {
-    description: "Calculated field: SUM(If [IS_ELIGIBLE] = 'Y' and [SUAG_NUM] >0 then [RETURN_QTY] END )"
+    description: "Calculated field: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] >0 then [RETURN_QTY] END )"
     type: number
     sql: ${suag_returns_calc} ;;
-    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = 'Y' and [SUAG_NUM] >0 then [RETURN_QTY] END )
+    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] >0 then [RETURN_QTY] END )
   }
 
   dimension: pymnt_dt_copy {
@@ -2338,31 +2338,31 @@ END;;
   }
 
   measure: non_ris_den {
-    description: "Calculated field: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = 'Y' THEN [RIS_DEN] ELSE null END)"
+    description: "Calculated field: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = True THEN [RIS_DEN] ELSE null END)"
     type: number
     sql: ${non_ris_den_calc} ;;
-    # Original Tableau formula: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = 'Y' THEN [RIS_DEN] ELSE null END)
+    # Original Tableau formula: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = True THEN [RIS_DEN] ELSE null END)
   }
 
   measure: eligible_devices {
-    description: "Calculated field: SUM(IF IS_ELIGIBLE = 'Y' THEN [SUAG_DEN] ELSE null END)"
+    description: "Calculated field: SUM(IF IS_ELIGIBLE = True THEN [SUAG_DEN] ELSE null END)"
     type: number
     sql: ${eligible_devices_calc} ;;
-    # Original Tableau formula: SUM(IF IS_ELIGIBLE = 'Y' THEN [SUAG_DEN] ELSE null END)
+    # Original Tableau formula: SUM(IF IS_ELIGIBLE = True THEN [SUAG_DEN] ELSE null END)
   }
 
   measure: non_ris_num {
-    description: "Calculated field: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = 'Y' THEN [RIS_NUM] ELSE null END)"
+    description: "Calculated field: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = True THEN [RIS_NUM] ELSE null END)"
     type: number
     sql: ${non_ris_num_calc} ;;
-    # Original Tableau formula: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = 'Y' THEN [RIS_NUM] ELSE null END)
+    # Original Tableau formula: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = True THEN [RIS_NUM] ELSE null END)
   }
 
   measure: ris_denom_suag {
-    description: "Calculated field: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = 'Y' THEN [RIS_DEN] ELSE null END)"
+    description: "Calculated field: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = True THEN [RIS_DEN] ELSE null END)"
     type: number
     sql: ${ris_denom_suag_calc} ;;
-    # Original Tableau formula: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = 'Y' THEN [RIS_DEN] ELSE null END)
+    # Original Tableau formula: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = True THEN [RIS_DEN] ELSE null END)
   }
 
   measure: rev_run_para {
@@ -2548,24 +2548,24 @@ END;;
   }
 
   measure: suag_sales {
-    description: "Calculated field: SUM(If [IS_ELIGIBLE] = 'Y' and [SUAG_NUM] >0 then [SALES_QTY] END )"
+    description: "Calculated field: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] >0 then [SALES_QTY] END )"
     type: number
     sql: ${suag_sales_calc} ;;
-    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = 'Y' and [SUAG_NUM] >0 then [SALES_QTY] END )
+    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] >0 then [SALES_QTY] END )
   }
 
   measure: non_suag_returns {
-    description: "Calculated field: SUM(If [IS_ELIGIBLE] = 'Y' and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [RETURN_QTY] END )"
+    description: "Calculated field: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [RETURN_QTY] END )"
     type: number
     sql: ${non_suag_returns_calc} ;;
-    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = 'Y' and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [RETURN_QTY] END )
+    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [RETURN_QTY] END )
   }
 
   measure: non_suag_sales {
-    description: "Calculated field: SUM(If [IS_ELIGIBLE] = 'Y' and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [SALES_QTY] END )"
+    description: "Calculated field: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [SALES_QTY] END )"
     type: number
     sql: ${non_suag_sales_calc} ;;
-    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = 'Y' and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [SALES_QTY] END )
+    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [SALES_QTY] END )
   }
 
   measure: ris_color {
@@ -2611,10 +2611,10 @@ END;;
   }
 
   measure: vmp_denom_suag {
-    description: "Calculated field: If [SUAG_SALES_QTY] > 0 and [IS_ELIGIBLE] = 'Y' then [NET_SALES] else 0 END"
+    description: "Calculated field: If [SUAG_SALES_QTY] > 0 and [IS_ELIGIBLE] = True then [NET_SALES] else 0 END"
     type: number
     sql: ${vmp_denom_suag_calc} ;;
-    # Original Tableau formula: If [SUAG_SALES_QTY] > 0 and [IS_ELIGIBLE] = 'Y' then [NET_SALES] else 0 END
+    # Original Tableau formula: If [SUAG_SALES_QTY] > 0 and [IS_ELIGIBLE] = True then [NET_SALES] else 0 END
   }
 
   measure: difference_in_mva {

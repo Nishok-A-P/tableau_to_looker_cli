@@ -35,7 +35,7 @@
       sheet.pymnt_dt: 202504
       sheet.su_g_indicator: N, Y
       sheet.verbatim_present: Verbatim Present
-      sheet.is_eligible: Y
+      sheet.is_eligible: 'Y'
     show_value_labels: true
     show_legend: true
     x_axis_label: true

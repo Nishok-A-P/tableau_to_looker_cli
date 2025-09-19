@@ -10,7 +10,7 @@
     type: looker_column
     filters:
       sheet.zone: Closed-NIC0297, Closed-NMW0297, Indirect-AKH9001, Indirect-CPN9001, Indirect-DMN9001, Indirect-NMW9001, Indirect-SNI9001, -NULL
-      sheet1.is_eligible: Y
+      sheet1.is_eligible: 'Y'
     show_value_labels: true
     show_legend: true
     x_axis_label: true
