@@ -22,4 +22,3 @@
     col: 0
     width: 24
     height: 15
-

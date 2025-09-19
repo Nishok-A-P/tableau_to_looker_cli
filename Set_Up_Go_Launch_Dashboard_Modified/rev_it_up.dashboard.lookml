@@ -6,7 +6,7 @@
   - title: "<Data Update Time>"
     name: date
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_column
     show_value_labels: true
     show_legend: true
@@ -23,12 +23,12 @@
   - title: "Revenue"
     name: total_revenue
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_column
     filters:
-      sheet1.rpt_mth: 202504
-      sheet1.district: -NULL
-      sheet1.sls_outlet_nm: -NULL
+      sheet.rpt_mth: 202504
+      sheet.district: -NULL
+      sheet.sls_outlet_nm: -NULL
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -44,16 +44,16 @@
   - title: "Line Revenue"
     name: line_revenue
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_column
-    fields: [sheet1.None,
-sheet1.rpt_mth_month]
-    pivots: [sheet1.rpt_mth_month]
+    fields: [sheet.None,
+sheet.rpt_mth_month]
+    pivots: [sheet.rpt_mth_month]
     filters:
-      sheet1.district: -NULL
-      sheet1.sls_outlet_nm: -NULL
-      sheet1.rpt_mth_year: 2024
-    sorts: [sheet1.rpt_mth_month]
+      sheet.district: -NULL
+      sheet.sls_outlet_nm: -NULL
+      sheet.rpt_mth_year: 2024
+    sorts: [sheet.rpt_mth_month]
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -69,10 +69,10 @@ sheet1.rpt_mth_month]
   - title: "Market Ranking - <"
     name: region_rev
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_column
     filters:
-      sheet1.rpt_mth: 202504
+      sheet.rpt_mth: 202504
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -88,13 +88,13 @@ sheet1.rpt_mth_month]
   - title: "Top <"
     name: top_rev
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_bar
     filters:
-      sheet1.rpt_mth: 202504
-      sheet1.district: -NULL
-      sheet1.sls_outlet_nm: -NULL
-      sheet1.Calculation_464996668077125637: top 5
+      sheet.rpt_mth: 202504
+      sheet.district: -NULL
+      sheet.sls_outlet_nm: -NULL
+      sheet.Calculation_464996668077125637: top 5
     series_colors:
       "top 5": "#2ca02c"
       "bottom 5": "#98df8a"
@@ -112,14 +112,14 @@ sheet1.rpt_mth_month]
   - title: "Bottom <"
     name: bottom_rev
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_bar
     filters:
-      sheet1.rpt_mth: 202504
-      sheet1.ranking_granularity: Costco West
-      sheet1.district: -NULL
-      sheet1.sls_outlet_nm: -NULL
-      sheet1.Calculation_464996668077125637: bottom 5
+      sheet.rpt_mth: 202504
+      sheet.ranking_granularity: Costco West
+      sheet.district: -NULL
+      sheet.sls_outlet_nm: -NULL
+      sheet.Calculation_464996668077125637: bottom 5
     series_colors:
       "top 5": "#2ca02c"
       "bottom 5": "#98df8a"
@@ -137,12 +137,12 @@ sheet1.rpt_mth_month]
   - title: "Take Rate"
     name: total_tr
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_column
     filters:
-      sheet1.rpt_mth: 202504
-      sheet1.district: -NULL
-      sheet1.sls_outlet_nm: -NULL
+      sheet.rpt_mth: 202504
+      sheet.district: -NULL
+      sheet.sls_outlet_nm: -NULL
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -158,15 +158,15 @@ sheet1.rpt_mth_month]
   - title: "Line Tr"
     name: line_tr
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_column
-    fields: [sheet1.rpt_mth_month]
-    pivots: [sheet1.rpt_mth_month]
+    fields: [sheet.rpt_mth_month]
+    pivots: [sheet.rpt_mth_month]
     filters:
-      sheet1.district: -NULL
-      sheet1.sls_outlet_nm: -NULL
-      sheet1.rpt_mth_year: 2024
-    sorts: [sheet1.rpt_mth_month]
+      sheet.district: -NULL
+      sheet.sls_outlet_nm: -NULL
+      sheet.rpt_mth_year: 2024
+    sorts: [sheet.rpt_mth_month]
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -182,10 +182,10 @@ sheet1.rpt_mth_month]
   - title: "Market Ranking - Target: 25%"
     name: region_tr
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_column
     filters:
-      sheet1.rpt_mth: 202504
+      sheet.rpt_mth: 202504
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -201,13 +201,13 @@ sheet1.rpt_mth_month]
   - title: "Top <"
     name: top_tr
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_bar
     filters:
-      sheet1.rpt_mth: 202504
-      sheet1.district: -NULL
-      sheet1.sls_outlet_nm: -NULL
-      sheet1.Top/Bottom 5 (copy)_1147292012033429504: top 5
+      sheet.rpt_mth: 202504
+      sheet.district: -NULL
+      sheet.sls_outlet_nm: -NULL
+      sheet.Top/Bottom 5 (copy)_1147292012033429504: top 5
     series_colors:
       "top 5": "#4e79a7"
       "bottom 5": "#a0cbe8"
@@ -225,14 +225,14 @@ sheet1.rpt_mth_month]
   - title: "Bottom <"
     name: bottom_tr
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_bar
     filters:
-      sheet1.rpt_mth: 202504
-      sheet1.ranking_granularity: Costco West
-      sheet1.district: -NULL
-      sheet1.sls_outlet_nm: -NULL
-      sheet1.Top/Bottom 5 (copy)_1147292012033429504: bottom 5
+      sheet.rpt_mth: 202504
+      sheet.ranking_granularity: Costco West
+      sheet.district: -NULL
+      sheet.sls_outlet_nm: -NULL
+      sheet.Top/Bottom 5 (copy)_1147292012033429504: bottom 5
     series_colors:
       "top 5": "#4e79a7"
       "bottom 5": "#a0cbe8"
@@ -250,12 +250,12 @@ sheet1.rpt_mth_month]
   - title: "Take Rate"
     name: total_mva
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_column
     filters:
-      sheet1.rpt_mth: 202504
-      sheet1.district: -NULL
-      sheet1.sls_outlet_nm: -NULL
+      sheet.rpt_mth: 202504
+      sheet.district: -NULL
+      sheet.sls_outlet_nm: -NULL
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -271,15 +271,15 @@ sheet1.rpt_mth_month]
   - title: "Line Mva"
     name: line_mva
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_column
-    fields: [sheet1.rpt_mth_month]
-    pivots: [sheet1.rpt_mth_month]
+    fields: [sheet.rpt_mth_month]
+    pivots: [sheet.rpt_mth_month]
     filters:
-      sheet1.district: -NULL
-      sheet1.sls_outlet_nm: -NULL
-      sheet1.rpt_mth_year: 2024
-    sorts: [sheet1.rpt_mth_month]
+      sheet.district: -NULL
+      sheet.sls_outlet_nm: -NULL
+      sheet.rpt_mth_year: 2024
+    sorts: [sheet.rpt_mth_month]
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -295,10 +295,10 @@ sheet1.rpt_mth_month]
   - title: "Market Ranking - Target: 100%"
     name: region_mva
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_column
     filters:
-      sheet1.rpt_mth: 202504
+      sheet.rpt_mth: 202504
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -314,13 +314,13 @@ sheet1.rpt_mth_month]
   - title: "Top <"
     name: top_mva
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_bar
     filters:
-      sheet1.rpt_mth: 202504
-      sheet1.district: -NULL
-      sheet1.sls_outlet_nm: -NULL
-      sheet1.Top/Bottom 5 (TR) (copy)_1147292012034244609: top 5
+      sheet.rpt_mth: 202504
+      sheet.district: -NULL
+      sheet.sls_outlet_nm: -NULL
+      sheet.Top/Bottom 5 (TR) (copy)_1147292012034244609: top 5
     series_colors:
       "top 5": "#b07aa1"
       "bottom 5": "#d4a6c8"
@@ -338,14 +338,14 @@ sheet1.rpt_mth_month]
   - title: "Bottom <"
     name: bottom_mva
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_bar
     filters:
-      sheet1.rpt_mth: 202504
-      sheet1.ranking_granularity: Costco West
-      sheet1.district: -NULL
-      sheet1.sls_outlet_nm: -NULL
-      sheet1.Top/Bottom 5 (TR) (copy)_1147292012034244609: bottom 5
+      sheet.rpt_mth: 202504
+      sheet.ranking_granularity: Costco West
+      sheet.district: -NULL
+      sheet.sls_outlet_nm: -NULL
+      sheet.Top/Bottom 5 (TR) (copy)_1147292012034244609: bottom 5
     series_colors:
       "top 5": "#b07aa1"
       "bottom 5": "#d4a6c8"
@@ -363,13 +363,13 @@ sheet1.rpt_mth_month]
   - title: "Text Table"
     name: text_table
     model: tableau_looker_poc_model_generated_20250919_075958
-    explore: sheet1
+    explore: sheet
     type: looker_column
     filters:
-      # sheet1.Measure Names: [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Rev & Run (copy)_681732406200926213:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_978688514352406528:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_990510463077076997:qk]
-      sheet1.rpt_mth: 202504
-      sheet1.district: -NULL
-      sheet1.sls_outlet_nm: -NULL
+      # sheet.Measure Names: [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Rev & Run (copy)_681732406200926213:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_978688514352406528:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_990510463077076997:qk]
+      sheet.rpt_mth: 202504
+      sheet.district: -NULL
+      sheet.sls_outlet_nm: -NULL
     show_value_labels: true
     show_legend: true
     x_axis_label: true

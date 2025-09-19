@@ -1,6 +1,6 @@
 view: sheet {
   # Generated from Tableau view: sheet
-  sql_table_name: `tableau-to-looker-migration.Super_Store_Sales.SetUp_Go` ;;
+  sql_table_name: `tableau-to-looker-migration.Super_Store_Sales.SetupGo_test` ;;
 
 
   # Parameters (from Tableau parameters)

@@ -1,6 +1,6 @@
 view: output_for_google_random_1000_csv {
   # Generated from Tableau view: output_for_google_random_1000.csv
-  sql_table_name: `output_for_google_random_1000#csv` ;;
+  sql_table_name: `elastic-pocs.Super_Store_Sales.output_for_google_random_1000` ;;
 
 
   # Parameters (from Tableau parameters)
