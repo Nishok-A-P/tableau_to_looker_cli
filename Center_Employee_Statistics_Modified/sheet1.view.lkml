@@ -409,21 +409,6 @@ view: sheet1 {
 
 
 
-  dimension_group: rprt_month {
-    type: time
-    timeframes: [raw, time, date, week, month, quarter, year]
-    sql: TIMESTAMP(${TABLE}.RPRT_MONTH) ;;
-    description: "Original name: [RPRT_MONTH]"
-    label: "RPRT MONTH"
-  }
-
-  dimension: rprt_month_hour_formatted {
-    type: string
-    sql: FORMAT_TIMESTAMP('%l %p',
-      TIMESTAMP_TRUNC(CAST(${rprt_month_raw} AS TIMESTAMP), HOUR)) ;;
-    label: "Hour"
-    order_by_field: rprt_month_raw
-  }
 
 
 
@@ -2520,12 +2505,6 @@ view: sheet1 {
     label: "EMPLOYEE LEVEL"
   }
 
-  dimension: branch_name_abrv {
-    description: "Original name: [BRANCH_NAME_ABRV]"
-    type: string
-    sql: ${TABLE}.BRANCH_NAME_ABRV ;;
-    label: "BRANCH NAME ABRV"
-  }
 
   dimension: sr_director_name {
     description: "Original name: [SR_DIRECTOR_NAME]"
@@ -2548,19 +2527,8 @@ view: sheet1 {
     label: "SUP NAME"
   }
 
-  dimension: employee_name {
-    description: "Original name: [EMPLOYEE_NAME]"
-    type: string
-    sql: ${TABLE}.EMPLOYEE_NAME ;;
-    label: "EMPLOYEE NAME"
-  }
 
-  dimension: hr_emp_id {
-    description: "Original name: [HR_EMP_ID]"
-    type: string
-    sql: ${TABLE}.HR_EMP_ID ;;
-    label: "HR EMP ID"
-  }
+
 
   dimension: sls_prsn_id {
     description: "Original name: [SLS_PRSN_ID]"
@@ -2569,12 +2537,7 @@ view: sheet1 {
     label: "SLS PRSN ID"
   }
 
-  dimension: eid {
-    description: "Original name: [EID]"
-    type: string
-    sql: ${TABLE}.EID ;;
-    label: "EID"
-  }
+
 
   dimension: overall_score_raw {
     description: "Raw field for OVERALL_SCORE"
