@@ -5,7 +5,7 @@
   elements:
   - title: "Channel Outliers - <"
     name: channel_outlier_report
-    model: tableau_looker_poc_model_generated_20250919_070816
+    model: tableau_looker_poc_model_generated_20250919_075909
     explore: sheet1
     type: looker_column
     filters:
@@ -24,7 +24,7 @@
 
   - title: "Channel Outlier Report Targets"
     name: channel_outlier_report_targets
-    model: tableau_looker_poc_model_generated_20250919_070816
+    model: tableau_looker_poc_model_generated_20250919_075909
     explore: sheet1
     type: looker_column
     filters:
