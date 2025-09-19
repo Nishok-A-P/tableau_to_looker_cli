@@ -555,7 +555,7 @@ view: sheet1 {
   dimension: acdsignonm_raw {
     description: "Raw field for ACDSIGNONM"
     type: string
-    sql: ${TABLE}.ACDSIGNONM ;;
+    sql: ${TABLE}.`ACDSIGNONM` ;;
     hidden: yes
     label: "Acdsignonm (Raw)"
   }
@@ -2701,7 +2701,7 @@ view: sheet1 {
   dimension: acd_sign_on_hours_calc {
     description: "Row-level calculation for acd_sign_on_hours: sum([ACDSIGNONH])"
     type: number
-    sql: SUM(${TABLE}.`ACDSIGNONH`) ;;
+    sql: SUM(${TABLE}.ACDSIGNONH) ;;
     hidden: yes
     # Original Tableau formula: sum([ACDSIGNONH])
   }
@@ -2709,7 +2709,7 @@ view: sheet1 {
   dimension: inb_transfer_percent_calc {
     description: "Row-level calculation for inb_transfer_percent: IF SUM([CLSTRNSOUT]) <> 0 THEN SUM([CLSTRNSOUT])/SUM([CLSINBHNDL]) ELSE 0 END"
     type: number
-    sql: CASE WHEN (SUM(${TABLE}.`CLSTRNSOUT`) != 0) THEN (SUM(${TABLE}.`CLSTRNSOUT`) / NULLIF(SUM(${TABLE}.`CLSINBHNDL`), 0)) ELSE 0 END ;;
+    sql: CASE WHEN (SUM(${TABLE}.CLSTRNSOUT) != 0) THEN (SUM(${TABLE}.CLSTRNSOUT) / NULLIF(SUM(${TABLE}.CLSINBHNDL), 0)) ELSE 0 END ;;
     hidden: yes
     # Original Tableau formula: IF SUM([CLSTRNSOUT]) <> 0 THEN SUM([CLSTRNSOUT])/SUM([CLSINBHNDL]) ELSE 0 END
   }
@@ -2717,7 +2717,7 @@ view: sheet1 {
   dimension: sales_time_percent_calc {
     description: "Row-level calculation for sales_time_percent: IF SUM([ACDSIGNONM]) <> 0 THEN SUM([ACDSIGNONM])/SUM([ACDLSTDEN0]) ELSE 0 END"
     type: number
-    sql: CASE WHEN (SUM(${TABLE}.`ACDSIGNONM`) != 0) THEN (SUM(${TABLE}.`ACDSIGNONM`) / NULLIF(SUM(${TABLE}.`ACDLSTDEN0`), 0)) ELSE 0 END ;;
+    sql: CASE WHEN (SUM(${TABLE}.ACDSIGNONM) != 0) THEN (SUM(${TABLE}.ACDSIGNONM) / NULLIF(SUM(${TABLE}.ACDLSTDEN0), 0)) ELSE 0 END ;;
     hidden: yes
     # Original Tableau formula: IF SUM([ACDSIGNONM]) <> 0 THEN SUM([ACDSIGNONM])/SUM([ACDLSTDEN0]) ELSE 0 END
   }
@@ -2741,7 +2741,7 @@ view: sheet1 {
   dimension: boxes_close_percent_calc {
     description: "Row-level calculation for boxes_close_percent: IF SUM([BOXEISUP00]) <> 0 THEN SUM([BOXEISUP00])/SUM([CLSINBHNDL]) ELSE 0 END"
     type: number
-    sql: CASE WHEN (SUM(${TABLE}.`BOXEISUP00`) != 0) THEN (SUM(${TABLE}.`BOXEISUP00`) / NULLIF(SUM(${TABLE}.`CLSINBHNDL`), 0)) ELSE 0 END ;;
+    sql: CASE WHEN (SUM(${TABLE}.BOXEISUP00) != 0) THEN (SUM(${TABLE}.BOXEISUP00) / NULLIF(SUM(${TABLE}.CLSINBHNDL), 0)) ELSE 0 END ;;
     hidden: yes
     # Original Tableau formula: IF SUM([BOXEISUP00]) <> 0 THEN SUM([BOXEISUP00])/SUM([CLSINBHNDL]) ELSE 0 END
   }
@@ -2749,7 +2749,7 @@ view: sheet1 {
   dimension: inb_hold_percent_calc {
     description: "Row-level calculation for inb_hold_percent: IF SUM([CLSINBHLDM]) > 0 THEN SUM([CLSINBHLDM])/SUM([ACDIAHTNUM]) ELSE 0 END"
     type: number
-    sql: CASE WHEN (SUM(${TABLE}.`CLSINBHLDM`) > 0) THEN (SUM(${TABLE}.`CLSINBHLDM`) / NULLIF(SUM(${TABLE}.`ACDIAHTNUM`), 0)) ELSE 0 END ;;
+    sql: CASE WHEN (SUM(${TABLE}.CLSINBHLDM) > 0) THEN (SUM(${TABLE}.CLSINBHLDM) / NULLIF(SUM(${TABLE}.`ACDIAHTNUM`), 0)) ELSE 0 END ;;
     hidden: yes
     # Original Tableau formula: IF SUM([CLSINBHLDM]) > 0 THEN SUM([CLSINBHLDM])/SUM([ACDIAHTNUM]) ELSE 0 END
   }
@@ -2757,7 +2757,7 @@ view: sheet1 {
   dimension: inb_aht_sec_calc {
     description: "Row-level calculation for inb_aht_sec: IF SUM([CLSINBHNDL]) <> 0 THEN SUM([AHTINBSNUM])/SUM([CLSINBHNDL]) ELSE 0 END"
     type: number
-    sql: CASE WHEN (SUM(${TABLE}.`CLSINBHNDL`) != 0) THEN (SUM(${TABLE}.`AHTINBSNUM`) / NULLIF(SUM(${TABLE}.`CLSINBHNDL`), 0)) ELSE 0 END ;;
+    sql: CASE WHEN (SUM(${TABLE}.CLSINBHNDL) != 0) THEN (SUM(${TABLE}.`AHTINBSNUM`) / NULLIF(SUM(${TABLE}.CLSINBHNDL), 0)) ELSE 0 END ;;
     hidden: yes
     # Original Tableau formula: IF SUM([CLSINBHNDL]) <> 0 THEN SUM([AHTINBSNUM])/SUM([CLSINBHNDL]) ELSE 0 END
   }
