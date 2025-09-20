@@ -1832,12 +1832,12 @@ view: sheet {
     # Original Tableau formula: [Calculation_1581607899260530688] / sum([SUAG_NUM (copy)_452048844292403200])
   }
 
-  dimension: level_1 {
-    description: "Calculated field: Case [Parameters].[Parameter 1 1] When 'Market' Then [REGION (copy)_1145040205777121282] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
-    type: string
-    sql: CASE WHEN ({% parameter parameter_1_1 %} = 'Market') THEN ${market_copy} WHEN ({% parameter parameter_1_1 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter parameter_1_1 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter parameter_1_1 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` WHEN ({% parameter parameter_1_1 %} = 'Rep') THEN ${TABLE}.`EmployeeName` END ;;
-    # Original Tableau formula: Case [Parameters].[Parameter 1 1] When 'Market' Then [REGION (copy)_1145040205777121282] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
-  }
+  # dimension: level_1 {
+  #   description: "Calculated field: Case [Parameters].[Parameter 1 1] When 'Market' Then [REGION (copy)_1145040205777121282] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
+  #   type: string
+  #   sql: CASE WHEN ({% parameter parameter_1_1 %} = 'Market') THEN ${market_copy} WHEN ({% parameter parameter_1_1 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter parameter_1_1 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter parameter_1_1 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` WHEN ({% parameter parameter_1_1 %} = 'Rep') THEN ${TABLE}.`EmployeeName` END ;;
+  #   # Original Tableau formula: Case [Parameters].[Parameter 1 1] When 'Market' Then [REGION (copy)_1145040205777121282] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
+  # }
 
   dimension: su_g_indicator {
     description: "Calculated field: IF [SUAG_NUM (copy)_452048844292403200] >0 then 'Y' Else 'N' END"
