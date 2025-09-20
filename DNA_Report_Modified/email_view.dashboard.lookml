@@ -6,10 +6,10 @@
   - title: "DNA Report"
     name: multi_day_view
     model: tableau_looker_poc_model_generated_20250919_075915
-    explore: sheet
+    explore: sheet1
     type: looker_column
     filters:
-      sheet.isissuecountinscope: true
+      sheet1.isissuecountinscope: true
     series_colors:
       "4efc97f3fb4c2e8fa26011b1b71a565a": "#4e79a7"
       "C7485": "#76b7b2"
