@@ -9,7 +9,7 @@
     explore: sheet
     type: looker_column
     filters:
-      sheet.rpt_mth: 202401, 202402, 202403, 202404, 202405, 202406, 202407
+      # sheet.rpt_mth_month: 202401, 202402, 202403, 202404, 202405, 202406, 202407
       sheet.zone: Closed-NIC0297, Closed-NMW0297, Indirect-AKH9001, Indirect-CPN9001, Indirect-DMN9001, Indirect-NMW9001, Indirect-SNI9001, -NULL
       sheet.district: -NULL
       sheet.outlet_name: -NULL

@@ -1,6 +1,6 @@
 view: sheet {
-  # Generated from Tableau view: sheet
-  sql_table_name: `tableau-to-looker-migration.Super_Store_Sales.SetupGo_test` ;;
+  # Generated from Tableau view: SetupGo_test
+  sql_table_name: `elastic-pocs.Super_Store_Sales.SetupGo_test` ;;
 
 
   # Parameters (from Tableau parameters)
@@ -924,8 +924,8 @@ view: sheet {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
     sql: TIMESTAMP(${TABLE}.RPT_MTH) ;;
-    description: "Original name: [RPT_MTH]"
-    label: "RPT MTH"
+    description: "Rpt Mth"
+    label: "Rpt Mth"
   }
 
   dimension: rpt_mth_hour_formatted {
@@ -942,8 +942,8 @@ view: sheet {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
     sql: TIMESTAMP(${TABLE}.PYMNT_DT) ;;
-    description: "Original name: [PYMNT_DT]"
-    label: "PYMNT DT"
+    description: "Pymnt Dt"
+    label: "Pymnt Dt"
   }
 
   dimension: pymnt_dt_hour_formatted {
@@ -960,8 +960,8 @@ view: sheet {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
     sql: TIMESTAMP(${TABLE}.REG_DT) ;;
-    description: "Original name: [REG_DT]"
-    label: "REG DT"
+    description: "Reg Dt"
+    label: "Reg Dt"
   }
 
   dimension: reg_dt_hour_formatted {
@@ -976,110 +976,109 @@ view: sheet {
 
   # Dimensions
 
-  dimension: sls_outlet_id_raw {
-    description: "Raw field for SLS_OUTLET_ID"
+  dimension: sls_outlet_id {
+    description: "Sls Outlet Id"
     type: string
     sql: ${TABLE}.SLS_OUTLET_ID ;;
-    hidden: yes
-    label: "Sls Outlet Id (Raw)"
+    label: "Sls Outlet Id"
   }
 
   dimension: sls_outlet_nm {
-    description: "Original name: [SLS_OUTLET_NM]"
+    description: "Sls Outlet Nm"
     type: string
     sql: ${TABLE}.SLS_OUTLET_NM ;;
-    label: "SLS OUTLET NM"
+    label: "Sls Outlet Nm"
   }
 
   dimension: region {
-    description: "Original name: [REGION]"
+    description: "Region"
     type: string
     sql: ${TABLE}.REGION ;;
-    label: "REGION"
+    label: "Region"
   }
 
   dimension: territory {
-    description: "Original name: [TERRITORY]"
+    description: "Territory"
     type: string
     sql: ${TABLE}.TERRITORY ;;
-    label: "TERRITORY"
+    label: "Territory"
   }
 
   dimension: district {
-    description: "Original name: [DISTRICT]"
+    description: "District"
     type: string
     sql: ${TABLE}.DISTRICT ;;
-    label: "DISTRICT"
+    label: "District"
   }
 
   dimension: zone_nm {
-    description: "Original name: [ZONE_NM]"
+    description: "Zone Nm"
     type: string
     sql: ${TABLE}.ZONE_NM ;;
-    label: "ZONE NM"
+    label: "Zone Nm"
   }
 
   dimension: trans_type {
-    description: "Original name: [TRANS_TYPE]"
+    description: "Trans Type"
     type: string
     sql: ${TABLE}.TRANS_TYPE ;;
-    label: "TRANS TYPE"
+    label: "Trans Type"
   }
 
   dimension: new_aal_upg_ind {
-    description: "Original name: [NEW_AAL_UPG_IND]"
+    description: "New Aal Upg Ind"
     type: string
     sql: ${TABLE}.NEW_AAL_UPG_IND ;;
-    label: "NEW AAL UPG IND"
+    label: "New Aal Upg Ind"
   }
 
   dimension: fin_tot_flag {
-    description: "Original name: [FIN_TOT_FLAG]"
+    description: "Fin Tot Flag"
     type: string
     sql: ${TABLE}.FIN_TOT_FLAG ;;
-    label: "FIN TOT FLAG"
+    label: "Fin Tot Flag"
   }
 
   dimension: suag_item_cd {
-    description: "Original name: [SUAG_ITEM_CD]"
+    description: "Suag Item Cd"
     type: string
     sql: ${TABLE}.SUAG_ITEM_CD ;;
-    label: "SUAG ITEM CD"
+    label: "Suag Item Cd"
   }
 
   dimension: device_grouping {
-    description: "Original name: [DEVICE_GROUPING]"
+    description: "Device Grouping"
     type: string
     sql: ${TABLE}.DEVICE_GROUPING ;;
-    label: "DEVICE GROUPING"
+    label: "Device Grouping"
   }
 
   dimension: data_tier {
-    description: "Original name: [DATA_TIER]"
+    description: "Data Tier"
     type: string
     sql: ${TABLE}.DATA_TIER ;;
-    label: "DATA TIER"
+    label: "Data Tier"
   }
 
   dimension: device_brand_nm {
-    description: "Original name: [DEVICE_BRAND_NM]"
+    description: "Device"
     type: string
     sql: ${TABLE}.DEVICE_BRAND_NM ;;
-    label: "DEVICE BRAND NM"
+    label: "Device"
   }
 
   dimension: fulfillment_ind {
-    description: "Original name: [FULFILLMENT_IND]"
+    description: "Fulfillment Ind"
     type: string
     sql: ${TABLE}.FULFILLMENT_IND ;;
-    label: "FULFILLMENT IND"
+    label: "Fulfillment Ind"
   }
 
   dimension: acq_ret_ind {
-    description: "Original name: [ACQ_RET_IND]"
+    description: "Acq Ret Ind"
     type: string
     sql: ${TABLE}.ACQ_RET_IND ;;
-    label: "ACQ RET IND"
+    label: "Acq Ret Ind"
   }
 
   dimension: return_qty_raw {
@@ -1091,66 +1090,66 @@ view: sheet {
   }
 
   dimension: prepaid_ind {
-    description: "Original name: [PREPAID_IND]"
+    description: "Prepaid Ind"
     type: string
     sql: ${TABLE}.PREPAID_IND ;;
-    label: "PREPAID IND"
+    label: "Prepaid Ind"
   }
 
   dimension: ispu_type {
-    description: "Original name: [ISPU_TYPE]"
+    description: "Ispu Type"
     type: string
     sql: ${TABLE}.ISPU_TYPE ;;
-    label: "ISPU TYPE"
+    label: "Ispu Type"
   }
 
   dimension: segmt {
-    description: "Original name: [SEGMT]"
+    description: "Segmt"
     type: string
     sql: ${TABLE}.SEGMT ;;
-    label: "SEGMT"
+    label: "Segmt"
   }
 
   dimension: hr_emp_id {
-    description: "Original name: [HR_EMP_ID]"
+    description: "Hr Emp Id"
     type: string
     sql: ${TABLE}.HR_EMP_ID ;;
-    label: "HR EMP ID"
+    label: "Hr Emp Id"
   }
 
   dimension: user_id {
-    description: "Original name: [USER_ID]"
+    description: "User Id"
     type: string
     sql: ${TABLE}.USER_ID ;;
-    label: "USER ID"
+    label: "User Id"
   }
 
   dimension: sls_prsn_id {
-    description: "Original name: [SLS_PRSN_ID]"
+    description: "Sls Prsn Id"
     type: string
     sql: ${TABLE}.SLS_PRSN_ID ;;
-    label: "SLS PRSN ID"
+    label: "Sls Prsn Id"
   }
 
   dimension: employeename {
-    description: "Original name: [EmployeeName]"
+    description: "Employee Name"
     type: string
     sql: ${TABLE}.EmployeeName ;;
-    label: "EmployeeName"
+    label: "Employee Name"
   }
 
   dimension: job_desc {
-    description: "Original name: [job_desc]"
+    description: "Job Desc"
     type: string
     sql: ${TABLE}.job_desc ;;
-    label: "job desc"
+    label: "Job Desc"
   }
 
   dimension: is_eligible {
-    description: "Original name: [IS_ELIGIBLE]"
-    type: string
+    description: "Is Eligible"
+    type: yesno
     sql: ${TABLE}.IS_ELIGIBLE ;;
-    label: "IS ELIGIBLE"
+    label: "Is Eligible"
   }
 
   dimension: sales_qty_raw {
@@ -1201,12 +1200,11 @@ view: sheet {
     label: "Suag Item Revenue Amt (Raw)"
   }
 
-  dimension: suag_num_raw {
-    description: "Raw field for SUAG_NUM"
-    type: string
+  dimension: suag_num {
+    description: "Suag Num"
+    type: number
     sql: ${TABLE}.SUAG_NUM ;;
-    hidden: yes
-    label: "Suag Num (Raw)"
+    label: "Suag Num"
   }
 
   dimension: suag_den_raw {
@@ -1217,12 +1215,11 @@ view: sheet {
     label: "Suag Den (Raw)"
   }
 
-  dimension: ris_num_raw {
-    description: "Raw field for RIS_NUM"
-    type: string
+  dimension: ris_num {
+    description: "Ris Num"
+    type: number
     sql: ${TABLE}.RIS_NUM ;;
-    hidden: yes
-    label: "Ris Num (Raw)"
+    label: "Ris Num"
   }
 
   dimension: ris_den_raw {
@@ -1234,38 +1231,38 @@ view: sheet {
   }
 
   dimension: rep_verbatim {
-    description: "Original name: [REP_VERBATIM]"
+    description: "Rep Verbatim"
     type: string
     sql: ${TABLE}.REP_VERBATIM ;;
-    label: "REP VERBATIM"
+    label: "Rep Verbatim"
   }
 
   dimension: acct_status {
-    description: "Original name: [ACCT_STATUS]"
+    description: "Acct Status"
     type: string
     sql: ${TABLE}.ACCT_STATUS ;;
-    label: "ACCT STATUS"
+    label: "Acct Status"
   }
 
   dimension: video_assist {
-    description: "Original name: [VIDEO_ASSIST]"
+    description: "Video Assist"
     type: string
     sql: ${TABLE}.VIDEO_ASSIST ;;
-    label: "VIDEO ASSIST"
+    label: "Video Assist"
   }
 
   dimension: military_ind {
-    description: "Original name: [MILITARY_IND]"
+    description: "Military Ind"
     type: string
     sql: ${TABLE}.MILITARY_IND ;;
-    label: "MILITARY IND"
+    label: "Military Ind"
   }
 
   dimension: priority_ind {
-    description: "Original name: [PRIORITY_IND]"
+    description: "Priority Ind"
     type: string
     sql: ${TABLE}.PRIORITY_IND ;;
-    label: "PRIORITY IND"
+    label: "Priority Ind"
   }
 
   # Two-step Pattern Dimensions (hidden calculation dimensions)
@@ -1295,11 +1292,11 @@ view: sheet {
   }
 
   dimension: mva_den_calc {
-    description: "Row-level calculation for mva_den: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END"
+    description: "Row-level calculation for mva_den: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = TRUE AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END"
     type: number
-    sql: CASE WHEN ((((${TABLE}.`SUAG_SALES_QTY` > 0) AND (${TABLE}.`IS_ELIGIBLE` = True)) AND ((${TABLE}.`REG_DT` >= ${TABLE}.`PYMNT_DT`) OR ${TABLE}.`REG_DT` IS NULL)) AND ((${TABLE}.`DEVICE_GROUPING` = 'C2212') OR (${TABLE}.`DEVICE_GROUPING` = 'C3913'))) THEN ${TABLE}.`NET_SALES` ELSE 0 END ;;
+    sql: CASE WHEN ((((${TABLE}.`SUAG_SALES_QTY` > 0) AND (${TABLE}.`IS_ELIGIBLE` = TRUE)) AND ((${TABLE}.`REG_DT` >= ${TABLE}.`PYMNT_DT`) OR ${TABLE}.`REG_DT` IS NULL)) AND ((${TABLE}.`DEVICE_GROUPING` = 'C2212') OR (${TABLE}.`DEVICE_GROUPING` = 'C3913'))) THEN ${TABLE}.`NET_SALES` ELSE 0 END ;;
     hidden: yes
-    # Original Tableau formula: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END
+    # Original Tableau formula: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = TRUE AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END
   }
 
   dimension: revenue_calc {
@@ -1350,14 +1347,6 @@ view: sheet {
     # Original Tableau formula: [Calculation_1581607899260530688] / sum([SUAG_NUM (copy)_452048844292403200])
   }
 
-  dimension: overall_return_rate_calc {
-    description: "Row-level calculation for overall_return_rate: SUM([RETURN_QTY])/SUM([SALES_QTY])"
-    type: number
-    sql: (SUM(${TABLE}.`RETURN_QTY`) / NULLIF(SUM(${TABLE}.`SALES_QTY`), 0)) ;;
-    hidden: yes
-    # Original Tableau formula: SUM([RETURN_QTY])/SUM([SALES_QTY])
-  }
-
   dimension: percentdifference_sales_calc {
     description: "Row-level calculation for percentdifference_sales: (SUM([Calculation_978688514360860676])/SUM([Selected Month Sales (copy)_978688514362118151]))-1"
     type: number
@@ -1398,13 +1387,45 @@ view: sheet {
     # Original Tableau formula: If [Calculation_619807904247603206] < 6 then 'top 5' elseif ([Calculation_464996668077043716]-[Calculation_619807904247603206]) < 5 Then 'bottom 5' else 'others' END
   }
 
-  # dimension: rev_run_calc {
-  #   description: "Row-level calculation for rev_run: If ATTR([Calculation_1573726602467061764]) Then [Calculation_1581607899289042962] Else [Calculation_1581607899260530688] END"
-  #   type: number
-  #   sql: CASE WHEN ATTR(${is_current_month}) THEN ${revenue_run_rate_calc} ELSE ${revenue_calc} END ;;
-  #   hidden: yes
-  #   # Original Tableau formula: If ATTR([Calculation_1573726602467061764]) Then [Calculation_1581607899289042962] Else [Calculation_1581607899260530688] END
-  # }
+  dimension: rev_run_calc {
+    description: "Row-level calculation for rev_run: If ATTR([Calculation_1573726602467061764]) Then [Calculation_1581607899289042962] Else [Calculation_1581607899260530688] END"
+    type: number
+    sql: CASE WHEN ATTR(${is_current_month}) THEN ${revenue_run_rate_calc} ELSE ${revenue_calc} END ;;
+    hidden: yes
+    # Original Tableau formula: If ATTR([Calculation_1573726602467061764]) Then [Calculation_1581607899289042962] Else [Calculation_1581607899260530688] END
+  }
+
+  dimension: tr_color_1_calc {
+    description: "Row-level calculation for tr_color_1: IF [%difference sales (copy)_1349391106598633506] < 0 THEN \"Negative\" ELSE \"Positive\" END"
+    type: number
+    sql: CASE WHEN (${percentdifference_tr_calc} < 0) THEN 'Negative' ELSE 'Positive' END ;;
+    hidden: yes
+    # Original Tableau formula: IF [%difference sales (copy)_1349391106598633506] < 0 THEN "Negative" ELSE "Positive" END
+  }
+
+  dimension: percentdifference_tr_1_calc {
+    description: "Row-level calculation for percentdifference_tr_1: [Selected Month Sales (copy)_978688514362888201]/[Selected Month Take Rate (copy)_978688514363285514]-1"
+    type: number
+    sql: ((${selected_month_take_rate_calc} / NULLIF(${previous_month_take_rate_calc}, 0)) - 1) ;;
+    hidden: yes
+    # Original Tableau formula: [Selected Month Sales (copy)_978688514362888201]/[Selected Month Take Rate (copy)_978688514363285514]-1
+  }
+
+  dimension: ris_color_1_calc {
+    description: "Row-level calculation for ris_color_1: IF [%difference RIS (copy)_1028509586701590540] < 0 THEN \"Negative\" ELSE \"Positive\" END"
+    type: number
+    sql: CASE WHEN (${percentdifference_mva_calc} < 0) THEN 'Negative' ELSE 'Positive' END ;;
+    hidden: yes
+    # Original Tableau formula: IF [%difference RIS (copy)_1028509586701590540] < 0 THEN "Negative" ELSE "Positive" END
+  }
+
+  dimension: percent_diff_mva_1_calc {
+    description: "Row-level calculation for percent_diff_mva_1: [Selected Month MVA Num (copy)_1028509586700484616]/[Previous Month MVANum (copy)_1028509586701479947]-1"
+    type: number
+    sql: ((${selected_month_mva_calc} / NULLIF(${previous_month_mva_calc}, 0)) - 1) ;;
+    hidden: yes
+    # Original Tableau formula: [Selected Month MVA Num (copy)_1028509586700484616]/[Previous Month MVANum (copy)_1028509586701479947]-1
+  }
 
   dimension: take_rate_percent_calc {
     description: "Row-level calculation for take_rate_percent: SUM([SUAG_NUM (copy)_452048844292403200])/SUM([SUAG_DEN])"
@@ -1439,11 +1460,11 @@ view: sheet {
   }
 
   dimension: ris_num_suag_calc {
-    description: "Row-level calculation for ris_num_suag: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = True THEN [RIS_NUM] ELSE NULL END)"
+    description: "Row-level calculation for ris_num_suag: SUM(IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = TRUE THEN [RIS_NUM] ELSE NULL END)"
     type: number
-    sql: SUM(CASE WHEN ((${TABLE}.`SUAG_SALES_QTY` > 0) AND (${TABLE}.`IS_ELIGIBLE` = True)) THEN ${TABLE}.`RIS_NUM` ELSE NULL END) ;;
+    sql: SUM(CASE WHEN ((${TABLE}.`SUAG_SALES_QTY` > 0) AND (${TABLE}.`IS_ELIGIBLE` = TRUE)) THEN ${TABLE}.`RIS_NUM` ELSE NULL END) ;;
     hidden: yes
-    # Original Tableau formula: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = True THEN [RIS_NUM] ELSE NULL END)
+    # Original Tableau formula: SUM(IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = TRUE THEN [RIS_NUM] ELSE NULL END)
   }
 
   dimension: suag_ris_percent_calc {
@@ -1470,28 +1491,12 @@ view: sheet {
     # Original Tableau formula: If DATEPART('month', [RPT_MTH]) = [Parameters].[Current Month (copy)_978688514361458693] and datepart('year', [RPT_MTH]) = [Parameters].[Parameter 1] then [Calculation_1365153658448224257] END
   }
 
-  dimension: mva_den_copy_calc {
-    description: "Row-level calculation for mva_den_copy: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END"
-    type: number
-    sql: CASE WHEN ((((${TABLE}.`SUAG_SALES_QTY` > 0) AND (${TABLE}.`IS_ELIGIBLE` = True)) AND ((${TABLE}.`REG_DT` >= ${TABLE}.`PYMNT_DT`) OR ${TABLE}.`REG_DT` IS NULL)) AND ((${TABLE}.`DEVICE_GROUPING` = 'C2212') OR (${TABLE}.`DEVICE_GROUPING` = 'C3913'))) THEN ${TABLE}.`NET_SALES` ELSE 0 END ;;
-    hidden: yes
-    # Original Tableau formula: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END
-  }
-
   dimension: mva_num_calc {
-    description: "Row-level calculation for mva_num: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND [REG_DT] = [PYMNT_DT] AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END"
+    description: "Row-level calculation for mva_num: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = TRUE AND [REG_DT] = [PYMNT_DT] AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END"
     type: number
-    sql: CASE WHEN ((((${TABLE}.`SUAG_SALES_QTY` > 0) AND (${TABLE}.`IS_ELIGIBLE` = True)) AND (${TABLE}.`REG_DT` = ${TABLE}.`PYMNT_DT`)) AND ((${TABLE}.`DEVICE_GROUPING` = 'C2212') OR (${TABLE}.`DEVICE_GROUPING` = 'C3913'))) THEN ${TABLE}.`NET_SALES` ELSE 0 END ;;
+    sql: CASE WHEN ((((${TABLE}.`SUAG_SALES_QTY` > 0) AND (${TABLE}.`IS_ELIGIBLE` = TRUE)) AND (${TABLE}.`REG_DT` = ${TABLE}.`PYMNT_DT`)) AND ((${TABLE}.`DEVICE_GROUPING` = 'C2212') OR (${TABLE}.`DEVICE_GROUPING` = 'C3913'))) THEN ${TABLE}.`NET_SALES` ELSE 0 END ;;
     hidden: yes
-    # Original Tableau formula: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND [REG_DT] = [PYMNT_DT] AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END
-  }
-
-  dimension: mva_calc {
-    description: "Row-level calculation for mva: SUM([MVA_Den (copy)_1365153658450157570])/SUM([Calculation_1365153658448224257])"
-    type: number
-    sql: (SUM(${mva_num_calc}) / NULLIF(SUM(${mva_den_calc}), 0)) ;;
-    hidden: yes
-    # Original Tableau formula: SUM([MVA_Den (copy)_1365153658450157570])/SUM([Calculation_1365153658448224257])
+    # Original Tableau formula: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = TRUE AND [REG_DT] = [PYMNT_DT] AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END
   }
 
   dimension: denominator_shown_calc {
@@ -1500,22 +1505,6 @@ view: sheet {
     sql: CASE WHEN ({% parameter parameter_10 %} = 'Overall') THEN SUM(${TABLE}.`RIS_DEN`) WHEN ({% parameter parameter_10 %} = 'SU&G') THEN ${ris_denom_suag_calc} WHEN ({% parameter parameter_10 %} = 'Non SU&G') THEN ${non_ris_den_calc} END ;;
     hidden: yes
     # Original Tableau formula: Case [Parameters].[Parameter 10] when 'Overall' then sum([RIS_DEN]) when 'SU&G' then [RIS Num SUAG (copy)_990510463076642820] when 'Non SU&G' then [RIS Denom SUAG (copy)_452048844324671492] END
-  }
-
-  dimension: month_day_calc {
-    description: "Row-level calculation for month_day: month([RPT_MTH]) + (day([RPT_MTH])-1)*30"
-    type: number
-    sql: (EXTRACT(MONTH FROM ${TABLE}.`RPT_MTH`) + ((EXTRACT(DAY FROM ${TABLE}.`RPT_MTH`) - 1) * 30)) ;;
-    hidden: yes
-    # Original Tableau formula: month([RPT_MTH]) + (day([RPT_MTH])-1)*30
-  }
-
-  dimension: suag_returns_calc {
-    description: "Row-level calculation for suag_returns: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] >0 then [RETURN_QTY] END )"
-    type: number
-    sql: SUM(CASE WHEN ((${TABLE}.`IS_ELIGIBLE` = True) AND (${TABLE}.`SUAG_NUM` > 0)) THEN ${TABLE}.`RETURN_QTY` ELSE NULL END) ;;
-    hidden: yes
-    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] >0 then [RETURN_QTY] END )
   }
 
   dimension: previous_month_mvanum_calc {
@@ -1543,41 +1532,33 @@ view: sheet {
   }
 
   dimension: non_ris_den_calc {
-    description: "Row-level calculation for non_ris_den: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = True THEN [RIS_DEN] ELSE null END)"
+    description: "Row-level calculation for non_ris_den: SUM(IF [SUAG_SALES_QTY] = 0 or ISNULL([SUAG_SALES_QTY]) and [IS_ELIGIBLE] = TRUE THEN [RIS_DEN] ELSE null END)"
     type: number
-    sql: SUM(CASE WHEN ((${TABLE}.`SUAG_SALES_QTY` = 0) OR (${TABLE}.`SUAG_SALES_QTY` IS NULL AND (${TABLE}.`IS_ELIGIBLE` = True))) THEN ${TABLE}.`RIS_DEN` ELSE NULL END) ;;
+    sql: SUM(CASE WHEN ((${TABLE}.`SUAG_SALES_QTY` = 0) OR (${TABLE}.`SUAG_SALES_QTY` IS NULL AND (${TABLE}.`IS_ELIGIBLE` = TRUE))) THEN ${TABLE}.`RIS_DEN` ELSE NULL END) ;;
     hidden: yes
-    # Original Tableau formula: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = True THEN [RIS_DEN] ELSE null END)
-  }
-
-  dimension: eligible_devices_calc {
-    description: "Row-level calculation for eligible_devices: SUM(IF IS_ELIGIBLE = True THEN [SUAG_DEN] ELSE null END)"
-    type: number
-    sql: SUM(CASE WHEN (${TABLE}.`IS_ELIGIBLE` = True) THEN ${TABLE}.`SUAG_DEN` ELSE NULL END) ;;
-    hidden: yes
-    # Original Tableau formula: SUM(IF IS_ELIGIBLE = True THEN [SUAG_DEN] ELSE null END)
+    # Original Tableau formula: SUM(IF [SUAG_SALES_QTY] = 0 or ISNULL([SUAG_SALES_QTY]) and [IS_ELIGIBLE] = TRUE THEN [RIS_DEN] ELSE null END)
   }
 
   dimension: non_ris_num_calc {
-    description: "Row-level calculation for non_ris_num: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = True THEN [RIS_NUM] ELSE null END)"
+    description: "Row-level calculation for non_ris_num: SUM(IF [SUAG_SALES_QTY] = 0 or ISNULL([SUAG_SALES_QTY]) and [IS_ELIGIBLE] = TRUE THEN [RIS_NUM] ELSE null END)"
     type: number
-    sql: SUM(CASE WHEN ((${TABLE}.`SUAG_SALES_QTY` = 0) OR (${TABLE}.`SUAG_SALES_QTY` IS NULL AND (${TABLE}.`IS_ELIGIBLE` = True))) THEN ${TABLE}.`RIS_NUM` ELSE NULL END) ;;
+    sql: SUM(CASE WHEN ((${TABLE}.`SUAG_SALES_QTY` = 0) OR (${TABLE}.`SUAG_SALES_QTY` IS NULL AND (${TABLE}.`IS_ELIGIBLE` = TRUE))) THEN ${TABLE}.`RIS_NUM` ELSE NULL END) ;;
     hidden: yes
-    # Original Tableau formula: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = True THEN [RIS_NUM] ELSE null END)
+    # Original Tableau formula: SUM(IF [SUAG_SALES_QTY] = 0 or ISNULL([SUAG_SALES_QTY]) and [IS_ELIGIBLE] = TRUE THEN [RIS_NUM] ELSE null END)
   }
 
   dimension: ris_denom_suag_calc {
-    description: "Row-level calculation for ris_denom_suag: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = True THEN [RIS_DEN] ELSE null END)"
+    description: "Row-level calculation for ris_denom_suag: SUM(IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = TRUE THEN [RIS_DEN] ELSE null END)"
     type: number
-    sql: SUM(CASE WHEN ((${TABLE}.`SUAG_SALES_QTY` > 0) AND (${TABLE}.`IS_ELIGIBLE` = True)) THEN ${TABLE}.`RIS_DEN` ELSE NULL END) ;;
+    sql: SUM(CASE WHEN ((${TABLE}.`SUAG_SALES_QTY` > 0) AND (${TABLE}.`IS_ELIGIBLE` = TRUE)) THEN ${TABLE}.`RIS_DEN` ELSE NULL END) ;;
     hidden: yes
-    # Original Tableau formula: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = True THEN [RIS_DEN] ELSE null END)
+    # Original Tableau formula: SUM(IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = TRUE THEN [RIS_DEN] ELSE null END)
   }
 
   dimension: rev_run_para_calc {
     description: "Row-level calculation for rev_run_para: Case [Parameters].[Parameter 8] When 'Actual' Then [Calculation_1581607899260530688] when 'Run Rate' THEN [Calculation_681732406177177602] END"
     type: number
-    sql: CASE WHEN ({% parameter parameter_8 %} = 'Actual') THEN ${revenue_calc} WHEN ({% parameter parameter_8 %} = 'Run Rate') THEN ${rev_run_para_copy_calc}calc} END ;;
+    sql: CASE WHEN ({% parameter parameter_8 %} = 'Actual') THEN ${revenue_calc} WHEN ({% parameter parameter_8 %} = 'Run Rate') THEN ${rev_run_calc} END ;;
     hidden: yes
     # Original Tableau formula: Case [Parameters].[Parameter 8] When 'Actual' Then [Calculation_1581607899260530688] when 'Run Rate' THEN [Calculation_681732406177177602] END
   }
@@ -1585,7 +1566,7 @@ view: sheet {
   dimension: rev_run_para_copy_calc {
     description: "Row-level calculation for rev_run_para_copy: Case [Parameters].[Parameter 8] When 'Actual' Then [Calculation_1581607899260530688] when 'Run Rate' THEN [Calculation_681732406177177602] END"
     type: number
-    sql: CASE WHEN ({% parameter parameter_8 %} = 'Actual') THEN ${revenue_calc} WHEN ({% parameter parameter_8 %} = 'Run Rate') THEN ${rev_run_para_calc} END ;;
+    sql: CASE WHEN ({% parameter parameter_8 %} = 'Actual') THEN ${revenue_calc} WHEN ({% parameter parameter_8 %} = 'Run Rate') THEN ${rev_run_calc} END ;;
     hidden: yes
     # Original Tableau formula: Case [Parameters].[Parameter 8] When 'Actual' Then [Calculation_1581607899260530688] when 'Run Rate' THEN [Calculation_681732406177177602] END
   }
@@ -1617,13 +1598,7 @@ view: sheet {
   dimension: suag_num_new_calc {
     description: "Row-level calculation for suag_num_new: If ISNULL([SUAG_NUM]) then 0 elseif [SUAG_ITEM_CD] = 'C3518' then [SUAG_NUM] ELSEIF [SUAG_ITEM_CD] = 'C65' then [SUAG_NUM] elseif [SUAG_ITEM_CD] = 'C5697' then [SUAG_NUM] END"
     type: number
-    sql: CASE
-  WHEN sheet.`SUAG_NUM` IS NULL THEN 0
-  WHEN sheet.`SUAG_ITEM_CD` = 'C3518' THEN sheet.`SUAG_NUM`
-  WHEN sheet.`SUAG_ITEM_CD` = 'C65' THEN sheet.`SUAG_NUM`
-  WHEN sheet.`SUAG_ITEM_CD` = 'C5697' THEN sheet.`SUAG_NUM`
-  ELSE 0
-END;;
+    sql: CASE WHEN ${TABLE}.`SUAG_NUM` IS NULL THEN 0 ELSE CASE WHEN (${TABLE}.`SUAG_ITEM_CD` = 'C3518') THEN ${TABLE}.`SUAG_NUM` ELSE CASE WHEN (${TABLE}.`SUAG_ITEM_CD` = 'C65') THEN ${TABLE}.`SUAG_NUM` ELSE CASE WHEN (${TABLE}.`SUAG_ITEM_CD` = 'C5697') THEN ${TABLE}.`SUAG_NUM` ELSE NULL END END END END ;;
     hidden: yes
     # Original Tableau formula: If ISNULL([SUAG_NUM]) then 0 elseif [SUAG_ITEM_CD] = 'C3518' then [SUAG_NUM] ELSEIF [SUAG_ITEM_CD] = 'C65' then [SUAG_NUM] elseif [SUAG_ITEM_CD] = 'C5697' then [SUAG_NUM] END
   }
@@ -1684,30 +1659,6 @@ END;;
     # Original Tableau formula: If DATEPART('month',[RPT_MTH]) = [Parameters].[Current Month (copy)_978688514361458693] -1 AND Datepart('year', [RPT_MTH]) = [Parameters].[Parameter 1] then [SUAG_NUM (copy)_452048844292403200] else null end
   }
 
-  dimension: selected_month_revenue_copy_calc {
-    description: "Row-level calculation for selected_month_revenue_copy: SUM([Selected Month Revenue Amt (copy)_978688514408472599]) * [Calculation_1581607899287506961] / [Calculation_1581607899286167568]"
-    type: number
-    sql: ((SUM(${selected_month_revenue_calc}) * ${month_length_calc}) / NULLIF(${days_in_current_month_calc}, 0)) ;;
-    hidden: yes
-    # Original Tableau formula: SUM([Selected Month Revenue Amt (copy)_978688514408472599]) * [Calculation_1581607899287506961] / [Calculation_1581607899286167568]
-  }
-
-  dimension: previous_month_revenue_calc {
-    description: "Row-level calculation for previous_month_revenue: If DATEPART('month',[RPT_MTH]) = [Parameters].[Current Month (copy)_978688514361458693] - 1 AND Datepart('year', [RPT_MTH]) = [Parameters].[Parameter 1] Then [SUAG_ITEM_REVENUE_AMT] END"
-    type: number
-    sql: CASE WHEN ((EXTRACT(MONTH FROM ${TABLE}.`RPT_MTH`) = ({% parameter current_month_copy_978688514361458693 %} - 1)) AND (EXTRACT(YEAR FROM ${TABLE}.`RPT_MTH`) = {% parameter parameter_1 %})) THEN ${TABLE}.`SUAG_ITEM_REVENUE_AMT` ELSE NULL END ;;
-    hidden: yes
-    # Original Tableau formula: If DATEPART('month',[RPT_MTH]) = [Parameters].[Current Month (copy)_978688514361458693] - 1 AND Datepart('year', [RPT_MTH]) = [Parameters].[Parameter 1] Then [SUAG_ITEM_REVENUE_AMT] END
-  }
-
-  dimension: selected_month_revenue_calc {
-    description: "Row-level calculation for selected_month_revenue: If DATEPART('month',[RPT_MTH]) = [Parameters].[Current Month (copy)_978688514361458693] AND DATEPART('year',[RPT_MTH]) = [Parameters].[Parameter 1] Then [SUAG_ITEM_REVENUE_AMT] END"
-    type: number
-    sql: CASE WHEN ((EXTRACT(MONTH FROM ${TABLE}.`RPT_MTH`) = {% parameter current_month_copy_978688514361458693 %}) AND (EXTRACT(YEAR FROM ${TABLE}.`RPT_MTH`) = {% parameter parameter_1 %})) THEN ${TABLE}.`SUAG_ITEM_REVENUE_AMT` ELSE NULL END ;;
-    hidden: yes
-    # Original Tableau formula: If DATEPART('month',[RPT_MTH]) = [Parameters].[Current Month (copy)_978688514361458693] AND DATEPART('year',[RPT_MTH]) = [Parameters].[Parameter 1] Then [SUAG_ITEM_REVENUE_AMT] END
-  }
-
   dimension: previous_month_sales_calc {
     description: "Row-level calculation for previous_month_sales: If DATEPART('month',[RPT_MTH]) = [Parameters].[Current Month (copy)_978688514361458693] - 1 AND Datepart('year', [RPT_MTH]) = [Parameters].[Parameter 1] Then [SUAG_NUM (copy)_452048844292403200] END"
     type: number
@@ -1740,52 +1691,12 @@ END;;
     # Original Tableau formula: [RIS Num SUAG (copy)_452048844324683781]/[RIS Denom SUAG (copy)_452048844324671492]
   }
 
-  dimension: non_suag_return_rate_calc {
-    description: "Row-level calculation for non_suag_return_rate: [Suag Returns (copy)_452048844332298250] / [Suag Sales (copy)_452048844332310539]"
-    type: number
-    sql: (${non_suag_returns_calc} / NULLIF(${non_suag_sales_calc}, 0)) ;;
-    hidden: yes
-    # Original Tableau formula: [Suag Returns (copy)_452048844332298250] / [Suag Sales (copy)_452048844332310539]
-  }
-
-  dimension: suag_sales_calc {
-    description: "Row-level calculation for suag_sales: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] >0 then [SALES_QTY] END )"
-    type: number
-    sql: SUM(CASE WHEN ((${TABLE}.`IS_ELIGIBLE` = True) AND (${TABLE}.`SUAG_NUM` > 0)) THEN ${TABLE}.`SALES_QTY` ELSE NULL END) ;;
-    hidden: yes
-    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] >0 then [SALES_QTY] END )
-  }
-
-  dimension: non_suag_returns_calc {
-    description: "Row-level calculation for non_suag_returns: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [RETURN_QTY] END )"
-    type: number
-    sql: SUM(CASE WHEN (((${TABLE}.`IS_ELIGIBLE` = True) AND (${TABLE}.`SUAG_NUM` = 0)) OR ${TABLE}.`SUAG_NUM` IS NULL) THEN ${TABLE}.`RETURN_QTY` ELSE NULL END) ;;
-    hidden: yes
-    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [RETURN_QTY] END )
-  }
-
-  dimension: non_suag_sales_calc {
-    description: "Row-level calculation for non_suag_sales: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [SALES_QTY] END )"
-    type: number
-    sql: SUM(CASE WHEN (((${TABLE}.`IS_ELIGIBLE` = True) AND (${TABLE}.`SUAG_NUM` = 0)) OR ${TABLE}.`SUAG_NUM` IS NULL) THEN ${TABLE}.`SALES_QTY` ELSE NULL END) ;;
-    hidden: yes
-    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [SALES_QTY] END )
-  }
-
   dimension: ris_color_calc {
     description: "Row-level calculation for ris_color: IF [%difference RIS (copy)_1028509586701590540] < 0 THEN \"Negative\" ELSE \"Positive\" END"
     type: number
     sql: CASE WHEN (${percentdifference_mva_calc} < 0) THEN 'Negative' ELSE 'Positive' END ;;
     hidden: yes
     # Original Tableau formula: IF [%difference RIS (copy)_1028509586701590540] < 0 THEN "Negative" ELSE "Positive" END
-  }
-
-  dimension: take_rate_for_calcs_calc {
-    description: "Row-level calculation for take_rate_for_calcs: [Calculation_978688514352406528]"
-    type: number
-    sql: ${take_rate_percent_calc} ;;
-    hidden: yes
-    # Original Tableau formula: [Calculation_978688514352406528]
   }
 
   dimension: top_bottom_5_ris_calc {
@@ -1812,22 +1723,6 @@ END;;
     # Original Tableau formula: If [Calculation_619807904247603206] < 6 then 'top 5' elseif ([Calculation_464996668077043716]-[Calculation_619807904247603206]) < 5 Then 'bottom 5' else 'others' END
   }
 
-  dimension: top_bottom_5_copy_calc {
-    description: "Row-level calculation for top_bottom_5_copy: If [Calculation_619807904247603206] < 21 then 'top 5' elseif ([Calculation_464996668077043716]-[Calculation_619807904247603206]) < 5 Then 'bottom 5' else 'others' END"
-    type: number
-    sql: CASE WHEN (${index_calc} < 21) THEN 'top 5' ELSE CASE WHEN ((${size_calc} - ${index_calc}) < 5) THEN 'bottom 5' ELSE 'others' END END ;;
-    hidden: yes
-    # Original Tableau formula: If [Calculation_619807904247603206] < 21 then 'top 5' elseif ([Calculation_464996668077043716]-[Calculation_619807904247603206]) < 5 Then 'bottom 5' else 'others' END
-  }
-
-  dimension: vmp_denom_suag_calc {
-    description: "Row-level calculation for vmp_denom_suag: If [SUAG_SALES_QTY] > 0 and [IS_ELIGIBLE] = True then [NET_SALES] else 0 END"
-    type: number
-    sql: CASE WHEN ((${TABLE}.`SUAG_SALES_QTY` > 0) AND (${TABLE}.`IS_ELIGIBLE` = True)) THEN ${TABLE}.`NET_SALES` ELSE 0 END ;;
-    hidden: yes
-    # Original Tableau formula: If [SUAG_SALES_QTY] > 0 and [IS_ELIGIBLE] = True then [NET_SALES] else 0 END
-  }
-
   dimension: difference_in_mva_calc {
     description: "Row-level calculation for difference_in_mva: [Selected Month MVA Num (copy)_1028509586700484616]-[Previous Month MVANum (copy)_1028509586701479947]"
     type: number
@@ -1842,14 +1737,6 @@ END;;
     sql: (${selected_month_take_rate_calc} - ${previous_month_take_rate_calc}) ;;
     hidden: yes
     # Original Tableau formula: [Selected Month Sales (copy)_978688514362888201]-[Selected Month Take Rate (copy)_978688514363285514]
-  }
-
-  dimension: max_date_calc {
-    description: "Row-level calculation for max_date: MAX([rptmth (copy)_978688514415456283])"
-    type: number
-    sql: MAX(${rptmth_copy}) ;;
-    hidden: yes
-    # Original Tableau formula: MAX([rptmth (copy)_978688514415456283])
   }
 
   # Calculated Fields (from Tableau formulas)
@@ -1882,13 +1769,6 @@ END;;
     # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: If ATTR([federated.069x4d80ro5h9y1cnlma91b1a1b4].[SUAG_IND (copy)_1034139123774984203]) = 'SUAG' then [federated.069x4d80ro5h9y1cnlma91b1a1b4].[Calculation_1034139123750670346] else null end CONVERSION_ERROR: No AST data available - formula parsing may have failed TODO: Manual migration required - please convert this formula manually
   }
 
-  dimension: current_month_sales {
-    description: "Calculated field: If MONTH([RPT_MTH]) = [Parameters].[Parameter 4] Then [SUAG_NET_SALES] END"
-    type: number
-    sql: CASE WHEN (EXTRACT(MONTH FROM ${TABLE}.`RPT_MTH`) = {% parameter parameter_4 %}) THEN ${TABLE}.`SUAG_NET_SALES` ELSE NULL END ;;
-    # Original Tableau formula: If MONTH([RPT_MTH]) = [Parameters].[Parameter 4] Then [SUAG_NET_SALES] END
-  }
-
   dimension: current_month {
     description: "Calculated field: [Parameters].[Parameter 4]"
     type: number
@@ -1897,10 +1777,10 @@ END;;
   }
 
   measure: mva_den {
-    description: "Calculated field: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END"
+    description: "Calculated field: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = TRUE AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END"
     type: number
     sql: ${mva_den_calc} ;;
-    # Original Tableau formula: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END
+    # Original Tableau formula: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = TRUE AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END
   }
 
   dimension: calculation_1573726602467061764 {
@@ -1953,38 +1833,24 @@ END;;
   }
 
   dimension: level_1 {
-    description: "Calculated field: Case [Parameters].[Parameter 1 1] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
+    description: "Calculated field: Case [Parameters].[Parameter 1 1] When 'Market' Then [REGION (copy)_1145040205777121282] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
     type: string
-    sql: CASE WHEN ({% parameter parameter_1_1 %} = 'Market') THEN ${TABLE}.`REGION` WHEN ({% parameter parameter_1_1 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter parameter_1_1 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter parameter_1_1 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` WHEN ({% parameter parameter_1_1 %} = 'Rep') THEN ${TABLE}.`EmployeeName` END ;;
-    # Original Tableau formula: Case [Parameters].[Parameter 1 1] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
-  }
-
-  measure: overall_return_rate {
-    description: "Calculated field: SUM([RETURN_QTY])/SUM([SALES_QTY])"
-    type: number
-    sql: ${overall_return_rate_calc} ;;
-    # Original Tableau formula: SUM([RETURN_QTY])/SUM([SALES_QTY])
+    sql: CASE WHEN ({% parameter parameter_1_1 %} = 'Market') THEN ${market_copy} WHEN ({% parameter parameter_1_1 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter parameter_1_1 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter parameter_1_1 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` WHEN ({% parameter parameter_1_1 %} = 'Rep') THEN ${TABLE}.`EmployeeName` END ;;
+    # Original Tableau formula: Case [Parameters].[Parameter 1 1] When 'Market' Then [REGION (copy)_1145040205777121282] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
   }
 
   dimension: su_g_indicator {
-    description: "Calculated field: IF [SUAG_NUM (copy)_452048844292403200] >0 then True Else 'N' END"
+    description: "Calculated field: IF [SUAG_NUM (copy)_452048844292403200] >0 then 'Y' Else 'N' END"
     type: string
-    sql: CASE WHEN (${suag_num_new_calc} > 0) THEN True ELSE 'N' END ;;
-    # Original Tableau formula: IF [SUAG_NUM (copy)_452048844292403200] >0 then True Else 'N' END
+    sql: CASE WHEN (${suag_num_new_calc} > 0) THEN 'Y' ELSE 'N' END ;;
+    # Original Tableau formula: IF [SUAG_NUM (copy)_452048844292403200] >0 then 'Y' Else 'N' END
   }
 
   dimension: mva_indicator {
-    description: "Calculated field: If [MVA_Den (copy)_1365153658450157570] > 0 then True Else 'N' END"
+    description: "Calculated field: If [MVA_Den (copy)_1365153658450157570] > 0 then 'Y' Else 'N' END"
     type: string
-    sql: CASE WHEN (${mva_num_calc} > 0) THEN True ELSE 'N' END ;;
-    # Original Tableau formula: If [MVA_Den (copy)_1365153658450157570] > 0 then True Else 'N' END
-  }
-
-  dimension: overall_ris_num {
-    description: "Calculated field: If [SUAG_SALES_QTY] = 0 then [RIS_NUM] END"
-    type: number
-    sql: CASE WHEN (${TABLE}.`SUAG_SALES_QTY` = 0) THEN ${TABLE}.`RIS_NUM` ELSE NULL END ;;
-    # Original Tableau formula: If [SUAG_SALES_QTY] = 0 then [RIS_NUM] END
+    sql: CASE WHEN (${mva_num_calc} > 0) THEN 'Y' ELSE 'N' END ;;
+    # Original Tableau formula: If [MVA_Den (copy)_1365153658450157570] > 0 then 'Y' Else 'N' END
   }
 
   dimension: verbatim_present {
@@ -2001,10 +1867,10 @@ END;;
     # Original Tableau formula: [ZONE_NM]
   }
 
-  dimension: date_selection_True {
+  dimension: date_selection_true {
     description: "Calculated field: If [PYMNT_DT] >= [Parameters].[Parameter 9] and [PYMNT_DT] <= [Parameters].[Start Date (copy)_456270959335051266] Then True END"
     type: yesno
-    sql: CASE WHEN ((${TABLE}.`PYMNT_DT` >= {% parameter parameter_9 %}) AND (${TABLE}.`PYMNT_DT` <= {% parameter start_date_copy_456270959335051266 %})) THEN True ELSE NULL END ;;
+    sql: CASE WHEN ((${TABLE}.`PYMNT_DT` >= {% parameter parameter_9 %}) AND (${TABLE}.`PYMNT_DT` <= {% parameter start_date_copy_456270959335051266 %})) THEN TRUE ELSE NULL END ;;
     # Original Tableau formula: If [PYMNT_DT] >= [Parameters].[Parameter 9] and [PYMNT_DT] <= [Parameters].[Start Date (copy)_456270959335051266] Then True END
   }
 
@@ -2043,13 +1909,6 @@ END;;
     # Original Tableau formula: Case [Parameters].[Parameter 10] when 'Overall' then sum([RIS_NUM]) when 'SU&G' then [Calculation_990510463076048899] when 'Non SU&G' then [RIS Num SUAG (copy)_452048844324683781] END
   }
 
-  dimension: data_refreshed_1 {
-    description: "Calculated field: { FIXED : MAX([PYMNT_DT]) } +1"
-    type: string
-    sql: ((SELECT MAX(${TABLE}.`PYMNT_DT`) FROM ${TABLE}) + 1) ;;
-    # Original Tableau formula: { FIXED : MAX([PYMNT_DT]) } +1
-  }
-
   dimension: data_refreshed {
     description: "Calculated field: { FIXED : MAX([PYMNT_DT]) } +1"
     type: string
@@ -2079,10 +1938,10 @@ END;;
   }
 
   dimension: ranking_granularity {
-    description: "Calculated field: Case [Parameters].[Parameter 6] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] END"
+    description: "Calculated field: Case [Parameters].[Parameter 6] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [REGION] END"
     type: string
-    sql: CASE WHEN ({% parameter parameter_6 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter parameter_6 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter parameter_6 %} = 'Zone') THEN ${zone} WHEN ({% parameter parameter_6 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` END ;;
-    # Original Tableau formula: Case [Parameters].[Parameter 6] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] END
+    sql: CASE WHEN ({% parameter parameter_6 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter parameter_6 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter parameter_6 %} = 'Zone') THEN ${zone} WHEN ({% parameter parameter_6 %} = 'Outlet') THEN ${TABLE}.`REGION` END ;;
+    # Original Tableau formula: Case [Parameters].[Parameter 6] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [REGION] END
   }
 
   measure: index {
@@ -2113,6 +1972,34 @@ END;;
     # Original Tableau formula: { FIXED [Calculation_619807904201347075]: [Calculation_1581607899260530688]}
   }
 
+  measure: tr_color_1 {
+    description: "Calculated field: IF [%difference sales (copy)_1349391106598633506] < 0 THEN \"Negative\" ELSE \"Positive\" END"
+    type: number
+    sql: ${tr_color_1_calc} ;;
+    # Original Tableau formula: IF [%difference sales (copy)_1349391106598633506] < 0 THEN "Negative" ELSE "Positive" END
+  }
+
+  measure: percentdifference_tr_1 {
+    description: "Calculated field: [Selected Month Sales (copy)_978688514362888201]/[Selected Month Take Rate (copy)_978688514363285514]-1"
+    type: number
+    sql: ${percentdifference_tr_1_calc} ;;
+    # Original Tableau formula: [Selected Month Sales (copy)_978688514362888201]/[Selected Month Take Rate (copy)_978688514363285514]-1
+  }
+
+  measure: ris_color_1 {
+    description: "Calculated field: IF [%difference RIS (copy)_1028509586701590540] < 0 THEN \"Negative\" ELSE \"Positive\" END"
+    type: number
+    sql: ${ris_color_1_calc} ;;
+    # Original Tableau formula: IF [%difference RIS (copy)_1028509586701590540] < 0 THEN "Negative" ELSE "Positive" END
+  }
+
+  measure: percent_diff_mva_1 {
+    description: "Calculated field: [Selected Month MVA Num (copy)_1028509586700484616]/[Previous Month MVANum (copy)_1028509586701479947]-1"
+    type: number
+    sql: ${percent_diff_mva_1_calc} ;;
+    # Original Tableau formula: [Selected Month MVA Num (copy)_1028509586700484616]/[Previous Month MVANum (copy)_1028509586701479947]-1
+  }
+
   measure: take_rate_percent {
     description: "Calculated field: SUM([SUAG_NUM (copy)_452048844292403200])/SUM([SUAG_DEN])"
     type: number
@@ -2141,18 +2028,11 @@ END;;
     # Original Tableau formula: SUM([RIS_NUM])/SUM([RIS_DEN])
   }
 
-  dimension: set_up_go_sales {
-    description: "Calculated field: [SUAG_NET_SALES]"
-    type: number
-    sql: ${TABLE}.`SUAG_NET_SALES` ;;
-    # Original Tableau formula: [SUAG_NET_SALES]
-  }
-
   measure: ris_num_suag {
-    description: "Calculated field: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = True THEN [RIS_NUM] ELSE NULL END)"
+    description: "Calculated field: SUM(IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = TRUE THEN [RIS_NUM] ELSE NULL END)"
     type: number
     sql: ${ris_num_suag_calc} ;;
-    # Original Tableau formula: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = True THEN [RIS_NUM] ELSE NULL END)
+    # Original Tableau formula: SUM(IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = TRUE THEN [RIS_NUM] ELSE NULL END)
   }
 
   measure: suag_ris_percent {
@@ -2176,33 +2056,12 @@ END;;
     # Original Tableau formula: Case [Parameters].[Agent Parameter] WHEN 'Day' THEN STR(DATEPART('month',[Calculation_434315908847452170])) + "/" + STR(DATEPART('day',[Calculation_434315908847452170])) + "/" + RIGHT(DATENAME('year',[Calculation_434315908847452170]),2) WHEN 'Week' THEN STR(DATEPART('month',[Calculation_434315908847452170])) + "/" + STR(DATEPART('day',[Calculation_434315908847452170])) + "/" + RIGHT(DATENAME('year',[Calculation_434315908847452170]),2) WHEN 'Month' THEN LEFT(DATENAME('month',[Calculation_434315908847452170]),3) + " " + DATENAME('year',[Calculation_434315908847452170]) WHEN 'Quarter' Then DATENAME('quarter',[Calculation_434315908847452170]) + "Q " + "' " + RIGHT(DATENAME('year',[Calculation_434315908847452170]),2) WHEN 'Year' THEN DATENAME('year',[Calculation_434315908847452170]) END
   }
 
-  dimension: level_1_copy_2 {
-    description: "Calculated field: Case [Parameters].[Dynamic 1 (copy) (copy)_1581607899270795273] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
+  dimension: level_1 {
+    description: "Calculated field: Case [Parameters].[Dynamic 1 (copy) (copy)_1581607899270795273] When 'Market' Then [REGION (copy)_1145040205777121282] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
     type: string
-    sql: CASE WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Market') THEN ${TABLE}.`REGION` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Zone') THEN ${zone} WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Rep') THEN ${TABLE}.`EmployeeName` END ;;
-    # Original Tableau formula: Case [Parameters].[Dynamic 1 (copy) (copy)_1581607899270795273] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
+    sql: CASE WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Market') THEN ${market_copy} WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Zone') THEN ${zone} WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Rep') THEN ${TABLE}.`EmployeeName` END ;;
+    # Original Tableau formula: Case [Parameters].[Dynamic 1 (copy) (copy)_1581607899270795273] When 'Market' Then [REGION (copy)_1145040205777121282] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
   }
-
-  dimension: level_1_copy {
-    description: "Calculated field: Case [Parameters].[Dynamic 1 (copy) (copy)_1581607899270795273] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
-    type: string
-    sql: CASE WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Market') THEN ${TABLE}.`REGION` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Zone') THEN ${zone} WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Rep') THEN ${TABLE}.`EmployeeName` END ;;
-    # Original Tableau formula: Case [Parameters].[Dynamic 1 (copy) (copy)_1581607899270795273] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
-  }
-
-  # dimension: level_1_copy {
-  #   description: "Calculated field: Case [Parameters].[Parameter 1 1] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
-  #   type: string
-  #   sql: CASE WHEN ({% parameter parameter_1_1 %} = 'Market') THEN ${TABLE}.`REGION` WHEN ({% parameter parameter_1_1 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter parameter_1_1 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter parameter_1_1 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` WHEN ({% parameter parameter_1_1 %} = 'Rep') THEN ${TABLE}.`EmployeeName` END ;;
-  #   # Original Tableau formula: Case [Parameters].[Parameter 1 1] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
-  # }
-
-  # dimension: level_1 {
-  #   description: "Calculated field: Case [Parameters].[Dynamic 1 (copy) (copy)_1581607899270795273] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
-  #   type: string
-  #   sql: CASE WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Market') THEN ${TABLE}.`REGION` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Zone') THEN ${zone} WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` WHEN ({% parameter dynamic_1_copy_copy_1581607899270795273 %} = 'Rep') THEN ${TABLE}.`EmployeeName` END ;;
-  #   # Original Tableau formula: Case [Parameters].[Dynamic 1 (copy) (copy)_1581607899270795273] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
-  # }
 
   dimension: level_2 {
     description: "Calculated field: Case [Parameters].[Dynamic 1 (copy)_1717841844705943552] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
@@ -2211,26 +2070,12 @@ END;;
     # Original Tableau formula: Case [Parameters].[Dynamic 1 (copy)_1717841844705943552] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
   }
 
-  # dimension: level_2 {
-  #   description: "Calculated field: Case [Parameters].[Dynamic 2 (copy) (copy)_1581607899270803466] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
-  #   type: string
-  #   sql: CASE WHEN ({% parameter dynamic_2_copy_copy_1581607899270803466 %} = 'Market') THEN ${TABLE}.`REGION` WHEN ({% parameter dynamic_2_copy_copy_1581607899270803466 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter dynamic_2_copy_copy_1581607899270803466 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter dynamic_2_copy_copy_1581607899270803466 %} = 'Zone') THEN ${zone} WHEN ({% parameter dynamic_2_copy_copy_1581607899270803466 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` WHEN ({% parameter dynamic_2_copy_copy_1581607899270803466 %} = 'Rep') THEN ${TABLE}.`EmployeeName` END ;;
-  #   # Original Tableau formula: Case [Parameters].[Dynamic 2 (copy) (copy)_1581607899270803466] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
-  # }
-
   dimension: level_3 {
     description: "Calculated field: Case [Parameters].[Dynamic 2 (copy)_1717841844705996801] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
     type: string
     sql: CASE WHEN ({% parameter dynamic_2_copy_1717841844705996801 %} = 'Market') THEN ${TABLE}.`REGION` WHEN ({% parameter dynamic_2_copy_1717841844705996801 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter dynamic_2_copy_1717841844705996801 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter dynamic_2_copy_1717841844705996801 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` WHEN ({% parameter dynamic_2_copy_1717841844705996801 %} = 'Rep') THEN ${TABLE}.`EmployeeName` END ;;
     # Original Tableau formula: Case [Parameters].[Dynamic 2 (copy)_1717841844705996801] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
   }
-
-  # dimension: level_3 {
-  #   description: "Calculated field: Case [Parameters].[Dynamic 3 (copy) (copy)_1581607899270819851] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
-  #   type: string
-  #   sql: CASE WHEN ({% parameter dynamic_3_copy_copy_1581607899270819851 %} = 'Market') THEN ${TABLE}.`REGION` WHEN ({% parameter dynamic_3_copy_copy_1581607899270819851 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter dynamic_3_copy_copy_1581607899270819851 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter dynamic_3_copy_copy_1581607899270819851 %} = 'Zone') THEN ${zone} WHEN ({% parameter dynamic_3_copy_copy_1581607899270819851 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` WHEN ({% parameter dynamic_3_copy_copy_1581607899270819851 %} = 'Rep') THEN ${TABLE}.`EmployeeName` END ;;
-  #   # Original Tableau formula: Case [Parameters].[Dynamic 3 (copy) (copy)_1581607899270819851] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Zone' Then [Calculation_412079422482219008] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
-  # }
 
   dimension: level_4 {
     description: "Calculated field: Case [Parameters].[Dynamic 3 (copy)_1717841844706041858] When 'Market' Then [REGION] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
@@ -2253,25 +2098,11 @@ END;;
     # Original Tableau formula: If DATEPART('month', [RPT_MTH]) = [Parameters].[Current Month (copy)_978688514361458693] and datepart('year', [RPT_MTH]) = [Parameters].[Parameter 1] then [Calculation_1365153658448224257] END
   }
 
-  measure: mva_den_copy {
-    description: "Calculated field: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END"
-    type: number
-    sql: ${mva_den_copy_calc} ;;
-    # Original Tableau formula: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND ([REG_DT] >= [PYMNT_DT] OR ISNULL([REG_DT])) AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END
-  }
-
   measure: mva_num {
-    description: "Calculated field: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND [REG_DT] = [PYMNT_DT] AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END"
+    description: "Calculated field: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = TRUE AND [REG_DT] = [PYMNT_DT] AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END"
     type: number
     sql: ${mva_num_calc} ;;
-    # Original Tableau formula: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = True AND [REG_DT] = [PYMNT_DT] AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END
-  }
-
-  measure: mva {
-    description: "Calculated field: SUM([MVA_Den (copy)_1365153658450157570])/SUM([Calculation_1365153658448224257])"
-    type: number
-    sql: ${mva_calc} ;;
-    # Original Tableau formula: SUM([MVA_Den (copy)_1365153658450157570])/SUM([Calculation_1365153658448224257])
+    # Original Tableau formula: IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = TRUE AND [REG_DT] = [PYMNT_DT] AND ([DEVICE_GROUPING] = 'C2212' or [DEVICE_GROUPING] = 'C3913') THEN [NET_SALES] ELSE 0 END
   }
 
   measure: denominator_shown {
@@ -2279,34 +2110,6 @@ END;;
     type: number
     sql: ${denominator_shown_calc} ;;
     # Original Tableau formula: Case [Parameters].[Parameter 10] when 'Overall' then sum([RIS_DEN]) when 'SU&G' then [RIS Num SUAG (copy)_990510463076642820] when 'Non SU&G' then [RIS Denom SUAG (copy)_452048844324671492] END
-  }
-
-  measure: sales_region {
-    description: "Calculated field: {FIXED [REGION],[Nw Year month (copy)_495114532759945223] : SUM([Calculation_978688514360860676])}"
-    type: number
-    sql: (SELECT SUM(${selected_month_sales_calc}) FROM ${TABLE} GROUP BY `REGION`, ${month_day_calc}) ;;
-    # Original Tableau formula: {FIXED [REGION],[Nw Year month (copy)_495114532759945223] : SUM([Calculation_978688514360860676])}
-  }
-
-  measure: month_day {
-    description: "Calculated field: month([RPT_MTH]) + (day([RPT_MTH])-1)*30"
-    type: number
-    sql: ${month_day_calc} ;;
-    # Original Tableau formula: month([RPT_MTH]) + (day([RPT_MTH])-1)*30
-  }
-
-  measure: suag_returns {
-    description: "Calculated field: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] >0 then [RETURN_QTY] END )"
-    type: number
-    sql: ${suag_returns_calc} ;;
-    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] >0 then [RETURN_QTY] END )
-  }
-
-  dimension: pymnt_dt_copy {
-    description: "Calculated field: [PYMNT_DT]"
-    type: string
-    sql: ${TABLE}.`PYMNT_DT` ;;
-    # Original Tableau formula: [PYMNT_DT]
   }
 
   measure: previous_month_mvanum {
@@ -2338,31 +2141,24 @@ END;;
   }
 
   measure: non_ris_den {
-    description: "Calculated field: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = True THEN [RIS_DEN] ELSE null END)"
+    description: "Calculated field: SUM(IF [SUAG_SALES_QTY] = 0 or ISNULL([SUAG_SALES_QTY]) and [IS_ELIGIBLE] = TRUE THEN [RIS_DEN] ELSE null END)"
     type: number
     sql: ${non_ris_den_calc} ;;
-    # Original Tableau formula: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = True THEN [RIS_DEN] ELSE null END)
-  }
-
-  measure: eligible_devices {
-    description: "Calculated field: SUM(IF IS_ELIGIBLE = True THEN [SUAG_DEN] ELSE null END)"
-    type: number
-    sql: ${eligible_devices_calc} ;;
-    # Original Tableau formula: SUM(IF IS_ELIGIBLE = True THEN [SUAG_DEN] ELSE null END)
+    # Original Tableau formula: SUM(IF [SUAG_SALES_QTY] = 0 or ISNULL([SUAG_SALES_QTY]) and [IS_ELIGIBLE] = TRUE THEN [RIS_DEN] ELSE null END)
   }
 
   measure: non_ris_num {
-    description: "Calculated field: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = True THEN [RIS_NUM] ELSE null END)"
+    description: "Calculated field: SUM(IF [SUAG_SALES_QTY] = 0 or ISNULL([SUAG_SALES_QTY]) and [IS_ELIGIBLE] = TRUE THEN [RIS_NUM] ELSE null END)"
     type: number
     sql: ${non_ris_num_calc} ;;
-    # Original Tableau formula: SUM(IF SUAG_SALES_QTY = 0 or ISNULL([SUAG_SALES_QTY]) and IS_ELIGIBLE = True THEN [RIS_NUM] ELSE null END)
+    # Original Tableau formula: SUM(IF [SUAG_SALES_QTY] = 0 or ISNULL([SUAG_SALES_QTY]) and [IS_ELIGIBLE] = TRUE THEN [RIS_NUM] ELSE null END)
   }
 
   measure: ris_denom_suag {
-    description: "Calculated field: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = True THEN [RIS_DEN] ELSE null END)"
+    description: "Calculated field: SUM(IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = TRUE THEN [RIS_DEN] ELSE null END)"
     type: number
     sql: ${ris_denom_suag_calc} ;;
-    # Original Tableau formula: SUM(IF SUAG_SALES_QTY > 0 AND IS_ELIGIBLE = True THEN [RIS_DEN] ELSE null END)
+    # Original Tableau formula: SUM(IF [SUAG_SALES_QTY] > 0 AND [IS_ELIGIBLE] = TRUE THEN [RIS_DEN] ELSE null END)
   }
 
   measure: rev_run_para {
@@ -2393,13 +2189,6 @@ END;;
     # Original Tableau formula: If [SUAG_ITEM_CD] = 'C3518' THEN [SUAG_ITEM_REVENUE_AMT] END
   }
 
-  dimension: outlet_id {
-    description: "Calculated field: [SLS_OUTLET_ID]"
-    type: number
-    sql: ${TABLE}.`SLS_OUTLET_ID` ;;
-    # Original Tableau formula: [SLS_OUTLET_ID]
-  }
-
   dimension: outlet_name {
     description: "Calculated field: [SLS_OUTLET_NM]"
     type: string
@@ -2423,7 +2212,7 @@ END;;
 
   measure: suag_num_new {
     description: "Calculated field: If ISNULL([SUAG_NUM]) then 0 elseif [SUAG_ITEM_CD] = 'C3518' then [SUAG_NUM] ELSEIF [SUAG_ITEM_CD] = 'C65' then [SUAG_NUM] elseif [SUAG_ITEM_CD] = 'C5697' then [SUAG_NUM] END"
-    type: sum
+    type: number
     sql: ${suag_num_new_calc} ;;
     # Original Tableau formula: If ISNULL([SUAG_NUM]) then 0 elseif [SUAG_ITEM_CD] = 'C3518' then [SUAG_NUM] ELSEIF [SUAG_ITEM_CD] = 'C65' then [SUAG_NUM] elseif [SUAG_ITEM_CD] = 'C5697' then [SUAG_NUM] END
   }
@@ -2477,27 +2266,6 @@ END;;
     # Original Tableau formula: If DATEPART('month',[RPT_MTH]) = [Parameters].[Current Month (copy)_978688514361458693] -1 AND Datepart('year', [RPT_MTH]) = [Parameters].[Parameter 1] then [SUAG_NUM (copy)_452048844292403200] else null end
   }
 
-  measure: selected_month_revenue_copy {
-    description: "Calculated field: SUM([Selected Month Revenue Amt (copy)_978688514408472599]) * [Calculation_1581607899287506961] / [Calculation_1581607899286167568]"
-    type: number
-    sql: ${selected_month_revenue_copy_calc} ;;
-    # Original Tableau formula: SUM([Selected Month Revenue Amt (copy)_978688514408472599]) * [Calculation_1581607899287506961] / [Calculation_1581607899286167568]
-  }
-
-  measure: previous_month_revenue {
-    description: "Calculated field: If DATEPART('month',[RPT_MTH]) = [Parameters].[Current Month (copy)_978688514361458693] - 1 AND Datepart('year', [RPT_MTH]) = [Parameters].[Parameter 1] Then [SUAG_ITEM_REVENUE_AMT] END"
-    type: number
-    sql: ${previous_month_revenue_calc} ;;
-    # Original Tableau formula: If DATEPART('month',[RPT_MTH]) = [Parameters].[Current Month (copy)_978688514361458693] - 1 AND Datepart('year', [RPT_MTH]) = [Parameters].[Parameter 1] Then [SUAG_ITEM_REVENUE_AMT] END
-  }
-
-  measure: selected_month_revenue {
-    description: "Calculated field: If DATEPART('month',[RPT_MTH]) = [Parameters].[Current Month (copy)_978688514361458693] AND DATEPART('year',[RPT_MTH]) = [Parameters].[Parameter 1] Then [SUAG_ITEM_REVENUE_AMT] END"
-    type: number
-    sql: ${selected_month_revenue_calc} ;;
-    # Original Tableau formula: If DATEPART('month',[RPT_MTH]) = [Parameters].[Current Month (copy)_978688514361458693] AND DATEPART('year',[RPT_MTH]) = [Parameters].[Parameter 1] Then [SUAG_ITEM_REVENUE_AMT] END
-  }
-
   dimension: selected_month_sales_denominator {
     description: "Calculated field: If DATEPART('month',[RPT_MTH]) = [Parameters].[Current Month (copy)_978688514361458693] AND Datepart('year', [RPT_MTH]) = [Parameters].[Parameter 1] Then [SUAG_DEN] END"
     type: number
@@ -2526,13 +2294,6 @@ END;;
     # Original Tableau formula: SUM([Selected Month Num (copy)_978688514401112084]) / SUM([Selected Month Den (copy)_978688514401103891])
   }
 
-  dimension: set_up_go_sales_copy {
-    description: "Calculated field: [SUAG_NET_SALES]"
-    type: number
-    sql: ${TABLE}.`SUAG_NET_SALES` ;;
-    # Original Tableau formula: [SUAG_NET_SALES]
-  }
-
   measure: non_suag_ris {
     description: "Calculated field: [RIS Num SUAG (copy)_452048844324683781]/[RIS Denom SUAG (copy)_452048844324671492]"
     type: number
@@ -2540,46 +2301,11 @@ END;;
     # Original Tableau formula: [RIS Num SUAG (copy)_452048844324683781]/[RIS Denom SUAG (copy)_452048844324671492]
   }
 
-  measure: non_suag_return_rate {
-    description: "Calculated field: [Suag Returns (copy)_452048844332298250] / [Suag Sales (copy)_452048844332310539]"
-    type: number
-    sql: ${non_suag_return_rate_calc} ;;
-    # Original Tableau formula: [Suag Returns (copy)_452048844332298250] / [Suag Sales (copy)_452048844332310539]
-  }
-
-  measure: suag_sales {
-    description: "Calculated field: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] >0 then [SALES_QTY] END )"
-    type: number
-    sql: ${suag_sales_calc} ;;
-    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] >0 then [SALES_QTY] END )
-  }
-
-  measure: non_suag_returns {
-    description: "Calculated field: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [RETURN_QTY] END )"
-    type: number
-    sql: ${non_suag_returns_calc} ;;
-    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [RETURN_QTY] END )
-  }
-
-  measure: non_suag_sales {
-    description: "Calculated field: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [SALES_QTY] END )"
-    type: number
-    sql: ${non_suag_sales_calc} ;;
-    # Original Tableau formula: SUM(If [IS_ELIGIBLE] = True and [SUAG_NUM] = 0 or ISNULL([SUAG_NUM]) then [SALES_QTY] END )
-  }
-
   measure: ris_color {
     description: "Calculated field: IF [%difference RIS (copy)_1028509586701590540] < 0 THEN \"Negative\" ELSE \"Positive\" END"
     type: number
     sql: ${ris_color_calc} ;;
     # Original Tableau formula: IF [%difference RIS (copy)_1028509586701590540] < 0 THEN "Negative" ELSE "Positive" END
-  }
-
-  measure: take_rate_for_calcs {
-    description: "Calculated field: [Calculation_978688514352406528]"
-    type: number
-    sql: ${take_rate_for_calcs_calc} ;;
-    # Original Tableau formula: [Calculation_978688514352406528]
   }
 
   measure: top_bottom_5_ris {
@@ -2603,20 +2329,6 @@ END;;
     # Original Tableau formula: If [Calculation_619807904247603206] < 6 then 'top 5' elseif ([Calculation_464996668077043716]-[Calculation_619807904247603206]) < 5 Then 'bottom 5' else 'others' END
   }
 
-  measure: top_bottom_5_copy {
-    description: "Calculated field: If [Calculation_619807904247603206] < 21 then 'top 5' elseif ([Calculation_464996668077043716]-[Calculation_619807904247603206]) < 5 Then 'bottom 5' else 'others' END"
-    type: number
-    sql: ${top_bottom_5_copy_calc} ;;
-    # Original Tableau formula: If [Calculation_619807904247603206] < 21 then 'top 5' elseif ([Calculation_464996668077043716]-[Calculation_619807904247603206]) < 5 Then 'bottom 5' else 'others' END
-  }
-
-  measure: vmp_denom_suag {
-    description: "Calculated field: If [SUAG_SALES_QTY] > 0 and [IS_ELIGIBLE] = True then [NET_SALES] else 0 END"
-    type: number
-    sql: ${vmp_denom_suag_calc} ;;
-    # Original Tableau formula: If [SUAG_SALES_QTY] > 0 and [IS_ELIGIBLE] = True then [NET_SALES] else 0 END
-  }
-
   measure: difference_in_mva {
     description: "Calculated field: [Selected Month MVA Num (copy)_1028509586700484616]-[Previous Month MVANum (copy)_1028509586701479947]"
     type: number
@@ -2631,104 +2343,69 @@ END;;
     # Original Tableau formula: [Selected Month Sales (copy)_978688514362888201]-[Selected Month Take Rate (copy)_978688514363285514]
   }
 
-  measure: max_date {
-    description: "Calculated field: MAX([rptmth (copy)_978688514415456283])"
-    type: number
-    sql: ${max_date_calc} ;;
-    # Original Tableau formula: MAX([rptmth (copy)_978688514415456283])
-  }
-
-  dimension: rptmth_copy {
-    description: "Calculated field: [RPT_MTH]"
-    type: string
-    sql: ${TABLE}.`RPT_MTH` ;;
-    # Original Tableau formula: [RPT_MTH]
-  }
-
   # Measures
 
-  measure: total_sls_outlet_id {
-    description: "Original name: [SLS_OUTLET_ID]"
-    type: sum
-    sql: ${sls_outlet_id_raw} ;;
-    label: "SLS OUTLET ID"
-  }
-
   measure: total_return_qty {
-    description: "Original name: [RETURN_QTY]"
+    description: "Return Qty"
     type: sum
     sql: ${return_qty_raw} ;;
-    label: "RETURN QTY"
+    label: "Return Qty"
   }
 
   measure: total_sales_qty {
-    description: "Original name: [SALES_QTY]"
+    description: "Sales Qty"
     type: sum
     sql: ${sales_qty_raw} ;;
-    label: "SALES QTY"
+    label: "Sales Qty"
   }
 
   measure: total_net_sales {
-    description: "Original name: [NET_SALES]"
+    description: "Net Sales"
     type: sum
     sql: ${net_sales_raw} ;;
-    label: "NET SALES"
+    label: "Net Sales"
   }
 
   measure: total_suag_net_sales {
-    description: "Original name: [SUAG_NET_SALES]"
+    description: "Suag Net Sales"
     type: sum
     sql: ${suag_net_sales_raw} ;;
-    label: "SUAG NET SALES"
+    label: "Suag Net Sales"
   }
 
   measure: total_suag_sales_qty {
-    description: "Original name: [SUAG_SALES_QTY]"
+    description: "Suag Sales Qty"
     type: sum
     sql: ${suag_sales_qty_raw} ;;
-    label: "SUAG SALES QTY"
+    label: "Suag Sales Qty"
   }
 
   measure: total_suag_item_price_amt {
-    description: "Original name: [SUAG_ITEM_PRICE_AMT]"
+    description: "Suag Item Price Amt"
     type: sum
     sql: ${suag_item_price_amt_raw} ;;
-    label: "SUAG ITEM PRICE AMT"
+    label: "Suag Item Price Amt"
   }
 
   measure: total_suag_item_revenue_amt {
-    description: "Original name: [SUAG_ITEM_REVENUE_AMT]"
+    description: "Suag Item Revenue Amt"
     type: sum
     sql: ${suag_item_revenue_amt_raw} ;;
-    label: "SUAG ITEM REVENUE AMT"
-  }
-
-  measure: total_suag_num {
-    description: "Original name: [SUAG_NUM]"
-    type: sum
-    sql: ${suag_num_raw} ;;
-    label: "SUAG NUM"
+    label: "Suag Item Revenue Amt"
   }
 
   measure: total_suag_den {
-    description: "Original name: [SUAG_DEN]"
+    description: "Suag Den"
     type: sum
     sql: ${suag_den_raw} ;;
-    label: "SUAG DEN"
-  }
-
-  measure: total_ris_num {
-    description: "Original name: [RIS_NUM]"
-    type: sum
-    sql: ${ris_num_raw} ;;
-    label: "RIS NUM"
+    label: "Suag Den"
   }
 
   measure: total_ris_den {
-    description: "Original name: [RIS_DEN]"
+    description: "Ris Den"
     type: sum
     sql: ${ris_den_raw} ;;
-    label: "RIS DEN"
+    label: "Ris Den"
   }
 
 
