@@ -4,6 +4,11 @@ view: sheet1 {
 
 
   # Parameters (from Tableau parameters)
+  dimension: center {
+    label: "Center"
+    type: string
+    sql: ${TABLE}.Center ;;
+  }
   parameter: agent_parameter {
     label: "date_level_selector"
     type: string
