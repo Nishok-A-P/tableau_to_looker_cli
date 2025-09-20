@@ -8,20 +8,20 @@
     model: tableau_looker_poc_model_generated_20250919_075958
     explore: sheet
     type: looker_grid
+    fields: [sheet.ranking_granularity]
     filters:
-      # sheet.Measure Names: [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_978688514352406528:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:SUAG_NUM (new) (copy)_788692951555125248:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:SU&G Single (copy)_788692951555624961:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:SU&G MD (copy)_788692951569780741:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:MD All In (copy)_1664924554372804609:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:SUAG_NUM (copy)_452048844292403200:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:SUAG_DEN:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:Revenue (copy)_788692951560839171:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:Revenue (Single) (copy)_788692951561256964:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_1581607899260530688:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_1664924554374983683:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_990510463077076997:qk]
+    #   sheet.Measure Names: [federated.1pdxu9h1d35lsu1assm520np2ktl].[usr:Calculation_978688514352406528:qk], [federated.1pdxu9h1d35lsu1assm520np2ktl].[sum:SUAG_NUM (new) (copy)_788692951555125248:qk], [federated.1pdxu9h1d35lsu1assm520np2ktl].[sum:SU&G Single (copy)_788692951555624961:qk], [federated.1pdxu9h1d35lsu1assm520np2ktl].[sum:SU&G MD (copy)_788692951569780741:qk], [federated.1pdxu9h1d35lsu1assm520np2ktl].[usr:MD All In (copy)_1664924554372804609:qk], [federated.1pdxu9h1d35lsu1assm520np2ktl].[sum:SUAG_NUM (copy)_452048844292403200:qk], [federated.1pdxu9h1d35lsu1assm520np2ktl].[sum:SUAG_DEN:qk], [federated.1pdxu9h1d35lsu1assm520np2ktl].[sum:Revenue (copy)_788692951560839171:qk], [federated.1pdxu9h1d35lsu1assm520np2ktl].[sum:Revenue (Single) (copy)_788692951561256964:qk], [federated.1pdxu9h1d35lsu1assm520np2ktl].[usr:Calculation_1581607899260530688:qk], [federated.1pdxu9h1d35lsu1assm520np2ktl].[usr:Calculation_1664924554374983683:qk], [federated.1pdxu9h1d35lsu1assm520np2ktl].[usr:Calculation_990510463077076997:qk]
       sheet.district: -NULL
       sheet.region: -NULL
       sheet.territory: Best Buy Exclusive - Atlantic North, Best Buy Exclusive - Pacific, Retail Agent Proof of Concept, -NULL
       sheet.zone: Closed-NIC0297, Closed-NMW0297, Indirect-AKH9001, Indirect-CPN9001, Indirect-DMN9001, Indirect-NMW9001, Indirect-SNI9001, -NULL
       sheet.date_selection_true: true
-      sheet.is_eligible: Y
       sheet.outlet_name: -NULL
       sheet.Top/Bottom 5 (TR) (copy)_388435489321582607: Bottom 5, Top 5
+    sorts: [sheet.ranking_granularity]
     series_colors:
-      "Top 5": "#008330"
-      "Others": "#136598"
-      "Bottom 5": "#ee0000"
+      "Top 5": "#4e79a7"
+      "Bottom 5": "#f28e2b"
     table_theme: "white"
     limit: 500
     column_limit: 50
@@ -35,7 +35,7 @@
     model: tableau_looker_poc_model_generated_20250919_075958
     explore: sheet
     type: looker_column
-    fields: [sheet.total_suag_num_copy_452048844292403200]
+    fields: [sheet.None]
     filters:
       sheet.zone: Closed-NIC0297, Closed-NMW0297, Indirect-AKH9001, Indirect-CPN9001, Indirect-DMN9001, Indirect-NMW9001, Indirect-SNI9001, -NULL
       sheet.date_selection_true: true
@@ -61,9 +61,10 @@
     explore: sheet
     type: looker_column
     fields: [sheet.total_suag_net_sales,
+sheet.None,
 sheet.device_brand_nm]
     filters:
-      # sheet.Measure Names: [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:SUAG_NUM (copy)_452048844292403200:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[sum:SUAG_DEN:qk], [federated.0bzp2u00zw59jl1ai52vq1vcgo27].[usr:Calculation_978688514352406528:qk]
+      # sheet.Measure Names: [federated.1pdxu9h1d35lsu1assm520np2ktl].[sum:SUAG_NUM (copy)_452048844292403200:qk], [federated.1pdxu9h1d35lsu1assm520np2ktl].[sum:SUAG_DEN:qk], [federated.1pdxu9h1d35lsu1assm520np2ktl].[usr:Calculation_978688514352406528:qk]
       sheet.zone: Closed-NIC0297, Closed-NMW0297, Indirect-AKH9001, Indirect-CPN9001, Indirect-DMN9001, Indirect-NMW9001, Indirect-SNI9001, -NULL
       sheet.date_selection_true: true
       sheet.district: -NULL
@@ -130,7 +131,7 @@ sheet.None]
     explore: sheet
     type: looker_donut_multiples
     fields: [sheet.acct_status,
-sheet.suag_num_new]
+sheet.None]
     pivots: [sheet.acct_status]
     filters:
       sheet.zone: Closed-NIC0297, Closed-NMW0297, Indirect-AKH9001, Indirect-CPN9001, Indirect-DMN9001, Indirect-NMW9001, Indirect-SNI9001, -NULL
@@ -164,7 +165,7 @@ sheet.suag_num_new]
     model: tableau_looker_poc_model_generated_20250919_075958
     explore: sheet
     type: looker_column
-    fields: [sheet.total_suag_num_copy_452048844292403200,
+    fields: [sheet.None,
 sheet.new_aal_upg_ind]
     pivots: [sheet.new_aal_upg_ind]
     filters:

@@ -357,7 +357,7 @@ sheet.rpt_mth_month]
     type: looker_column
     filters:
       # sheet.Measure Names: [federated.1pdxu9h1d35lsu1assm520np2ktl].[usr:Rev & Run (copy)_681732406200926213:qk], [federated.1pdxu9h1d35lsu1assm520np2ktl].[usr:Calculation_978688514352406528:qk], [federated.1pdxu9h1d35lsu1assm520np2ktl].[usr:Calculation_990510463077076997:qk]
-      # sheet.rpt_mth: 202504
+      sheet.rpt_mth: 202504
       sheet.district: -NULL
       sheet.sls_outlet_nm: -NULL
     show_value_labels: true

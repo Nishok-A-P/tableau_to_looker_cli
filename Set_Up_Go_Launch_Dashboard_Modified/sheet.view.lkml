@@ -1832,12 +1832,12 @@ view: sheet {
     # Original Tableau formula: [Calculation_1581607899260530688] / sum([SUAG_NUM (copy)_452048844292403200])
   }
 
-  # dimension: level_1 {
-  #   description: "Calculated field: Case [Parameters].[Parameter 1 1] When 'Market' Then [REGION (copy)_1145040205777121282] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
-  #   type: string
-  #   sql: CASE WHEN ({% parameter parameter_1_1 %} = 'Market') THEN ${market_copy} WHEN ({% parameter parameter_1_1 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter parameter_1_1 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter parameter_1_1 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` WHEN ({% parameter parameter_1_1 %} = 'Rep') THEN ${TABLE}.`EmployeeName` END ;;
-  #   # Original Tableau formula: Case [Parameters].[Parameter 1 1] When 'Market' Then [REGION (copy)_1145040205777121282] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
-  # }
+  dimension: level_1 {
+    description: "Calculated field: Case [Parameters].[Parameter 1 1] When 'Market' Then [REGION (copy)_1145040205777121282] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END"
+    type: string
+    sql: CASE WHEN ({% parameter parameter_1_1 %} = 'Market') THEN ${market_copy} WHEN ({% parameter parameter_1_1 %} = 'Territory') THEN ${TABLE}.`TERRITORY` WHEN ({% parameter parameter_1_1 %} = 'District') THEN ${TABLE}.`DISTRICT` WHEN ({% parameter parameter_1_1 %} = 'Outlet') THEN ${TABLE}.`SLS_OUTLET_NM` WHEN ({% parameter parameter_1_1 %} = 'Rep') THEN ${TABLE}.`EmployeeName` END ;;
+    # Original Tableau formula: Case [Parameters].[Parameter 1 1] When 'Market' Then [REGION (copy)_1145040205777121282] When 'Territory' Then [TERRITORY] When 'District' Then [DISTRICT] When 'Outlet' Then [SLS_OUTLET_NM] When 'Rep' Then [EmployeeName] END
+  }
 
   dimension: su_g_indicator {
     description: "Calculated field: IF [SUAG_NUM (copy)_452048844292403200] >0 then 'Y' Else 'N' END"
@@ -1891,13 +1891,7 @@ view: sheet {
   dimension: date_selector {
     description: "Calculated field: DATE( CASE [Parameters].[Agent Parameter] WHEN 'Day' THEN [PYMNT_DT] WHEN 'Week' THEN DATETRUNC('week',[PYMNT_DT],'sunday') WHEN 'Month' THEN DATETRUNC('month',[PYMNT_DT]) When 'Quarter' Then DATETRUNC('quarter',[PYMNT_DT]) When 'Year' Then DATETRUNC('year',[PYMNT_DT]) END )"
     type: string
-    sql: TIMESTAMP(DATE(
-    CASE WHEN ({% parameter agent_parameter %} = 'Day')
-    THEN ${TABLE}.`PYMNT_DT`
-    WHEN ({% parameter agent_parameter %} = 'Week')
-    THEN DATE_TRUNC(${TABLE}.`PYMNT_DT`, week(SUNDAY))
-    WHEN ({% parameter agent_parameter %} = 'Month')
-    THEN DATE_TRUNC(${TABLE}.`PYMNT_DT`, month) WHEN ({% parameter agent_parameter %} = 'Quarter') THEN DATE_TRUNC(${TABLE}.`PYMNT_DT`, quarter) WHEN ({% parameter agent_parameter %} = 'Year') THEN DATE_TRUNC(${TABLE}.`PYMNT_DT`, year) END)) ;;
+    sql: TIMESTAMP(DATE(CASE WHEN ({% parameter agent_parameter %} = 'Day') THEN ${TABLE}.`PYMNT_DT` WHEN ({% parameter agent_parameter %} = 'Week') THEN /* DATETRUNC: expects 2 arguments, got 3 */ WHEN ({% parameter agent_parameter %} = 'Month') THEN DATE_TRUNC(${TABLE}.`PYMNT_DT`, month) WHEN ({% parameter agent_parameter %} = 'Quarter') THEN DATE_TRUNC(${TABLE}.`PYMNT_DT`, quarter) WHEN ({% parameter agent_parameter %} = 'Year') THEN DATE_TRUNC(${TABLE}.`PYMNT_DT`, year) END)) ;;
     # Original Tableau formula: DATE( CASE [Parameters].[Agent Parameter] WHEN 'Day' THEN [PYMNT_DT] WHEN 'Week' THEN DATETRUNC('week',[PYMNT_DT],'sunday') WHEN 'Month' THEN DATETRUNC('month',[PYMNT_DT]) When 'Quarter' Then DATETRUNC('quarter',[PYMNT_DT]) When 'Year' Then DATETRUNC('year',[PYMNT_DT]) END )
   }
 
@@ -2058,16 +2052,7 @@ view: sheet {
   dimension: date_selector_copy {
     description: "Calculated field: Case [Parameters].[Agent Parameter] WHEN 'Day' THEN STR(DATEPART('month',[Calculation_434315908847452170])) + \"/\" + STR(DATEPART('day',[Calculation_434315908847452170])) + \"/\" + RIGHT(DATENAME('year',[Calculation_434315908847452170]),2) WHEN 'Week' THEN STR(DATEPART('month',[Calculation_434315908847452170])) + \"/\" + STR(DATEPART('day',[Calculation_434315908847452170])) + \"/\" + RIGHT(DATENAME('year',[Calculation_434315908847452170]),2) WHEN 'Month' THEN LEFT(DATENAME('month',[Calculation_434315908847452170]),3) + \" \" + DATENAME('year',[Calculation_434315908847452170]) WHEN 'Quarter' Then DATENAME('quarter',[Calculation_434315908847452170]) + \"Q \" + \"' \" + RIGHT(DATENAME('year',[Calculation_434315908847452170]),2) WHEN 'Year' THEN DATENAME('year',[Calculation_434315908847452170]) END"
     type: string
-    sql: CASE WHEN ({% parameter agent_parameter %} = 'Day')
-    THEN ((((CAST(EXTRACT(MONTH FROM ${date_selector}) AS STRING) || '/') || CAST(EXTRACT(DAY FROM ${date_selector}) AS STRING)) || '/') || RIGHT(DATENAME('year', ${date_selector}), 2))
-    WHEN ({% parameter agent_parameter %} = 'Week')
-    THEN ((((CAST(EXTRACT(MONTH FROM ${date_selector}) AS STRING) || '/') || CAST(EXTRACT(DAY FROM ${date_selector}) AS STRING)) || '/') || RIGHT(DATENAME('year', ${date_selector}), 2))
-    WHEN ({% parameter agent_parameter %} = 'Month')
-    THEN ((LEFT(DATENAME('month', ${date_selector}), 3) || ' ') || DATENAME('year', ${date_selector}))
-    WHEN ({% parameter agent_parameter %} = 'Quarter')
-    THEN (((DATENAME('quarter', ${date_selector}) || 'Q ') || '\' ') || RIGHT(DATENAME('year', ${date_selector}), 2))
-    WHEN ({% parameter agent_parameter %} = 'Year')
-    THEN DATENAME('year', ${date_selector}) END ;;
+    sql: CASE WHEN ({% parameter agent_parameter %} = 'Day') THEN ((((CAST(EXTRACT(MONTH FROM ${date_selector}) AS STRING) || '/') || CAST(EXTRACT(DAY FROM ${date_selector}) AS STRING)) || '/') || RIGHT(DATENAME('year', ${date_selector}), 2)) WHEN ({% parameter agent_parameter %} = 'Week') THEN ((((CAST(EXTRACT(MONTH FROM ${date_selector}) AS STRING) || '/') || CAST(EXTRACT(DAY FROM ${date_selector}) AS STRING)) || '/') || RIGHT(DATENAME('year', ${date_selector}), 2)) WHEN ({% parameter agent_parameter %} = 'Month') THEN ((LEFT(DATENAME('month', ${date_selector}), 3) || ' ') || DATENAME('year', ${date_selector})) WHEN ({% parameter agent_parameter %} = 'Quarter') THEN (((DATENAME('quarter', ${date_selector}) || 'Q ') || '\' ') || RIGHT(DATENAME('year', ${date_selector}), 2)) WHEN ({% parameter agent_parameter %} = 'Year') THEN DATENAME('year', ${date_selector}) END ;;
     # Original Tableau formula: Case [Parameters].[Agent Parameter] WHEN 'Day' THEN STR(DATEPART('month',[Calculation_434315908847452170])) + "/" + STR(DATEPART('day',[Calculation_434315908847452170])) + "/" + RIGHT(DATENAME('year',[Calculation_434315908847452170]),2) WHEN 'Week' THEN STR(DATEPART('month',[Calculation_434315908847452170])) + "/" + STR(DATEPART('day',[Calculation_434315908847452170])) + "/" + RIGHT(DATENAME('year',[Calculation_434315908847452170]),2) WHEN 'Month' THEN LEFT(DATENAME('month',[Calculation_434315908847452170]),3) + " " + DATENAME('year',[Calculation_434315908847452170]) WHEN 'Quarter' Then DATENAME('quarter',[Calculation_434315908847452170]) + "Q " + "' " + RIGHT(DATENAME('year',[Calculation_434315908847452170]),2) WHEN 'Year' THEN DATENAME('year',[Calculation_434315908847452170]) END
   }
 
