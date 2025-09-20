@@ -3,15 +3,15 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   elements:
-  - title: "Dynamic Score"
+  - title: "Dynamic score"
     name: dynamic_score
-    model: tableau_looker_poc_model_generated_20250919_075909
-    explore: sheet1
+    model: bigquery_super_store_sales_model_generated_20250920_103321
+    explore: cstatsdynamicscorecard_mock
     type: looker_column
     filters:
-      sheet1.rprt_month: 202504
-      sheet1.exclusion_ind: F
-      sheet1.rank_group: Base
+      cstatsdynamicscorecard_mock.rprt_month: 202504
+      cstatsdynamicscorecard_mock.exclusion_ind: F
+      cstatsdynamicscorecard_mock.rank_group: Base
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -26,11 +26,11 @@
 
   - title: "Sheet 59"
     name: sheet_59
-    model: tableau_looker_poc_model_generated_20250919_075909
-    explore: sheet1
+    model: bigquery_super_store_sales_model_generated_20250920_103321
+    explore: cstatsdynamicscorecard_mock
     type: looker_column
     filters:
-      sheet1.rank_group: Base
+      cstatsdynamicscorecard_mock.rank_group: Base
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -43,10 +43,10 @@
     width: 12
     height: 5
 
-  - title: "Data Refreshed: <Data Update Time>"
+  - title: "Sheet 54"
     name: sheet_54
-    model: tableau_looker_poc_model_generated_20250919_075909
-    explore: sheet1
+    model: bigquery_super_store_sales_model_generated_20250920_103321
+    explore: channeloutlier
     type: looker_column
     show_value_labels: true
     show_legend: true
