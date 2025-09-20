@@ -1398,13 +1398,13 @@ view: sheet {
     # Original Tableau formula: If [Calculation_619807904247603206] < 6 then 'top 5' elseif ([Calculation_464996668077043716]-[Calculation_619807904247603206]) < 5 Then 'bottom 5' else 'others' END
   }
 
-  # dimension: rev_run_calc {
-  #   description: "Row-level calculation for rev_run: If ATTR([Calculation_1573726602467061764]) Then [Calculation_1581607899289042962] Else [Calculation_1581607899260530688] END"
-  #   type: number
-  #   sql: CASE WHEN ATTR(${is_current_month}) THEN ${revenue_run_rate_calc} ELSE ${revenue_calc} END ;;
-  #   hidden: yes
-  #   # Original Tableau formula: If ATTR([Calculation_1573726602467061764]) Then [Calculation_1581607899289042962] Else [Calculation_1581607899260530688] END
-  # }
+  dimension: rev_run_calc {
+    description: "Row-level calculation for rev_run: If ATTR([Calculation_1573726602467061764]) Then [Calculation_1581607899289042962] Else [Calculation_1581607899260530688] END"
+    type: number
+    sql: CASE WHEN ATTR(${is_current_month}) THEN ${revenue_run_rate_calc} ELSE ${revenue_calc} END ;;
+    hidden: yes
+    # Original Tableau formula: If ATTR([Calculation_1573726602467061764]) Then [Calculation_1581607899289042962] Else [Calculation_1581607899260530688] END
+  }
 
   dimension: take_rate_percent_calc {
     description: "Row-level calculation for take_rate_percent: SUM([SUAG_NUM (copy)_452048844292403200])/SUM([SUAG_DEN])"
@@ -1577,7 +1577,7 @@ view: sheet {
   dimension: rev_run_para_calc {
     description: "Row-level calculation for rev_run_para: Case [Parameters].[Parameter 8] When 'Actual' Then [Calculation_1581607899260530688] when 'Run Rate' THEN [Calculation_681732406177177602] END"
     type: number
-    sql: CASE WHEN ({% parameter parameter_8 %} = 'Actual') THEN ${revenue_calc} WHEN ({% parameter parameter_8 %} = 'Run Rate') THEN ${rev_run_para_copy_calc}calc} END ;;
+    sql: CASE WHEN ({% parameter parameter_8 %} = 'Actual') THEN ${revenue_calc} WHEN ({% parameter parameter_8 %} = 'Run Rate') THEN ${rev_run_calc} END ;;
     hidden: yes
     # Original Tableau formula: Case [Parameters].[Parameter 8] When 'Actual' Then [Calculation_1581607899260530688] when 'Run Rate' THEN [Calculation_681732406177177602] END
   }
