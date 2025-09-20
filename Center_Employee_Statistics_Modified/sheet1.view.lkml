@@ -1,6 +1,6 @@
 view: sheet1 {
   # Generated from Tableau view: Sheet1
-  sql_table_name: `elastic-pocs.Super_Store_Sales.CSTATSDynamicScorecard_Mock` ;;
+  sql_table_name: `elastic-pocs.Super_Store_Sales.ChannelOutlier` ;;
 
 
   # Parameters (from Tableau parameters)
