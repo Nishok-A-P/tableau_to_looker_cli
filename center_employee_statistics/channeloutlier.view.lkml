@@ -2540,28 +2540,28 @@ view: channeloutlier {
 
   measure: inb_aht_sec_threshold {
     description: "Calculated field: FLOAT([Parameters].[Box Close % Target (copy)_260082918621159424])"
-    type: sum
+    type: number
     sql: CAST({% parameter box_close_target_copy_260082918621159424 %} AS FLOAT64) ;;
     # Original Tableau formula: FLOAT([Parameters].[Box Close % Target (copy)_260082918621159424])
   }
 
   measure: inb_transfer_percent_threshold {
     description: "Calculated field: FLOAT([Parameters].[Box Close % Target (copy)_260082918624153603])"
-    type: sum
+    type: number
     sql: CAST({% parameter box_close_target_copy_260082918624153603 %} AS FLOAT64) ;;
     # Original Tableau formula: FLOAT([Parameters].[Box Close % Target (copy)_260082918624153603])
   }
 
   measure: sales_time_percent_threshold {
     description: "Calculated field: FLOAT([Parameters].[Box Close % Target (copy)_260082918625116166])"
-    type: sum
+    type: number
     sql: CAST({% parameter box_close_target_copy_260082918625116166 %} AS FLOAT64) ;;
     # Original Tableau formula: FLOAT([Parameters].[Box Close % Target (copy)_260082918625116166])
   }
 
   measure: inb_hold_percent_threshold {
     description: "Calculated field: FLOAT([Parameters].[Box Close % Target (copy)_260082918625714185])"
-    type: sum
+    type: number
     sql: CAST({% parameter box_close_target_copy_260082918625714185 %} AS FLOAT64) ;;
     # Original Tableau formula: FLOAT([Parameters].[Box Close % Target (copy)_260082918625714185])
   }
@@ -2638,7 +2638,7 @@ view: channeloutlier {
 
   measure: box_close_percent_threshold {
     description: "Calculated field: FLOAT([Parameters].[Parameter 7])"
-    type: sum
+    type: number
     sql: CAST({% parameter parameter_7 %} AS FLOAT64) ;;
     # Original Tableau formula: FLOAT([Parameters].[Parameter 7])
   }
