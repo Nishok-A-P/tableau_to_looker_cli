@@ -1,4 +1,4 @@
-view: sheet {
+view: sheet1 {
   # Generated from Tableau view: Custom SQL Query
   derived_table: {
     sql:
