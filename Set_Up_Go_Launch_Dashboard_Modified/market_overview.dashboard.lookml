@@ -25,9 +25,6 @@
     model: tableau_looker_poc_model_generated_20250919_075958
     explore: sheet
     type: looker_column
-    series_colors:
-      "Positive": "#008330"
-      "Negative": "#ee0000"
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -76,9 +73,6 @@
     model: tableau_looker_poc_model_generated_20250919_075958
     explore: sheet
     type: looker_column
-    series_colors:
-      "Positive": "#008330"
-      "Negative": "#ee0000"
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -110,9 +104,6 @@
     model: tableau_looker_poc_model_generated_20250919_075958
     explore: sheet
     type: looker_column
-    series_colors:
-      "Positive": "#008330"
-      "Negative": "#ee0000"
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -144,9 +135,6 @@
     model: tableau_looker_poc_model_generated_20250919_075958
     explore: sheet
     type: looker_column
-    series_colors:
-      "Positive": "#008330"
-      "Negative": "#ee0000"
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -195,9 +183,6 @@
     model: tableau_looker_poc_model_generated_20250919_075958
     explore: sheet
     type: looker_column
-    series_colors:
-      "Positive": "#008330"
-      "Negative": "#ee0000"
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -253,9 +238,6 @@ sheet.pymnt_dt_date]
     model: tableau_looker_poc_model_generated_20250919_075958
     explore: sheet
     type: looker_column
-    series_colors:
-      "Positive": "#008330"
-      "Negative": "#ee0000"
     show_value_labels: true
     show_legend: true
     x_axis_label: true
