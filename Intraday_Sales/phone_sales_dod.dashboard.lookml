@@ -5,14 +5,14 @@
   elements:
   - title: "Day1 Mkt Graph"
     name: day1_mkt_graph
-    model: bigquery_super_store_sales_model_generated_20250919_075926
+    model: bigquery_super_store_sales_model_generated_20250923_063441
     explore: intradaysales_results_day_7_mock
     type: looker_column
     fields: [intradaysales_results_day_7_mock.total_orders,
 intradaysales_results_day_7_mock.rpt_dt_date]
     pivots: [intradaysales_results_day_7_mock.rpt_dt_date]
     filters:
-      intradaysales_results_day_7_mock.sale_type: New
+      intradaysales_results_day_7_mock.sale_type_2: New
     sorts: [intradaysales_results_day_7_mock.rpt_dt_date]
     show_value_labels: true
     show_legend: true
@@ -28,11 +28,11 @@ intradaysales_results_day_7_mock.rpt_dt_date]
 
   - title: "By VCG Market"
     name: day1_mkt_chart
-    model: bigquery_super_store_sales_model_generated_20250919_075926
+    model: bigquery_super_store_sales_model_generated_20250923_063441
     explore: intradaysales_results_day_7_mock
     type: looker_column
     filters:
-      intradaysales_results_day_7_mock.sale_type: New
+      intradaysales_results_day_7_mock.sale_type_2: New
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -47,14 +47,14 @@ intradaysales_results_day_7_mock.rpt_dt_date]
 
   - title: "Day1 Chnl Graph"
     name: day1_chnl_graph
-    model: bigquery_super_store_sales_model_generated_20250919_075926
+    model: bigquery_super_store_sales_model_generated_20250923_063441
     explore: intradaysales_results_day_7_mock
     type: looker_column
     fields: [intradaysales_results_day_7_mock.total_orders,
 intradaysales_results_day_7_mock.rpt_dt_date]
     pivots: [intradaysales_results_day_7_mock.rpt_dt_date]
     filters:
-      intradaysales_results_day_7_mock.sale_type: New
+      intradaysales_results_day_7_mock.sale_type_2: New
     sorts: [intradaysales_results_day_7_mock.rpt_dt_date]
     series_colors:
       "bd6747d30278641e583695d9d1f19d30": "#499894"
@@ -95,11 +95,11 @@ intradaysales_results_day_7_mock.rpt_dt_date]
 
   - title: "By VCG Channel"
     name: day1_chn_chart
-    model: bigquery_super_store_sales_model_generated_20250919_075926
+    model: bigquery_super_store_sales_model_generated_20250923_063441
     explore: intradaysales_results_day_7_mock
     type: looker_column
     filters:
-      intradaysales_results_day_7_mock.sale_type: New
+      intradaysales_results_day_7_mock.sale_type_2: New
     show_value_labels: true
     show_legend: true
     x_axis_label: true
