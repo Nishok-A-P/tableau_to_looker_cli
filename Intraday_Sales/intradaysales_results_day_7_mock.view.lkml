@@ -67,7 +67,7 @@ view: intradaysales_results_day_7_mock {
 
   # Calculated Fields (from Tableau formulas)
 
-  dimension: sale_type {
+  dimension: sale_type_2 {
     description: "Calculated field: IF [trans_type] = 'EUP' then \"Upgrade\" ELSE \"New\" END"
     type: string
     sql: CASE WHEN (${TABLE}.`trans_type` = 'EUP') THEN 'Upgrade' ELSE 'New' END ;;
