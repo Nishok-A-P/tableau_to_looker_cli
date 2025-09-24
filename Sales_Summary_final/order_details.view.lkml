@@ -229,6 +229,7 @@ view: order_details {
     description: "Original name: [Sales]"
     type: sum
     sql: ${sales_raw} ;;
+    value_format_name: decimal_0
     label: "Sales"
   }
 
@@ -236,6 +237,7 @@ view: order_details {
     description: "Original name: [Quantity]"
     type: sum
     sql: ${quantity_raw} ;;
+    value_format_name: decimal_0
     label: "Quantity"
   }
 
@@ -243,6 +245,7 @@ view: order_details {
     description: "Original name: [Discount]"
     type: sum
     sql: ${discount_raw} ;;
+    value_format_name: decimal_0
     label: "Discount"
   }
 
@@ -250,6 +253,7 @@ view: order_details {
     description: "Original name: [Profit]"
     type: sum
     sql: ${profit_raw} ;;
+    value_format_name: decimal_0
     label: "Profit"
   }
 
