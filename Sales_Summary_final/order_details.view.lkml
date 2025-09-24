@@ -202,12 +202,7 @@ view: order_details {
 
   # Calculated Fields (from Tableau formulas)
 
-  measure: 0 {
-    description: "Calculated field: 0"
-    type: sum
-    sql: ${0_calc} ;;
-    # Original Tableau formula: 0
-  }
+
 
   measure: max_order_date {
     description: "Calculated field: MAX([Order_Date])"
