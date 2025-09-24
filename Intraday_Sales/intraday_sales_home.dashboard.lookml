@@ -5,9 +5,10 @@
   elements:
   - title: "Aarawdata"
     name: aarawdata
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
+    stacking: normal
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
     show_value_labels: true
@@ -24,9 +25,10 @@
 
   - title: "Iconic Launch: Atlantic South"
     name: iconic_launch_atlantic_south
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
+    stacking: normal
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -41,9 +43,10 @@
 
   - title: "Iconic Launch: Coastal Plains"
     name: iconic_launch_coastal_plains
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
+    stacking: normal
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -58,9 +61,10 @@
 
   - title: "Iconic Launch: Great Lakes"
     name: iconic_launch_great_lakes
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
+    stacking: normal
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -75,9 +79,10 @@
 
   - title: "Iconic Launch: Mountain"
     name: iconic_launch_mountain
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
+    stacking: normal
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -92,9 +97,10 @@
 
   - title: "Iconic Launch: Pacific"
     name: iconic_launch_pacific
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
+    stacking: normal
     show_value_labels: true
     show_legend: true
     x_axis_label: true
