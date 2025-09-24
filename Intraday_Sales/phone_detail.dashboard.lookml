@@ -5,7 +5,7 @@
   elements:
   - title: "Phones Detail"
     name: phones_detail
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_bar
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.manf,
@@ -91,7 +91,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Top 5 Phone Models"
     name: phone_heat
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_grid
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.model_nm,
@@ -100,7 +100,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted,
 intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
 intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
-    stacking: normal
+    stacking: ' '
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc: 853ca16bda4f3d303e70e48db81c17c6, C6781, Smartphone
       intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
@@ -119,7 +119,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.model_nm]
 
   - title: "Apple"
     name: apple_st
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type,
@@ -148,7 +148,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Google"
     name: google_st
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type,
@@ -177,14 +177,14 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "By Interval"
     name: phn_interval
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.total_sales,
 intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
 intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
-    stacking: normal
+    stacking: ' '
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc: 853ca16bda4f3d303e70e48db81c17c6, C6781, Smartphone
       intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
@@ -268,7 +268,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
 
   - title: "Other"
     name: other_st
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type,
@@ -297,7 +297,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Samsung"
     name: samsung_st
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type,
@@ -326,7 +326,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Apple"
     name: apple_pre
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder,
@@ -356,7 +356,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Google"
     name: google_pre
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder,
@@ -386,7 +386,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Other"
     name: other_pre
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder,
@@ -416,7 +416,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Samsung"
     name: samsung_pre
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder,
@@ -446,7 +446,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Apple"
     name: apple_market
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
@@ -488,7 +488,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Google"
     name: google_market
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
@@ -530,7 +530,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Other"
     name: other_market
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
@@ -572,7 +572,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Samsung"
     name: samsung_market
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
@@ -614,7 +614,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Apple"
     name: apple_chan
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.channel,
@@ -675,7 +675,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Google"
     name: google_chan
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.channel,
@@ -736,7 +736,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Other"
     name: other_chan
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.channel,
@@ -797,7 +797,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Samsung"
     name: samsung_chan
-    model: bigquery_super_store_sales_model_generated_20250923_091608
+    model: bigquery_super_store_sales_model_generated_20250924_060657
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.channel,
