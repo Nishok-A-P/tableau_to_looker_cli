@@ -627,7 +627,11 @@ view: cstatsdynamicscorecard_mock {
     description: "Metric Result Str"
     type: sum
     sql: ${metric_result_str_raw} ;;
+<<<<<<< HEAD
     # value_format_name: decimal_0
+=======
+    value_format_name: decimal_0
+>>>>>>> branch 'main' of git@github.com:Nishok-A-P/tableau_to_looker_cli.git
     label: "Metric Result Str"
   }
 
