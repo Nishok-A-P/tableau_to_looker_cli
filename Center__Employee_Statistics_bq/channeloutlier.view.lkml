@@ -2580,7 +2580,6 @@ view: channeloutlier {
 
   measure: inb_aht_sec_threshold {
     description: "Calculated field: FLOAT([Parameters].[Box Close % Target (copy)_260082918621159424])"
-<<<<<<< HEAD
     type: number
     sql: ${inb_aht_sec_threshold_calc} ;;
     # Original Tableau formula: FLOAT([Parameters].[Box Close % Target (copy)_260082918621159424])
@@ -2685,116 +2684,10 @@ view: channeloutlier {
   measure: box_close_percent_threshold {
     description: "Calculated field: FLOAT([Parameters].[Parameter 7])"
     type: number
-=======
-    type: sum
     sql: ${inb_aht_sec_threshold_calc} ;;
     # Original Tableau formula: FLOAT([Parameters].[Box Close % Target (copy)_260082918621159424])
   }
 
-  measure: inb_transfer_percent_threshold {
-    description: "Calculated field: FLOAT([Parameters].[Box Close % Target (copy)_260082918624153603])"
-    type: sum
-    sql: ${inb_transfer_percent_threshold_calc} ;;
-    value_format_name: percent_0
-    # Original Tableau formula: FLOAT([Parameters].[Box Close % Target (copy)_260082918624153603])
-  }
-
-  measure: sales_time_percent_threshold {
-    description: "Calculated field: FLOAT([Parameters].[Box Close % Target (copy)_260082918625116166])"
-    type: sum
-    sql: ${sales_time_percent_threshold_calc} ;;
-    value_format_name: percent_0
-    # Original Tableau formula: FLOAT([Parameters].[Box Close % Target (copy)_260082918625116166])
-  }
-
-  measure: inb_hold_percent_threshold {
-    description: "Calculated field: FLOAT([Parameters].[Box Close % Target (copy)_260082918625714185])"
-    type: sum
-    sql: ${inb_hold_percent_threshold_calc} ;;
-    value_format_name: percent_0
-    # Original Tableau formula: FLOAT([Parameters].[Box Close % Target (copy)_260082918625714185])
-  }
-
-  measure: inb_aht_sec_performance {
-    description: "Calculated field: If [Inb. AHT (Min.) (copy)] < [Box Close % Target (copy)_260082918621556738] and [Inb. AHT (Min.) (copy)] >0 then 'Below Threshold' ElseIf [Inb. AHT (Min.) (copy)] >= [Box Close % Target (copy)_260082918621556738] then 'Above Threshold' ElseIf [Inb. AHT (Min.) (copy)] = 0 then 'Null' END"
-    type: number
-    sql: ${inb_aht_sec_performance_calc} ;;
-    # Original Tableau formula: If [Inb. AHT (Min.) (copy)] < [Box Close % Target (copy)_260082918621556738] and [Inb. AHT (Min.) (copy)] >0 then 'Below Threshold' ElseIf [Inb. AHT (Min.) (copy)] >= [Box Close % Target (copy)_260082918621556738] then 'Above Threshold' ElseIf [Inb. AHT (Min.) (copy)] = 0 then 'Null' END
-  }
-
-  measure: inb_transfer_percent_performance {
-    description: "Calculated field: If [Calculation_1133781239939878919] < [Box Close % Target (copy)_260082918624559108] then 'Below Threshold' ElseIf [Calculation_1133781239939878919] >= [Box Close % Target (copy)_260082918624559108] then 'Above Threshold' END"
-    type: number
-    sql: ${inb_transfer_percent_performance_calc} ;;
-    # Original Tableau formula: If [Calculation_1133781239939878919] < [Box Close % Target (copy)_260082918624559108] then 'Below Threshold' ElseIf [Calculation_1133781239939878919] >= [Box Close % Target (copy)_260082918624559108] then 'Above Threshold' END
-  }
-
-  measure: sales_time_percent_performance {
-    description: "Calculated field: If [Calculation_1133781239941214217] < [Box Close % Target (copy)_260082918625312775] then 'Below Threshold' ElseIf [Calculation_1133781239941214217] >= [Box Close % Target (copy)_260082918625312775] then 'Above Threshold' END"
-    type: number
-    sql: ${sales_time_percent_performance_calc} ;;
-    # Original Tableau formula: If [Calculation_1133781239941214217] < [Box Close % Target (copy)_260082918625312775] then 'Below Threshold' ElseIf [Calculation_1133781239941214217] >= [Box Close % Target (copy)_260082918625312775] then 'Above Threshold' END
-  }
-
-  measure: inb_hold_percent_performance {
-    description: "Calculated field: If [Calculation_992762280533958658] < [Box Close % Target (copy)_260082918625886218] then 'Below Threshold' ElseIf [Calculation_992762280533958658] >= [Box Close % Target (copy)_260082918625886218] then 'Above Threshold' END"
-    type: number
-    sql: ${inb_hold_percent_performance_calc} ;;
-    # Original Tableau formula: If [Calculation_992762280533958658] < [Box Close % Target (copy)_260082918625886218] then 'Below Threshold' ElseIf [Calculation_992762280533958658] >= [Box Close % Target (copy)_260082918625886218] then 'Above Threshold' END
-  }
-
-  measure: acd_sign_on_hours {
-    description: "Calculated field: sum([Acdsignonh])"
-    type: number
-    sql: ${acd_sign_on_hours_calc} ;;
-    # Original Tableau formula: sum([Acdsignonh])
-  }
-
-  measure: inb_transfer_percent {
-    description: "Calculated field: IF SUM([Clstrnsout]) <> 0 THEN SUM([Clstrnsout])/SUM([Clsinbhndl]) ELSE 0 END"
-    type: number
-    sql: ${inb_transfer_percent_calc} ;;
-    value_format_name: percent_0
-    # Original Tableau formula: IF SUM([Clstrnsout]) <> 0 THEN SUM([Clstrnsout])/SUM([Clsinbhndl]) ELSE 0 END
-  }
-
-  measure: sales_time_percent {
-    description: "Calculated field: IF SUM([Acdsignonm]) <> 0 THEN SUM([Acdsignonm])/SUM([Acdlstden0]) ELSE 0 END"
-    type: number
-    sql: ${sales_time_percent_calc} ;;
-    value_format_name: percent_0
-    # Original Tableau formula: IF SUM([Acdsignonm]) <> 0 THEN SUM([Acdsignonm])/SUM([Acdlstden0]) ELSE 0 END
-  }
-
-  dimension: level_1_selection {
-    description: "Calculated field: Case [Parameters].[Parameter 4] WHEN 'Center' Then [Center (group)] WHEN 'Director' Then [Director] WHEN 'Senior Manager' Then [Associate_Director] WHEN 'Supervisor' Then [Supervisor] WHEN 'Employee' Then [Employee] END"
-    type: string
-    sql: CASE WHEN ({% parameter parameter_4 %} = 'Center') THEN ${TABLE}.`Center (group)` WHEN ({% parameter parameter_4 %} = 'Director') THEN ${TABLE}.`Director` WHEN ({% parameter parameter_4 %} = 'Senior Manager') THEN ${TABLE}.`Associate_Director` WHEN ({% parameter parameter_4 %} = 'Supervisor') THEN ${TABLE}.`Supervisor` WHEN ({% parameter parameter_4 %} = 'Employee') THEN ${TABLE}.`Employee` END ;;
-    # Original Tableau formula: Case [Parameters].[Parameter 4] WHEN 'Center' Then [Center (group)] WHEN 'Director' Then [Director] WHEN 'Senior Manager' Then [Associate_Director] WHEN 'Supervisor' Then [Supervisor] WHEN 'Employee' Then [Employee] END
-  }
-
-  dimension: employee_name {
-    description: "Calculated field: IF [Parameters].[Parameter 1]='Supervisor' THEN [Supervisor] ELSEIF [Parameters].[Parameter 1]='Senior Manager' THEN [Associate_Director] ELSE [Employee] END"
-    type: string
-    sql: CASE WHEN ({% parameter parameter_1 %} = 'Supervisor') THEN ${TABLE}.`Supervisor` ELSE CASE WHEN ({% parameter parameter_1 %} = 'Senior Manager') THEN ${TABLE}.`Associate_Director` ELSE ${TABLE}.`Employee` END END ;;
-    # Original Tableau formula: IF [Parameters].[Parameter 1]='Supervisor' THEN [Supervisor] ELSEIF [Parameters].[Parameter 1]='Senior Manager' THEN [Associate_Director] ELSE [Employee] END
-  }
-
-  measure: sign_on_hours {
-    description: "Calculated field: If [Calculation_104427271734177792] < 20 then 'Under 20' ElseIf [Calculation_104427271734177792] >= 20 and [Calculation_104427271734177792] < 40 then '20-40 Hours' ElseIF [Calculation_104427271734177792] >=40 and [Calculation_104427271734177792] < 60 then '40-60 Hours' ELSEIF [Calculation_104427271734177792] >= 60 then '60+ Hours' END"
-    type: number
-    sql: ${sign_on_hours_calc} ;;
-    # Original Tableau formula: If [Calculation_104427271734177792] < 20 then 'Under 20' ElseIf [Calculation_104427271734177792] >= 20 and [Calculation_104427271734177792] < 40 then '20-40 Hours' ElseIF [Calculation_104427271734177792] >=40 and [Calculation_104427271734177792] < 60 then '40-60 Hours' ELSEIF [Calculation_104427271734177792] >= 60 then '60+ Hours' END
-  }
-
-  measure: box_close_percent_threshold {
-    description: "Calculated field: FLOAT([Parameters].[Parameter 7])"
-    type: sum
->>>>>>> branch 'main' of git@github.com:Nishok-A-P/tableau_to_looker_cli.git
-    sql: ${box_close_percent_threshold_calc} ;;
-    value_format_name: percent_0
-    # Original Tableau formula: FLOAT([Parameters].[Parameter 7])
-  }
 
   measure: box_close_performance {
     description: "Calculated field: If [Calculation_2493868328550068237] < [Calculation_171136824948584448] then 'Below Threshold' ElseIf [Calculation_2493868328550068237] >= [Calculation_171136824948584448] then 'Above Threshold' END"
