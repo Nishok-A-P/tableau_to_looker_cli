@@ -8,7 +8,7 @@ include: "cstatsdynamicscorecard_mock.view.lkml"
 include: "channeloutlier.view.lkml"
 
 # Include all dashboards
-include: "channel_outlier_report_.dashboard.lookml"
+include: "channel_outlier_report.dashboard.lookml"
 include: "dynamic_scorecard.dashboard.lookml"
 
 # Explores
