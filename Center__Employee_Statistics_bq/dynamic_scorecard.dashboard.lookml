@@ -9,10 +9,11 @@
     explore: cstatsdynamicscorecard_mock
     type: looker_grid
     fields: [cstatsdynamicscorecard_mock.employee_name,
-cstatsdynamicscorecard_mock.None,
-cstatsdynamicscorecard_mock.metric_desc]
-    pivots: [cstatsdynamicscorecard_mock.metric_desc,
-cstatsdynamicscorecard_mock.None]
+cstatsdynamicscorecard_mock.overall_rank_raw,
+cstatsdynamicscorecard_mock.overall_score_raw,
+cstatsdynamicscorecard_mock.metric_desc,
+cstatsdynamicscorecard_mock.total_metric_result_str]
+    pivots: [cstatsdynamicscorecard_mock.metric_sort_order_raw,cstatsdynamicscorecard_mock.metric_desc]
     filters:
       cstatsdynamicscorecard_mock.rprt_month: 202504
       cstatsdynamicscorecard_mock.exclusion_ind: F
@@ -59,4 +60,3 @@ cstatsdynamicscorecard_mock.employee_name]
     col: 12
     width: 12
     height: 5
-
