@@ -5,15 +5,14 @@
   elements:
   - title: "Dynamic Score"
     name: dynamic_score
-    model: bigquery_super_store_sales_model_generated_20250926_170929
+    model: bigquery_super_store_sales_model_generated_20250929_164915
     explore: cstatsdynamicscorecard_mock
     type: looker_grid
     fields: [cstatsdynamicscorecard_mock.employee_name,
-cstatsdynamicscorecard_mock.overall_rank_raw,
-cstatsdynamicscorecard_mock.overall_score_raw,
-cstatsdynamicscorecard_mock.metric_desc,
-cstatsdynamicscorecard_mock.total_metric_result_str]
-    pivots: [cstatsdynamicscorecard_mock.metric_sort_order_raw,cstatsdynamicscorecard_mock.metric_desc]
+cstatsdynamicscorecard_mock.None,
+cstatsdynamicscorecard_mock.metric_desc]
+    pivots: [cstatsdynamicscorecard_mock.metric_desc,
+cstatsdynamicscorecard_mock.None]
     filters:
       cstatsdynamicscorecard_mock.rprt_month: 202504
       cstatsdynamicscorecard_mock.exclusion_ind: F
@@ -31,7 +30,7 @@ cstatsdynamicscorecard_mock.employee_name]
 
   - title: "Sheet 59"
     name: sheet_59
-    model: bigquery_super_store_sales_model_generated_20250926_170929
+    model: bigquery_super_store_sales_model_generated_20250929_164915
     explore: cstatsdynamicscorecard_mock
     type: single_value
     fields: [cstatsdynamicscorecard_mock.rank_group]
@@ -48,7 +47,7 @@ cstatsdynamicscorecard_mock.employee_name]
 
   - title: "Data Refreshed: <Data Update Time>"
     name: sheet_54
-    model: bigquery_super_store_sales_model_generated_20250926_170929
+    model: bigquery_super_store_sales_model_generated_20250929_164915
     explore: channeloutlier
     type: single_value
     fields: [channeloutlier.rprt_date]
@@ -60,3 +59,4 @@ cstatsdynamicscorecard_mock.employee_name]
     col: 12
     width: 12
     height: 5
+
