@@ -1,11 +1,11 @@
 - dashboard: channel_outlier_report
-  title: Channel Outlier Report
+  title: Channel Outlier Report 
   layout: newspaper
   preferred_viewer: dashboards-next
   elements:
   - title: "Channel Outliers - <"
     name: channel_outlier_report
-    model: bigquery_super_store_sales_model_generated_20250926_170929
+    model: bigquery_super_store_sales_model_generated_20250929_164915
     explore: channeloutlier
     type: looker_grid
     fields: [channeloutlier.associate_director,
@@ -33,7 +33,7 @@ channeloutlier.supervisor]
 
   - title: "Channel Outlier Report Targets"
     name: channel_outlier_report_targets
-    model: bigquery_super_store_sales_model_generated_20250926_170929
+    model: bigquery_super_store_sales_model_generated_20250929_164915
     explore: channeloutlier
     type: looker_grid
     fields: [channeloutlier.inb_aht_sec_threshold,
@@ -42,9 +42,10 @@ channeloutlier.sales_time_percent_threshold,
 channeloutlier.inb_hold_percent_threshold,
 channeloutlier.box_close_percent_threshold]
     table_theme: "white"
-    limit: 1
+    limit: 500
     column_limit: 50
     row: 14
     col: 0
     width: 24
     height: 5
+
