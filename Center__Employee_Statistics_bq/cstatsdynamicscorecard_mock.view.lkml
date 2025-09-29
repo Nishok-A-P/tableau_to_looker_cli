@@ -627,7 +627,7 @@ view: cstatsdynamicscorecard_mock {
     description: "Metric Result Str"
     type: sum
     sql: ${metric_result_str_raw} ;;
-    # value_format_name: decimal_0
+    value_format_name: decimal_0
     label: "Metric Result Str"
   }
 
