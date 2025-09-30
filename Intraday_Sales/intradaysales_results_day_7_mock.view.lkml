@@ -84,5 +84,10 @@ view: intradaysales_results_day_7_mock {
     label: "Orders"
   }
 
+  measure: model_name_copy_count_function {
+    type: count
+    value_format_name: decimal_0
+  }
+
 
 }
