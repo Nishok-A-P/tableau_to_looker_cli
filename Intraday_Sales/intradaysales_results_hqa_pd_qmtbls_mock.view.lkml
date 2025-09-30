@@ -314,6 +314,7 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
     description: "Calculated field: IF [eqp_class_desc] = 'C1333' THEN \"C1333\" ELSE [model_nm] END"
     type: string
     sql: CASE WHEN (${TABLE}.`eqp_class_desc` = 'C1333') THEN 'C1333' ELSE ${TABLE}.`model_nm` END ;;
+    order_by_field: model_name_copy_count_function
     # Original Tableau formula: IF [eqp_class_desc] = 'C1333' THEN "C1333" ELSE [model_nm] END
   }
 
@@ -377,6 +378,11 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
     sql: ${TABLE}.LATITUDE ;;
     value_format_name: decimal_0
     label: "Latitude"
+  }
+
+  measure: model_name_copy_count_function {
+    type: count
+    value_format_name: decimal_0
   }
 
 
