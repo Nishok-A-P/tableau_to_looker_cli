@@ -5,7 +5,7 @@
   elements:
   - title: "Connect Total"
     name: connect_total
-    model: bigquery_super_store_sales_model_generated_20251001_055147
+    model: bigquery_super_store_sales_model_generated_20251001_143925
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_bar
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc,
@@ -30,17 +30,17 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Total Sales by Hour"
     name: cd_detail
-    model: bigquery_super_store_sales_model_generated_20251001_055147
+    model: bigquery_super_store_sales_model_generated_20251001_143925
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_grid
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted,
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt,
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_time,
 intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted,
+    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt,
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_time]
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt,
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_time,
 intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc]
     header_background_color: "#000000"
     header_font_color: "#ffffff"
@@ -53,7 +53,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc]
 
   - title: "Connected Devices"
     name: cd_st
-    model: bigquery_super_store_sales_model_generated_20251001_055147
+    model: bigquery_super_store_sales_model_generated_20251001_143925
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type,
@@ -78,7 +78,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Tablets"
     name: tablet_st
-    model: bigquery_super_store_sales_model_generated_20251001_055147
+    model: bigquery_super_store_sales_model_generated_20251001_143925
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type,
@@ -103,7 +103,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Connected Devices"
     name: cd_pre
-    model: bigquery_super_store_sales_model_generated_20251001_055147
+    model: bigquery_super_store_sales_model_generated_20251001_143925
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder,
@@ -130,7 +130,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Tablet"
     name: tab_pre
-    model: bigquery_super_store_sales_model_generated_20251001_055147
+    model: bigquery_super_store_sales_model_generated_20251001_143925
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder,
@@ -157,7 +157,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Connected Devices"
     name: cd_market
-    model: bigquery_super_store_sales_model_generated_20251001_055147
+    model: bigquery_super_store_sales_model_generated_20251001_143925
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
@@ -196,7 +196,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Tablets"
     name: tab_market
-    model: bigquery_super_store_sales_model_generated_20251001_055147
+    model: bigquery_super_store_sales_model_generated_20251001_143925
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
@@ -235,7 +235,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Connected Devices"
     name: cd_chan
-    model: bigquery_super_store_sales_model_generated_20251001_055147
+    model: bigquery_super_store_sales_model_generated_20251001_143925
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.channel,
@@ -293,7 +293,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Tablets"
     name: tab_chan
-    model: bigquery_super_store_sales_model_generated_20251001_055147
+    model: bigquery_super_store_sales_model_generated_20251001_143925
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.channel,
@@ -351,15 +351,15 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "By Interval"
     name: cd_interval
-    model: bigquery_super_store_sales_model_generated_20251001_055147
+    model: bigquery_super_store_sales_model_generated_20251001_143925
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.total_sales,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt,
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_time]
+    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt]
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt,
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_time]
     show_value_labels: true
     show_legend: true
     x_axis_label: true
