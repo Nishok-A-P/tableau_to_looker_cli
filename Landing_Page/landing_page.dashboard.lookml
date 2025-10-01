@@ -5,7 +5,7 @@
   elements:
   - title: "Np Visits"
     name: np_visits
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_column
     show_value_labels: true
@@ -22,7 +22,7 @@
 
   - title: "Np Yes Today"
     name: np_yes_today
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_column
     show_value_labels: true
@@ -39,7 +39,7 @@
 
   - title: "Np Tx Accepted Per Np"
     name: np_tx_accepted_per_np
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_column
     show_value_labels: true
@@ -56,7 +56,7 @@
 
   - title: "Np Tx Presented Per Np"
     name: np_tx_presented_per_np
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_column
     show_value_labels: true
@@ -73,12 +73,11 @@
 
   - title: "Total Tapa Yesterday"
     name: total_tapa_yesterday
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: single_value
     fields: [aspen_landing_page.total_total_tapa,
-aspen_landing_page.total_tapa_lw_chg,
-aspen_landing_page.comp_filtered]
+aspen_landing_page.None]
     show_row_numbers: true
     table_theme: "white"
     limit: 500
@@ -90,12 +89,10 @@ aspen_landing_page.comp_filtered]
 
   - title: "Runrate Yesterday"
     name: runrate_yesterday
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: single_value
-    fields: [aspen_landing_page.runrate_current_filtered,
-aspen_landing_page.runrate_ld_chg,
-aspen_landing_page.runrate_vs_budget]
+    fields: [aspen_landing_page.None]
     show_row_numbers: true
     table_theme: "white"
     limit: 500
@@ -107,11 +104,10 @@ aspen_landing_page.runrate_vs_budget]
 
   - title: "Additionspos Yesterday"
     name: additionspos_yesterday
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: single_value
-    fields: [aspen_landing_page.additions_vs_expected,
-aspen_landing_page.percent_of_schedule_vs_expected]
+    fields: [aspen_landing_page.None]
     show_row_numbers: true
     table_theme: "white"
     limit: 500
@@ -123,7 +119,7 @@ aspen_landing_page.percent_of_schedule_vs_expected]
 
   - title: "Date"
     name: date
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_column
     show_value_labels: true
@@ -140,10 +136,10 @@ aspen_landing_page.percent_of_schedule_vs_expected]
 
   - title: "Np Show Rate"
     name: np_show_rate
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_donut_multiples
-    fields: [aspen_landing_page.np_show_rate]
+    fields: [aspen_landing_page.None]
     stacking: normal
     show_value_labels: true
     value_labels: "bold"
@@ -159,10 +155,10 @@ aspen_landing_page.percent_of_schedule_vs_expected]
 
   - title: "Credit App %"
     name: credit_app
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_donut_multiples
-    fields: [aspen_landing_page.credit_app_percent]
+    fields: [aspen_landing_page.None]
     stacking: normal
     show_value_labels: true
     value_labels: "bold"
@@ -178,7 +174,7 @@ aspen_landing_page.percent_of_schedule_vs_expected]
 
   - title: "Total Tapa"
     name: total_tapa
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_column
     show_value_labels: true
@@ -195,14 +191,12 @@ aspen_landing_page.percent_of_schedule_vs_expected]
 
   - title: "Np Visits Row"
     name: np_visits_row
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_grid
-    fields: [aspen_landing_page.my_date_date,
-aspen_landing_page.None,
-aspen_landing_page.np_visits_rank,
-aspen_landing_page.np_per_day]
-    sorts: [aspen_landing_page.my_date_date]
+    fields: [aspen_landing_page.my_date,
+aspen_landing_page.None]
+    sorts: [aspen_landing_page.my_date]
     table_theme: "white"
     limit: 500
     column_limit: 50
@@ -213,14 +207,12 @@ aspen_landing_page.np_per_day]
 
   - title: "Np Show Rate Row"
     name: np_show_rate_row
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_grid
-    fields: [aspen_landing_page.my_date_date,
-aspen_landing_page.None,
-aspen_landing_page.np_show_rate_rank,
-aspen_landing_page.np_show_rate]
-    sorts: [aspen_landing_page.my_date_date]
+    fields: [aspen_landing_page.my_date,
+aspen_landing_page.None]
+    sorts: [aspen_landing_page.my_date]
     table_theme: "white"
     limit: 500
     column_limit: 50
@@ -231,14 +223,12 @@ aspen_landing_page.np_show_rate]
 
   - title: "Np Comp To Limited"
     name: np_comp_to_limited
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_grid
-    fields: [aspen_landing_page.my_date_date,
-aspen_landing_page.None,
-aspen_landing_page.comp_limited_rank,
-aspen_landing_page.comp_to_limited_exams]
-    sorts: [aspen_landing_page.my_date_date]
+    fields: [aspen_landing_page.my_date,
+aspen_landing_page.None]
+    sorts: [aspen_landing_page.my_date]
     table_theme: "white"
     limit: 500
     column_limit: 50
@@ -249,14 +239,12 @@ aspen_landing_page.comp_to_limited_exams]
 
   - title: "Np Tx Presented Per Np Row"
     name: np_tx_presented_per_np_row
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_grid
-    fields: [aspen_landing_page.my_date_date,
-aspen_landing_page.None,
-aspen_landing_page.np_tx_presented_per_np_rank,
-aspen_landing_page.np_tx_presented_per_np]
-    sorts: [aspen_landing_page.my_date_date]
+    fields: [aspen_landing_page.my_date,
+aspen_landing_page.None]
+    sorts: [aspen_landing_page.my_date]
     table_theme: "white"
     limit: 500
     column_limit: 50
@@ -267,14 +255,12 @@ aspen_landing_page.np_tx_presented_per_np]
 
   - title: "Np Yes Today Row"
     name: np_yes_today_row
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_grid
-    fields: [aspen_landing_page.my_date_date,
-aspen_landing_page.None,
-aspen_landing_page.np_yes_today_rank,
-aspen_landing_page.np_yes_today]
-    sorts: [aspen_landing_page.my_date_date]
+    fields: [aspen_landing_page.my_date,
+aspen_landing_page.None]
+    sorts: [aspen_landing_page.my_date]
     table_theme: "white"
     limit: 500
     column_limit: 50
@@ -285,14 +271,12 @@ aspen_landing_page.np_yes_today]
 
   - title: "Np Tx Accepted Per Np Row"
     name: np_tx_accepted_per_np_row
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_grid
-    fields: [aspen_landing_page.my_date_date,
-aspen_landing_page.None,
-aspen_landing_page.np_tx_accepted_per_np_rank,
-aspen_landing_page.np_tx_accepted_per_np]
-    sorts: [aspen_landing_page.my_date_date]
+    fields: [aspen_landing_page.my_date,
+aspen_landing_page.None]
+    sorts: [aspen_landing_page.my_date]
     table_theme: "white"
     limit: 500
     column_limit: 50
@@ -303,14 +287,12 @@ aspen_landing_page.np_tx_accepted_per_np]
 
   - title: "Tapa Row"
     name: tapa_row
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_grid
-    fields: [aspen_landing_page.my_date_date,
-aspen_landing_page.None,
-aspen_landing_page.tapa_rank,
-aspen_landing_page.avg_total_tapa]
-    sorts: [aspen_landing_page.my_date_date]
+    fields: [aspen_landing_page.my_date,
+aspen_landing_page.None]
+    sorts: [aspen_landing_page.my_date]
     table_theme: "white"
     limit: 500
     column_limit: 50
@@ -321,7 +303,7 @@ aspen_landing_page.avg_total_tapa]
 
   - title: "Scheduled Work"
     name: scheduled_work
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_column
     show_value_labels: true
@@ -338,10 +320,10 @@ aspen_landing_page.avg_total_tapa]
 
   - title: "Percent Of Schedule"
     name: percent_of_schedule
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_donut_multiples
-    fields: [aspen_landing_page.percent_of_schedule]
+    fields: [aspen_landing_page.None]
     stacking: normal
     show_value_labels: true
     value_labels: "bold"
@@ -357,7 +339,7 @@ aspen_landing_page.avg_total_tapa]
 
   - title: "Production"
     name: production
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_column
     show_value_labels: true
@@ -374,7 +356,7 @@ aspen_landing_page.avg_total_tapa]
 
   - title: "Mcd Production"
     name: mcd_production
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_column
     show_value_labels: true
@@ -391,7 +373,7 @@ aspen_landing_page.avg_total_tapa]
 
   - title: "Assoc Production"
     name: assoc_production
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_column
     show_value_labels: true
@@ -408,7 +390,7 @@ aspen_landing_page.avg_total_tapa]
 
   - title: "Hyg Production"
     name: hyg_production
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_column
     show_value_labels: true
@@ -425,14 +407,12 @@ aspen_landing_page.avg_total_tapa]
 
   - title: "Total Production Row"
     name: total_production_row
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_grid
-    fields: [aspen_landing_page.my_date_date,
-aspen_landing_page.None,
-aspen_landing_page.revenue_rank,
-aspen_landing_page.revenue_per_day]
-    sorts: [aspen_landing_page.my_date_date]
+    fields: [aspen_landing_page.my_date,
+aspen_landing_page.None]
+    sorts: [aspen_landing_page.my_date]
     table_theme: "white"
     limit: 500
     column_limit: 50
@@ -443,14 +423,12 @@ aspen_landing_page.revenue_per_day]
 
   - title: "Mcd Production Row"
     name: mcd_production_row
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_grid
-    fields: [aspen_landing_page.my_date_date,
-aspen_landing_page.None,
-aspen_landing_page.mcd_production_rank,
-aspen_landing_page.mcd_production_per_day]
-    sorts: [aspen_landing_page.my_date_date]
+    fields: [aspen_landing_page.my_date,
+aspen_landing_page.None]
+    sorts: [aspen_landing_page.my_date]
     table_theme: "white"
     limit: 500
     column_limit: 50
@@ -461,14 +439,12 @@ aspen_landing_page.mcd_production_per_day]
 
   - title: "Assoc Production Row"
     name: assoc_production_row
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_grid
-    fields: [aspen_landing_page.my_date_date,
-aspen_landing_page.None,
-aspen_landing_page.assoc_production_rank,
-aspen_landing_page.assoc_production_per_day]
-    sorts: [aspen_landing_page.my_date_date]
+    fields: [aspen_landing_page.my_date,
+aspen_landing_page.None]
+    sorts: [aspen_landing_page.my_date]
     table_theme: "white"
     limit: 500
     column_limit: 50
@@ -479,14 +455,12 @@ aspen_landing_page.assoc_production_per_day]
 
   - title: "Hyg Production Row"
     name: hyg_production_row
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_grid
-    fields: [aspen_landing_page.my_date_date,
-aspen_landing_page.None,
-aspen_landing_page.hyg_production_rank,
-aspen_landing_page.hyg_production_per_day]
-    sorts: [aspen_landing_page.my_date_date]
+    fields: [aspen_landing_page.my_date,
+aspen_landing_page.None]
+    sorts: [aspen_landing_page.my_date]
     table_theme: "white"
     limit: 500
     column_limit: 50
@@ -497,13 +471,12 @@ aspen_landing_page.hyg_production_per_day]
 
   - title: "Dentures Row"
     name: dentures_row
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_grid
-    fields: [aspen_landing_page.my_date_date,
-aspen_landing_page.None,
-aspen_landing_page.denture_revenue_rank]
-    sorts: [aspen_landing_page.my_date_date]
+    fields: [aspen_landing_page.my_date,
+aspen_landing_page.None]
+    sorts: [aspen_landing_page.my_date]
     table_theme: "white"
     limit: 500
     column_limit: 50
@@ -514,13 +487,12 @@ aspen_landing_page.denture_revenue_rank]
 
   - title: "Dentistry Row"
     name: dentistry_row
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_grid
-    fields: [aspen_landing_page.my_date_date,
-aspen_landing_page.None,
-aspen_landing_page.gen_den_revenue_rank]
-    sorts: [aspen_landing_page.my_date_date]
+    fields: [aspen_landing_page.my_date,
+aspen_landing_page.None]
+    sorts: [aspen_landing_page.my_date]
     table_theme: "white"
     limit: 500
     column_limit: 50
@@ -531,13 +503,12 @@ aspen_landing_page.gen_den_revenue_rank]
 
   - title: "Hygiene Row"
     name: hygiene_row
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_grid
-    fields: [aspen_landing_page.my_date_date,
-aspen_landing_page.None,
-aspen_landing_page.hygiene_revenue_rank]
-    sorts: [aspen_landing_page.my_date_date]
+    fields: [aspen_landing_page.my_date,
+aspen_landing_page.None]
+    sorts: [aspen_landing_page.my_date]
     table_theme: "white"
     limit: 500
     column_limit: 50
@@ -548,13 +519,12 @@ aspen_landing_page.hygiene_revenue_rank]
 
   - title: "Specialty Row"
     name: specialty_row
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_grid
-    fields: [aspen_landing_page.my_date_date,
-aspen_landing_page.None,
-aspen_landing_page.specialty_revenue_rank]
-    sorts: [aspen_landing_page.my_date_date]
+    fields: [aspen_landing_page.my_date,
+aspen_landing_page.None]
+    sorts: [aspen_landing_page.my_date]
     table_theme: "white"
     limit: 500
     column_limit: 50
@@ -565,13 +535,12 @@ aspen_landing_page.specialty_revenue_rank]
 
   - title: "Orthodontics Row"
     name: orthodontics_row
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_grid
-    fields: [aspen_landing_page.my_date_date,
-aspen_landing_page.None,
-aspen_landing_page.orthodontics_revenue_rank]
-    sorts: [aspen_landing_page.my_date_date]
+    fields: [aspen_landing_page.my_date,
+aspen_landing_page.None]
+    sorts: [aspen_landing_page.my_date]
     table_theme: "white"
     limit: 500
     column_limit: 50
@@ -582,13 +551,12 @@ aspen_landing_page.orthodontics_revenue_rank]
 
   - title: "Crownbridge Row"
     name: crownbridge_row
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_grid
-    fields: [aspen_landing_page.my_date_date,
-aspen_landing_page.None,
-aspen_landing_page.cb_revenue_rank]
-    sorts: [aspen_landing_page.my_date_date]
+    fields: [aspen_landing_page.my_date,
+aspen_landing_page.None]
+    sorts: [aspen_landing_page.my_date]
     table_theme: "white"
     limit: 500
     column_limit: 50
@@ -599,13 +567,12 @@ aspen_landing_page.cb_revenue_rank]
 
   - title: "Implants Row"
     name: implants_row
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_grid
-    fields: [aspen_landing_page.my_date_date,
-aspen_landing_page.None,
-aspen_landing_page.implants_revenue_rank]
-    sorts: [aspen_landing_page.my_date_date]
+    fields: [aspen_landing_page.my_date,
+aspen_landing_page.None]
+    sorts: [aspen_landing_page.my_date]
     table_theme: "white"
     limit: 500
     column_limit: 50
@@ -616,7 +583,7 @@ aspen_landing_page.implants_revenue_rank]
 
   - title: "Days To Insert"
     name: days_to_insert
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_column
     show_value_labels: true
@@ -633,7 +600,7 @@ aspen_landing_page.implants_revenue_rank]
 
   - title: "Implants Placed"
     name: implants_placed
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_column
     show_value_labels: true
@@ -650,7 +617,7 @@ aspen_landing_page.implants_revenue_rank]
 
   - title: "Np Calls"
     name: np_calls
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_column
     show_value_labels: true
@@ -667,7 +634,7 @@ aspen_landing_page.implants_revenue_rank]
 
   - title: "Website Visits"
     name: website_visits
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_column
     show_value_labels: true
@@ -684,7 +651,7 @@ aspen_landing_page.implants_revenue_rank]
 
   - title: "Next 5 Days"
     name: next_5_days
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_column
     show_value_labels: true
@@ -701,7 +668,7 @@ aspen_landing_page.implants_revenue_rank]
 
   - title: "Next 5 Chair Block %"
     name: next_5_chair_block
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_map
     show_row_numbers: true
@@ -715,7 +682,7 @@ aspen_landing_page.implants_revenue_rank]
 
   - title: "Next 5 Np Appts"
     name: next_5_np_appts
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_column
     show_value_labels: true
@@ -732,7 +699,7 @@ aspen_landing_page.implants_revenue_rank]
 
   - title: "Next 5 Scheduled Work"
     name: next_5_scheduled_work
-    model: bigquery_super_store_sales_model_generated_20251001_061142
+    model: bigquery_super_store_sales_model_generated_20251001_143943
     explore: aspen_landing_page
     type: looker_column
     show_value_labels: true
