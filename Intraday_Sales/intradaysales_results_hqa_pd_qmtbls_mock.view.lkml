@@ -224,6 +224,14 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
 
   # Two-step Pattern Dimensions (hidden calculation dimensions)
 
+  dimension: sales_countd_derived_calc {
+    description: "Row-level calculation for sales_countd_derived: COUNTD([sales])"
+    type: number
+    sql: COUNT(DISTINCT ${TABLE}.`sales`) ;;
+    hidden: yes
+    # Original Tableau formula: COUNTD([sales])
+  }
+
   # Calculated Fields (from Tableau formulas)
 
   dimension: model_name {
@@ -457,6 +465,15 @@ measure: longitude_avg_derived {
 
 
     # Original Tableau formula: AVG([LONGITUDE])
+  }
+
+measure: sales_countd_derived {
+    description: "Calculated field: COUNTD([sales])"
+    type: countd
+    sql: ${sales_countd_derived_calc} ;;
+
+
+    # Original Tableau formula: COUNTD([sales])
   }
 
   dimension: dttm_day_trunc_derived {
