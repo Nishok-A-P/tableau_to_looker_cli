@@ -5,7 +5,7 @@
   elements:
   - title: "<"
     name: 1_details_default
-    model: bigquery_super_store_sales_model_generated_20251003_053819
+    model: bigquery_super_store_sales_model_generated_20251003_054758
     explore: aspen_landing_page
     type: looker_grid
     fields: [aspen_landing_page.aggregation_selection,
@@ -43,7 +43,7 @@ aspen_landing_page.avg_total_tapa]
 
   - title: "<"
     name: 2_details_pivoted
-    model: bigquery_super_store_sales_model_generated_20251003_053819
+    model: bigquery_super_store_sales_model_generated_20251003_054758
     explore: aspen_landing_page
     type: looker_grid
     fields: [aspen_landing_page.aggregation_selection,
@@ -81,7 +81,7 @@ aspen_landing_page.aggregation_selection]
 
   - title: "Do Not Download Pivot Button"
     name: do_not_download_pivot_button
-    model: bigquery_super_store_sales_model_generated_20251003_053819
+    model: bigquery_super_store_sales_model_generated_20251003_054758
     explore: aspen_landing_page
     type: looker_column
     filters:
