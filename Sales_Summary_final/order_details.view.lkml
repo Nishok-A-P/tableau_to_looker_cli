@@ -268,13 +268,6 @@ measure: none_sum_derived_2 {
     # Original Tableau formula: YEAR([Order_Date])
   }
 
-  dimension: order_date_month_derived {
-    description: "Calculated field: DATEPART('month', [Order_Date])"
-    type: string
-    sql: EXTRACT(MONTH FROM ${TABLE}.`Order_Date`) ;;
-    # Original Tableau formula: DATEPART('month', [Order_Date])
-  }
-
 measure: order_date_month_trunc_derived {
     description: "Calculated field: DATETRUNC('month', [Order_Date])"
     type: sum
