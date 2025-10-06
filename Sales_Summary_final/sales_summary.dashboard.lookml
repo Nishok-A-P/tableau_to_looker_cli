@@ -5,7 +5,7 @@
   elements:
   - title: "Category Vs Sales"
     name: category_vs_sales
-    model: bigquery_super_store_sales_model_generated_20251006_062612
+    model: bigquery_super_store_sales_model_generated_20251006_064553
     explore: order_details
     type: looker_donut_multiples
     fields: [order_details.category,
@@ -27,7 +27,7 @@ order_details.total_sales]
 
   - title: "SubCategory Vs Sales"
     name: subcategory_vs_sales
-    model: bigquery_super_store_sales_model_generated_20251006_062612
+    model: bigquery_super_store_sales_model_generated_20251006_064553
     explore: order_details
     type: looker_donut_multiples
     fields: [order_details.sub_category,
@@ -49,7 +49,7 @@ order_details.total_sales]
 
   - title: "Sales By Region"
     name: sales_by_region
-    model: bigquery_super_store_sales_model_generated_20251006_062612
+    model: bigquery_super_store_sales_model_generated_20251006_064553
     explore: order_details
     type: looker_bar
     fields: [order_details.region,
@@ -76,7 +76,7 @@ order_details.total_sales]
 
   - title: "Sales By Segment"
     name: sales_by_segment
-    model: bigquery_super_store_sales_model_generated_20251006_062612
+    model: bigquery_super_store_sales_model_generated_20251006_064553
     explore: order_details
     type: looker_bar
     fields: [order_details.segment,
@@ -102,7 +102,7 @@ order_details.total_sales]
 
   - title: "Category Vs Profit"
     name: category_vs_profit
-    model: bigquery_super_store_sales_model_generated_20251006_062612
+    model: bigquery_super_store_sales_model_generated_20251006_064553
     explore: order_details
     type: looker_donut_multiples
     fields: [order_details.category,
@@ -124,7 +124,7 @@ order_details.total_profit]
 
   - title: "SubCategory Vs Profit"
     name: subcategory_vs_profit
-    model: bigquery_super_store_sales_model_generated_20251006_062612
+    model: bigquery_super_store_sales_model_generated_20251006_064553
     explore: order_details
     type: looker_donut_multiples
     fields: [order_details.sub_category,
@@ -146,7 +146,7 @@ order_details.total_profit]
 
   - title: "SubCategory Sales by Day"
     name: subcategory_sales_by_day
-    model: bigquery_super_store_sales_model_generated_20251006_062612
+    model: bigquery_super_store_sales_model_generated_20251006_064553
     explore: order_details
     type: looker_grid
     fields: [order_details.category,
@@ -170,7 +170,7 @@ order_details.segment]
 
   - title: "Yearly Sales"
     name: yearly_sales_2
-    model: bigquery_super_store_sales_model_generated_20251006_062612
+    model: bigquery_super_store_sales_model_generated_20251006_064553
     explore: order_details
     type: looker_column
     fields: [order_details.total_sales,
@@ -181,6 +181,11 @@ order_details.order_date_year]
       order_details.order_date_year: 2016, 2017
     sorts: [order_details.order_date_month,
 order_details.order_date_year]
+    series_colors:
+      "#2016-01-01 00:00:00#": "#4e79a7"
+      "#2015-01-01 00:00:00#": "#76b7b2"
+      "#2014-01-01 00:00:00#": "#e15759"
+      "#2017-01-01 00:00:00#": "#f28e2b"
     show_value_labels: true
     show_legend: true
     x_axis_label: true
