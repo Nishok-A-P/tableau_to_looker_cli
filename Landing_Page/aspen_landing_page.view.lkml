@@ -80,7 +80,7 @@ view: aspen_landing_page {
   }
   parameter: parameter_7 {
     label: "hide_run_rate"
-    type: yesno
+    type: boolean
     default_value: "false"
     allowed_value: {
       value: "true"
@@ -2980,7 +2980,7 @@ view: aspen_landing_page {
   dimension: office_user_flag_calc {
     description: "Row-level calculation for office_user_flag: IFNULL( ATTR([Calculation_2004946303291940866]) = 'OM' OR ATTR([Calculation_2004946303291940866]) = 'DA' OR ATTR([Calculation_2004946303291940866]) = 'PSR' OR ATTR([Calculation_2004946303291940866]) = 'HYG' OR ATTR([Calculation_2004946303291940866]) = 'LT' OR ATTR([Calculation_2004946303291940866]) = 'MCD' OR ATTR([Calculation_2004946303291940866]) = 'OMS' OR [Parameters].[Parameter 1] = 'Facility' , FALSE)"
     type: number
-    sql: IFNULL(((((((((ANY_VALUE(${usertype}) = 'OM') OR (ANY_VALUE(${usertype}) = 'DA')) OR (ANY_VALUE(${usertype}) = 'PSR')) OR (ANY_VALUE(${usertype}) = 'HYG')) OR (ANY_VALUE(${usertype}) = 'LT')) OR (ANY_VALUE(${usertype}) = 'MCD')) OR (ANY_VALUE(${usertype}) = 'OMS')) OR ({% parameter parameter_1 %} = 'Facility')), FALSE) ;;
+    sql: IFNULL(((((((((CASE WHEN MIN(${usertype}) IS NULL THEN NULL WHEN MIN(${usertype}) = MAX(${usertype}) THEN MIN(${usertype}) ELSE '*' END = 'OM') OR (CASE WHEN MIN(${usertype}) IS NULL THEN NULL WHEN MIN(${usertype}) = MAX(${usertype}) THEN MIN(${usertype}) ELSE '*' END = 'DA')) OR (CASE WHEN MIN(${usertype}) IS NULL THEN NULL WHEN MIN(${usertype}) = MAX(${usertype}) THEN MIN(${usertype}) ELSE '*' END = 'PSR')) OR (CASE WHEN MIN(${usertype}) IS NULL THEN NULL WHEN MIN(${usertype}) = MAX(${usertype}) THEN MIN(${usertype}) ELSE '*' END = 'HYG')) OR (CASE WHEN MIN(${usertype}) IS NULL THEN NULL WHEN MIN(${usertype}) = MAX(${usertype}) THEN MIN(${usertype}) ELSE '*' END = 'LT')) OR (CASE WHEN MIN(${usertype}) IS NULL THEN NULL WHEN MIN(${usertype}) = MAX(${usertype}) THEN MIN(${usertype}) ELSE '*' END = 'MCD')) OR (CASE WHEN MIN(${usertype}) IS NULL THEN NULL WHEN MIN(${usertype}) = MAX(${usertype}) THEN MIN(${usertype}) ELSE '*' END = 'OMS')) OR ({% parameter parameter_1 %} = 'Facility')), FALSE) ;;
     hidden: yes
     # Original Tableau formula: IFNULL( ATTR([Calculation_2004946303291940866]) = 'OM' OR ATTR([Calculation_2004946303291940866]) = 'DA' OR ATTR([Calculation_2004946303291940866]) = 'PSR' OR ATTR([Calculation_2004946303291940866]) = 'HYG' OR ATTR([Calculation_2004946303291940866]) = 'LT' OR ATTR([Calculation_2004946303291940866]) = 'MCD' OR ATTR([Calculation_2004946303291940866]) = 'OMS' OR [Parameters].[Parameter 1] = 'Facility' , FALSE)
   }
@@ -2993,52 +2993,12 @@ view: aspen_landing_page {
     # Original Tableau formula: CASE [Calculation_91197911396270103] WHEN 'Facility' THEN [FRank ShowRate] WHEN 'POP' THEN [PRank ShowRate] WHEN 'Region' THEN [RRank ShowRate] WHEN 'Territory' THEN [TRank ShowRate] WHEN 'DVP' THEN [DRank ShowRate] END
   }
 
-  dimension: np_visits_lw_chg_filtered_calc {
-    description: "Row-level calculation for np_visits_lw_chg_filtered: IF NOT [Calculation_91197911395704854] THEN [Calculation_91197911395168275] END"
-    type: number
-    sql: CASE WHEN NOT ${office_user_flag_calc} THEN ${np_visits_lw_chg_calc} ELSE NULL END ;;
-    hidden: yes
-    # Original Tableau formula: IF NOT [Calculation_91197911395704854] THEN [Calculation_91197911395168275] END
-  }
-
   dimension: comp_filtered_calc {
     description: "Row-level calculation for comp_filtered: IF [Calculation_91197911395704854] THEN 'ASPEN AVG' ELSEIF [Parameters].[Parameter 8] = 'YOY' THEN 'VS PY' ELSEIF [Parameters].[Parameter 8] = 'Yo2Y' THEN 'VS 2Y AGO' END"
     type: number
     sql: CASE WHEN ${office_user_flag_calc} THEN 'ASPEN AVG' ELSE CASE WHEN ({% parameter parameter_8 %} = 'YOY') THEN 'VS PY' ELSE CASE WHEN ({% parameter parameter_8 %} = 'Yo2Y') THEN 'VS 2Y AGO' ELSE NULL END END END ;;
     hidden: yes
     # Original Tableau formula: IF [Calculation_91197911395704854] THEN 'ASPEN AVG' ELSEIF [Parameters].[Parameter 8] = 'YOY' THEN 'VS PY' ELSEIF [Parameters].[Parameter 8] = 'Yo2Y' THEN 'VS 2Y AGO' END
-  }
-
-  dimension: np_yes_today_lw_chg_filtered_calc {
-    description: "Row-level calculation for np_yes_today_lw_chg_filtered: IF NOT [Calculation_91197911395704854] THEN [Calculation_91197911401287711] END"
-    type: number
-    sql: CASE WHEN NOT ${office_user_flag_calc} THEN ${np_yes_today_lw_chg_calc} ELSE NULL END ;;
-    hidden: yes
-    # Original Tableau formula: IF NOT [Calculation_91197911395704854] THEN [Calculation_91197911401287711] END
-  }
-
-  dimension: np_tx_accepted_per_np_lw_chg_filtered_calc {
-    description: "Row-level calculation for np_tx_accepted_per_np_lw_chg_filtered: IF NOT [Calculation_91197911395704854] THEN [Calculation_91197911403687974] END"
-    type: number
-    sql: CASE WHEN NOT ${office_user_flag_calc} THEN ${np_tx_accepted_per_np_lw_chg_calc} ELSE NULL END ;;
-    hidden: yes
-    # Original Tableau formula: IF NOT [Calculation_91197911395704854] THEN [Calculation_91197911403687974] END
-  }
-
-  dimension: avg_tapa_lw_chg_filtered_calc {
-    description: "Row-level calculation for avg_tapa_lw_chg_filtered: IF NOT [Calculation_91197911395704854] THEN [Calculation_91197911405510698] END"
-    type: number
-    sql: CASE WHEN NOT ${office_user_flag_calc} THEN ${avg_tapa_lw_chg_calc} ELSE NULL END ;;
-    hidden: yes
-    # Original Tableau formula: IF NOT [Calculation_91197911395704854] THEN [Calculation_91197911405510698] END
-  }
-
-  dimension: days_to_insert_4w_lw_chg_filtered_calc {
-    description: "Row-level calculation for days_to_insert_4w_lw_chg_filtered: IF NOT [Calculation_91197911395704854] THEN [Calculation_91197911493775471] END"
-    type: number
-    sql: CASE WHEN NOT ${office_user_flag_calc} THEN ${days_to_insert_4w_lw_chg_calc} ELSE NULL END ;;
-    hidden: yes
-    # Original Tableau formula: IF NOT [Calculation_91197911395704854] THEN [Calculation_91197911493775471] END
   }
 
   dimension: denture_revenue_rank_calc {
@@ -3119,14 +3079,6 @@ view: aspen_landing_page {
     sql: CASE WHEN (${user_type_selected} = 'Facility') THEN ${TABLE}.`FRank NP` WHEN (${user_type_selected} = 'POP') THEN ${TABLE}.`PRank NP` WHEN (${user_type_selected} = 'Region') THEN ${TABLE}.`RRank NP` WHEN (${user_type_selected} = 'Territory') THEN ${TABLE}.`TRank NP` WHEN (${user_type_selected} = 'DVP') THEN ${TABLE}.`DRank NP` END ;;
     hidden: yes
     # Original Tableau formula: CASE [Calculation_91197911396270103] WHEN 'Facility' THEN [FRank NP] WHEN 'POP' THEN [PRank NP] WHEN 'Region' THEN [RRank NP] WHEN 'Territory' THEN [TRank NP] WHEN 'DVP' THEN [DRank NP] END
-  }
-
-  dimension: np_tx_presented_per_np_lw_chg_filtered_calc {
-    description: "Row-level calculation for np_tx_presented_per_np_lw_chg_filtered: IF NOT [Calculation_91197911395704854] THEN [NP Tx Accepted Per NP LW Chg (copy)_490610934205825028] END"
-    type: number
-    sql: CASE WHEN NOT ${office_user_flag_calc} THEN ${np_tx_presented_per_np_lw_chg_calc} ELSE NULL END ;;
-    hidden: yes
-    # Original Tableau formula: IF NOT [Calculation_91197911395704854] THEN [NP Tx Accepted Per NP LW Chg (copy)_490610934205825028] END
   }
 
   dimension: np_yes_today_rank_calc {
@@ -3379,7 +3331,7 @@ measure: comp_number {
   dimension: usertype {
     description: "Calculated field: IF [Calculation_2004946303291748352] > 0 THEN LEFT(MID([User Types],FIND([User Types],[Calculation_2004946303291842561])+3,100),FIND(MID([User Types],FIND([User Types],[Calculation_2004946303291842561])+3,100) ,',')-1) END"
     type: string
-    sql: CASE WHEN (${usernameposition} > 0) THEN LEFT(SUBSTR(${TABLE}.`User Types`, (STRPOS(${TABLE}.`User Types`, ${usernumber}) + 3), 100), (STRPOS(SUBSTR(${TABLE}.`User Types`, (STRPOS(${TABLE}.`User Types`, ${usernumber}) + 3), 100), ',') - 1)) ELSE NULL END ;;
+    sql: CASE WHEN (${usernameposition} > 0) THEN LEFT(SUBSTR(${TABLE}.`User Types`, (STRPOS(${TABLE}.`User Types`, ${usernumber}) || 3), 100), (STRPOS(SUBSTR(${TABLE}.`User Types`, (STRPOS(${TABLE}.`User Types`, ${usernumber}) || 3), 100), ',') - 1)) ELSE NULL END ;;
     # Original Tableau formula: IF [Calculation_2004946303291748352] > 0 THEN LEFT(MID([User Types],FIND([User Types],[Calculation_2004946303291842561])+3,100),FIND(MID([User Types],FIND([User Types],[Calculation_2004946303291842561])+3,100) ,',')-1) END
   }
 
@@ -3522,7 +3474,7 @@ measure: hyg_production_per_bd {
   dimension: username_calculated {
     description: "Calculated field: IF [Parameters].[Parameter 5] = 'My Offices' THEN IF [Parameters].[Parameter 6] = '' THEN lower(USERNAME()) ELSE [Parameters].[Parameter 6] END ELSE 'A000000' END"
     type: string
-    sql: CASE WHEN ({% parameter parameter_5 %} = 'My Offices') THEN CASE WHEN ({% parameter parameter_6 %} = '') THEN LOWER('MIGRATION_REQUIRED') ELSE {% parameter parameter_6 %} END ELSE 'A000000' END ;;
+    sql: CASE WHEN ({% parameter parameter_5 %} = 'My Offices') THEN CASE WHEN ({% parameter parameter_6 %} = '') THEN LOWER('{{ _user_attributes['name']}}') ELSE {% parameter parameter_6 %} END ELSE 'A000000' END ;;
     # Original Tableau formula: IF [Parameters].[Parameter 5] = 'My Offices' THEN IF [Parameters].[Parameter 6] = '' THEN lower(USERNAME()) ELSE [Parameters].[Parameter 6] END ELSE 'A000000' END
   }
 
@@ -3731,8 +3683,8 @@ measure: np_show_rate_rank {
 
 measure: np_visits_lw_chg_filtered {
     description: "Calculated field: IF NOT [Calculation_91197911395704854] THEN [Calculation_91197911395168275] END"
-    type: sum
-    sql: ${np_visits_lw_chg_filtered_calc} ;;
+    type: number
+    sql: CASE WHEN NOT ${office_user_flag} THEN ${np_visits_lw_chg} ELSE NULL END ;;
 
 
     # Original Tableau formula: IF NOT [Calculation_91197911395704854] THEN [Calculation_91197911395168275] END
@@ -3792,8 +3744,8 @@ measure: np_yes_today_lw_chg {
 
 measure: np_yes_today_lw_chg_filtered {
     description: "Calculated field: IF NOT [Calculation_91197911395704854] THEN [Calculation_91197911401287711] END"
-    type: sum
-    sql: ${np_yes_today_lw_chg_filtered_calc} ;;
+    type: number
+    sql: CASE WHEN NOT ${office_user_flag} THEN ${np_yes_today_lw_chg} ELSE NULL END ;;
 
 
     # Original Tableau formula: IF NOT [Calculation_91197911395704854] THEN [Calculation_91197911401287711] END
@@ -3837,8 +3789,8 @@ measure: np_tx_accepted_per_np_lw_chg {
 
 measure: np_tx_accepted_per_np_lw_chg_filtered {
     description: "Calculated field: IF NOT [Calculation_91197911395704854] THEN [Calculation_91197911403687974] END"
-    type: sum
-    sql: ${np_tx_accepted_per_np_lw_chg_filtered_calc} ;;
+    type: number
+    sql: CASE WHEN NOT ${office_user_flag} THEN ${np_tx_accepted_per_np_lw_chg} ELSE NULL END ;;
 
 
     # Original Tableau formula: IF NOT [Calculation_91197911395704854] THEN [Calculation_91197911403687974] END
@@ -3873,8 +3825,8 @@ measure: avg_tapa_lw_chg {
 
 measure: avg_tapa_lw_chg_filtered {
     description: "Calculated field: IF NOT [Calculation_91197911395704854] THEN [Calculation_91197911405510698] END"
-    type: sum
-    sql: ${avg_tapa_lw_chg_filtered_calc} ;;
+    type: number
+    sql: CASE WHEN NOT ${office_user_flag} THEN ${avg_tapa_lw_chg} ELSE NULL END ;;
 
 
     # Original Tableau formula: IF NOT [Calculation_91197911395704854] THEN [Calculation_91197911405510698] END
@@ -4089,8 +4041,8 @@ measure: days_to_insert_4w_lw_chg {
 
 measure: days_to_insert_4w_lw_chg_filtered {
     description: "Calculated field: IF NOT [Calculation_91197911395704854] THEN [Calculation_91197911493775471] END"
-    type: sum
-    sql: ${days_to_insert_4w_lw_chg_filtered_calc} ;;
+    type: number
+    sql: CASE WHEN NOT ${office_user_flag} THEN ${days_to_insert_4w_lw_chg} ELSE NULL END ;;
 
 
     # Original Tableau formula: IF NOT [Calculation_91197911395704854] THEN [Calculation_91197911493775471] END
@@ -4423,8 +4375,8 @@ measure: np_tx_presented_per_np_lw_chg {
 
 measure: np_tx_presented_per_np_lw_chg_filtered {
     description: "Calculated field: IF NOT [Calculation_91197911395704854] THEN [NP Tx Accepted Per NP LW Chg (copy)_490610934205825028] END"
-    type: sum
-    sql: ${np_tx_presented_per_np_lw_chg_filtered_calc} ;;
+    type: number
+    sql: CASE WHEN NOT ${office_user_flag} THEN ${np_tx_presented_per_np_lw_chg} ELSE NULL END ;;
 
 
     # Original Tableau formula: IF NOT [Calculation_91197911395704854] THEN [NP Tx Accepted Per NP LW Chg (copy)_490610934205825028] END
