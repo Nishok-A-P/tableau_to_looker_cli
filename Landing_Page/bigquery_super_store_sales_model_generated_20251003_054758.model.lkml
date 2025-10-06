@@ -1,7 +1,7 @@
 # Generated LookML model
 # Project: tableau_migration
 
-connection: "tableau_looker_poc"
+connection: "t2l"
 
 # Include all views
 include: "aspen_landing_page.view.lkml"

@@ -80,7 +80,7 @@ view: aspen_landing_page {
   }
   parameter: parameter_7 {
     label: "hide_run_rate"
-    type: boolean
+    type: yesno
     default_value: "false"
     allowed_value: {
       value: "true"
@@ -3379,7 +3379,7 @@ measure: comp_number {
   dimension: usertype {
     description: "Calculated field: IF [Calculation_2004946303291748352] > 0 THEN LEFT(MID([User Types],FIND([User Types],[Calculation_2004946303291842561])+3,100),FIND(MID([User Types],FIND([User Types],[Calculation_2004946303291842561])+3,100) ,',')-1) END"
     type: string
-    sql: CASE WHEN (${usernameposition} > 0) THEN LEFT(SUBSTR(${TABLE}.`User Types`, (STRPOS(${TABLE}.`User Types`, ${usernumber}) || 3), 100), (STRPOS(SUBSTR(${TABLE}.`User Types`, (STRPOS(${TABLE}.`User Types`, ${usernumber}) || 3), 100), ',') - 1)) ELSE NULL END ;;
+    sql: CASE WHEN (${usernameposition} > 0) THEN LEFT(SUBSTR(${TABLE}.`User Types`, (STRPOS(${TABLE}.`User Types`, ${usernumber}) + 3), 100), (STRPOS(SUBSTR(${TABLE}.`User Types`, (STRPOS(${TABLE}.`User Types`, ${usernumber}) + 3), 100), ',') - 1)) ELSE NULL END ;;
     # Original Tableau formula: IF [Calculation_2004946303291748352] > 0 THEN LEFT(MID([User Types],FIND([User Types],[Calculation_2004946303291842561])+3,100),FIND(MID([User Types],FIND([User Types],[Calculation_2004946303291842561])+3,100) ,',')-1) END
   }
 

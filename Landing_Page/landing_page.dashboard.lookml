@@ -159,7 +159,7 @@ aspen_landing_page.percent_of_schedule_vs_expected]
     model: bigquery_super_store_sales_model_generated_20251003_054758
     explore: aspen_landing_page
     type: looker_donut_multiples
-    fields: [aspen_landing_page.np_show_rate]
+    fields: [aspen_landing_page.runrate_current_filtered]
     stacking: normal
     filters:
       aspen_landing_page.last_business_day_filter: true
@@ -824,4 +824,3 @@ aspen_landing_page.implants_revenue_rank]
     col: 16
     width: 8
     height: 5
-
