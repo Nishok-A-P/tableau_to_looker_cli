@@ -284,6 +284,13 @@ measure: order_date_month_trunc_derived {
     # Original Tableau formula: DATETRUNC('year', [Order_Date])
   }
 
+  dimension: order_date_month_trunc_derived_2 {
+    description: "Calculated field: DATETRUNC('month', [Order_Date])"
+    type: string
+    sql: DATE_TRUNC(${TABLE}.`Order_Date`, month) ;;
+    # Original Tableau formula: DATETRUNC('month', [Order_Date])
+  }
+
   # Measures
 
   measure: total_sales {
