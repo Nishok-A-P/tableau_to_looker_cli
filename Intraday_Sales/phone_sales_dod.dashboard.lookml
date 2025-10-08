@@ -5,20 +5,20 @@
   elements:
   - title: "Day1 Mkt Graph"
     name: day1_mkt_graph
-    model: bigquery_super_store_sales_model_generated_20251001_152138
+    model: bigquery_super_store_sales_model_generated_20251008_114148
     explore: intradaysales_results_day_7_mock
-    type: looker_column
-    fields: [intradaysales_results_day_7_mock.total_orders,
-intradaysales_results_day_7_mock.rpt_dt_date]
-    pivots: [intradaysales_results_day_7_mock.rpt_dt_date]
+    type: looker_line
+    fields: [intradaysales_results_day_7_mock.rpt_dt,
+intradaysales_results_day_7_mock.orders_sum_derived]
+    stacking: normal
     filters:
       intradaysales_results_day_7_mock.sale_type_2: New
-    sorts: [intradaysales_results_day_7_mock.rpt_dt_date]
-    show_value_labels: true
+    sorts: [intradaysales_results_day_7_mock.rpt_dt]
     show_legend: true
+    legend_position: "bottom"
     x_axis_label: true
     y_axis_label: true
-    column_spacing_ratio: 0.3
+    line_width: 2
     limit: 500
     column_limit: 50
     row: 21
@@ -28,15 +28,15 @@ intradaysales_results_day_7_mock.rpt_dt_date]
 
   - title: "By VCG Market"
     name: day1_mkt_chart
-    model: bigquery_super_store_sales_model_generated_20251001_152138
+    model: bigquery_super_store_sales_model_generated_20251008_114148
     explore: intradaysales_results_day_7_mock
     type: looker_grid
     fields: [intradaysales_results_day_7_mock.market,
-intradaysales_results_day_7_mock.rpt_dt_date,
-intradaysales_results_day_7_mock.total_orders]
+intradaysales_results_day_7_mock.rpt_dt_day_trunc_derived_2,
+intradaysales_results_day_7_mock.orders_sum_derived]
     filters:
       intradaysales_results_day_7_mock.sale_type_2: New
-    sorts: [intradaysales_results_day_7_mock.rpt_dt_date,
+    sorts: [intradaysales_results_day_7_mock.rpt_dt_day_trunc_derived_2,
 intradaysales_results_day_7_mock.market]
     header_background_color: "#f5f5f5"
     limit: 500
@@ -48,15 +48,15 @@ intradaysales_results_day_7_mock.market]
 
   - title: "Day1 Chnl Graph"
     name: day1_chnl_graph
-    model: bigquery_super_store_sales_model_generated_20251001_152138
+    model: bigquery_super_store_sales_model_generated_20251008_114148
     explore: intradaysales_results_day_7_mock
-    type: looker_column
-    fields: [intradaysales_results_day_7_mock.total_orders,
-intradaysales_results_day_7_mock.rpt_dt_date]
-    pivots: [intradaysales_results_day_7_mock.rpt_dt_date]
+    type: looker_line
+    fields: [intradaysales_results_day_7_mock.rpt_dt,
+intradaysales_results_day_7_mock.orders_sum_derived]
+    stacking: normal
     filters:
       intradaysales_results_day_7_mock.sale_type_2: New
-    sorts: [intradaysales_results_day_7_mock.rpt_dt_date]
+    sorts: [intradaysales_results_day_7_mock.rpt_dt]
     series_colors:
       "bd6747d30278641e583695d9d1f19d30": "#499894"
       "8d7e99c73cd5a10adaaf4c9f9a520368": "#4e79a7"
@@ -82,11 +82,11 @@ intradaysales_results_day_7_mock.rpt_dt_date]
       "C2161": "#fabfd2"
       "C644": "#ff9d9a"
       "053e0bc8b9627b28e2ed8029a34b35bd": "#ffbe7d"
-    show_value_labels: true
     show_legend: true
+    legend_position: "bottom"
     x_axis_label: true
     y_axis_label: true
-    column_spacing_ratio: 0.3
+    line_width: 2
     limit: 500
     column_limit: 50
     row: 7
@@ -96,15 +96,15 @@ intradaysales_results_day_7_mock.rpt_dt_date]
 
   - title: "By VCG Channel"
     name: day1_chn_chart
-    model: bigquery_super_store_sales_model_generated_20251001_152138
+    model: bigquery_super_store_sales_model_generated_20251008_114148
     explore: intradaysales_results_day_7_mock
     type: looker_grid
     fields: [intradaysales_results_day_7_mock.channel,
-intradaysales_results_day_7_mock.rpt_dt_date,
-intradaysales_results_day_7_mock.total_orders]
+intradaysales_results_day_7_mock.rpt_dt_day_trunc_derived_2,
+intradaysales_results_day_7_mock.orders_sum_derived]
     filters:
       intradaysales_results_day_7_mock.sale_type_2: New
-    sorts: [intradaysales_results_day_7_mock.rpt_dt_date,
+    sorts: [intradaysales_results_day_7_mock.rpt_dt_day_trunc_derived_2,
 intradaysales_results_day_7_mock.channel]
     header_background_color: "#f5f5f5"
     limit: 500
