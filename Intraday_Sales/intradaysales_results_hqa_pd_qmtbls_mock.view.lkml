@@ -224,14 +224,6 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
 
   # Two-step Pattern Dimensions (hidden calculation dimensions)
 
-  dimension: sales_countd_derived_calc {
-    description: "Row-level calculation for sales_countd_derived: COUNTD([sales])"
-    type: number
-    sql: COUNT(DISTINCT ${TABLE}.`sales`) ;;
-    hidden: yes
-    # Original Tableau formula: COUNTD([sales])
-  }
-
   # Calculated Fields (from Tableau formulas)
 
   dimension: model_name {
@@ -366,49 +358,49 @@ measure: sales_sum_derived {
   dimension: channel_attribute_derived {
     description: "Calculated field: ATTR([CHANNEL])"
     type: string
-    sql: ANY_VALUE(${TABLE}.`CHANNEL`) ;;
+    sql: CASE WHEN MIN(${TABLE}.`CHANNEL`) IS NULL THEN NULL WHEN MIN(${TABLE}.`CHANNEL`) = MAX(${TABLE}.`CHANNEL`) THEN MIN(${TABLE}.`CHANNEL`) ELSE '*' END ;;
     # Original Tableau formula: ATTR([CHANNEL])
   }
 
   dimension: sale_type_attribute_derived {
     description: "Calculated field: ATTR([Calculation_5910989867950081])"
     type: string
-    sql: ANY_VALUE(${sale_type}) ;;
+    sql: CASE WHEN MIN(${sale_type}) IS NULL THEN NULL WHEN MIN(${sale_type}) = MAX(${sale_type}) THEN MIN(${sale_type}) ELSE '*' END ;;
     # Original Tableau formula: ATTR([Calculation_5910989867950081])
   }
 
   dimension: dttm_attribute_derived {
     description: "Calculated field: ATTR([DTTM])"
     type: string
-    sql: ANY_VALUE(${TABLE}.`DTTM`) ;;
+    sql: CASE WHEN MIN(${TABLE}.`DTTM`) IS NULL THEN NULL WHEN MIN(${TABLE}.`DTTM`) = MAX(${TABLE}.`DTTM`) THEN MIN(${TABLE}.`DTTM`) ELSE '*' END ;;
     # Original Tableau formula: ATTR([DTTM])
   }
 
   dimension: is_preorder_attribute_derived {
     description: "Calculated field: ATTR([IS_PREORDER])"
     type: string
-    sql: ANY_VALUE(${TABLE}.`IS_PREORDER`) ;;
+    sql: CASE WHEN MIN(${TABLE}.`IS_PREORDER`) IS NULL THEN NULL WHEN MIN(${TABLE}.`IS_PREORDER`) = MAX(${TABLE}.`IS_PREORDER`) THEN MIN(${TABLE}.`IS_PREORDER`) ELSE '*' END ;;
     # Original Tableau formula: ATTR([IS_PREORDER])
   }
 
   dimension: manf_attribute_derived {
     description: "Calculated field: ATTR([MANF])"
     type: string
-    sql: ANY_VALUE(${TABLE}.`MANF`) ;;
+    sql: CASE WHEN MIN(${TABLE}.`MANF`) IS NULL THEN NULL WHEN MIN(${TABLE}.`MANF`) = MAX(${TABLE}.`MANF`) THEN MIN(${TABLE}.`MANF`) ELSE '*' END ;;
     # Original Tableau formula: ATTR([MANF])
   }
 
   dimension: eqp_class_desc_attribute_derived {
     description: "Calculated field: ATTR([eqp_class_desc])"
     type: string
-    sql: ANY_VALUE(${TABLE}.`eqp_class_desc`) ;;
+    sql: CASE WHEN MIN(${TABLE}.`eqp_class_desc`) IS NULL THEN NULL WHEN MIN(${TABLE}.`eqp_class_desc`) = MAX(${TABLE}.`eqp_class_desc`) THEN MIN(${TABLE}.`eqp_class_desc`) ELSE '*' END ;;
     # Original Tableau formula: ATTR([eqp_class_desc])
   }
 
   dimension: mkt_attribute_derived {
     description: "Calculated field: ATTR([mkt])"
     type: string
-    sql: ANY_VALUE(${TABLE}.`mkt`) ;;
+    sql: CASE WHEN MIN(${TABLE}.`mkt`) IS NULL THEN NULL WHEN MIN(${TABLE}.`mkt`) = MAX(${TABLE}.`mkt`) THEN MIN(${TABLE}.`mkt`) ELSE '*' END ;;
     # Original Tableau formula: ATTR([mkt])
   }
 
@@ -445,7 +437,7 @@ measure: sales_sum_derived_2 {
   dimension: bi_chnl_ctgry_desc_attribute_derived {
     description: "Calculated field: ATTR([BI_CHNL_CTGRY_DESC])"
     type: string
-    sql: ANY_VALUE(${TABLE}.`BI_CHNL_CTGRY_DESC`) ;;
+    sql: CASE WHEN MIN(${TABLE}.`BI_CHNL_CTGRY_DESC`) IS NULL THEN NULL WHEN MIN(${TABLE}.`BI_CHNL_CTGRY_DESC`) = MAX(${TABLE}.`BI_CHNL_CTGRY_DESC`) THEN MIN(${TABLE}.`BI_CHNL_CTGRY_DESC`) ELSE '*' END ;;
     # Original Tableau formula: ATTR([BI_CHNL_CTGRY_DESC])
   }
 
@@ -465,15 +457,6 @@ measure: longitude_avg_derived {
 
 
     # Original Tableau formula: AVG([LONGITUDE])
-  }
-
-measure: sales_countd_derived {
-    description: "Calculated field: COUNTD([sales])"
-    type: countd
-    sql: ${sales_countd_derived_calc} ;;
-
-
-    # Original Tableau formula: COUNTD([sales])
   }
 
   dimension: dttm_day_trunc_derived {
