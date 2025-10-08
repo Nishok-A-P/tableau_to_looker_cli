@@ -5,11 +5,12 @@
   elements:
   - title: "By Sales Type"
     name: bytyped
-    model: bigquery_super_store_sales_model_generated_20251001_152138
+    model: bigquery_super_store_sales_model_generated_20251008_114148
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
+intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived_2,
+intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type]
     stacking: normal
     filters:
@@ -32,11 +33,12 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "By Equipment Type"
     name: byequiptyped
-    model: bigquery_super_store_sales_model_generated_20251001_152138
+    model: bigquery_super_store_sales_model_generated_20251008_114148
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_type,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
+intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived_2,
+intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_type]
     stacking: normal
     filters:
@@ -65,11 +67,12 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "By Phone Manufacturer"
     name: bymand
-    model: bigquery_super_store_sales_model_generated_20251001_152138
+    model: bigquery_super_store_sales_model_generated_20251008_114148
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.manf,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
+intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived_2,
+intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.manf]
     stacking: normal
     filters:
@@ -153,11 +156,11 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "By VCG Channel"
     name: bychannel2
-    model: bigquery_super_store_sales_model_generated_20251001_152138
+    model: bigquery_super_store_sales_model_generated_20251008_114148
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_bar
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.channel,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
+intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.channel]
     stacking: normal
     filters:
@@ -211,11 +214,11 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "By VCG Market"
     name: bymarket
-    model: bigquery_super_store_sales_model_generated_20251001_152138
+    model: bigquery_super_store_sales_model_generated_20251008_114148
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_bar
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
+intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.mkt]
     stacking: normal
     filters:
@@ -250,17 +253,17 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "By Hour"
     name: bytypes_2
-    model: bigquery_super_store_sales_model_generated_20251001_152138
+    model: bigquery_super_store_sales_model_generated_20251008_114148
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
-    fields: [intradaysales_results_hqa_pd_qmtbls_mock.total_sales,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
+    fields: [intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived,
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_day_trunc_derived,
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_trunc_derived]
+    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_day_trunc_derived]
     filters:
       intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_day_trunc_derived,
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_trunc_derived]
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -275,11 +278,12 @@ intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
 
   - title: "By Preorder/Backorder"
     name: bypreorder
-    model: bigquery_super_store_sales_model_generated_20251001_152138
+    model: bigquery_super_store_sales_model_generated_20251008_114148
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
+intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived_2,
+intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder]
     stacking: normal
     filters:
@@ -304,10 +308,10 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
 
   - title: "Phone Sales vs All Other Wireless Devices"
     name: phn_wd
-    model: bigquery_super_store_sales_model_generated_20251001_152138
+    model: bigquery_super_store_sales_model_generated_20251008_114148
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_bar
-    fields: [intradaysales_results_hqa_pd_qmtbls_mock.total_sales,
+    fields: [intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived,
 intradaysales_results_hqa_pd_qmtbls_mock.sale_type]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.phone_only_sales]
     stacking: normal
