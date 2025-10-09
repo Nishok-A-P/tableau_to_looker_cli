@@ -414,4 +414,3 @@ intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_trunc_derived]
     col: 0
     width: 24
     height: 5
-

@@ -125,4 +125,3 @@ intradaysales_results_hqa_pd_qmtbls_mock.trans_type]
     col: 20
     width: 4
     height: 5
-

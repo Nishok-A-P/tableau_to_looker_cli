@@ -8,7 +8,8 @@
     model: bigquery_super_store_sales_model_generated_20251009_130829
     explore: intradaysales_results_day_7_mock
     type: looker_line
-    fields: [intradaysales_results_day_7_mock.rpt_dt,
+    fields: [
+      # intradaysales_results_day_7_mock.rpt_dt,
 intradaysales_results_day_7_mock.orders_sum_derived]
     stacking: normal
     filters:
@@ -51,7 +52,8 @@ intradaysales_results_day_7_mock.market]
     model: bigquery_super_store_sales_model_generated_20251009_130829
     explore: intradaysales_results_day_7_mock
     type: looker_line
-    fields: [intradaysales_results_day_7_mock.rpt_dt,
+    fields: [
+      # intradaysales_results_day_7_mock.rpt_dt,
 intradaysales_results_day_7_mock.orders_sum_derived]
     stacking: normal
     filters:
@@ -113,4 +115,3 @@ intradaysales_results_day_7_mock.channel]
     col: 0
     width: 12
     height: 5
-

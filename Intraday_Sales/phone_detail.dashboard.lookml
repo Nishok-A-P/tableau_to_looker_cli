@@ -867,4 +867,3 @@ intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived]
     col: 18
     width: 6
     height: 5
-

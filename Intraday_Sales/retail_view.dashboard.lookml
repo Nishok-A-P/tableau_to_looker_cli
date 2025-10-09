@@ -29,4 +29,3 @@ intradaysales_results_hqa_pd_qmtbls_mock.store_design]
     col: 0
     width: 24
     height: 9
-
