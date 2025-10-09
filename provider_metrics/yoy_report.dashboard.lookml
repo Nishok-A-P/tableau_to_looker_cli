@@ -5,7 +5,7 @@
   elements:
   - title: "YOY"
     name: yoy
-    model: bigquery_super_store_sales_model_generated_20251009_124652
+    model: bigquery_super_store_sales_model_generated_20251009_125131
     explore: custom_sql_query
     type: single_value
     filters:
@@ -22,7 +22,7 @@
 
   - title: "YOY Var"
     name: yoy_var
-    model: bigquery_super_store_sales_model_generated_20251009_124652
+    model: bigquery_super_store_sales_model_generated_20251009_125131
     explore: custom_sql_query
     type: looker_column
     fields: [custom_sql_query.p_yoy_header,
