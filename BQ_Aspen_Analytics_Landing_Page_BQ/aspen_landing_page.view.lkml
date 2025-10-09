@@ -3286,7 +3286,7 @@ measure: inefficient_block_percent_color {
   dimension: in_hierarchy {
     description: "Calculated field: { FIXED : SUM([Calculation_2004946303291748352])} <> 0"
     type: yesno
-    sql: (( SELECT SUM(${calculation_2004946303291748352}) FROM `tableau-to-looker-migration.Super_Store_Sales.aspen_landing_page` as aspen_landing_page -- LOD ) != 0) ;;
+    sql: (( SELECT SUM(${usernameposition}) FROM `tableau-to-looker-migration.Super_Store_Sales.aspen_landing_page` as aspen_landing_page -- LOD ) != 0) ;;
     # Original Tableau formula: { FIXED : SUM([Calculation_2004946303291748352])} <> 0
   }
 
