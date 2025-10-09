@@ -113,4 +113,3 @@ intradaysales_results_day_7_mock.channel]
     col: 0
     width: 12
     height: 5
-

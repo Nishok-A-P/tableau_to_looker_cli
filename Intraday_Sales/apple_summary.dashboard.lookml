@@ -276,4 +276,3 @@ intradaysales_results_hqa_pd_qmtbls_mock.model_nm]
     col: 0
     width: 24
     height: 5
-
