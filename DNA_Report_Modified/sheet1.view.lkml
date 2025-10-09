@@ -26,7 +26,7 @@ view: sheet1 {
   }
   parameter: parameter_2 {
     label: "paramminimumissuecount"
-    type: integer
+    type: string
     default_value: "5"
 
   }
@@ -280,7 +280,7 @@ measure: issuecount {
     # Original Tableau formula: IF isnull([ISSUE_DESC]) = False THEN DATEADD("second",int([DURATION_SECONDS] / 2) ,[start_time_est]) END
   }
 
-  dimension: isissuecountinscope {
+  measure: isissuecountinscope {
     description: "Calculated field: [Calculation_1071012336348946434] >= [Parameters].[Parameter 2]"
     type: yesno
     sql: (${issuecount} >= {% parameter parameter_2 %}) ;;
