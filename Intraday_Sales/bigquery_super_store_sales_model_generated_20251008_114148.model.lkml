@@ -4,7 +4,7 @@
 connection: "tableau_looker_poc"
 
 # Include all views
-include: "intradaysales_results_day_7_mock.view.lkml"
+# include: "intradaysales_results_day_7_mock.view.lkml"
 include: "intradaysales_results_hqa_pd_qmtbls_mock.view.lkml"
 
 # Include all dashboards
@@ -24,7 +24,7 @@ explore: intradaysales_results_hqa_pd_qmtbls_mock {
 
 }
 
-explore: intradaysales_results_day_7_mock {
-  description: "Explore for IntradaySales_RESULTS_DAY-7_Mock with related tables"
+# explore: intradaysales_results_day_7_mock {
+#   description: "Explore for IntradaySales_RESULTS_DAY-7_Mock with related tables"
 
-}
+# }
