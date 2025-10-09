@@ -5,13 +5,13 @@
   elements:
   - title: "<[Parameters].[Select Metric     (copy)_1176846891754504196]>"
     name: rank_graph
-    model: bigquery_super_store_sales_model_generated_20251009_124652
+    model: bigquery_super_store_sales_model_generated_20251009_125131
     explore: custom_sql_query
     type: looker_line
     filters:
       custom_sql_query.division_vp: -NULL, Andrew Robinson, Andrew Tucker, Jennifer Cass, Kaitlyn Suggs, Kari Bookout, Margaret Rogers, Melanie Upchurch, Sara Graham, Shawn McGarvey
       custom_sql_query.mtd_or_ytd_code: M
-      custom_sql_query.first_of_month_year: 2022
+      custom_sql_query.none_year_derived_year: 2022
     series_colors:
       "2023": "#002855"
       "2022": "#004bb9"
@@ -33,7 +33,7 @@
 
   - title: "Rank Heat Map:<"
     name: rank_map
-    model: bigquery_super_store_sales_model_generated_20251009_124652
+    model: bigquery_super_store_sales_model_generated_20251009_125131
     explore: dim_location
     type: looker_column
     fields: [dim_location.none_avg_derived_75,
@@ -72,7 +72,7 @@ dim_location.region_description]
 
   - title: "<"
     name: rank_list
-    model: bigquery_super_store_sales_model_generated_20251009_124652
+    model: bigquery_super_store_sales_model_generated_20251009_125131
     explore: custom_sql_query
     type: looker_grid
     fields: [custom_sql_query.name]
@@ -92,14 +92,14 @@ dim_location.region_description]
 
   - title: "<"
     name: rank_list
-    model: bigquery_super_store_sales_model_generated_20251009_124652
+    model: bigquery_super_store_sales_model_generated_20251009_125131
     explore: custom_sql_query
     type: looker_grid
     fields: [custom_sql_query.name]
     filters:
       custom_sql_query.p_month_selector: 1
       custom_sql_query.division_vp: -NULL, Andrew Robinson, Andrew Tucker, Jennifer Cass, Kaitlyn Suggs, Kari Bookout, Margaret Rogers, Melanie Upchurch, Sara Graham, Shawn McGarvey
-      custom_sql_query.graph_filter_percent_copy: true
+      custom_sql_query.Graph filter (%)  (copy)_1176846892122931208: true
       custom_sql_query.mtd_or_ytd_code: M
     sorts: [custom_sql_query.name]
     table_theme: "white"
@@ -112,7 +112,7 @@ dim_location.region_description]
 
   - title: "<"
     name: rank_list_m
-    model: bigquery_super_store_sales_model_generated_20251009_124652
+    model: bigquery_super_store_sales_model_generated_20251009_125131
     explore: custom_sql_query
     type: looker_grid
     fields: [custom_sql_query.name]
@@ -132,7 +132,7 @@ dim_location.region_description]
 
   - title: "<"
     name: rank_list2deci
-    model: bigquery_super_store_sales_model_generated_20251009_124652
+    model: bigquery_super_store_sales_model_generated_20251009_125131
     explore: custom_sql_query
     type: looker_grid
     fields: [custom_sql_query.name]
@@ -152,14 +152,14 @@ dim_location.region_description]
 
   - title: "<"
     name: rank_list
-    model: bigquery_super_store_sales_model_generated_20251009_124652
+    model: bigquery_super_store_sales_model_generated_20251009_125131
     explore: custom_sql_query
     type: looker_grid
     fields: [custom_sql_query.name]
     filters:
       custom_sql_query.p_month_selector: 1
       custom_sql_query.division_vp: -NULL, Andrew Robinson, Andrew Tucker, Jennifer Cass, Kaitlyn Suggs, Kari Bookout, Margaret Rogers, Melanie Upchurch, Sara Graham, Shawn McGarvey
-      custom_sql_query.graph_filter_copy: true
+      custom_sql_query.Graph filter ($) (copy)_1176846892122951689: true
       custom_sql_query.mtd_or_ytd_code: M
     sorts: [custom_sql_query.name]
     table_theme: "white"
