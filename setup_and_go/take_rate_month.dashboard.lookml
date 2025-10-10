@@ -25,4 +25,3 @@ setupgo_test.level_2]
     col: 0
     width: 24
     height: 15
-

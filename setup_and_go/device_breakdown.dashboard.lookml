@@ -172,4 +172,3 @@ setupgo_test.new_aal_upg_ind]
     col: 18
     width: 6
     height: 5
-

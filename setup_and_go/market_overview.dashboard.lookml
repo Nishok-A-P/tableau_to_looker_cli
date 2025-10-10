@@ -291,4 +291,3 @@ setupgo_test.previous_month]
     col: 20
     width: 4
     height: 5
-

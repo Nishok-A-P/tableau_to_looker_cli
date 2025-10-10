@@ -59,4 +59,3 @@ cstatsdynamicscorecard_mock.employee_name]
     col: 12
     width: 12
     height: 5
-
