@@ -446,7 +446,7 @@ measure: c_max_stage_time_spent_dummy {
   dimension: stage_description1_attribute_derived {
     description: "Calculated field: ATTR([Stage Description])"
     type: string
-    sql: CASE WHEN MIN(${TABLE}.`Stage Description`) IS NULL THEN NULL WHEN MIN(${TABLE}.`Stage Description`) = MAX(${TABLE}.`Stage Description`) THEN MIN(${TABLE}.`Stage Description`) ELSE '*' END ;;
+    sql: (SELECT CASE WHEN MIN(${TABLE}.`Stage Description`) IS NULL THEN NULL WHEN MIN(${TABLE}.`Stage Description`) = MAX(${TABLE}.`Stage Description`) THEN MIN(${TABLE}.`Stage Description`) ELSE '*' END FROM `tableau-to-looker-migration.Super_Store_Sales.hr_onboarding_data` as hr_onboarding_data) ;;
     # Original Tableau formula: ATTR([Stage Description])
   }
 
@@ -480,7 +480,7 @@ measure: stage_order1_min_derived {
   dimension: c_max_stage_complete_description_1_long_attribute_derived {
     description: "Calculated field: ATTR([c: Max stage complete description + 1 (copy)_1369375818314022913])"
     type: string
-    sql: CASE WHEN MIN(${c_max_stage_complete_description_1_long}) IS NULL THEN NULL WHEN MIN(${c_max_stage_complete_description_1_long}) = MAX(${c_max_stage_complete_description_1_long}) THEN MIN(${c_max_stage_complete_description_1_long}) ELSE '*' END ;;
+    sql: (SELECT CASE WHEN MIN(${c_max_stage_complete_description_1_long}) IS NULL THEN NULL WHEN MIN(${c_max_stage_complete_description_1_long}) = MAX(${c_max_stage_complete_description_1_long}) THEN MIN(${c_max_stage_complete_description_1_long}) ELSE '*' END FROM `tableau-to-looker-migration.Super_Store_Sales.hr_onboarding_data` as hr_onboarding_data) ;;
     # Original Tableau formula: ATTR([c: Max stage complete description + 1 (copy)_1369375818314022913])
   }
 
@@ -532,14 +532,14 @@ measure: c_days_taken_to_complete_abs_avg_derived {
   dimension: c_stage_description_30char_attribute_derived {
     description: "Calculated field: ATTR([Calculation_1879127000787882029])"
     type: string
-    sql: CASE WHEN MIN(${c_stage_description_30char}) IS NULL THEN NULL WHEN MIN(${c_stage_description_30char}) = MAX(${c_stage_description_30char}) THEN MIN(${c_stage_description_30char}) ELSE '*' END ;;
+    sql: (SELECT CASE WHEN MIN(${c_stage_description_30char}) IS NULL THEN NULL WHEN MIN(${c_stage_description_30char}) = MAX(${c_stage_description_30char}) THEN MIN(${c_stage_description_30char}) ELSE '*' END FROM `tableau-to-looker-migration.Super_Store_Sales.hr_onboarding_data` as hr_onboarding_data) ;;
     # Original Tableau formula: ATTR([Calculation_1879127000787882029])
   }
 
   dimension: date1_attribute_derived {
     description: "Calculated field: ATTR([Date])"
     type: string
-    sql: CASE WHEN MIN(${TABLE}.`Date`) IS NULL THEN NULL WHEN MIN(${TABLE}.`Date`) = MAX(${TABLE}.`Date`) THEN MIN(${TABLE}.`Date`) ELSE '*' END ;;
+    sql: (SELECT CASE WHEN MIN(${TABLE}.`Date`) IS NULL THEN NULL WHEN MIN(${TABLE}.`Date`) = MAX(${TABLE}.`Date`) THEN MIN(${TABLE}.`Date`) ELSE '*' END FROM `tableau-to-looker-migration.Super_Store_Sales.hr_onboarding_data` as hr_onboarding_data) ;;
     # Original Tableau formula: ATTR([Date])
   }
 
