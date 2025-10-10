@@ -16,8 +16,3 @@ explore: sheet1 {
   description: "Explore for Sheet1 with related tables"
 
 }
-
-explore: sheet1 {
-  description: "Explore for Sheet1 with related tables"
-
-}

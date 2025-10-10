@@ -65,4 +65,3 @@ sheet1.overall_score_raw]
     col: 12
     width: 12
     height: 5
-

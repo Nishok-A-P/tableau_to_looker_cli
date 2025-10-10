@@ -309,4 +309,3 @@ sheet1.previous_month]
     col: 20
     width: 4
     height: 5
-

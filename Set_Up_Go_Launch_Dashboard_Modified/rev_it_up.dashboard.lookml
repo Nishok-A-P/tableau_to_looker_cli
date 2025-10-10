@@ -457,4 +457,3 @@ sheet1.ranking_granularity]
     col: 0
     width: 24
     height: 5
-
