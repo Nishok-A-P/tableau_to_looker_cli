@@ -4400,7 +4400,7 @@ measure: p_mertics_list_yoy_top {
 measure: empty_1_sum_derived {
     description: "Calculated field: SUM([Calculation_929711906784206853])"
     type: number
-    sql: SUM(${empty_1}) ;;
+    sql: SUM(${empty_1_calc}) ;;
 
 
     # Original Tableau formula: SUM([Calculation_929711906784206853])
@@ -4409,7 +4409,7 @@ measure: empty_1_sum_derived {
 measure: empty_2_sum_derived {
     description: "Calculated field: SUM([Empty 1 (copy)_929711906789224454])"
     type: number
-    sql: SUM(${empty_2}) ;;
+    sql: SUM(${empty_2_calc}) ;;
 
 
     # Original Tableau formula: SUM([Empty 1 (copy)_929711906789224454])
@@ -4418,7 +4418,7 @@ measure: empty_2_sum_derived {
 measure: empty_5_sum_derived {
     description: "Calculated field: SUM([Empty 2 (copy) (copy) (copy) (copy)_929711906789404682])"
     type: number
-    sql: SUM(${empty_5}) ;;
+    sql: SUM(${empty_5_calc}) ;;
 
 
     # Original Tableau formula: SUM([Empty 2 (copy) (copy) (copy) (copy)_929711906789404682])
@@ -4427,7 +4427,7 @@ measure: empty_5_sum_derived {
 measure: empty_6_sum_derived {
     description: "Calculated field: SUM([Empty 2 (copy) (copy) (copy)_929711906789396489])"
     type: number
-    sql: SUM(${empty_6}) ;;
+    sql: SUM(${empty_6_calc}) ;;
 
 
     # Original Tableau formula: SUM([Empty 2 (copy) (copy) (copy)_929711906789396489])
@@ -4436,7 +4436,7 @@ measure: empty_6_sum_derived {
 measure: empty_4_sum_derived {
     description: "Calculated field: SUM([Empty 2 (copy) (copy)_929711906789392392])"
     type: number
-    sql: SUM(${empty_4}) ;;
+    sql: SUM(${empty_4_calc}) ;;
 
 
     # Original Tableau formula: SUM([Empty 2 (copy) (copy)_929711906789392392])
@@ -4445,7 +4445,7 @@ measure: empty_4_sum_derived {
 measure: empty_3_sum_derived {
     description: "Calculated field: SUM([Empty 2 (copy)_929711906789380103])"
     type: number
-    sql: SUM(${empty_3}) ;;
+    sql: SUM(${empty_3_calc}) ;;
 
 
     # Original Tableau formula: SUM([Empty 2 (copy)_929711906789380103])
@@ -4454,7 +4454,7 @@ measure: empty_3_sum_derived {
 measure: empty_10_sum_derived {
     description: "Calculated field: SUM([Empty 6 (copy) (copy) (copy) (copy)_929711906792157198])"
     type: number
-    sql: SUM(${empty_10}) ;;
+    sql: SUM(${empty_10_calc}) ;;
 
 
     # Original Tableau formula: SUM([Empty 6 (copy) (copy) (copy) (copy)_929711906792157198])
@@ -4463,7 +4463,7 @@ measure: empty_10_sum_derived {
 measure: empty_9_sum_derived {
     description: "Calculated field: SUM([Empty 6 (copy) (copy) (copy)_929711906792153101])"
     type: number
-    sql: SUM(${empty_9}) ;;
+    sql: SUM(${empty_9_calc}) ;;
 
 
     # Original Tableau formula: SUM([Empty 6 (copy) (copy) (copy)_929711906792153101])
@@ -4472,7 +4472,7 @@ measure: empty_9_sum_derived {
 measure: empty_8_sum_derived {
     description: "Calculated field: SUM([Empty 6 (copy) (copy)_929711906792136716])"
     type: number
-    sql: SUM(${empty_8}) ;;
+    sql: SUM(${empty_8_calc}) ;;
 
 
     # Original Tableau formula: SUM([Empty 6 (copy) (copy)_929711906792136716])
@@ -4481,7 +4481,7 @@ measure: empty_8_sum_derived {
 measure: empty_7_sum_derived {
     description: "Calculated field: SUM([Empty 6 (copy)_929711906792128523])"
     type: number
-    sql: SUM(${empty_7}) ;;
+    sql: SUM(${empty_7_calc}) ;;
 
 
     # Original Tableau formula: SUM([Empty 6 (copy)_929711906792128523])
@@ -4850,7 +4850,7 @@ measure: none_sum_derived {
 measure: empty14_sum_derived {
     description: "Calculated field: SUM([Empty11 (copy) (copy)_929711906804490259])"
     type: number
-    sql: SUM(${empty14}) ;;
+    sql: SUM(${empty14_calc}) ;;
 
 
     # Original Tableau formula: SUM([Empty11 (copy) (copy)_929711906804490259])
@@ -4859,7 +4859,7 @@ measure: empty14_sum_derived {
 measure: empty13_sum_derived {
     description: "Calculated field: SUM([Empty11 (copy)_929711906804482066])"
     type: number
-    sql: SUM(${empty13}) ;;
+    sql: SUM(${empty13_calc}) ;;
 
 
     # Original Tableau formula: SUM([Empty11 (copy)_929711906804482066])
@@ -4868,7 +4868,7 @@ measure: empty13_sum_derived {
 measure: empty15_sum_derived {
     description: "Calculated field: SUM([Empty14 (copy)_1536571959081541638])"
     type: number
-    sql: SUM(${empty15}) ;;
+    sql: SUM(${empty15_calc}) ;;
 
 
     # Original Tableau formula: SUM([Empty14 (copy)_1536571959081541638])
@@ -4877,7 +4877,7 @@ measure: empty15_sum_derived {
 measure: empty15_copy_sum_derived {
     description: "Calculated field: SUM([Empty15 (copy)_1521653786776162304])"
     type: number
-    sql: SUM(${empty15_copy}) ;;
+    sql: SUM(${empty15_copy_calc}) ;;
 
 
     # Original Tableau formula: SUM([Empty15 (copy)_1521653786776162304])
@@ -5039,7 +5039,7 @@ measure: none_avg_derived_53 {
 measure: empty11_avg_derived {
     description: "Calculated field: AVG([Empty 6 (copy) (copy) (copy) (copy) (copy 2)_929711906792173584])"
     type: number
-    sql: AVG(${empty11}) ;;
+    sql: AVG(${empty11_calc}) ;;
 
 
     # Original Tableau formula: AVG([Empty 6 (copy) (copy) (copy) (copy) (copy 2)_929711906792173584])
@@ -5048,7 +5048,7 @@ measure: empty11_avg_derived {
 measure: empty12_avg_derived {
     description: "Calculated field: AVG([Empty 6 (copy) (copy) (copy) (copy) (copy)_929711906792165391])"
     type: number
-    sql: AVG(${empty12}) ;;
+    sql: AVG(${empty12_calc}) ;;
 
 
     # Original Tableau formula: AVG([Empty 6 (copy) (copy) (copy) (copy) (copy)_929711906792165391])
@@ -5057,7 +5057,7 @@ measure: empty12_avg_derived {
 measure: empty_10_avg_derived {
     description: "Calculated field: AVG([Empty 6 (copy) (copy) (copy) (copy)_929711906792157198])"
     type: number
-    sql: AVG(${empty_10}) ;;
+    sql: AVG(${empty_10_calc}) ;;
 
 
     # Original Tableau formula: AVG([Empty 6 (copy) (copy) (copy) (copy)_929711906792157198])
@@ -5066,7 +5066,7 @@ measure: empty_10_avg_derived {
 measure: empty_9_avg_derived {
     description: "Calculated field: AVG([Empty 6 (copy) (copy) (copy)_929711906792153101])"
     type: number
-    sql: AVG(${empty_9}) ;;
+    sql: AVG(${empty_9_calc}) ;;
 
 
     # Original Tableau formula: AVG([Empty 6 (copy) (copy) (copy)_929711906792153101])
@@ -5264,7 +5264,7 @@ measure: none_avg_derived_74 {
 measure: p_mertics_list_yoy_top_avg_derived {
     description: "Calculated field: AVG([p.Mertics List YOY (copy)_1990309625774809102])"
     type: number
-    sql: AVG(${p_mertics_list_yoy_top}) ;;
+    sql: AVG(${p_mertics_list_yoy_top_calc}) ;;
 
 
     # Original Tableau formula: AVG([p.Mertics List YOY (copy)_1990309625774809102])
@@ -5273,7 +5273,7 @@ measure: p_mertics_list_yoy_top_avg_derived {
 measure: p_mertics_list_yoy_top_sum_derived {
     description: "Calculated field: SUM([p.Mertics List YOY (copy)_1990309625774809102])"
     type: number
-    sql: SUM(${p_mertics_list_yoy_top}) ;;
+    sql: SUM(${p_mertics_list_yoy_top_calc}) ;;
 
 
     # Original Tableau formula: SUM([p.Mertics List YOY (copy)_1990309625774809102])
