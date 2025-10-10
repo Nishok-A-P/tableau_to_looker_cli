@@ -5,7 +5,7 @@
   elements:
   - title: "<[Parameters].[Select Metric     (copy)_1176846891754504196]>"
     name: rank_graph
-    model: bigquery_super_store_sales_model_generated_20251009_125131
+    model: bigquery_super_store_sales_model_generated_20251010_042309
     explore: custom_sql_query
     type: looker_line
     filters:
@@ -33,7 +33,7 @@
 
   - title: "Rank Heat Map:<"
     name: rank_map
-    model: bigquery_super_store_sales_model_generated_20251009_125131
+    model: bigquery_super_store_sales_model_generated_20251010_042309
     explore: dim_location
     type: looker_column
     fields: [dim_location.none_avg_derived_75,
@@ -72,7 +72,7 @@ dim_location.region_description]
 
   - title: "<"
     name: rank_list
-    model: bigquery_super_store_sales_model_generated_20251009_125131
+    model: bigquery_super_store_sales_model_generated_20251010_042309
     explore: custom_sql_query
     type: looker_grid
     fields: [custom_sql_query.name]
@@ -92,7 +92,7 @@ dim_location.region_description]
 
   - title: "<"
     name: rank_list
-    model: bigquery_super_store_sales_model_generated_20251009_125131
+    model: bigquery_super_store_sales_model_generated_20251010_042309
     explore: custom_sql_query
     type: looker_grid
     fields: [custom_sql_query.name]
@@ -112,7 +112,7 @@ dim_location.region_description]
 
   - title: "<"
     name: rank_list_m
-    model: bigquery_super_store_sales_model_generated_20251009_125131
+    model: bigquery_super_store_sales_model_generated_20251010_042309
     explore: custom_sql_query
     type: looker_grid
     fields: [custom_sql_query.name]
@@ -132,7 +132,7 @@ dim_location.region_description]
 
   - title: "<"
     name: rank_list2deci
-    model: bigquery_super_store_sales_model_generated_20251009_125131
+    model: bigquery_super_store_sales_model_generated_20251010_042309
     explore: custom_sql_query
     type: looker_grid
     fields: [custom_sql_query.name]
@@ -152,7 +152,7 @@ dim_location.region_description]
 
   - title: "<"
     name: rank_list
-    model: bigquery_super_store_sales_model_generated_20251009_125131
+    model: bigquery_super_store_sales_model_generated_20251010_042309
     explore: custom_sql_query
     type: looker_grid
     fields: [custom_sql_query.name]
