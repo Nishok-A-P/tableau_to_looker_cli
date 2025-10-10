@@ -5,7 +5,7 @@
   elements:
   - title: "MTD COLOR"
     name: mtd_color
-    model: bigquery_super_store_sales_model_generated_20251009_125131
+    model: bigquery_super_store_sales_model_generated_20251010_042309
     explore: custom_sql_query
     type: looker_column
     fields: [custom_sql_query.mtd,
@@ -86,7 +86,7 @@ custom_sql_query.np_tapa_color_flag]
 
   - title: "YTD COLOR"
     name: ytd_color
-    model: bigquery_super_store_sales_model_generated_20251009_125131
+    model: bigquery_super_store_sales_model_generated_20251010_042309
     explore: custom_sql_query
     type: looker_column
     fields: [custom_sql_query.mtd,
@@ -167,7 +167,7 @@ custom_sql_query.np_tapa_color_flag]
 
   - title: "Day Actual"
     name: day_actual
-    model: bigquery_super_store_sales_model_generated_20251009_125131
+    model: bigquery_super_store_sales_model_generated_20251010_042309
     explore: custom_sql_query
     type: single_value
     filters:
@@ -185,7 +185,7 @@ custom_sql_query.np_tapa_color_flag]
 
   - title: "MTD"
     name: mtd
-    model: bigquery_super_store_sales_model_generated_20251009_125131
+    model: bigquery_super_store_sales_model_generated_20251010_042309
     explore: custom_sql_query
     type: single_value
     filters:
@@ -203,7 +203,7 @@ custom_sql_query.np_tapa_color_flag]
 
   - title: "MTD T20%"
     name: top_m
-    model: bigquery_super_store_sales_model_generated_20251009_125131
+    model: bigquery_super_store_sales_model_generated_20251010_042309
     explore: custom_sql_query
     type: single_value
     filters:
@@ -221,7 +221,7 @@ custom_sql_query.np_tapa_color_flag]
 
   - title: "M Rank"
     name: m_rank
-    model: bigquery_super_store_sales_model_generated_20251009_125131
+    model: bigquery_super_store_sales_model_generated_20251010_042309
     explore: custom_sql_query
     type: single_value
     filters:
@@ -240,7 +240,7 @@ custom_sql_query.np_tapa_color_flag]
 
   - title: "YTD"
     name: ytd
-    model: bigquery_super_store_sales_model_generated_20251009_125131
+    model: bigquery_super_store_sales_model_generated_20251010_042309
     explore: custom_sql_query
     type: single_value
     filters:
@@ -258,7 +258,7 @@ custom_sql_query.np_tapa_color_flag]
 
   - title: "MTD T20%"
     name: top_y
-    model: bigquery_super_store_sales_model_generated_20251009_125131
+    model: bigquery_super_store_sales_model_generated_20251010_042309
     explore: custom_sql_query
     type: single_value
     filters:
@@ -276,7 +276,7 @@ custom_sql_query.np_tapa_color_flag]
 
   - title: "Y Rank"
     name: y_rank
-    model: bigquery_super_store_sales_model_generated_20251009_125131
+    model: bigquery_super_store_sales_model_generated_20251010_042309
     explore: custom_sql_query
     type: single_value
     filters:
@@ -295,7 +295,7 @@ custom_sql_query.np_tapa_color_flag]
 
   - title: "Hide 2"
     name: hide_2
-    model: bigquery_super_store_sales_model_generated_20251009_125131
+    model: bigquery_super_store_sales_model_generated_20251010_042309
     explore: custom_sql_query
     type: looker_grid
     fields: [custom_sql_query.blank]
