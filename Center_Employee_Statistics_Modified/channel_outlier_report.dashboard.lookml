@@ -1,5 +1,5 @@
 - dashboard: channel_outlier_report
-  title: Channel Outlier Report
+  title: Channel Outlier Report 
   layout: newspaper
   preferred_viewer: dashboards-next
   elements:
@@ -48,3 +48,4 @@ sheet1.box_close_percent_threshold]
     col: 0
     width: 24
     height: 5
+
