@@ -523,7 +523,7 @@ measure: c_days_between_selection_and_start_avg_derived {
 measure: c_days_taken_to_complete_abs_avg_derived {
     description: "Calculated field: AVG([Calculation_1879127000455684111])"
     type: number
-    sql: AVG(${c_days_taken_to_complete_abs}) ;;
+    sql: AVG(${c_days_taken_to_complete_abs_calc}) ;;
 
 
     # Original Tableau formula: AVG([Calculation_1879127000455684111])
