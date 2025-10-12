@@ -148,6 +148,22 @@ view: hr_onboarding_data {
     # Original Tableau formula: COUNTD([Name])
   }
 
+  dimension: date1_none_derived_calc {
+    description: "Row-level calculation for date1_none_derived: [Date]"
+    type: number
+    sql: ${TABLE}.`Date` ;;
+    hidden: yes
+    # Original Tableau formula: [Date]
+  }
+
+  dimension: estimated_start_date1_none_derived_calc {
+    description: "Row-level calculation for estimated_start_date1_none_derived: [Estimated Start Date]"
+    type: number
+    sql: ${TABLE}.`Estimated Start Date` ;;
+    hidden: yes
+    # Original Tableau formula: [Estimated Start Date]
+  }
+
   # Calculated Fields (from Tableau formulas)
 
   dimension: c_today_calc {
@@ -502,6 +518,13 @@ measure: c_max_stage_1_min_derived {
     # Original Tableau formula: MIN([Calculation_1879127000430034946])
   }
 
+  dimension: c_max_stage_1_none_derived {
+    description: "Calculated field: [Calculation_1879127000430034946]"
+    type: string
+    sql: ${c_max_stage_1} ;;
+    # Original Tableau formula: [Calculation_1879127000430034946]
+  }
+
 measure: c_difference_between_planned_and_actual_start_avg_derived {
     description: "Calculated field: AVG([Calculation_1879127000819253314])"
     type: number
@@ -509,6 +532,13 @@ measure: c_difference_between_planned_and_actual_start_avg_derived {
 
 
     # Original Tableau formula: AVG([Calculation_1879127000819253314])
+  }
+
+  dimension: c_difference_between_planned_and_actual_start_str_user_derived {
+    description: "Calculated field: [c: Difference between planned and actual start (copy)_1879127000823582787]"
+    type: string
+    sql: ${c_difference_between_planned_and_actual_start_str} ;;
+    # Original Tableau formula: [c: Difference between planned and actual start (copy)_1879127000823582787]
   }
 
 measure: c_days_between_selection_and_start_avg_derived {
@@ -520,6 +550,20 @@ measure: c_days_between_selection_and_start_avg_derived {
     # Original Tableau formula: AVG([Calculation_1879127000451399689])
   }
 
+  dimension: stage_order1_none_derived {
+    description: "Calculated field: [Stage Order]"
+    type: string
+    sql: ${TABLE}.`Stage Order` ;;
+    # Original Tableau formula: [Stage Order]
+  }
+
+  dimension: index_user_derived {
+    description: "Calculated field: [Calculation_1879127000453586956]"
+    type: string
+    sql: ${index_calc} ;;
+    # Original Tableau formula: [Calculation_1879127000453586956]
+  }
+
 measure: c_days_taken_to_complete_abs_avg_derived {
     description: "Calculated field: AVG([Calculation_1879127000455684111])"
     type: number
@@ -529,6 +573,13 @@ measure: c_days_taken_to_complete_abs_avg_derived {
     # Original Tableau formula: AVG([Calculation_1879127000455684111])
   }
 
+  dimension: index_user_derived_2 {
+    description: "Calculated field: [Calculation_1879127000453586956]"
+    type: string
+    sql: ${index_calc} ;;
+    # Original Tableau formula: [Calculation_1879127000453586956]
+  }
+
   dimension: c_stage_description_30char_attribute_derived {
     description: "Calculated field: ATTR([Calculation_1879127000787882029])"
     type: string
@@ -536,11 +587,38 @@ measure: c_days_taken_to_complete_abs_avg_derived {
     # Original Tableau formula: ATTR([Calculation_1879127000787882029])
   }
 
+measure: stage_order1_sum_derived {
+    description: "Calculated field: SUM([Stage Order])"
+    type: number
+    sql: SUM(${TABLE}.`Stage Order`) ;;
+
+
+    # Original Tableau formula: SUM([Stage Order])
+  }
+
   dimension: date1_attribute_derived {
     description: "Calculated field: ATTR([Date])"
     type: string
     sql: (SELECT CASE WHEN MIN(${TABLE}.`Date`) IS NULL THEN NULL WHEN MIN(${TABLE}.`Date`) = MAX(${TABLE}.`Date`) THEN MIN(${TABLE}.`Date`) ELSE '*' END FROM `tableau-to-looker-migration.Super_Store_Sales.hr_onboarding_data` as hr_onboarding_data) ;;
     # Original Tableau formula: ATTR([Date])
+  }
+
+measure: date1_none_derived {
+    description: "Calculated field: [Date]"
+    type: sum
+    sql: ${date1_none_derived_calc} ;;
+
+
+    # Original Tableau formula: [Date]
+  }
+
+measure: estimated_start_date1_none_derived {
+    description: "Calculated field: [Estimated Start Date]"
+    type: sum
+    sql: ${estimated_start_date1_none_derived_calc} ;;
+
+
+    # Original Tableau formula: [Estimated Start Date]
   }
 
 measure: none_sum_derived {
