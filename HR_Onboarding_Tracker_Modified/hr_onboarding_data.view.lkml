@@ -230,7 +230,7 @@ measure: c_days_between_selection_and_start {
 
 measure: index {
     description: "Calculated field: INDEX()"
-    type: sum
+    type: number
     sql: ${index_calc} ;;
 
 
@@ -571,15 +571,6 @@ measure: c_days_taken_to_complete_abs_avg_derived {
     type: string
     sql: (SELECT CASE WHEN MIN(${c_stage_description_30char}) IS NULL THEN NULL WHEN MIN(${c_stage_description_30char}) = MAX(${c_stage_description_30char}) THEN MIN(${c_stage_description_30char}) ELSE '*' END FROM `tableau-to-looker-migration.Super_Store_Sales.hr_onboarding_data` as hr_onboarding_data) ;;
     # Original Tableau formula: ATTR([Calculation_1879127000787882029])
-  }
-
-measure: stage_order1_sum_derived {
-    description: "Calculated field: SUM([Stage Order])"
-    type: number
-    sql: SUM(${TABLE}.`Stage Order`) ;;
-
-
-    # Original Tableau formula: SUM([Stage Order])
   }
 
   dimension: date1_attribute_derived {
