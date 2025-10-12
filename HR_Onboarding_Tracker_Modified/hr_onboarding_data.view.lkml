@@ -557,13 +557,6 @@ measure: c_days_between_selection_and_start_avg_derived {
     # Original Tableau formula: [Stage Order]
   }
 
-  dimension: index_user_derived {
-    description: "Calculated field: [Calculation_1879127000453586956]"
-    type: string
-    sql: ${index_calc} ;;
-    # Original Tableau formula: [Calculation_1879127000453586956]
-  }
-
 measure: c_days_taken_to_complete_abs_avg_derived {
     description: "Calculated field: AVG([Calculation_1879127000455684111])"
     type: number
@@ -571,13 +564,6 @@ measure: c_days_taken_to_complete_abs_avg_derived {
 
 
     # Original Tableau formula: AVG([Calculation_1879127000455684111])
-  }
-
-  dimension: index_user_derived_2 {
-    description: "Calculated field: [Calculation_1879127000453586956]"
-    type: string
-    sql: ${index_calc} ;;
-    # Original Tableau formula: [Calculation_1879127000453586956]
   }
 
   dimension: c_stage_description_30char_attribute_derived {
