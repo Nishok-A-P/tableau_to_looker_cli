@@ -1425,14 +1425,6 @@ view: problem_tracker_ven01911 {
 
   # Two-step Pattern Dimensions (hidden calculation dimensions)
 
-  dimension: average_age_dd_hh_mm_ss_calc {
-    description: "Row-level calculation for average_age_dd_hh_mm_ss: // This is a calculated field // It transforms time in seconds in DD:HH:MM:SS format STR(INT(AVG([Calculation_1103944901411389444])/86400)) + \" day(s) \" + IF (INT(AVG([Calculation_1103944901411389444])%86400/3600)) < 10 THEN \"0\" ELSE \"\" END + STR(INT(AVG([Calculation_1103944901411389444])%86400/3600)) + \":\" + IF INT(AVG([Calculation_1103944901411389444])%3600/60) < 10 THEN \"0\" ELSE \"\" END + STR(INT(AVG([Calculation_1103944901411389444])%3600/60)) + \":\" + IF INT(AVG([Calculation_1103944901411389444]) %3600 %60) < 10 THEN \"0\" ELSE \"\" END + STR(INT(AVG([Calculation_1103944901411389444]) %3600 %60))"
-    type: number
-    sql: (((((((((CAST(CAST((AVG(${problem_age_seconds_calc}) / NULLIF(86400, 0)) AS INT64) AS STRING) || ' day(s) ') || CASE WHEN (CAST((MOD(AVG(${problem_age_seconds_calc}), 86400) / NULLIF(3600, 0)) AS INT64) < 10) THEN '0' ELSE '' END) || CAST(CAST((MOD(AVG(${problem_age_seconds_calc}), 86400) / NULLIF(3600, 0)) AS INT64) AS STRING)) || ':') || CASE WHEN (CAST((MOD(AVG(${problem_age_seconds_calc}), 3600) / NULLIF(60, 0)) AS INT64) < 10) THEN '0' ELSE '' END) || CAST(CAST((MOD(AVG(${problem_age_seconds_calc}), 3600) / NULLIF(60, 0)) AS INT64) AS STRING)) || ':') || CASE WHEN (CAST(MOD(MOD(AVG(${problem_age_seconds_calc}), 3600), 60) AS INT64) < 10) THEN '0' ELSE '' END) || CAST(CAST(MOD(MOD(AVG(${problem_age_seconds_calc}), 3600), 60) AS INT64) AS STRING)) ;;
-    hidden: yes
-    # Original Tableau formula: // This is a calculated field // It transforms time in seconds in DD:HH:MM:SS format STR(INT(AVG([Calculation_1103944901411389444])/86400)) + " day(s) " + IF (INT(AVG([Calculation_1103944901411389444])%86400/3600)) < 10 THEN "0" ELSE "" END + STR(INT(AVG([Calculation_1103944901411389444])%86400/3600)) + ":" + IF INT(AVG([Calculation_1103944901411389444])%3600/60) < 10 THEN "0" ELSE "" END + STR(INT(AVG([Calculation_1103944901411389444])%3600/60)) + ":" + IF INT(AVG([Calculation_1103944901411389444]) %3600 %60) < 10 THEN "0" ELSE "" END + STR(INT(AVG([Calculation_1103944901411389444]) %3600 %60))
-  }
-
   dimension: percent_not_worked_90_days_calc {
     description: "Row-level calculation for percent_not_worked_90_days: // This is a calculated field //It shows the percentage of problems which is more than 90 days old COUNTD(IF [Calculation_217580207391584262]= \"+ than 90d\" THEN [Number] END)/ COUNTD([Number])"
     type: number
@@ -1452,17 +1444,9 @@ view: problem_tracker_ven01911 {
   dimension: show_group_calc {
     description: "Row-level calculation for show_group: // This is a calculated field // It shows the name of a group when the dashboard is filtered IF COUNTD([Name])=1 THEN ATTR([Name]) ELSE \"Showing All Groups\" END"
     type: number
-    sql: CASE WHEN (COUNT(DISTINCT ${TABLE}.`Name`) = 1) THEN ATTR(${TABLE}.`Name`) ELSE 'Showing All Groups' END ;;
+    sql: /* Conversion error: argument of type 'NoneType' is not iterable */ ;;
     hidden: yes
     # Original Tableau formula: // This is a calculated field // It shows the name of a group when the dashboard is filtered IF COUNTD([Name])=1 THEN ATTR([Name]) ELSE "Showing All Groups" END
-  }
-
-  dimension: known_errors_calc {
-    description: "Row-level calculation for known_errors: // This is a calculated field // It shows the percentage of problems which are known errors COUNTD(IF [Known_error] = TRUE THEN [Number] END) / COUNT([Number])"
-    type: number
-    sql: (COUNT(DISTINCT CASE WHEN (${TABLE}.`Known_error` = TRUE) THEN ${TABLE}.`Number` ELSE NULL END) / NULLIF(COUNT(${TABLE}.`Number`), 0)) ;;
-    hidden: yes
-    # Original Tableau formula: // This is a calculated field // It shows the percentage of problems which are known errors COUNTD(IF [Known_error] = TRUE THEN [Number] END) / COUNT([Number])
   }
 
   dimension: active_total_calc {
@@ -1481,20 +1465,38 @@ view: problem_tracker_ven01911 {
     # Original Tableau formula: // This is a calculated field // It counts each distinct incident attached to a problem COUNTD([Number__Incident_])
   }
 
-  dimension: count_distinct_number_calc {
-    description: "Row-level calculation for count_distinct_number: COUNTD([Number])"
+  dimension: none_countd_derived_calc {
+    description: "Row-level calculation for none_countd_derived: COUNTD([Number])"
     type: number
     sql: COUNT(DISTINCT ${TABLE}.`Number`) ;;
     hidden: yes
     # Original Tableau formula: COUNTD([Number])
   }
 
+  dimension: none_countd_derived_2_calc {
+    description: "Row-level calculation for none_countd_derived_2: COUNTD([Number])"
+    type: number
+    sql: COUNT(DISTINCT ${TABLE}.`Number`) ;;
+    hidden: yes
+    # Original Tableau formula: COUNTD([Number])
+  }
+
+  dimension: none_day_trunc_derived_2_calc {
+    description: "Row-level calculation for none_day_trunc_derived_2: DATETRUNC('day', [Opened])"
+    type: number
+    sql: DATE_TRUNC(${TABLE}.`Opened`, day) ;;
+    hidden: yes
+    # Original Tableau formula: DATETRUNC('day', [Opened])
+  }
+
   # Calculated Fields (from Tableau formulas)
 
-  measure: average_age_dd_hh_mm_ss {
+measure: average_age_dd_hh_mm_ss {
     description: "Calculated field: // This is a calculated field // It transforms time in seconds in DD:HH:MM:SS format STR(INT(AVG([Calculation_1103944901411389444])/86400)) + \" day(s) \" + IF (INT(AVG([Calculation_1103944901411389444])%86400/3600)) < 10 THEN \"0\" ELSE \"\" END + STR(INT(AVG([Calculation_1103944901411389444])%86400/3600)) + \":\" + IF INT(AVG([Calculation_1103944901411389444])%3600/60) < 10 THEN \"0\" ELSE \"\" END + STR(INT(AVG([Calculation_1103944901411389444])%3600/60)) + \":\" + IF INT(AVG([Calculation_1103944901411389444]) %3600 %60) < 10 THEN \"0\" ELSE \"\" END + STR(INT(AVG([Calculation_1103944901411389444]) %3600 %60))"
     type: number
-    sql: ${average_age_dd_hh_mm_ss_calc} ;;
+    sql: (((((((((CAST(CAST((AVG(${problem_age_seconds}) / NULLIF(86400, 0)) AS INT64) AS STRING) || ' day(s) ') || CASE WHEN (CAST((MOD(AVG(${problem_age_seconds}), 86400) / NULLIF(3600, 0)) AS INT64) < 10) THEN '0' ELSE '' END) || CAST(CAST((MOD(AVG(${problem_age_seconds}), 86400) / NULLIF(3600, 0)) AS INT64) AS STRING)) || ':') || CASE WHEN (CAST((MOD(AVG(${problem_age_seconds}), 3600) / NULLIF(60, 0)) AS INT64) < 10) THEN '0' ELSE '' END) || CAST(CAST((MOD(AVG(${problem_age_seconds}), 3600) / NULLIF(60, 0)) AS INT64) AS STRING)) || ':') || CASE WHEN (CAST(MOD(MOD(AVG(${problem_age_seconds}), 3600), 60) AS INT64) < 10) THEN '0' ELSE '' END) || CAST(CAST(MOD(MOD(AVG(${problem_age_seconds}), 3600), 60) AS INT64) AS STRING)) ;;
+
+
     # Original Tableau formula: // This is a calculated field // It transforms time in seconds in DD:HH:MM:SS format STR(INT(AVG([Calculation_1103944901411389444])/86400)) + " day(s) " + IF (INT(AVG([Calculation_1103944901411389444])%86400/3600)) < 10 THEN "0" ELSE "" END + STR(INT(AVG([Calculation_1103944901411389444])%86400/3600)) + ":" + IF INT(AVG([Calculation_1103944901411389444])%3600/60) < 10 THEN "0" ELSE "" END + STR(INT(AVG([Calculation_1103944901411389444])%3600/60)) + ":" + IF INT(AVG([Calculation_1103944901411389444]) %3600 %60) < 10 THEN "0" ELSE "" END + STR(INT(AVG([Calculation_1103944901411389444]) %3600 %60))
   }
 
@@ -1505,38 +1507,50 @@ view: problem_tracker_ven01911 {
     # Original Tableau formula: //Calc generates individual links to each one of the problems in the system //Please note that the same problem can appear more than once "https://"+[Calculation_890586873171009545]+".service-now.com/nav_to.do?uri=problem.do?sys_id="+[Sys_ID]
   }
 
-  measure: percent_not_worked_90_days {
+measure: percent_not_worked_90_days {
     description: "Calculated field: // This is a calculated field //It shows the percentage of problems which is more than 90 days old COUNTD(IF [Calculation_217580207391584262]= \"+ than 90d\" THEN [Number] END)/ COUNTD([Number])"
-    type: number
+    type: sum
     sql: ${percent_not_worked_90_days_calc} ;;
+    value_format_name: percent_1
+
+
     # Original Tableau formula: // This is a calculated field //It shows the percentage of problems which is more than 90 days old COUNTD(IF [Calculation_217580207391584262]= "+ than 90d" THEN [Number] END)/ COUNTD([Number])
   }
 
-  measure: percent_with_related_incident {
+measure: percent_with_related_incident {
     description: "Calculated field: // This is a calculated field //It shows the percentage of problems which has a related incident COUNTD(IF [Related_Incidents]>0 THEN [Number] END)/ COUNTD([Number])"
-    type: number
+    type: sum
     sql: ${percent_with_related_incident_calc} ;;
+    value_format_name: percent_1
+
+
     # Original Tableau formula: // This is a calculated field //It shows the percentage of problems which has a related incident COUNTD(IF [Related_Incidents]>0 THEN [Number] END)/ COUNTD([Number])
   }
 
-  measure: show_group {
+measure: show_group {
     description: "Calculated field: // This is a calculated field // It shows the name of a group when the dashboard is filtered IF COUNTD([Name])=1 THEN ATTR([Name]) ELSE \"Showing All Groups\" END"
-    type: number
+    type: sum
     sql: ${show_group_calc} ;;
+
+
     # Original Tableau formula: // This is a calculated field // It shows the name of a group when the dashboard is filtered IF COUNTD([Name])=1 THEN ATTR([Name]) ELSE "Showing All Groups" END
   }
 
-  measure: known_errors {
+measure: known_errors {
     description: "Calculated field: // This is a calculated field // It shows the percentage of problems which are known errors COUNTD(IF [Known_error] = TRUE THEN [Number] END) / COUNT([Number])"
     type: number
-    sql: ${known_errors_calc} ;;
+    sql: (COUNT(DISTINCT CASE WHEN (${TABLE}.`Known_error` = TRUE) THEN ${TABLE}.`Number` ELSE NULL END) / NULLIF(COUNT(${TABLE}.`Number`), 0)) ;;
+
+
     # Original Tableau formula: // This is a calculated field // It shows the percentage of problems which are known errors COUNTD(IF [Known_error] = TRUE THEN [Number] END) / COUNT([Number])
   }
 
-  measure: problem_age_seconds {
+measure: problem_age_seconds {
     description: "Calculated field: // This is a calculated field // It returns the difference in seconds between opening a problem and now { FIXED [Number]: DATEDIFF(\"second\", max([Opened]), NOW())}"
     type: number
     sql: (SELECT DATETIME_DIFF(CURRENT_TIMESTAMP(), MAX(${TABLE}.`Opened`), SECOND) FROM ${TABLE} GROUP BY `Number`) ;;
+
+
     # Original Tableau formula: // This is a calculated field // It returns the difference in seconds between opening a problem and now { FIXED [Number]: DATEDIFF("second", max([Opened]), NOW())}
   }
 
@@ -1557,21 +1571,27 @@ view: problem_tracker_ven01911 {
   dimension: filter_by_related_incident {
     description: "Calculated field: // This is a calculated field containing a level of detail expression (LOD) // It shows true if a problems has one or more associated incidents IIF({ FIXED [Number]: MAX([Related_Incidents])}>0, \"TRUE\", \"FALSE\")"
     type: string
-    sql: IIF(((SELECT MAX(${TABLE}.`Related_Incidents`) FROM ${TABLE} GROUP BY `Number`) > 0), 'TRUE', 'FALSE') ;;
+    sql: 'MIGRATION_REQUIRED' ;;
     # Original Tableau formula: // This is a calculated field containing a level of detail expression (LOD) // It shows true if a problems has one or more associated incidents IIF({ FIXED [Number]: MAX([Related_Incidents])}>0, "TRUE", "FALSE")
   }
 
-  measure: active_total {
+measure: active_total {
     description: "Calculated field: // This is a calculated field // It counts each distinct problem which is still active COUNTD (IF [Active]=TRUE THEN [Number] END)"
-    type: number
+    type: sum
     sql: ${active_total_calc} ;;
+    value_format_name: decimal_0
+
+
     # Original Tableau formula: // This is a calculated field // It counts each distinct problem which is still active COUNTD (IF [Active]=TRUE THEN [Number] END)
   }
 
-  measure: incidents_attached {
+measure: incidents_attached {
     description: "Calculated field: // This is a calculated field // It counts each distinct incident attached to a problem COUNTD([Number__Incident_])"
-    type: number
+    type: sum
     sql: ${incidents_attached_calc} ;;
+    value_format_name: decimal_0
+
+
     # Original Tableau formula: // This is a calculated field // It counts each distinct incident attached to a problem COUNTD([Number__Incident_])
   }
 
@@ -1582,11 +1602,82 @@ view: problem_tracker_ven01911 {
     # Original Tableau formula: // This is a calculated field // It gets any value typed in the parameter "Instance Name" [Parameters].[Parameter 1]
   }
 
-  measure: count_distinct_number {
-    description: "Calculated field: COUNTD([Number])"
+measure: problem_age_seconds_avg_derived {
+    description: "Calculated field: AVG([Calculation_1103944901411389444])"
     type: number
-    sql: ${count_distinct_number_calc} ;;
+    sql: AVG(${problem_age_seconds}) ;;
+
+
+    # Original Tableau formula: AVG([Calculation_1103944901411389444])
+  }
+
+measure: none_countd_derived {
+    description: "Calculated field: COUNTD([Number])"
+    type: countd
+    sql: ${none_countd_derived_calc} ;;
+
+
     # Original Tableau formula: COUNTD([Number])
+  }
+
+  dimension: none_my_derived {
+    description: "Calculated field: STR(DATEPART('month', [Opened])) + '-' + STR(YEAR([Opened]))"
+    type: string
+    sql: ((CAST(EXTRACT(MONTH FROM ${TABLE}.`Opened`) AS STRING) || '-') || CAST(EXTRACT(YEAR FROM ${TABLE}.`Opened`) AS STRING)) ;;
+    # Original Tableau formula: STR(DATEPART('month', [Opened])) + '-' + STR(YEAR([Opened]))
+  }
+
+  dimension: none_day_trunc_derived {
+    description: "Calculated field: DATETRUNC('day', [Opened])"
+    type: string
+    sql: DATE_TRUNC(${TABLE}.`Opened`, day) ;;
+    # Original Tableau formula: DATETRUNC('day', [Opened])
+  }
+
+  dimension: average_age_dd_hh_mm_ss_user_derived {
+    description: "Calculated field: [Average Time to Close (DD:HH:MM:SS) (copy)]"
+    type: string
+    sql: ${average_age_dd_hh_mm_ss} ;;
+    # Original Tableau formula: [Average Time to Close (DD:HH:MM:SS) (copy)]
+  }
+
+  dimension: show_group_user_derived {
+    description: "Calculated field: [Calculation_103301369045991432]"
+    type: string
+    sql: ${show_group_calc} ;;
+    # Original Tableau formula: [Calculation_103301369045991432]
+  }
+
+measure: none_countd_derived_2 {
+    description: "Calculated field: COUNTD([Number])"
+    type: countd
+    sql: ${none_countd_derived_2_calc} ;;
+
+
+    # Original Tableau formula: COUNTD([Number])
+  }
+
+  dimension: none_attribute_derived {
+    description: "Calculated field: ATTR([Description])"
+    type: string
+    sql: (SELECT CASE WHEN MIN(${TABLE}.`Description`) IS NULL THEN NULL WHEN MIN(${TABLE}.`Description`) = MAX(${TABLE}.`Description`) THEN MIN(${TABLE}.`Description`) ELSE '*' END FROM `elastic-pocs.Super_Store_Sales.Problem Tracker Ven01911` as Problem Tracker Ven01911) ;;
+    # Original Tableau formula: ATTR([Description])
+  }
+
+measure: none_day_trunc_derived_2 {
+    description: "Calculated field: DATETRUNC('day', [Opened])"
+    type: sum
+    sql: ${none_day_trunc_derived_2_calc} ;;
+
+
+    # Original Tableau formula: DATETRUNC('day', [Opened])
+  }
+
+  dimension: none_attribute_derived_2 {
+    description: "Calculated field: ATTR([Opened__Incident_])"
+    type: string
+    sql: (SELECT CASE WHEN MIN(${TABLE}.`Opened__Incident_`) IS NULL THEN NULL WHEN MIN(${TABLE}.`Opened__Incident_`) = MAX(${TABLE}.`Opened__Incident_`) THEN MIN(${TABLE}.`Opened__Incident_`) ELSE '*' END FROM `elastic-pocs.Super_Store_Sales.Problem Tracker Ven01911` as Problem Tracker Ven01911) ;;
+    # Original Tableau formula: ATTR([Opened__Incident_])
   }
 
   # Measures
@@ -1595,6 +1686,7 @@ view: problem_tracker_ven01911 {
     description: "Problem state"
     type: sum
     sql: ${problem_state_raw} ;;
+    value_format_name: decimal_0
     label: "Problem state"
   }
 
@@ -1602,6 +1694,7 @@ view: problem_tracker_ven01911 {
     description: "Business resolve time"
     type: sum
     sql: ${business_resolve_time_raw} ;;
+    value_format_name: decimal_0
     label: "Business resolve time"
   }
 
@@ -1609,6 +1702,7 @@ view: problem_tracker_ven01911 {
     description: "Child Incidents"
     type: sum
     sql: ${child_incidents_raw} ;;
+    value_format_name: decimal_0
     label: "Child Incidents"
   }
 
@@ -1616,6 +1710,7 @@ view: problem_tracker_ven01911 {
     description: "Original name: [Escalation]"
     type: sum
     sql: ${escalation_raw} ;;
+    value_format_name: decimal_0
     label: "Escalation"
   }
 
@@ -1623,6 +1718,7 @@ view: problem_tracker_ven01911 {
     description: "Original name: [Escalation__Incident_]"
     type: sum
     sql: ${escalation_incident_raw} ;;
+    value_format_name: decimal_0
     label: "Escalation  Incident "
   }
 
@@ -1630,6 +1726,7 @@ view: problem_tracker_ven01911 {
     description: "Original name: [Impact]"
     type: sum
     sql: ${impact_raw} ;;
+    value_format_name: decimal_0
     label: "Impact"
   }
 
@@ -1637,6 +1734,7 @@ view: problem_tracker_ven01911 {
     description: "Original name: [Impact__Incident_]"
     type: sum
     sql: ${impact_incident_raw} ;;
+    value_format_name: decimal_0
     label: "Impact  Incident "
   }
 
@@ -1644,6 +1742,7 @@ view: problem_tracker_ven01911 {
     description: "Incident state"
     type: sum
     sql: ${incident_state_raw} ;;
+    value_format_name: decimal_0
     label: "Incident state"
   }
 
@@ -1651,6 +1750,7 @@ view: problem_tracker_ven01911 {
     description: "Original name: [Notify]"
     type: sum
     sql: ${notify_raw} ;;
+    value_format_name: decimal_0
     label: "Notify"
   }
 
@@ -1658,6 +1758,7 @@ view: problem_tracker_ven01911 {
     description: "Original name: [Order]"
     type: sum
     sql: ${order_raw} ;;
+    value_format_name: decimal_0
     label: "Order"
   }
 
@@ -1665,6 +1766,7 @@ view: problem_tracker_ven01911 {
     description: "Original name: [Order__Incident_]"
     type: sum
     sql: ${order_incident_raw} ;;
+    value_format_name: decimal_0
     label: "Order  Incident "
   }
 
@@ -1672,6 +1774,7 @@ view: problem_tracker_ven01911 {
     description: "Original name: [Priority__Incident_]"
     type: sum
     sql: ${priority_incident_raw} ;;
+    value_format_name: decimal_0
     label: "Priority  Incident "
   }
 
@@ -1679,6 +1782,7 @@ view: problem_tracker_ven01911 {
     description: "Reassignment count"
     type: sum
     sql: ${reassignment_count_raw} ;;
+    value_format_name: decimal_0
     label: "Reassignment count"
   }
 
@@ -1686,6 +1790,7 @@ view: problem_tracker_ven01911 {
     description: "Original name: [Reassignment_count__Incident_]"
     type: sum
     sql: ${reassignment_count_incident_raw} ;;
+    value_format_name: decimal_0
     label: "Reassignment count  Incident "
   }
 
@@ -1693,6 +1798,7 @@ view: problem_tracker_ven01911 {
     description: "Related Incidents"
     type: sum
     sql: ${related_incidents_raw} ;;
+    value_format_name: decimal_0
     label: "Related Incidents"
   }
 
@@ -1700,6 +1806,7 @@ view: problem_tracker_ven01911 {
     description: "Reopen count"
     type: sum
     sql: ${reopen_count_raw} ;;
+    value_format_name: decimal_0
     label: "Reopen count"
   }
 
@@ -1707,6 +1814,7 @@ view: problem_tracker_ven01911 {
     description: "Resolve time"
     type: sum
     sql: ${resolve_time_raw} ;;
+    value_format_name: decimal_0
     label: "Resolve time"
   }
 
@@ -1714,6 +1822,7 @@ view: problem_tracker_ven01911 {
     description: "Original name: [Severity]"
     type: sum
     sql: ${severity_raw} ;;
+    value_format_name: decimal_0
     label: "Severity"
   }
 
@@ -1721,6 +1830,7 @@ view: problem_tracker_ven01911 {
     description: "Original name: [State]"
     type: sum
     sql: ${state_raw} ;;
+    value_format_name: decimal_0
     label: "State"
   }
 
@@ -1728,6 +1838,7 @@ view: problem_tracker_ven01911 {
     description: "Original name: [State__Incident_]"
     type: sum
     sql: ${state_incident_raw} ;;
+    value_format_name: decimal_0
     label: "State  Incident "
   }
 
@@ -1735,6 +1846,7 @@ view: problem_tracker_ven01911 {
     description: "Original name: [Updates]"
     type: sum
     sql: ${updates_raw} ;;
+    value_format_name: decimal_0
     label: "Updates"
   }
 
@@ -1742,6 +1854,7 @@ view: problem_tracker_ven01911 {
     description: "Original name: [Updates__Group_]"
     type: sum
     sql: ${updates_group_raw} ;;
+    value_format_name: decimal_0
     label: "Updates  Group "
   }
 
@@ -1749,6 +1862,7 @@ view: problem_tracker_ven01911 {
     description: "Original name: [Updates__Incident_]"
     type: sum
     sql: ${updates_incident_raw} ;;
+    value_format_name: decimal_0
     label: "Updates  Incident "
   }
 
@@ -1756,6 +1870,7 @@ view: problem_tracker_ven01911 {
     description: "Original name: [Urgency]"
     type: sum
     sql: ${urgency_raw} ;;
+    value_format_name: decimal_0
     label: "Urgency"
   }
 
@@ -1763,6 +1878,7 @@ view: problem_tracker_ven01911 {
     description: "Original name: [Urgency__Incident_]"
     type: sum
     sql: ${urgency_incident_raw} ;;
+    value_format_name: decimal_0
     label: "Urgency  Incident "
   }
 
