@@ -5,19 +5,16 @@
   elements:
   - title: "Group Name"
     name: group_name
-    model: bigquery_super_store_sales_model_generated_20251012_211636
+    model: bigquery_super_store_sales_model_generated_20251013_055255
     explore: problem_tracker_ven01911
     type: looker_column
-    fields: [problem_tracker_ven01911.show_group_user_derived,
-problem_tracker_ven01911.none_my_derived,
+    fields: [problem_tracker_ven01911.None,
+problem_tracker_ven01911.opened,
 problem_tracker_ven01911.active,
-problem_tracker_ven01911.filter_by_related_incident,
-problem_tracker_ven01911.name,
-problem_tracker_ven01911.none_day_trunc_derived]
+problem_tracker_ven01911.name]
     filters:
       problem_tracker_ven01911.active: true
-    sorts: [problem_tracker_ven01911.none_my_derived,
-problem_tracker_ven01911.none_day_trunc_derived]
+    sorts: [problem_tracker_ven01911.opened]
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -32,15 +29,10 @@ problem_tracker_ven01911.none_day_trunc_derived]
 
   - title: "Active Problems:"
     name: summary
-    model: bigquery_super_store_sales_model_generated_20251012_211636
+    model: bigquery_super_store_sales_model_generated_20251013_055255
     explore: problem_tracker_ven01911
     type: looker_grid
-    fields: [problem_tracker_ven01911.average_age_dd_hh_mm_ss_user_derived,
-problem_tracker_ven01911.percent_not_worked_90_days,
-problem_tracker_ven01911.percent_with_related_incident,
-problem_tracker_ven01911.known_errors,
-problem_tracker_ven01911.active_total,
-problem_tracker_ven01911.incidents_attached]
+    fields: [problem_tracker_ven01911.None]
     filters:
       problem_tracker_ven01911.active: true
     header_background_color: "#f2f2f3"
@@ -53,20 +45,18 @@ problem_tracker_ven01911.incidents_attached]
 
   - title: "Æ"
     name: opened_day_of_active_problems
-    model: bigquery_super_store_sales_model_generated_20251012_211636
+    model: bigquery_super_store_sales_model_generated_20251013_055255
     explore: problem_tracker_ven01911
     type: looker_column
-    fields: [problem_tracker_ven01911.none_countd_derived,
-problem_tracker_ven01911.none_day_trunc_derived_2,
-problem_tracker_ven01911.none_my_derived,
+    fields: [problem_tracker_ven01911.number,
+problem_tracker_ven01911.opened,
 problem_tracker_ven01911.active,
-problem_tracker_ven01911.filter_by_related_incident,
+problem_tracker_ven01911.None,
 problem_tracker_ven01911.name]
     filters:
       problem_tracker_ven01911.active: true
-    sorts: [problem_tracker_ven01911.none_day_trunc_derived_2,
-problem_tracker_ven01911.none_my_derived,
-problem_tracker_ven01911.none_countd_derived]
+    sorts: [problem_tracker_ven01911.opened,
+problem_tracker_ven01911.number]
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -81,22 +71,17 @@ problem_tracker_ven01911.none_countd_derived]
 
   - title: "Last Update"
     name: last_update
-    model: bigquery_super_store_sales_model_generated_20251012_211636
+    model: bigquery_super_store_sales_model_generated_20251013_055255
     explore: problem_tracker_ven01911
     type: looker_column
-    fields: [problem_tracker_ven01911.time_span_breakdown,
-problem_tracker_ven01911.none_countd_derived,
-problem_tracker_ven01911.none_my_derived,
+    fields: [problem_tracker_ven01911.None,
+problem_tracker_ven01911.number,
+problem_tracker_ven01911.opened,
 problem_tracker_ven01911.active,
-problem_tracker_ven01911.filter_by_related_incident,
-problem_tracker_ven01911.name,
-problem_tracker_ven01911.none_countd_derived_2,
-problem_tracker_ven01911.none_day_trunc_derived]
+problem_tracker_ven01911.name]
     filters:
       problem_tracker_ven01911.active: true
-    sorts: [problem_tracker_ven01911.none_my_derived,
-problem_tracker_ven01911.none_day_trunc_derived,
-problem_tracker_ven01911.time_span_breakdown]
+    sorts: [problem_tracker_ven01911.opened]
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -111,18 +96,18 @@ problem_tracker_ven01911.time_span_breakdown]
 
   - title: "<Sheet Name>|"
     name: breakdown_by_priority
-    model: bigquery_super_store_sales_model_generated_20251012_211636
+    model: bigquery_super_store_sales_model_generated_20251013_055255
     explore: problem_tracker_ven01911
     type: looker_column
-    fields: [problem_tracker_ven01911.problem_age_seconds_avg_derived,
-problem_tracker_ven01911.none_countd_derived,
+    fields: [problem_tracker_ven01911.None,
+problem_tracker_ven01911.number,
 problem_tracker_ven01911.priority]
-    pivots: [problem_tracker_ven01911.problem_age_seconds_avg_derived]
+    pivots: [problem_tracker_ven01911.None]
     stacking: normal
     filters:
       problem_tracker_ven01911.active: true
-    sorts: [problem_tracker_ven01911.problem_age_seconds_avg_derived,
-problem_tracker_ven01911.none_countd_derived]
+    sorts: [problem_tracker_ven01911.None,
+problem_tracker_ven01911.number]
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -137,29 +122,21 @@ problem_tracker_ven01911.none_countd_derived]
 
   - title: "Æ"
     name: list_of_problems
-    model: bigquery_super_store_sales_model_generated_20251012_211636
+    model: bigquery_super_store_sales_model_generated_20251013_055255
     explore: problem_tracker_ven01911
     type: looker_column
-    fields: [problem_tracker_ven01911.related_incident,
+    fields: [problem_tracker_ven01911.None,
 problem_tracker_ven01911.number,
 problem_tracker_ven01911.opened,
 problem_tracker_ven01911.short_description,
-problem_tracker_ven01911.none_attribute_derived,
-problem_tracker_ven01911.none_my_derived,
+problem_tracker_ven01911.description,
 problem_tracker_ven01911.active,
-problem_tracker_ven01911.ticket_url,
-problem_tracker_ven01911.filter_by_related_incident,
-problem_tracker_ven01911.name,
-problem_tracker_ven01911.none_day_trunc_derived]
+problem_tracker_ven01911.name]
     filters:
       problem_tracker_ven01911.active: true
     sorts: [problem_tracker_ven01911.opened,
-problem_tracker_ven01911.none_my_derived,
-problem_tracker_ven01911.none_day_trunc_derived,
-problem_tracker_ven01911.related_incident,
 problem_tracker_ven01911.number,
-problem_tracker_ven01911.short_description,
-problem_tracker_ven01911.filter_by_related_incident]
+problem_tracker_ven01911.short_description]
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -174,15 +151,15 @@ problem_tracker_ven01911.filter_by_related_incident]
 
   - title: "Æ"
     name: related_incidents
-    model: bigquery_super_store_sales_model_generated_20251012_211636
+    model: bigquery_super_store_sales_model_generated_20251013_055255
     explore: problem_tracker_ven01911
     type: looker_grid
-    fields: [problem_tracker_ven01911.none_attribute_derived_2,
+    fields: [problem_tracker_ven01911.opened_incident,
 problem_tracker_ven01911.number_incident,
 problem_tracker_ven01911.short_description_incident]
     filters:
       problem_tracker_ven01911.active: true
-    sorts: [problem_tracker_ven01911.none_attribute_derived_2,
+    sorts: [problem_tracker_ven01911.opened_incident,
 problem_tracker_ven01911.number_incident]
     table_theme: "white"
     limit: 500
