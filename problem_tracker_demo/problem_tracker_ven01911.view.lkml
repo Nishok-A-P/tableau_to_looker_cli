@@ -1425,191 +1425,259 @@ view: problem_tracker_ven01911 {
 
   # Two-step Pattern Dimensions (hidden calculation dimensions)
 
+  dimension: percent_not_worked_90_days_calc {
+    description: "Row-level calculation for percent_not_worked_90_days: // This is a calculated field //It shows the percentage of problems which is more than 90 days old COUNTD(IF [Calculation_217580207391584262]= \"+ than 90d\" THEN [Number] END)/ COUNTD([Number])"
+    type: number
+    sql: (COUNT(DISTINCT CASE WHEN (${time_span_breakdown} = '+ than 90d') THEN ${TABLE}.`Number` ELSE NULL END) / NULLIF(COUNT(DISTINCT ${TABLE}.`Number`), 0)) ;;
+    hidden: yes
+    # Original Tableau formula: // This is a calculated field //It shows the percentage of problems which is more than 90 days old COUNTD(IF [Calculation_217580207391584262]= "+ than 90d" THEN [Number] END)/ COUNTD([Number])
+  }
+
+  dimension: percent_with_related_incident_calc {
+    description: "Row-level calculation for percent_with_related_incident: // This is a calculated field //It shows the percentage of problems which has a related incident COUNTD(IF [Related_Incidents]>0 THEN [Number] END)/ COUNTD([Number])"
+    type: number
+    sql: (COUNT(DISTINCT CASE WHEN (${TABLE}.`Related_Incidents` > 0) THEN ${TABLE}.`Number` ELSE NULL END) / NULLIF(COUNT(DISTINCT ${TABLE}.`Number`), 0)) ;;
+    hidden: yes
+    # Original Tableau formula: // This is a calculated field //It shows the percentage of problems which has a related incident COUNTD(IF [Related_Incidents]>0 THEN [Number] END)/ COUNTD([Number])
+  }
+
+  dimension: show_group_calc {
+    description: "Row-level calculation for show_group: // This is a calculated field // It shows the name of a group when the dashboard is filtered IF COUNTD([Name])=1 THEN ATTR([Name]) ELSE \"Showing All Groups\" END"
+    type: number
+    sql: /* Conversion error: argument of type 'NoneType' is not iterable */ ;;
+    hidden: yes
+    # Original Tableau formula: // This is a calculated field // It shows the name of a group when the dashboard is filtered IF COUNTD([Name])=1 THEN ATTR([Name]) ELSE "Showing All Groups" END
+  }
+
+  dimension: active_total_calc {
+    description: "Row-level calculation for active_total: // This is a calculated field // It counts each distinct problem which is still active COUNTD (IF [Active]=TRUE THEN [Number] END)"
+    type: number
+    sql: COUNT(DISTINCT CASE WHEN (${TABLE}.`Active` = TRUE) THEN ${TABLE}.`Number` ELSE NULL END) ;;
+    hidden: yes
+    # Original Tableau formula: // This is a calculated field // It counts each distinct problem which is still active COUNTD (IF [Active]=TRUE THEN [Number] END)
+  }
+
+  dimension: incidents_attached_calc {
+    description: "Row-level calculation for incidents_attached: // This is a calculated field // It counts each distinct incident attached to a problem COUNTD([Number__Incident_])"
+    type: number
+    sql: COUNT(DISTINCT ${TABLE}.`Number__Incident_`) ;;
+    hidden: yes
+    # Original Tableau formula: // This is a calculated field // It counts each distinct incident attached to a problem COUNTD([Number__Incident_])
+  }
+
+  dimension: none_countd_derived_calc {
+    description: "Row-level calculation for none_countd_derived: COUNTD([Number])"
+    type: number
+    sql: COUNT(DISTINCT ${TABLE}.`Number`) ;;
+    hidden: yes
+    # Original Tableau formula: COUNTD([Number])
+  }
+
+  dimension: none_countd_derived_2_calc {
+    description: "Row-level calculation for none_countd_derived_2: COUNTD([Number])"
+    type: number
+    sql: COUNT(DISTINCT ${TABLE}.`Number`) ;;
+    hidden: yes
+    # Original Tableau formula: COUNTD([Number])
+  }
+
+  dimension: none_day_trunc_derived_2_calc {
+    description: "Row-level calculation for none_day_trunc_derived_2: DATETRUNC('day', [Opened])"
+    type: number
+    sql: DATE_TRUNC(${TABLE}.`Opened`, day) ;;
+    hidden: yes
+    # Original Tableau formula: DATETRUNC('day', [Opened])
+  }
+
   # Calculated Fields (from Tableau formulas)
 
-measure: average_time_to_close_dd_hh_mm_ss_copy_ {
-    description: "MIGRATION ERROR - Manual conversion required"
+measure: average_age_dd_hh_mm_ss {
+    description: "Calculated field: // This is a calculated field // It transforms time in seconds in DD:HH:MM:SS format STR(INT(AVG([Calculation_1103944901411389444])/86400)) + \" day(s) \" + IF (INT(AVG([Calculation_1103944901411389444])%86400/3600)) < 10 THEN \"0\" ELSE \"\" END + STR(INT(AVG([Calculation_1103944901411389444])%86400/3600)) + \":\" + IF INT(AVG([Calculation_1103944901411389444])%3600/60) < 10 THEN \"0\" ELSE \"\" END + STR(INT(AVG([Calculation_1103944901411389444])%3600/60)) + \":\" + IF INT(AVG([Calculation_1103944901411389444]) %3600 %60) < 10 THEN \"0\" ELSE \"\" END + STR(INT(AVG([Calculation_1103944901411389444]) %3600 %60))"
     type: number
-    sql: 'MIGRATION_REQUIRED' ;;
+    sql: (((((((((CAST(CAST((AVG(${problem_age_seconds}) / NULLIF(86400, 0)) AS INT64) AS STRING) || ' day(s) ') || CASE WHEN (CAST((MOD(AVG(${problem_age_seconds}), 86400) / NULLIF(3600, 0)) AS INT64) < 10) THEN '0' ELSE '' END) || CAST(CAST((MOD(AVG(${problem_age_seconds}), 86400) / NULLIF(3600, 0)) AS INT64) AS STRING)) || ':') || CASE WHEN (CAST((MOD(AVG(${problem_age_seconds}), 3600) / NULLIF(60, 0)) AS INT64) < 10) THEN '0' ELSE '' END) || CAST(CAST((MOD(AVG(${problem_age_seconds}), 3600) / NULLIF(60, 0)) AS INT64) AS STRING)) || ':') || CASE WHEN (CAST(MOD(MOD(AVG(${problem_age_seconds}), 3600), 60) AS INT64) < 10) THEN '0' ELSE '' END) || CAST(CAST(MOD(MOD(AVG(${problem_age_seconds}), 3600), 60) AS INT64) AS STRING)) ;;
 
 
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: // This is a calculated field // It transforms time in seconds in DD:HH:MM:SS format STR(INT(AVG([Calculation_1103944901411389444])/86400)) + " day(s) " + IF (INT(AVG([Calculation_1103944901411389444])%86400/3600)) < 10 THEN "0" ELSE "" END + STR(INT(AVG([Calculation_1103944901411389444])%86400/3600)) + ":" + IF INT(AVG([Calculation_1103944901411389444])%3600/60) < 10 THEN "0" ELSE "" END + STR(INT(AVG([Calculation_1103944901411389444])%3600/60)) + ":" + IF INT(AVG([Calculation_1103944901411389444]) %3600 %60) < 10 THEN "0" ELSE "" END + STR(INT(AVG([Calculation_1103944901411389444]) %3600 %60)) CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
+    # Original Tableau formula: // This is a calculated field // It transforms time in seconds in DD:HH:MM:SS format STR(INT(AVG([Calculation_1103944901411389444])/86400)) + " day(s) " + IF (INT(AVG([Calculation_1103944901411389444])%86400/3600)) < 10 THEN "0" ELSE "" END + STR(INT(AVG([Calculation_1103944901411389444])%86400/3600)) + ":" + IF INT(AVG([Calculation_1103944901411389444])%3600/60) < 10 THEN "0" ELSE "" END + STR(INT(AVG([Calculation_1103944901411389444])%3600/60)) + ":" + IF INT(AVG([Calculation_1103944901411389444]) %3600 %60) < 10 THEN "0" ELSE "" END + STR(INT(AVG([Calculation_1103944901411389444]) %3600 %60))
   }
 
-  dimension: calculation_103301369039564804 {
-    description: "MIGRATION ERROR - Manual conversion required"
+  dimension: ticket_url {
+    description: "Calculated field: //Calc generates individual links to each one of the problems in the system //Please note that the same problem can appear more than once \"https://\"+[Calculation_890586873171009545]+\".service-now.com/nav_to.do?uri=problem.do?sys_id=\"+[Sys_ID]"
+    type: string
+    sql: ((('https://' || ${instance_name}) || '.service-now.com/nav_to.do?uri=problem.do?sys_id=') || ${TABLE}.`Sys_ID`) ;;
+    # Original Tableau formula: //Calc generates individual links to each one of the problems in the system //Please note that the same problem can appear more than once "https://"+[Calculation_890586873171009545]+".service-now.com/nav_to.do?uri=problem.do?sys_id="+[Sys_ID]
+  }
+
+measure: percent_not_worked_90_days {
+    description: "Calculated field: // This is a calculated field //It shows the percentage of problems which is more than 90 days old COUNTD(IF [Calculation_217580207391584262]= \"+ than 90d\" THEN [Number] END)/ COUNTD([Number])"
+    type: sum
+    sql: ${percent_not_worked_90_days_calc} ;;
+    value_format_name: percent_1
+
+
+    # Original Tableau formula: // This is a calculated field //It shows the percentage of problems which is more than 90 days old COUNTD(IF [Calculation_217580207391584262]= "+ than 90d" THEN [Number] END)/ COUNTD([Number])
+  }
+
+measure: percent_with_related_incident {
+    description: "Calculated field: // This is a calculated field //It shows the percentage of problems which has a related incident COUNTD(IF [Related_Incidents]>0 THEN [Number] END)/ COUNTD([Number])"
+    type: sum
+    sql: ${percent_with_related_incident_calc} ;;
+    value_format_name: percent_1
+
+
+    # Original Tableau formula: // This is a calculated field //It shows the percentage of problems which has a related incident COUNTD(IF [Related_Incidents]>0 THEN [Number] END)/ COUNTD([Number])
+  }
+
+measure: show_group {
+    description: "Calculated field: // This is a calculated field // It shows the name of a group when the dashboard is filtered IF COUNTD([Name])=1 THEN ATTR([Name]) ELSE \"Showing All Groups\" END"
+    type: sum
+    sql: ${show_group_calc} ;;
+
+
+    # Original Tableau formula: // This is a calculated field // It shows the name of a group when the dashboard is filtered IF COUNTD([Name])=1 THEN ATTR([Name]) ELSE "Showing All Groups" END
+  }
+
+measure: known_errors {
+    description: "Calculated field: // This is a calculated field // It shows the percentage of problems which are known errors COUNTD(IF [Known_error] = TRUE THEN [Number] END) / COUNT([Number])"
+    type: number
+    sql: (COUNT(DISTINCT CASE WHEN (${TABLE}.`Known_error` = TRUE) THEN ${TABLE}.`Number` ELSE NULL END) / NULLIF(COUNT(${TABLE}.`Number`), 0)) ;;
+
+
+    # Original Tableau formula: // This is a calculated field // It shows the percentage of problems which are known errors COUNTD(IF [Known_error] = TRUE THEN [Number] END) / COUNT([Number])
+  }
+
+measure: problem_age_seconds {
+    description: "Calculated field: // This is a calculated field // It returns the difference in seconds between opening a problem and now { FIXED [Number]: DATEDIFF(\"second\", max([Opened]), NOW())}"
+    type: number
+    sql: (SELECT DATETIME_DIFF(CURRENT_TIMESTAMP(), MAX(${TABLE}.`Opened`), SECOND) FROM ${TABLE} GROUP BY `Number`) ;;
+
+
+    # Original Tableau formula: // This is a calculated field // It returns the difference in seconds between opening a problem and now { FIXED [Number]: DATEDIFF("second", max([Opened]), NOW())}
+  }
+
+  dimension: related_incident {
+    description: "Calculated field: // This is a calculated field //It adds a mark to all problems with related incidents IF { FIXED [Number]: SUM([Related_Incidents])}>0 THEN \"●\" ELSE \" \" END"
+    type: string
+    sql: CASE WHEN ((SELECT SUM(${TABLE}.`Related_Incidents`) FROM ${TABLE} GROUP BY `Number`) > 0) THEN '●' ELSE ' ' END ;;
+    # Original Tableau formula: // This is a calculated field //It adds a mark to all problems with related incidents IF { FIXED [Number]: SUM([Related_Incidents])}>0 THEN "●" ELSE " " END
+  }
+
+  dimension: time_span_breakdown {
+    description: "Calculated field: // This is a calculated field // It groups the problems accordingly their last update date IF DATEDIFF(\"day\", [Updated], TODAY()) < 30 THEN \"Under 30 d\" ELSEIF DATEDIFF(\"day\", [Updated], TODAY()) > 90 THEN \"+ than 90d\" ELSE \" 30-90 d\" END"
+    type: string
+    sql: CASE WHEN (DATE_DIFF(CURRENT_DATE(), ${TABLE}.`Updated`, DAY) < 30) THEN 'Under 30 d' ELSE CASE WHEN (DATE_DIFF(CURRENT_DATE(), ${TABLE}.`Updated`, DAY) > 90) THEN '+ than 90d' ELSE ' 30-90 d' END END ;;
+    # Original Tableau formula: // This is a calculated field // It groups the problems accordingly their last update date IF DATEDIFF("day", [Updated], TODAY()) < 30 THEN "Under 30 d" ELSEIF DATEDIFF("day", [Updated], TODAY()) > 90 THEN "+ than 90d" ELSE " 30-90 d" END
+  }
+
+  dimension: filter_by_related_incident {
+    description: "Calculated field: // This is a calculated field containing a level of detail expression (LOD) // It shows true if a problems has one or more associated incidents IIF({ FIXED [Number]: MAX([Related_Incidents])}>0, \"TRUE\", \"FALSE\")"
     type: string
     sql: 'MIGRATION_REQUIRED' ;;
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: //Calc generates individual links to each one of the problems in the system //Please note that the same problem can appear more than once "https://"+[Calculation_890586873171009545]+".service-now.com/nav_to.do?uri=problem.do?sys_id="+[Sys_ID] CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
+    # Original Tableau formula: // This is a calculated field containing a level of detail expression (LOD) // It shows true if a problems has one or more associated incidents IIF({ FIXED [Number]: MAX([Related_Incidents])}>0, "TRUE", "FALSE")
   }
 
-measure: calculation_103301369040953350 {
-    description: "MIGRATION ERROR - Manual conversion required"
-    type: number
-    sql: 'MIGRATION_REQUIRED' ;;
+measure: active_total {
+    description: "Calculated field: // This is a calculated field // It counts each distinct problem which is still active COUNTD (IF [Active]=TRUE THEN [Number] END)"
+    type: sum
+    sql: ${active_total_calc} ;;
+    value_format_name: decimal_0
 
 
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: // This is a calculated field //It shows the percentage of problems which is more than 90 days old COUNTD(IF [Calculation_217580207391584262]= "+ than 90d" THEN [Number] END)/ COUNTD([Number]) CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
+    # Original Tableau formula: // This is a calculated field // It counts each distinct problem which is still active COUNTD (IF [Active]=TRUE THEN [Number] END)
   }
 
-measure: calculation_103301369042079751 {
-    description: "MIGRATION ERROR - Manual conversion required"
-    type: number
-    sql: 'MIGRATION_REQUIRED' ;;
+measure: incidents_attached {
+    description: "Calculated field: // This is a calculated field // It counts each distinct incident attached to a problem COUNTD([Number__Incident_])"
+    type: sum
+    sql: ${incidents_attached_calc} ;;
+    value_format_name: decimal_0
 
 
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: // This is a calculated field //It shows the percentage of problems which has a related incident COUNTD(IF [Related_Incidents]>0 THEN [Number] END)/ COUNTD([Number]) CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
+    # Original Tableau formula: // This is a calculated field // It counts each distinct incident attached to a problem COUNTD([Number__Incident_])
   }
 
-measure: calculation_103301369045991432 {
-    description: "MIGRATION ERROR - Manual conversion required"
-    type: number
-    sql: 'MIGRATION_REQUIRED' ;;
-
-
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: // This is a calculated field // It shows the name of a group when the dashboard is filtered IF COUNTD([Name])=1 THEN ATTR([Name]) ELSE "Showing All Groups" END CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
-  }
-
-measure: calculation_1103944901396623360 {
-    description: "MIGRATION ERROR - Manual conversion required"
-    type: number
-    sql: 'MIGRATION_REQUIRED' ;;
-
-
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: // This is a calculated field // It shows the percentage of problems which are known errors COUNTD(IF [Known_error] = TRUE THEN [Number] END) / COUNT([Number]) CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
-  }
-
-measure: calculation_1103944901411389444 {
-    description: "MIGRATION ERROR - Manual conversion required"
-    type: number
-    sql: 'MIGRATION_REQUIRED' ;;
-
-
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: // This is a calculated field // It returns the difference in seconds between opening a problem and now { FIXED [Number]: DATEDIFF("second", max([Opened]), NOW())} CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
-  }
-
-  dimension: calculation_215891358984531970 {
-    description: "MIGRATION ERROR - Manual conversion required"
+  dimension: instance_name {
+    description: "Calculated field: // This is a calculated field // It gets any value typed in the parameter \"Instance Name\" [Parameters].[Parameter 1]"
     type: string
-    sql: 'MIGRATION_REQUIRED' ;;
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: // This is a calculated field //It adds a mark to all problems with related incidents IF { FIXED [Number]: SUM([Related_Incidents])}>0 THEN "●" ELSE " " END CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
-  }
-
-  dimension: calculation_217580207391584262 {
-    description: "MIGRATION ERROR - Manual conversion required"
-    type: string
-    sql: 'MIGRATION_REQUIRED' ;;
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: // This is a calculated field // It groups the problems accordingly their last update date IF DATEDIFF("day", [Updated], TODAY()) < 30 THEN "Under 30 d" ELSEIF DATEDIFF("day", [Updated], TODAY()) > 90 THEN "+ than 90d" ELSE " 30-90 d" END CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
-  }
-
-  dimension: calculation_398850066721071104 {
-    description: "MIGRATION ERROR - Manual conversion required"
-    type: string
-    sql: 'MIGRATION_REQUIRED' ;;
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: // This is a calculated field containing a level of detail expression (LOD) // It shows true if a problems has one or more associated incidents IIF({ FIXED [Number]: MAX([Related_Incidents])}>0, "TRUE", "FALSE") CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
-  }
-
-measure: calculation_623748571525746696 {
-    description: "MIGRATION ERROR - Manual conversion required"
-    type: number
-    sql: 'MIGRATION_REQUIRED' ;;
-
-
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: // This is a calculated field // It counts each distinct problem which is still active COUNTD (IF [Active]=TRUE THEN [Number] END) CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
-  }
-
-measure: calculation_833447429114990596 {
-    description: "MIGRATION ERROR - Manual conversion required"
-    type: number
-    sql: 'MIGRATION_REQUIRED' ;;
-
-
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: // This is a calculated field // It counts each distinct incident attached to a problem COUNTD([Number__Incident_]) CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
-  }
-
-  dimension: calculation_890586873171009545 {
-    description: "MIGRATION ERROR - Manual conversion required"
-    type: string
-    sql: 'MIGRATION_REQUIRED' ;;
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: // This is a calculated field // It gets any value typed in the parameter "Instance Name" [Parameters].[Parameter 1] CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
+    sql: {% parameter parameter_1 %} ;;
+    # Original Tableau formula: // This is a calculated field // It gets any value typed in the parameter "Instance Name" [Parameters].[Parameter 1]
   }
 
 measure: problem_age_seconds_avg_derived {
-    description: "MIGRATION ERROR - Manual conversion required"
+    description: "Calculated field: AVG([Calculation_1103944901411389444])"
     type: number
-    sql: 'MIGRATION_REQUIRED' ;;
+    sql: AVG(${problem_age_seconds}) ;;
 
 
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: AVG([Calculation_1103944901411389444]) CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
+    # Original Tableau formula: AVG([Calculation_1103944901411389444])
   }
 
 measure: none_countd_derived {
-    description: "MIGRATION ERROR - Manual conversion required"
-    type: number
-    sql: 'MIGRATION_REQUIRED' ;;
+    description: "Calculated field: COUNTD([Number])"
+    type: countd
+    sql: ${none_countd_derived_calc} ;;
 
 
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: COUNTD([Number]) CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
+    # Original Tableau formula: COUNTD([Number])
   }
 
   dimension: none_my_derived {
-    description: "MIGRATION ERROR - Manual conversion required"
+    description: "Calculated field: STR(DATEPART('month', [Opened])) + '-' + STR(YEAR([Opened]))"
     type: string
-    sql: 'MIGRATION_REQUIRED' ;;
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: STR(DATEPART('month', [Opened])) + '-' + STR(YEAR([Opened])) CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
+    sql: ((CAST(EXTRACT(MONTH FROM ${TABLE}.`Opened`) AS STRING) || '-') || CAST(EXTRACT(YEAR FROM ${TABLE}.`Opened`) AS STRING)) ;;
+    # Original Tableau formula: STR(DATEPART('month', [Opened])) + '-' + STR(YEAR([Opened]))
   }
 
   dimension: none_day_trunc_derived {
-    description: "MIGRATION ERROR - Manual conversion required"
+    description: "Calculated field: DATETRUNC('day', [Opened])"
     type: string
-    sql: 'MIGRATION_REQUIRED' ;;
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: DATETRUNC('day', [Opened]) CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
+    sql: DATE_TRUNC(${TABLE}.`Opened`, day) ;;
+    # Original Tableau formula: DATETRUNC('day', [Opened])
   }
 
   dimension: average_age_dd_hh_mm_ss_user_derived {
-    description: "MIGRATION ERROR - Manual conversion required"
+    description: "Calculated field: [Average Time to Close (DD:HH:MM:SS) (copy)]"
     type: string
-    sql: 'MIGRATION_REQUIRED' ;;
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: [Average Time to Close (DD:HH:MM:SS) (copy)] CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
+    sql: ${average_age_dd_hh_mm_ss} ;;
+    # Original Tableau formula: [Average Time to Close (DD:HH:MM:SS) (copy)]
   }
 
   dimension: show_group_user_derived {
-    description: "MIGRATION ERROR - Manual conversion required"
+    description: "Calculated field: [Calculation_103301369045991432]"
     type: string
-    sql: 'MIGRATION_REQUIRED' ;;
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: [Calculation_103301369045991432] CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
+    sql: ${show_group_calc} ;;
+    # Original Tableau formula: [Calculation_103301369045991432]
   }
 
 measure: none_countd_derived_2 {
-    description: "MIGRATION ERROR - Manual conversion required"
-    type: number
-    sql: 'MIGRATION_REQUIRED' ;;
+    description: "Calculated field: COUNTD([Number])"
+    type: countd
+    sql: ${none_countd_derived_2_calc} ;;
 
 
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: COUNTD([Number]) CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
+    # Original Tableau formula: COUNTD([Number])
   }
 
   dimension: none_attribute_derived {
-    description: "MIGRATION ERROR - Manual conversion required"
+    description: "Calculated field: ATTR([Description])"
     type: string
-    sql: 'MIGRATION_REQUIRED' ;;
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: ATTR([Description]) CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
+    sql: (SELECT CASE WHEN MIN(${TABLE}.`Description`) IS NULL THEN NULL WHEN MIN(${TABLE}.`Description`) = MAX(${TABLE}.`Description`) THEN MIN(${TABLE}.`Description`) ELSE '*' END FROM `elastic-pocs.Super_Store_Sales.Problem Tracker Ven01911` as Problem Tracker Ven01911) ;;
+    # Original Tableau formula: ATTR([Description])
   }
 
 measure: none_day_trunc_derived_2 {
-    description: "MIGRATION ERROR - Manual conversion required"
-    type: number
-    sql: 'MIGRATION_REQUIRED' ;;
+    description: "Calculated field: DATETRUNC('day', [Opened])"
+    type: sum
+    sql: ${none_day_trunc_derived_2_calc} ;;
 
 
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: DATETRUNC('day', [Opened]) CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
+    # Original Tableau formula: DATETRUNC('day', [Opened])
   }
 
   dimension: none_attribute_derived_2 {
-    description: "MIGRATION ERROR - Manual conversion required"
+    description: "Calculated field: ATTR([Opened__Incident_])"
     type: string
-    sql: 'MIGRATION_REQUIRED' ;;
-    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: ATTR([Opened__Incident_]) CONVERSION_ERROR: 'dict' object has no attribute 'replace' TODO: Manual migration required - please convert this formula manually
+    sql: (SELECT CASE WHEN MIN(${TABLE}.`Opened__Incident_`) IS NULL THEN NULL WHEN MIN(${TABLE}.`Opened__Incident_`) = MAX(${TABLE}.`Opened__Incident_`) THEN MIN(${TABLE}.`Opened__Incident_`) ELSE '*' END FROM `elastic-pocs.Super_Store_Sales.Problem Tracker Ven01911` as Problem Tracker Ven01911) ;;
+    # Original Tableau formula: ATTR([Opened__Incident_])
   }
 
   # Measures
