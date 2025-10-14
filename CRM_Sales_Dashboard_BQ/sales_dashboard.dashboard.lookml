@@ -224,4 +224,3 @@ temp_1xdgkb604lde4c1dck8u81ybp23p.None]
     col: 16
     width: 8
     height: 5
-
