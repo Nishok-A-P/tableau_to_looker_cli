@@ -5,24 +5,25 @@
   elements:
   - title: "Sales Seasonality"
     name: sales_seasonality
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_053633
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_074211
     explore: tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3
-    type: looker_grid
-    fields: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.sales_sum_derived_2,
-tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.week_number,
-tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.month_name,
-tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.qtr_number,
-tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.None,
-tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.calendar_year,
-tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.month_number,
-tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.sales_sum_derived_3]
+    type: looker_line
+    fields: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.week_number,
+tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.sales_sum_derived_2]
+    pivots: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.month_name]
+    stacking: normal
     filters:
       tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3. Qtr Number: 1
+    sorts: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.month_name]
     series_colors:
       "January": "#4e79a7"
       "March": "#e15759"
       "February": "#f28e2b"
-    table_theme: "white"
+    show_legend: true
+    legend_position: "bottom"
+    x_axis_label: true
+    y_axis_label: true
+    line_width: 2
     limit: 500
     column_limit: 50
     row: 0
@@ -32,7 +33,7 @@ tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.sales_sum_derived_3]
 
   - title: "Sales By Channel"
     name: sales_by_channel
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_053633
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_074211
     explore: tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3
     type: looker_grid
     fields: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.prod_category,
@@ -51,7 +52,7 @@ tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.prod_category]
 
   - title: "Customer Breakdown"
     name: customer_breakdown
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_053633
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_074211
     explore: tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3
     type: looker_column
     fields: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.cust_key_count_derived,
@@ -77,7 +78,7 @@ tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.country_subregion]
 
   - title: "Sales By Category"
     name: sales_by_category
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_053633
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_074211
     explore: tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3
     type: looker_column
     fields: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.channel_desc,
