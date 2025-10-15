@@ -5,7 +5,7 @@
   elements:
   - title: "Total Sales Value |"
     name: sales
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_171524
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_184601
     explore: temp_1xdgkb604lde4c1dck8u81ybp23p
     type: looker_column
     fields: [temp_1xdgkb604lde4c1dck8u81ybp23p.close_value_sum_derived,
@@ -26,7 +26,7 @@ temp_1xdgkb604lde4c1dck8u81ybp23p.close_date_month_derived]
 
   - title: "Won"
     name: won_v_s_lost
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_171524
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_184601
     explore: temp_1xdgkb604lde4c1dck8u81ybp23p
     type: looker_donut_multiples
     fields: [temp_1xdgkb604lde4c1dck8u81ybp23p.deal_stage,
@@ -55,7 +55,7 @@ temp_1xdgkb604lde4c1dck8u81ybp23p.close_value_parameter_sum_derived]
 
   - title: "Upsell"
     name: upsell_vs_existing
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_171524
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_184601
     explore: temp_0fnsx2f1mdcke9129kimy0nckn2v
     type: looker_column
     fields: [temp_0fnsx2f1mdcke9129kimy0nckn2v.pivot_field_values_sum_derived,
@@ -82,7 +82,7 @@ temp_0fnsx2f1mdcke9129kimy0nckn2v.product]
 
   - title: "Æ"
     name: active_opportunities
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_171524
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_184601
     explore: temp_1xdgkb604lde4c1dck8u81ybp23p
     type: single_value
     fields: [temp_1xdgkb604lde4c1dck8u81ybp23p.cm_active_opportunity_kpi_sum_derived,
@@ -98,7 +98,7 @@ temp_1xdgkb604lde4c1dck8u81ybp23p.opportunities_percent_diff]
 
   - title: "Æ"
     name: gross_pipeline
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_171524
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_184601
     explore: temp_1xdgkb604lde4c1dck8u81ybp23p
     type: single_value
     fields: [temp_1xdgkb604lde4c1dck8u81ybp23p.cm_gross_pipeline_sum_derived,
@@ -115,7 +115,7 @@ temp_1xdgkb604lde4c1dck8u81ybp23p.gross_pipeline_percent_diff]
 
   - title: "Æ"
     name: avg_deal_size
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_171524
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_184601
     explore: temp_1xdgkb604lde4c1dck8u81ybp23p
     type: single_value
     fields: [temp_1xdgkb604lde4c1dck8u81ybp23p.cm_avg_deal_size,
@@ -131,7 +131,7 @@ temp_1xdgkb604lde4c1dck8u81ybp23p.percent_difference_avg_deal]
 
   - title: "Æ"
     name: won_count
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_171524
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_184601
     explore: temp_1xdgkb604lde4c1dck8u81ybp23p
     type: single_value
     fields: [temp_1xdgkb604lde4c1dck8u81ybp23p.cm_won_count_sum_derived,
@@ -147,7 +147,7 @@ temp_1xdgkb604lde4c1dck8u81ybp23p.won_count_percent_diff]
 
   - title: "Æ"
     name: won_opportunity_size
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_171524
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_184601
     explore: temp_1xdgkb604lde4c1dck8u81ybp23p
     type: single_value
     fields: [temp_1xdgkb604lde4c1dck8u81ybp23p.cm_won_opportunity_sum_derived,
@@ -163,7 +163,7 @@ temp_1xdgkb604lde4c1dck8u81ybp23p.won_opportunity_percent_diff]
 
   - title: "Stage Wise"
     name: stage_wise
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_171524
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_184601
     explore: temp_1xdgkb604lde4c1dck8u81ybp23p
     type: looker_bar
     fields: [temp_1xdgkb604lde4c1dck8u81ybp23p.close_price_sum_derived,
@@ -185,7 +185,7 @@ temp_1xdgkb604lde4c1dck8u81ybp23p.deal_stage]
 
   - title: "Product Wise"
     name: product_wise
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_171524
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_184601
     explore: temp_1xdgkb604lde4c1dck8u81ybp23p
     type: looker_bar
     fields: [temp_1xdgkb604lde4c1dck8u81ybp23p.close_price_sum_derived,
@@ -207,7 +207,7 @@ temp_1xdgkb604lde4c1dck8u81ybp23p.product]
 
   - title: "Sector Wise"
     name: sector_wise
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_171524
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_184601
     explore: temp_1xdgkb604lde4c1dck8u81ybp23p
     type: looker_bar
     fields: [temp_1xdgkb604lde4c1dck8u81ybp23p.close_price_sum_derived,
