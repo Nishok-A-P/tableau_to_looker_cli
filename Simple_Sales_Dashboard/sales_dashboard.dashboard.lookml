@@ -5,7 +5,7 @@
   elements:
   - title: "Sales Seasonality"
     name: sales_seasonality
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_095355
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_100515
     explore: tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3
     type: looker_line
     fields: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.week_number,
@@ -34,7 +34,7 @@ tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.sales_sum_derived_2]
 
   - title: "Sales By Channel"
     name: sales_by_channel
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_095355
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_100515
     explore: tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3
     type: looker_grid
     fields: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.prod_category,
@@ -53,7 +53,7 @@ tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.prod_category]
 
   - title: "Customer Breakdown"
     name: customer_breakdown
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_095355
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_100515
     explore: tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3
     type: looker_grid
     fields: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.country_region,
@@ -75,14 +75,18 @@ tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.country_subregion]
 
   - title: "Sales By Category"
     name: sales_by_category
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_095355
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_100515
     explore: tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3
     type: looker_bar
     fields: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.channel_desc,
-tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.sales_sum_derived_2]
+tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.sales_sum_derived_2,
+tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.prod_category,
+tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.prod_subcategory]
     pivots: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.channel_desc]
     stacking: normal
-    sorts: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.channel_desc]
+    sorts: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.channel_desc,
+tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.prod_category,
+tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.prod_subcategory]
     series_colors:
       "Direct txn_SALES": "#4e79a7"
       "Partners": "#e15759"
