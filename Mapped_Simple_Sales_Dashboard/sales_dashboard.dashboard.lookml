@@ -104,4 +104,3 @@ tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.prod_subcategory]
     col: 0
     width: 12
     height: 8
-
