@@ -5,7 +5,7 @@
   elements:
   - title: "Sales Seasonality"
     name: sales_seasonality
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_074211
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_095355
     explore: tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3
     type: looker_line
     fields: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.week_number,
@@ -20,6 +20,7 @@ tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.sales_sum_derived_2]
       "March": "#e15759"
       "February": "#f28e2b"
     show_legend: true
+    show_null_points: false
     legend_position: "bottom"
     x_axis_label: true
     y_axis_label: true
@@ -33,7 +34,7 @@ tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.sales_sum_derived_2]
 
   - title: "Sales By Channel"
     name: sales_by_channel
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_074211
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_095355
     explore: tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3
     type: looker_grid
     fields: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.prod_category,
@@ -52,23 +53,19 @@ tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.prod_category]
 
   - title: "Customer Breakdown"
     name: customer_breakdown
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_074211
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_095355
     explore: tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3
-    type: looker_column
-    fields: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.cust_key_count_derived,
-tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.country_region,
+    type: looker_grid
+    fields: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.country_region,
 tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.country_subregion,
-tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.cust_gender]
+tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.cust_gender,
+tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.cust_key_count_derived]
     pivots: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.cust_key_count_derived]
     stacking: normal
     sorts: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.cust_key_count_derived,
 tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.country_region,
 tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.country_subregion]
-    show_value_labels: true
-    show_legend: true
-    x_axis_label: true
-    y_axis_label: true
-    column_spacing_ratio: 0.3
+    table_theme: "white"
     limit: 500
     column_limit: 50
     row: 32
@@ -78,27 +75,21 @@ tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.country_subregion]
 
   - title: "Sales By Category"
     name: sales_by_category
-    model: bigquery_tableau_to_bigquery_model_generated_20251015_074211
+    model: bigquery_tableau_to_bigquery_model_generated_20251015_095355
     explore: tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3
-    type: looker_column
+    type: looker_bar
     fields: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.channel_desc,
-tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.prod_category,
-tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.prod_subcategory,
 tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.sales_sum_derived_2]
     pivots: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.channel_desc]
     stacking: normal
-    sorts: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.channel_desc,
-tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.prod_category,
-tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.prod_subcategory]
+    sorts: [tableautemp_16nvwvh01tk8sx17n5ljw0pbq7k3.channel_desc]
     series_colors:
       "Direct txn_SALES": "#4e79a7"
       "Partners": "#e15759"
       "Internet": "#f28e2b"
-    show_value_labels: true
     show_legend: true
     x_axis_label: true
     y_axis_label: true
-    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
     row: 0
