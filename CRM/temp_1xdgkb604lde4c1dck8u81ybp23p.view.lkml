@@ -484,7 +484,7 @@ measure: close_value_parameter_sum_derived {
 
   dimension: close_date_month_derived {
     description: "Calculated field: DATEPART('month', [Close Date])"
-    type: date
+    type: number
     sql: EXTRACT(MONTH FROM ${TABLE}.`Close Date`) ;;
     # Original Tableau formula: DATEPART('month', [Close Date])
   }
