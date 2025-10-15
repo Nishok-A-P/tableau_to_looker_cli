@@ -184,14 +184,6 @@ view: tableautemp_03v2aem0utm91a12l8fbn0ra6l8o {
 
   # Two-step Pattern Dimensions (hidden calculation dimensions)
 
-  dimension: order_date_month_trunc_derived_calc {
-    description: "Row-level calculation for order_date_month_trunc_derived: DATETRUNC('month', [Order Date])"
-    type: number
-    sql: DATE_TRUNC(${TABLE}.`Order Date`, month) ;;
-    hidden: yes
-    # Original Tableau formula: DATETRUNC('month', [Order Date])
-  }
-
   # Calculated Fields (from Tableau formulas)
 
 measure: sales_sum_derived {
@@ -212,12 +204,10 @@ measure: quantity_sum_derived {
     # Original Tableau formula: SUM([Quantity])
   }
 
-measure: order_date_month_trunc_derived {
+  dimension: order_date_month_trunc_derived {
     description: "Calculated field: DATETRUNC('month', [Order Date])"
-    type: sum
-    sql: ${order_date_month_trunc_derived_calc} ;;
-
-
+    type: date
+    sql: DATE_TRUNC(${TABLE}.`Order Date`, month) ;;
     # Original Tableau formula: DATETRUNC('month', [Order Date])
   }
 
