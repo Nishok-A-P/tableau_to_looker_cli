@@ -279,7 +279,7 @@ view: federated_05dlt471jnsvbo1gv3y6n0 {
 
 measure: customers {
     description: "Calculated field: COUNTD([Customer ID])"
-    type: sum
+    type: number
     sql: ${customers_calc} ;;
 
 
@@ -320,7 +320,7 @@ measure: metric_selection {
 
 measure: orders {
     description: "Calculated field: COUNTD([Order ID])"
-    type: sum
+    type: number
     sql: ${orders_calc} ;;
 
 
