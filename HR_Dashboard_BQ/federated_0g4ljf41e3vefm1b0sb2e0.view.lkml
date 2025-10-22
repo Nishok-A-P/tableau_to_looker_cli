@@ -379,7 +379,7 @@ measure: attrition_count_sum_derived_2 {
 
   dimension: job_satisfaction_none_derived {
     description: "Calculated field: [Job Satisfaction]"
-    type: date
+    type: number
     sql: ${TABLE}.`Job Satisfaction` ;;
     # Original Tableau formula: [Job Satisfaction]
   }
