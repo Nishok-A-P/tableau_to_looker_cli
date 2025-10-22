@@ -5,7 +5,7 @@
   elements:
   - title: "Kpi Currently Onboarding"
     name: kpi_currently_onboarding
-    model: bigquery_super_store_sales_model_generated_20251022_164906
+    model: bigquery_super_store_sales_model_generated_20251022_171848
     explore: hr_onboarding_data
     type: single_value
     fields: [hr_onboarding_data.name1_countd_derived]
@@ -22,7 +22,7 @@
 
   - title: "Kpi Onboarding Past Expected Date"
     name: kpi_onboarding_past_expected_date
-    model: bigquery_super_store_sales_model_generated_20251022_164906
+    model: bigquery_super_store_sales_model_generated_20251022_171848
     explore: hr_onboarding_data
     type: looker_grid
     fields: [hr_onboarding_data.c_target_placement_date_in_past_countd,
@@ -38,7 +38,7 @@ hr_onboarding_data.team]
 
   - title: "Kpi Avg To Onboard"
     name: kpi_avg_to_onboard
-    model: bigquery_super_store_sales_model_generated_20251022_164906
+    model: bigquery_super_store_sales_model_generated_20251022_171848
     explore: hr_onboarding_data
     type: single_value
     fields: [hr_onboarding_data.c_days_between_selection_and_start_avg_derived]
@@ -55,7 +55,7 @@ hr_onboarding_data.team]
 
   - title: "Kpi Longest Stage"
     name: kpi_longest_stage
-    model: bigquery_super_store_sales_model_generated_20251022_164906
+    model: bigquery_super_store_sales_model_generated_20251022_171848
     explore: hr_onboarding_data
     type: single_value
     fields: [hr_onboarding_data.days_taken_to_complete_avg_derived,
@@ -77,7 +77,7 @@ hr_onboarding_data.stage_short_name]
 
   - title: "Kpi Shortest Stage"
     name: kpi_shortest_stage
-    model: bigquery_super_store_sales_model_generated_20251022_164906
+    model: bigquery_super_store_sales_model_generated_20251022_171848
     explore: hr_onboarding_data
     type: single_value
     fields: [hr_onboarding_data.c_days_taken_to_complete_abs_avg_derived,
@@ -100,7 +100,7 @@ hr_onboarding_data.stage_description]
 
   - title: "Number of Candidates by Current Stage"
     name: current_status_of_consultants
-    model: bigquery_super_store_sales_model_generated_20251022_164906
+    model: bigquery_super_store_sales_model_generated_20251022_171848
     explore: hr_onboarding_data
     type: looker_column
     fields: [hr_onboarding_data.c_max_stage_1_none_derived,
@@ -129,7 +129,7 @@ hr_onboarding_data.c_max_stage_complete_order_1]
 
   - title: "Stages by Average Days to Complete"
     name: overview_of_stages
-    model: bigquery_super_store_sales_model_generated_20251022_164906
+    model: bigquery_super_store_sales_model_generated_20251022_171848
     explore: hr_onboarding_data
     type: looker_column
     fields: [hr_onboarding_data.owner,
@@ -152,7 +152,7 @@ hr_onboarding_data.stage_order1_none_derived]
 
   - title: "Top 5 Longest Stages by Days"
     name: context_top_5
-    model: bigquery_super_store_sales_model_generated_20251022_164906
+    model: bigquery_super_store_sales_model_generated_20251022_171848
     explore: hr_onboarding_data
     type: looker_bar
     fields: [hr_onboarding_data.days_taken_to_complete_avg_derived,
@@ -168,14 +168,14 @@ hr_onboarding_data.stage_owner_is_us]
     y_axis_label: true
     limit: 500
     column_limit: 50
-    row: 35
+    row: 23
     col: 12
     width: 6
     height: 7
 
   - title: "Date completed & Days to Complete"
     name: scatter_filtered_by_top_5
-    model: bigquery_super_store_sales_model_generated_20251022_164906
+    model: bigquery_super_store_sales_model_generated_20251022_171848
     explore: hr_onboarding_data
     type: looker_scatter
     fields: [hr_onboarding_data.days_taken_to_complete_avg_derived,
@@ -188,25 +188,8 @@ hr_onboarding_data.stage_order1_none_derived]
     table_theme: "white"
     limit: 500
     column_limit: 50
-    row: 35
+    row: 23
     col: 18
     width: 6
     height: 7
-
-  - title: "Legend"
-    name: legend
-    model: bigquery_super_store_sales_model_generated_20251022_164906
-    explore: hr_onboarding_data
-    type: looker_grid
-    fields: [hr_onboarding_data.stage_owner_is_us,
-hr_onboarding_data.stage_order1_none_derived,
-hr_onboarding_data.stage_description]
-    sorts: [hr_onboarding_data.stage_owner_is_us]
-    table_theme: "white"
-    limit: 500
-    column_limit: 50
-    row: 23
-    col: 0
-    width: 24
-    height: 10
 
