@@ -5,7 +5,7 @@
   elements:
   - title: "Kpi"
     name: kpi
-    model: bigquery_tableau_to_bigquery_model_generated_20251022_090655
+    model: bigquery_tableau_to_bigquery_model_generated_20251022_101213
     explore: federated_0g4ljf41e3vefm1b0sb2e0
     type: single_value
     show_row_numbers: true
@@ -19,7 +19,7 @@
 
   - title: "Attrition by Gender"
     name: attrition_by_gender
-    model: bigquery_tableau_to_bigquery_model_generated_20251022_090655
+    model: bigquery_tableau_to_bigquery_model_generated_20251022_101213
     explore: federated_0g4ljf41e3vefm1b0sb2e0
     type: looker_bar
     fields: [federated_0g4ljf41e3vefm1b0sb2e0.gender,
@@ -39,7 +39,7 @@ federated_0g4ljf41e3vefm1b0sb2e0.attrition_count_sum_derived_2]
 
   - title: "Department wise Attrition"
     name: department_wise_attrition
-    model: bigquery_tableau_to_bigquery_model_generated_20251022_090655
+    model: bigquery_tableau_to_bigquery_model_generated_20251022_101213
     explore: federated_0g4ljf41e3vefm1b0sb2e0
     type: looker_grid
     fields: [federated_0g4ljf41e3vefm1b0sb2e0.department,
@@ -60,7 +60,7 @@ federated_0g4ljf41e3vefm1b0sb2e0.education]
 
   - title: "No of Employee by Age Group"
     name: no_of_employee_by_age_group
-    model: bigquery_tableau_to_bigquery_model_generated_20251022_090655
+    model: bigquery_tableau_to_bigquery_model_generated_20251022_101213
     explore: federated_0g4ljf41e3vefm1b0sb2e0
     type: looker_line
     fields: [federated_0g4ljf41e3vefm1b0sb2e0.age_bin,
@@ -83,7 +83,7 @@ federated_0g4ljf41e3vefm1b0sb2e0.employee_count_sum_derived]
 
   - title: "Job Satisfaction Rating"
     name: job_satisfaction_rating
-    model: bigquery_tableau_to_bigquery_model_generated_20251022_090655
+    model: bigquery_tableau_to_bigquery_model_generated_20251022_101213
     explore: federated_0g4ljf41e3vefm1b0sb2e0
     type: looker_grid
     fields: [federated_0g4ljf41e3vefm1b0sb2e0.job_role,
@@ -102,7 +102,7 @@ federated_0g4ljf41e3vefm1b0sb2e0.job_role]
 
   - title: "Education Field Wise Attirition"
     name: education_field_wise_attirition
-    model: bigquery_tableau_to_bigquery_model_generated_20251022_090655
+    model: bigquery_tableau_to_bigquery_model_generated_20251022_101213
     explore: federated_0g4ljf41e3vefm1b0sb2e0
     type: looker_bar
     fields: [federated_0g4ljf41e3vefm1b0sb2e0.attrition_count_sum_derived_2,
@@ -121,7 +121,7 @@ federated_0g4ljf41e3vefm1b0sb2e0.education_field]
 
   - title: "Attrition Rate by Gender for Different Age Group"
     name: attrition_rate_by_gender_for_different_age_group
-    model: bigquery_tableau_to_bigquery_model_generated_20251022_090655
+    model: bigquery_tableau_to_bigquery_model_generated_20251022_101213
     explore: federated_0g4ljf41e3vefm1b0sb2e0
     type: looker_donut_multiples
     fields: [federated_0g4ljf41e3vefm1b0sb2e0.gender,
