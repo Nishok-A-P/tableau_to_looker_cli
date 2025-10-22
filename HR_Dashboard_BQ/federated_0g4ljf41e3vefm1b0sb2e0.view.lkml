@@ -368,15 +368,6 @@ measure: attrition_count_sum_derived {
     # Original Tableau formula: SUM([Calculation_600386151675600896])
   }
 
-measure: attrition_count_sum_derived_2 {
-    description: "Calculated field: SUM([Calculation_600386151675600896])"
-    type: number
-    sql: SUM(${attrition_count_calc}) ;;
-
-
-    # Original Tableau formula: SUM([Calculation_600386151675600896])
-  }
-
   dimension: job_satisfaction_none_derived {
     description: "Calculated field: [Job Satisfaction]"
     type: number
