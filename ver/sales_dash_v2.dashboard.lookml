@@ -5,7 +5,7 @@
   elements:
   - title: "Ctry Kpi"
     name: ctry_kpi
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_064236
+    model: bigquery_tableau_to_bigquery_model_generated_20251023_073221
     explore: federated_05dlt471jnsvbo1gv3y6n0
     type: looker_bar
     fields: [federated_05dlt471jnsvbo1gv3y6n0.metric_selection,
@@ -24,7 +24,7 @@ federated_05dlt471jnsvbo1gv3y6n0.country]
 
   - title: "Categ Kpi"
     name: categ_kpi
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_064236
+    model: bigquery_tableau_to_bigquery_model_generated_20251023_073221
     explore: federated_05dlt471jnsvbo1gv3y6n0
     type: looker_bar
     fields: [federated_05dlt471jnsvbo1gv3y6n0.metric_selection,
@@ -43,7 +43,7 @@ federated_05dlt471jnsvbo1gv3y6n0.category]
 
   - title: "Paym Kpi"
     name: paym_kpi
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_064236
+    model: bigquery_tableau_to_bigquery_model_generated_20251023_073221
     explore: federated_05dlt471jnsvbo1gv3y6n0
     type: looker_bar
     fields: [federated_05dlt471jnsvbo1gv3y6n0.metric_selection,
@@ -62,7 +62,7 @@ federated_05dlt471jnsvbo1gv3y6n0.payment_method]
 
   - title: "Review Kpi"
     name: review_kpi
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_064236
+    model: bigquery_tableau_to_bigquery_model_generated_20251023_073221
     explore: federated_05dlt471jnsvbo1gv3y6n0
     type: looker_bar
     fields: [federated_05dlt471jnsvbo1gv3y6n0.metric_selection,
@@ -81,7 +81,7 @@ federated_05dlt471jnsvbo1gv3y6n0.review_stars]
 
   - title: "Ship Kpi"
     name: ship_kpi
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_064236
+    model: bigquery_tableau_to_bigquery_model_generated_20251023_073221
     explore: federated_05dlt471jnsvbo1gv3y6n0
     type: looker_bar
     fields: [federated_05dlt471jnsvbo1gv3y6n0.metric_selection,
@@ -100,7 +100,7 @@ federated_05dlt471jnsvbo1gv3y6n0.shipping_method]
 
   - title: "Monthly"
     name: monthly
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_064236
+    model: bigquery_tableau_to_bigquery_model_generated_20251023_073221
     explore: federated_05dlt471jnsvbo1gv3y6n0
     type: looker_column
     fields: [federated_05dlt471jnsvbo1gv3y6n0.metric_selection,
@@ -117,12 +117,12 @@ federated_05dlt471jnsvbo1gv3y6n0.order_date_month_derived]
     column_limit: 50
     row: 21
     col: 0
-    width: 10
+    width: 12
     height: 5
 
   - title: "Areatree"
     name: areatree
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_064236
+    model: bigquery_tableau_to_bigquery_model_generated_20251023_073221
     explore: federated_05dlt471jnsvbo1gv3y6n0
     type: looker_pie
     fields: [federated_05dlt471jnsvbo1gv3y6n0.metric_selection_vs,
@@ -132,13 +132,13 @@ federated_05dlt471jnsvbo1gv3y6n0.type_selected]
     limit: 500
     column_limit: 50
     row: 21
-    col: 10
-    width: 6
+    col: 12
+    width: 12
     height: 5
 
   - title: "Tablec"
     name: tablec
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_064236
+    model: bigquery_tableau_to_bigquery_model_generated_20251023_073221
     explore: federated_05dlt471jnsvbo1gv3y6n0
     type: looker_grid
     fields: [federated_05dlt471jnsvbo1gv3y6n0.customer_id,
@@ -159,12 +159,12 @@ federated_05dlt471jnsvbo1gv3y6n0.profit_unit]
     column_limit: 50
     row: 49
     col: 0
-    width: 6
+    width: 12
     height: 5
 
   - title: "Table"
     name: table
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_064236
+    model: bigquery_tableau_to_bigquery_model_generated_20251023_073221
     explore: federated_05dlt471jnsvbo1gv3y6n0
     type: looker_grid
     fields: [federated_05dlt471jnsvbo1gv3y6n0.product_id,
@@ -184,13 +184,13 @@ federated_05dlt471jnsvbo1gv3y6n0.profit_unit]
     limit: 500
     column_limit: 50
     row: 49
-    col: 6
-    width: 17
+    col: 12
+    width: 12
     height: 5
 
   - title: "<[federated.09yaqvf1vx0vmf10ippwl0f5kx9f].[sum:Total Sales:qk]>"
     name: t_sales
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_064236
+    model: bigquery_tableau_to_bigquery_model_generated_20251023_073221
     explore: federated_05dlt471jnsvbo1gv3y6n0
     type: single_value
     fields: [federated_05dlt471jnsvbo1gv3y6n0.total_sales_sum_derived]
@@ -205,7 +205,7 @@ federated_05dlt471jnsvbo1gv3y6n0.profit_unit]
 
   - title: "<[federated.09yaqvf1vx0vmf10ippwl0f5kx9f].[sum:Profit:qk]>"
     name: t_profit
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_064236
+    model: bigquery_tableau_to_bigquery_model_generated_20251023_073221
     explore: federated_05dlt471jnsvbo1gv3y6n0
     type: single_value
     fields: [federated_05dlt471jnsvbo1gv3y6n0.profit_sum_derived]
@@ -220,7 +220,7 @@ federated_05dlt471jnsvbo1gv3y6n0.profit_unit]
 
   - title: "<[federated.09yaqvf1vx0vmf10ippwl0f5kx9f].[sum:Quantity:qk]>"
     name: t_products
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_064236
+    model: bigquery_tableau_to_bigquery_model_generated_20251023_073221
     explore: federated_05dlt471jnsvbo1gv3y6n0
     type: single_value
     fields: [federated_05dlt471jnsvbo1gv3y6n0.quantity_sum_derived]
@@ -235,7 +235,7 @@ federated_05dlt471jnsvbo1gv3y6n0.profit_unit]
 
   - title: "<[federated.09yaqvf1vx0vmf10ippwl0f5kx9f].[usr:# Orders (copy)_365636014179328014:qk]>"
     name: t_customers
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_064236
+    model: bigquery_tableau_to_bigquery_model_generated_20251023_073221
     explore: federated_05dlt471jnsvbo1gv3y6n0
     type: single_value
     fields: [federated_05dlt471jnsvbo1gv3y6n0.customers]
@@ -250,7 +250,7 @@ federated_05dlt471jnsvbo1gv3y6n0.profit_unit]
 
   - title: "<[federated.09yaqvf1vx0vmf10ippwl0f5kx9f].[usr:Calculation_365636014057762826:qk]>"
     name: t_orders
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_064236
+    model: bigquery_tableau_to_bigquery_model_generated_20251023_073221
     explore: federated_05dlt471jnsvbo1gv3y6n0
     type: single_value
     fields: [federated_05dlt471jnsvbo1gv3y6n0.orders]
