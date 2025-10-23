@@ -161,3 +161,4 @@ tableautemp_03v2aem0utm91a12l8fbn0ra6l8o.order_date_month_trunc_derived]
     col: 16
     width: 8
     height: 5
+
