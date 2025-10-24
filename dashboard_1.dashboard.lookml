@@ -5,7 +5,7 @@
   elements:
   - title: "Simple Group"
     name: simple_group
-    model: bigquery_super_store_sales_model_generated_20251024_135618
+    model: bigquery_super_store_sales_model_generated_20251024_135917
     explore: orders
     type: looker_grid
     fields: [orders.sub_category_simple,
@@ -20,7 +20,7 @@ orders.total_profit]
 
   - title: "Simple Group With Other"
     name: simple_group_with_other
-    model: bigquery_super_store_sales_model_generated_20251024_135618
+    model: bigquery_super_store_sales_model_generated_20251024_135917
     explore: orders
     type: looker_grid
     fields: [orders.sub_category_with_other,
@@ -35,7 +35,7 @@ orders.total_profit]
 
   - title: "General Filters With Group"
     name: general_filters_with_group
-    model: bigquery_super_store_sales_model_generated_20251024_135618
+    model: bigquery_super_store_sales_model_generated_20251024_135917
     explore: orders
     type: looker_grid
     fields: [orders.region,
@@ -53,7 +53,7 @@ orders.total_profit]
 
   - title: "Condition Filters With Group"
     name: condition_filters_with_group
-    model: bigquery_super_store_sales_model_generated_20251024_135618
+    model: bigquery_super_store_sales_model_generated_20251024_135917
     explore: orders
     type: looker_grid
     fields: [orders.simple_group,
@@ -68,7 +68,7 @@ orders.total_profit]
 
   - title: "Top Filters With Group"
     name: top_filters_with_group
-    model: bigquery_super_store_sales_model_generated_20251024_135618
+    model: bigquery_super_store_sales_model_generated_20251024_135917
     explore: orders
     type: looker_grid
     fields: [orders.simple_group,
@@ -84,7 +84,7 @@ orders.total_profit]
 
   - title: "Calculated Fields1"
     name: calculated_fields1
-    model: bigquery_super_store_sales_model_generated_20251024_135618
+    model: bigquery_super_store_sales_model_generated_20251024_135917
     explore: orders
     type: looker_grid
     fields: [orders.category_field,
@@ -102,7 +102,7 @@ orders.sub_category]
 
   - title: "Calculated Field With Aggregation"
     name: calculated_field_with_aggregation
-    model: bigquery_super_store_sales_model_generated_20251024_135618
+    model: bigquery_super_store_sales_model_generated_20251024_135917
     explore: orders
     type: looker_grid
     fields: [orders.sub_category_with_other,
@@ -117,7 +117,7 @@ orders.calculation2]
 
   - title: "Measure Group"
     name: measure_group
-    model: bigquery_super_store_sales_model_generated_20251024_135618
+    model: bigquery_super_store_sales_model_generated_20251024_135917
     explore: orders
     type: looker_grid
     fields: [orders.order_date,

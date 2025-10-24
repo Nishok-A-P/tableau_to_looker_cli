@@ -1,6 +1,6 @@
 view: orders {
   # Generated from Tableau view: Orders
-  sql_table_name: `elastic-pocs.Super_Store_Sales.Orders` ;;
+  sql_table_name: `tableau-to-looker-migration.Super_Store_Sales.Orders` ;;
 
 
   # Parameters (from Tableau parameters)
