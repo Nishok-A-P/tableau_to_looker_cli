@@ -227,4 +227,3 @@ t2l_world_indicators_extract.c_gauge1]
     col: 16
     width: 8
     height: 5
-
