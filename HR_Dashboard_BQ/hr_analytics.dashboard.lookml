@@ -138,4 +138,3 @@ federated_0g4ljf41e3vefm1b0sb2e0.cf_age_band]
     col: 12
     width: 12
     height: 5
-
