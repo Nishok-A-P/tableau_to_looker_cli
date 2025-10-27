@@ -1,9 +1,11 @@
 view: t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80 {
   # Generated from Tableau view: T2L_Responsive_Sales_Dashboard_Orders_4A2273C4362E41DEA7258D5051022F80
-  derived_table: {
-    sql:
-      WITH max_table AS (SELECT MAX(order_date) AS MaxDate FROM `tableau-to-looker-migration.Tableau_To_BigQuery.T2L_Responsive_Sales_Dashboard_Orders_4A2273C4362E41DEA7258D5051022F80`) SELECT base.*, max_table.MaxDate FROM `tableau-to-looker-migration.Tableau_To_BigQuery.T2L_Responsive_Sales_Dashboard_Orders_4A2273C4362E41DEA7258D5051022F80` AS base CROSS JOIN max_table ;;
-  }
+  # derived_table: {
+  #   sql:
+  #     WITH max_table AS (SELECT MAX(Order_Date) AS MaxDate FROM `tableau-to-looker-migration.Tableau_To_BigQuery.T2L_Responsive_Sales_Dashboard_Orders_4A2273C4362E41DEA7258D5051022F80`) SELECT base.*, max_table.MaxDate FROM `tableau-to-looker-migration.Tableau_To_BigQuery.T2L_Responsive_Sales_Dashboard_Orders_4A2273C4362E41DEA7258D5051022F80` AS base CROSS JOIN max_table ;;
+  # }
+
+  sql_table_name: `tableau-to-looker-migration.Tableau_To_BigQuery.T2L_Responsive_Sales_Dashboard_Orders_4A2273C4362E41DEA7258D5051022F80` ;;
 
 
   # Parameters (from Tableau parameters)
