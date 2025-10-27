@@ -5,7 +5,7 @@
   elements:
   - title: "Box 1"
     name: box_1
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_164225
+    model: bigquery_tableau_to_bigquery_model_generated_20251027_123007
     explore: t2l_key_metrics_dashboard_extract_excel_41355_595613692130
     type: single_value
     fields: [t2l_key_metrics_dashboard_extract_excel_41355_595613692130.number_of_records_min_derived]
@@ -20,7 +20,7 @@
 
   - title: "Box 2"
     name: box_2
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_164225
+    model: bigquery_tableau_to_bigquery_model_generated_20251027_123007
     explore: t2l_key_metrics_dashboard_extract_excel_41355_595613692130
     type: single_value
     fields: [t2l_key_metrics_dashboard_extract_excel_41355_595613692130.number_of_records_min_derived]
@@ -35,7 +35,7 @@
 
   - title: "Box 3"
     name: box_3
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_164225
+    model: bigquery_tableau_to_bigquery_model_generated_20251027_123007
     explore: t2l_key_metrics_dashboard_extract_excel_41355_595613692130
     type: single_value
     fields: [t2l_key_metrics_dashboard_extract_excel_41355_595613692130.number_of_records_min_derived]
@@ -50,7 +50,7 @@
 
   - title: "Box 4"
     name: box_4
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_164225
+    model: bigquery_tableau_to_bigquery_model_generated_20251027_123007
     explore: t2l_key_metrics_dashboard_extract_excel_41355_595613692130
     type: single_value
     fields: [t2l_key_metrics_dashboard_extract_excel_41355_595613692130.number_of_records_min_derived]
@@ -65,7 +65,7 @@
 
   - title: "Box 5"
     name: box_5
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_164225
+    model: bigquery_tableau_to_bigquery_model_generated_20251027_123007
     explore: t2l_key_metrics_dashboard_extract_excel_41355_595613692130
     type: single_value
     fields: [t2l_key_metrics_dashboard_extract_excel_41355_595613692130.number_of_records_min_derived]
@@ -80,7 +80,7 @@
 
   - title: "Box 6"
     name: box_6
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_164225
+    model: bigquery_tableau_to_bigquery_model_generated_20251027_123007
     explore: t2l_key_metrics_dashboard_extract_excel_41355_595613692130
     type: single_value
     fields: [t2l_key_metrics_dashboard_extract_excel_41355_595613692130.number_of_records_min_derived]
@@ -95,7 +95,7 @@
 
   - title: "Box 7"
     name: box_7
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_164225
+    model: bigquery_tableau_to_bigquery_model_generated_20251027_123007
     explore: t2l_key_metrics_dashboard_extract_excel_41355_595613692130
     type: single_value
     fields: [t2l_key_metrics_dashboard_extract_excel_41355_595613692130.number_of_records_min_derived]
@@ -110,7 +110,7 @@
 
   - title: "Box 8"
     name: box_8
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_164225
+    model: bigquery_tableau_to_bigquery_model_generated_20251027_123007
     explore: t2l_key_metrics_dashboard_extract_excel_41355_595613692130
     type: single_value
     fields: [t2l_key_metrics_dashboard_extract_excel_41355_595613692130.number_of_records_min_derived]
@@ -125,7 +125,7 @@
 
   - title: "Box 9"
     name: box_9
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_164225
+    model: bigquery_tableau_to_bigquery_model_generated_20251027_123007
     explore: t2l_key_metrics_dashboard_extract_excel_41355_595613692130
     type: single_value
     fields: [t2l_key_metrics_dashboard_extract_excel_41355_595613692130.number_of_records_min_derived]
@@ -140,7 +140,7 @@
 
   - title: "Channel Sales"
     name: channel_sales
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_164225
+    model: bigquery_tableau_to_bigquery_model_generated_20251027_123007
     explore: t2l_key_metrics_dashboard_extract_excel_41355_595613692130
     type: looker_column
     fields: [t2l_key_metrics_dashboard_extract_excel_41355_595613692130.net_sales_sum_derived_2,
@@ -161,7 +161,7 @@ t2l_key_metrics_dashboard_extract_excel_41355_595613692130.channel]
 
   - title: "Sales Over Time"
     name: sales_over_time
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_164225
+    model: bigquery_tableau_to_bigquery_model_generated_20251027_123007
     explore: t2l_key_metrics_dashboard_extract_excel_41355_595613692130
     type: looker_area
     show_row_numbers: true
@@ -175,7 +175,7 @@ t2l_key_metrics_dashboard_extract_excel_41355_595613692130.channel]
 
   - title: "Net Profit/Margin"
     name: net_profit_margin
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_164225
+    model: bigquery_tableau_to_bigquery_model_generated_20251027_123007
     explore: t2l_key_metrics_dashboard_extract_excel_41355_595613692130
     type: looker_line
     show_legend: true
@@ -192,7 +192,7 @@ t2l_key_metrics_dashboard_extract_excel_41355_595613692130.channel]
 
   - title: "Maint. & Repairs"
     name: maint_repairs
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_164225
+    model: bigquery_tableau_to_bigquery_model_generated_20251027_123007
     explore: t2l_key_metrics_dashboard_extract_excel_41355_595613692130
     type: looker_grid
     fields: [t2l_key_metrics_dashboard_extract_excel_41355_595613692130.order_date_month_derived,
@@ -215,7 +215,7 @@ t2l_key_metrics_dashboard_extract_excel_41355_595613692130.order_date_none_deriv
 
   - title: "Gross Margin - Yoy"
     name: gross_margin_yoy
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_164225
+    model: bigquery_tableau_to_bigquery_model_generated_20251027_123007
     explore: t2l_key_metrics_dashboard_extract_excel_41355_595613692130
     type: looker_line
     show_legend: true
@@ -232,7 +232,7 @@ t2l_key_metrics_dashboard_extract_excel_41355_595613692130.order_date_none_deriv
 
   - title: "Cogs"
     name: cogs
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_164225
+    model: bigquery_tableau_to_bigquery_model_generated_20251027_123007
     explore: t2l_key_metrics_dashboard_extract_excel_41355_595613692130
     type: looker_area
     show_row_numbers: true
@@ -246,7 +246,7 @@ t2l_key_metrics_dashboard_extract_excel_41355_595613692130.order_date_none_deriv
 
   - title: "Labor Costs"
     name: labor_costs
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_164225
+    model: bigquery_tableau_to_bigquery_model_generated_20251027_123007
     explore: t2l_key_metrics_dashboard_extract_excel_41355_595613692130
     type: looker_area
     show_row_numbers: true
@@ -260,7 +260,7 @@ t2l_key_metrics_dashboard_extract_excel_41355_595613692130.order_date_none_deriv
 
   - title: "Sg&A Expenses"
     name: sg_a_expenses
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_164225
+    model: bigquery_tableau_to_bigquery_model_generated_20251027_123007
     explore: t2l_key_metrics_dashboard_extract_excel_41355_595613692130
     type: looker_grid
     fields: [t2l_key_metrics_dashboard_extract_excel_41355_595613692130.segmentdesc,
@@ -286,7 +286,7 @@ t2l_key_metrics_dashboard_extract_excel_41355_595613692130.region]
 
   - title: "Overhead Costs"
     name: overhead_costs
-    model: bigquery_tableau_to_bigquery_model_generated_20251023_164225
+    model: bigquery_tableau_to_bigquery_model_generated_20251027_123007
     explore: t2l_key_metrics_dashboard_extract_excel_41355_595613692130
     type: looker_column
     fields: [t2l_key_metrics_dashboard_extract_excel_41355_595613692130.distribution_channel_mgr]
@@ -303,3 +303,4 @@ t2l_key_metrics_dashboard_extract_excel_41355_595613692130.region]
     col: 8
     width: 8
     height: 5
+
