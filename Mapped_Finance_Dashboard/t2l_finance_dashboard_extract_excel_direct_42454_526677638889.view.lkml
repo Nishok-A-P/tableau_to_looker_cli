@@ -9,6 +9,14 @@ view: t2l_finance_dashboard_extract_excel_direct_42454_526677638889 {
 
   # Dimensions
 
+  dimension: row_id_generated_raw {
+    description: "Raw field for Row_ID_generated"
+    type: string
+    sql: ${TABLE}.`Row_ID_generated` ;;
+    hidden: yes
+    label: "Row Id Generated (Raw)"
+  }
+
   dimension: 2015_dec_raw {
     description: "Raw field for 2015 DEC"
     type: string
@@ -36,22 +44,22 @@ view: t2l_finance_dashboard_extract_excel_direct_42454_526677638889 {
   dimension: client {
     description: "Original name: [Client]"
     type: string
-    sql: ${TABLE}.Client ;;
+    sql: ${TABLE}.`Client` ;;
     label: "Client"
   }
 
   dimension: total_raw {
     description: "Raw field for Total"
     type: string
-    sql: ${TABLE}.Total ;;
+    sql: ${TABLE}.`Total` ;;
     hidden: yes
     label: "Total (Raw)"
   }
 
   # Two-step Pattern Dimensions (hidden calculation dimensions)
 
-  dimension: doughnut_calc {
-    description: "Row-level calculation for doughnut: 0"
+  dimension: doughnut_2_calc {
+    description: "Row-level calculation for doughnut_2: 0"
     type: number
     sql: 0 ;;
     hidden: yes
@@ -66,16 +74,16 @@ view: t2l_finance_dashboard_extract_excel_direct_42454_526677638889 {
     # Original Tableau formula: [2016 JAN]+[2015 NOV]+[2015 DEC]
   }
 
-  dimension: doughnut_copy_calc {
-    description: "Row-level calculation for doughnut_copy: 0"
+  dimension: doughnut_copy_2_calc {
+    description: "Row-level calculation for doughnut_copy_2: 0"
     type: number
     sql: 0 ;;
     hidden: yes
     # Original Tableau formula: 0
   }
 
-  dimension: number_of_records_4_calc {
-    description: "Row-level calculation for number_of_records_4: 1"
+  dimension: number_of_records_7_calc {
+    description: "Row-level calculation for number_of_records_7: 1"
     type: number
     sql: 1 ;;
     hidden: yes
@@ -84,10 +92,10 @@ view: t2l_finance_dashboard_extract_excel_direct_42454_526677638889 {
 
   # Calculated Fields (from Tableau formulas)
 
-measure: doughnut {
+measure: doughnut_2 {
     description: "Calculated field: 0"
     type: sum
-    sql: ${doughnut_calc} ;;
+    sql: ${doughnut_2_calc} ;;
 
 
     # Original Tableau formula: 0
@@ -102,19 +110,19 @@ measure: cal_total {
     # Original Tableau formula: [2016 JAN]+[2015 NOV]+[2015 DEC]
   }
 
-measure: doughnut_copy {
+measure: doughnut_copy_2 {
     description: "Calculated field: 0"
     type: sum
-    sql: ${doughnut_copy_calc} ;;
+    sql: ${doughnut_copy_2_calc} ;;
 
 
     # Original Tableau formula: 0
   }
 
-measure: number_of_records_4 {
+measure: number_of_records_7 {
     description: "Calculated field: 1"
     type: sum
-    sql: ${number_of_records_4_calc} ;;
+    sql: ${number_of_records_7_calc} ;;
 
 
     # Original Tableau formula: 1
@@ -148,6 +156,14 @@ measure: doughnut_copy_sum_derived {
   }
 
   # Measures
+
+  measure: total_row_id_generated {
+    description: "Original name: [Row_ID_generated]"
+    type: sum
+    sql: ${row_id_generated_raw} ;;
+    value_format_name: decimal_0
+    label: "Row ID generated"
+  }
 
   measure: total_2015_dec {
     description: "2015 Dec"
