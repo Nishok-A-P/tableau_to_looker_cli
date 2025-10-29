@@ -9,17 +9,25 @@ view: t2l_finance_dashboard_excel_direct_42446_764830127315 {
 
   # Dimensions
 
+  dimension: row_id_generated_raw {
+    description: "Raw field for Row_ID_generated"
+    type: string
+    sql: ${TABLE}.`Row_ID_generated` ;;
+    hidden: yes
+    label: "Row Id Generated (Raw)"
+  }
+
   dimension: activity {
     description: "Original name: [Activity]"
     type: string
-    sql: ${TABLE}.Activity ;;
+    sql: ${TABLE}.`Activity` ;;
     label: "Activity"
   }
 
   dimension: cashflow_raw {
     description: "Raw field for CashFlow"
     type: string
-    sql: ${TABLE}.CashFlow ;;
+    sql: ${TABLE}.`CashFlow` ;;
     hidden: yes
     label: "Cashflow (Raw)"
   }
@@ -27,14 +35,14 @@ view: t2l_finance_dashboard_excel_direct_42446_764830127315 {
   dimension: category {
     description: "Original name: [Category]"
     type: string
-    sql: ${TABLE}.Category ;;
+    sql: ${TABLE}.`Category` ;;
     label: "Category"
   }
 
   # Two-step Pattern Dimensions (hidden calculation dimensions)
 
-  dimension: icon_2_calc {
-    description: "Row-level calculation for icon_2: 0"
+  dimension: icon_calc {
+    description: "Row-level calculation for icon: 0"
     type: number
     sql: 0 ;;
     hidden: yes
@@ -49,8 +57,8 @@ view: t2l_finance_dashboard_excel_direct_42446_764830127315 {
     # Original Tableau formula: [CashFlow]
   }
 
-  dimension: number_of_records_2_calc {
-    description: "Row-level calculation for number_of_records_2: 1"
+  dimension: number_of_records_calc {
+    description: "Row-level calculation for number_of_records: 1"
     type: number
     sql: 1 ;;
     hidden: yes
@@ -59,10 +67,10 @@ view: t2l_finance_dashboard_excel_direct_42446_764830127315 {
 
   # Calculated Fields (from Tableau formulas)
 
-measure: icon_2 {
+measure: icon {
     description: "Calculated field: 0"
     type: sum
-    sql: ${icon_2_calc} ;;
+    sql: ${icon_calc} ;;
 
 
     # Original Tableau formula: 0
@@ -77,10 +85,10 @@ measure: cash_flow_copy {
     # Original Tableau formula: [CashFlow]
   }
 
-measure: number_of_records_2 {
+measure: number_of_records {
     description: "Calculated field: 1"
     type: sum
-    sql: ${number_of_records_2_calc} ;;
+    sql: ${number_of_records_calc} ;;
 
 
     # Original Tableau formula: 1
@@ -105,6 +113,14 @@ measure: cash_flow_sum_derived {
   }
 
   # Measures
+
+  measure: total_row_id_generated {
+    description: "Original name: [Row_ID_generated]"
+    type: sum
+    sql: ${row_id_generated_raw} ;;
+    value_format_name: decimal_0
+    label: "Row ID generated"
+  }
 
   measure: total_cashflow {
     description: "Cash Flow"
