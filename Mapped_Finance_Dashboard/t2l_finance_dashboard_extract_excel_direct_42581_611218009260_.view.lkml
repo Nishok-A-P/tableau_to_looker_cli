@@ -1,5 +1,5 @@
 view: t2l_finance_dashboard_extract_excel_direct_42581_611218009260_ {
-  # Generated from Tableau view: T2L_Finance_Dashboard_Extract_excel_direct_42581_611218009260
+  # Generated from Tableau view: T2L_Finance_Dashboard_Extract_excel_direct_42581_611218009260 
   sql_table_name: `tableau-to-looker-migration.Tableau_To_BigQuery.T2L_Finance_Dashboard_Extract_excel_direct_42581_611218009260 ` ;;
 
 
@@ -10,7 +10,7 @@ view: t2l_finance_dashboard_extract_excel_direct_42581_611218009260_ {
   dimension_group: date1 {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
-    sql: TIMESTAMP(${TABLE}.Date1) ;;
+    sql: TIMESTAMP(${TABLE}.`Date1`) ;;
     description: "Original name: [Date1]"
     label: "Date1"
   }
@@ -26,6 +26,14 @@ view: t2l_finance_dashboard_extract_excel_direct_42581_611218009260_ {
 
 
   # Dimensions
+
+  dimension: row_id_generated_raw {
+    description: "Raw field for Row_ID_generated"
+    type: string
+    sql: ${TABLE}.`Row_ID_generated` ;;
+    hidden: yes
+    label: "Row Id Generated (Raw)"
+  }
 
   dimension: accounts_payable_raw {
     description: "Raw field for Accounts Payable"
@@ -53,7 +61,7 @@ view: t2l_finance_dashboard_extract_excel_direct_42581_611218009260_ {
   dimension: date {
     description: "Original name: [Date]"
     type: string
-    sql: ${TABLE}.Date ;;
+    sql: ${TABLE}.`Date` ;;
     label: "Date"
   }
 
@@ -138,7 +146,7 @@ view: t2l_finance_dashboard_extract_excel_direct_42581_611218009260_ {
   dimension: inventory_raw {
     description: "Raw field for Inventory"
     type: string
-    sql: ${TABLE}.Inventory ;;
+    sql: ${TABLE}.`Inventory` ;;
     hidden: yes
     label: "Inventory (Raw)"
   }
@@ -146,7 +154,7 @@ view: t2l_finance_dashboard_extract_excel_direct_42581_611218009260_ {
   dimension: month {
     description: "Original name: [Month]"
     type: string
-    sql: ${TABLE}.Month ;;
+    sql: ${TABLE}.`Month` ;;
     label: "Month"
   }
 
@@ -177,7 +185,7 @@ view: t2l_finance_dashboard_extract_excel_direct_42581_611218009260_ {
   dimension: quarter {
     description: "Original name: [Quarter]"
     type: string
-    sql: ${TABLE}.Quarter ;;
+    sql: ${TABLE}.`Quarter` ;;
     label: "Quarter"
   }
 
@@ -192,7 +200,7 @@ view: t2l_finance_dashboard_extract_excel_direct_42581_611218009260_ {
   dimension: revenue_raw {
     description: "Raw field for Revenue"
     type: string
-    sql: ${TABLE}.Revenue ;;
+    sql: ${TABLE}.`Revenue` ;;
     hidden: yes
     label: "Revenue (Raw)"
   }
@@ -248,7 +256,7 @@ view: t2l_finance_dashboard_extract_excel_direct_42581_611218009260_ {
   dimension: type {
     description: "Original name: [Type]"
     type: string
-    sql: ${TABLE}.Type ;;
+    sql: ${TABLE}.`Type` ;;
     label: "Type"
   }
 
@@ -271,7 +279,7 @@ view: t2l_finance_dashboard_extract_excel_direct_42581_611218009260_ {
   dimension: year {
     description: "Original name: [Year]"
     type: string
-    sql: ${TABLE}.Year ;;
+    sql: ${TABLE}.`Year` ;;
     label: "Year"
   }
 
@@ -341,8 +349,8 @@ view: t2l_finance_dashboard_extract_excel_direct_42581_611218009260_ {
     # Original Tableau formula: [Net Working Capital excl Cash and Current Debt]
   }
 
-  dimension: number_of_records_9_calc {
-    description: "Row-level calculation for number_of_records_9: 1"
+  dimension: number_of_records_8_calc {
+    description: "Row-level calculation for number_of_records_8: 1"
     type: number
     sql: 1 ;;
     hidden: yes
@@ -528,10 +536,10 @@ measure: net_working_capital_excl_cash_and_current_debt_copy {
     # Original Tableau formula: [Net Working Capital excl Cash and Current Debt]
   }
 
-measure: number_of_records_9 {
+measure: number_of_records_8 {
     description: "Calculated field: 1"
     type: sum
-    sql: ${number_of_records_9_calc} ;;
+    sql: ${number_of_records_8_calc} ;;
 
 
     # Original Tableau formula: 1
@@ -608,6 +616,14 @@ measure: net_working_capital_excl_cash_and_current_debt_copy_sum_derived {
   }
 
   # Measures
+
+  measure: total_row_id_generated {
+    description: "Original name: [Row_ID_generated]"
+    type: sum
+    sql: ${row_id_generated_raw} ;;
+    value_format_name: decimal_0
+    label: "Row ID generated"
+  }
 
   measure: total_accounts_payable {
     description: "Original name: [Accounts Payable]"
