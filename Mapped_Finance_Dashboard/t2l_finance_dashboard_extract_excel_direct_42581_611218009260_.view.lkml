@@ -1,5 +1,5 @@
 view: t2l_finance_dashboard_extract_excel_direct_42581_611218009260_ {
-  # Generated from Tableau view: T2L_Finance_Dashboard_Extract_excel_direct_42581_611218009260 
+  # Generated from Tableau view: T2L_Finance_Dashboard_Extract_excel_direct_42581_611218009260
   sql_table_name: `tableau-to-looker-migration.Tableau_To_BigQuery.T2L_Finance_Dashboard_Extract_excel_direct_42581_611218009260 ` ;;
 
 
