@@ -9,17 +9,25 @@ view: t2l_finance_dashboard_extract_excel_direct_42494_561992662035 {
 
   # Dimensions
 
+  dimension: row_id_generated_raw {
+    description: "Raw field for Row_ID_generated"
+    type: string
+    sql: ${TABLE}.`Row_ID_generated` ;;
+    hidden: yes
+    label: "Row Id Generated (Raw)"
+  }
+
   dimension: client {
     description: "Original name: [Client]"
     type: string
-    sql: ${TABLE}.Client ;;
+    sql: ${TABLE}.`Client` ;;
     label: "Client"
   }
 
   dimension: expenditure_raw {
     description: "Raw field for Expenditure"
     type: string
-    sql: ${TABLE}.Expenditure ;;
+    sql: ${TABLE}.`Expenditure` ;;
     hidden: yes
     label: "Expenditure (Raw)"
   }
@@ -34,35 +42,35 @@ view: t2l_finance_dashboard_extract_excel_direct_42494_561992662035 {
   dimension: month {
     description: "Original name: [Month]"
     type: string
-    sql: ${TABLE}.Month ;;
+    sql: ${TABLE}.`Month` ;;
     label: "Month"
   }
 
   dimension: quarter {
     description: "Original name: [Quarter]"
     type: string
-    sql: ${TABLE}.Quarter ;;
+    sql: ${TABLE}.`Quarter` ;;
     label: "Quarter"
   }
 
   dimension: revenue {
     description: "Original name: [Revenue]"
     type: number
-    sql: ${TABLE}.Revenue ;;
+    sql: ${TABLE}.`Revenue` ;;
     label: "Revenue"
   }
 
   dimension: year {
     description: "Original name: [Year]"
     type: number
-    sql: ${TABLE}.Year ;;
+    sql: ${TABLE}.`Year` ;;
     label: "Year"
   }
 
   # Two-step Pattern Dimensions (hidden calculation dimensions)
 
-  dimension: number_of_records_8_calc {
-    description: "Row-level calculation for number_of_records_8: 1"
+  dimension: number_of_records_6_calc {
+    description: "Row-level calculation for number_of_records_6: 1"
     type: number
     sql: 1 ;;
     hidden: yes
@@ -80,10 +88,10 @@ measure: profit_margin {
     # Original Tableau formula: SUM([Gross Profit])/SUM([Revenue]) *100
   }
 
-measure: number_of_records_8 {
+measure: number_of_records_6 {
     description: "Calculated field: 1"
     type: sum
-    sql: ${number_of_records_8_calc} ;;
+    sql: ${number_of_records_6_calc} ;;
 
 
     # Original Tableau formula: 1
@@ -115,6 +123,14 @@ measure: revenue_sum_derived {
   }
 
   # Measures
+
+  measure: total_row_id_generated {
+    description: "Original name: [Row_ID_generated]"
+    type: sum
+    sql: ${row_id_generated_raw} ;;
+    value_format_name: decimal_0
+    label: "Row ID generated"
+  }
 
   measure: total_expenditure {
     description: "Original name: [Expenditure]"
