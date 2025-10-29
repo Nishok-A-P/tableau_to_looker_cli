@@ -9,6 +9,14 @@ view: t2l_finance_dashboard_extract_excel_direct_42454_522464293979 {
 
   # Dimensions
 
+  dimension: row_id_generated_raw {
+    description: "Raw field for Row_ID_generated"
+    type: string
+    sql: ${TABLE}.`Row_ID_generated` ;;
+    hidden: yes
+    label: "Row Id Generated (Raw)"
+  }
+
   dimension: 2015_dec_raw {
     description: "Raw field for 2015 DEC"
     type: string
@@ -36,14 +44,14 @@ view: t2l_finance_dashboard_extract_excel_direct_42454_522464293979 {
   dimension: client {
     description: "Original name: [Client]"
     type: string
-    sql: ${TABLE}.Client ;;
+    sql: ${TABLE}.`Client` ;;
     label: "Client"
   }
 
   dimension: total_raw {
     description: "Raw field for Total"
     type: string
-    sql: ${TABLE}.Total ;;
+    sql: ${TABLE}.`Total` ;;
     hidden: yes
     label: "Total (Raw)"
   }
@@ -66,8 +74,8 @@ view: t2l_finance_dashboard_extract_excel_direct_42454_522464293979 {
     # Original Tableau formula: 0
   }
 
-  dimension: number_of_records_6_calc {
-    description: "Row-level calculation for number_of_records_6: 1"
+  dimension: number_of_records_9_calc {
+    description: "Row-level calculation for number_of_records_9: 1"
     type: number
     sql: 1 ;;
     hidden: yes
@@ -94,10 +102,10 @@ measure: doughnut_copy_3 {
     # Original Tableau formula: 0
   }
 
-measure: number_of_records_6 {
+measure: number_of_records_9 {
     description: "Calculated field: 1"
     type: sum
-    sql: ${number_of_records_6_calc} ;;
+    sql: ${number_of_records_9_calc} ;;
 
 
     # Original Tableau formula: 1
@@ -131,6 +139,14 @@ measure: total_sum_derived {
   }
 
   # Measures
+
+  measure: total_row_id_generated {
+    description: "Original name: [Row_ID_generated]"
+    type: sum
+    sql: ${row_id_generated_raw} ;;
+    value_format_name: decimal_0
+    label: "Row ID generated"
+  }
 
   measure: total_2015_dec {
     description: "Original name: [2015 DEC]"
