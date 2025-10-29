@@ -9,10 +9,18 @@ view: t2l_finance_dashboard_excel_direct_42493_800401689812 {
 
   # Dimensions
 
+  dimension: row_id_generated_raw {
+    description: "Raw field for Row_ID_generated"
+    type: string
+    sql: ${TABLE}.`Row_ID_generated` ;;
+    hidden: yes
+    label: "Row Id Generated (Raw)"
+  }
+
   dimension: actual_raw {
     description: "Raw field for Actual"
     type: string
-    sql: ${TABLE}.Actual ;;
+    sql: ${TABLE}.`Actual` ;;
     hidden: yes
     label: "Actual (Raw)"
   }
@@ -20,7 +28,7 @@ view: t2l_finance_dashboard_excel_direct_42493_800401689812 {
   dimension: budget_raw {
     description: "Raw field for Budget"
     type: string
-    sql: ${TABLE}.Budget ;;
+    sql: ${TABLE}.`Budget` ;;
     hidden: yes
     label: "Budget (Raw)"
   }
@@ -28,21 +36,21 @@ view: t2l_finance_dashboard_excel_direct_42493_800401689812 {
   dimension: category {
     description: "Original name: [Category]"
     type: string
-    sql: ${TABLE}.Category ;;
+    sql: ${TABLE}.`Category` ;;
     label: "Category"
   }
 
   dimension: month {
     description: "Original name: [Month]"
     type: string
-    sql: ${TABLE}.Month ;;
+    sql: ${TABLE}.`Month` ;;
     label: "Month"
   }
 
   dimension: quarter {
     description: "Original name: [Quarter]"
     type: string
-    sql: ${TABLE}.Quarter ;;
+    sql: ${TABLE}.`Quarter` ;;
     label: "Quarter"
   }
 
@@ -56,7 +64,7 @@ view: t2l_finance_dashboard_excel_direct_42493_800401689812 {
   dimension: type {
     description: "Original name: [Type]"
     type: string
-    sql: ${TABLE}.Type ;;
+    sql: ${TABLE}.`Type` ;;
     label: "Type"
   }
 
@@ -134,8 +142,8 @@ view: t2l_finance_dashboard_excel_direct_42493_800401689812 {
     # Original Tableau formula: Case [Type] when "Revenue" then [Actual] end
   }
 
-  dimension: number_of_records_7_calc {
-    description: "Row-level calculation for number_of_records_7: 1"
+  dimension: number_of_records_2_calc {
+    description: "Row-level calculation for number_of_records_2: 1"
     type: number
     sql: 1 ;;
     hidden: yes
@@ -232,10 +240,10 @@ measure: cal_rev_actual {
     # Original Tableau formula: Case [Type] when "Revenue" then [Actual] end
   }
 
-measure: number_of_records_7 {
+measure: number_of_records_2 {
     description: "Calculated field: 1"
     type: sum
-    sql: ${number_of_records_7_calc} ;;
+    sql: ${number_of_records_2_calc} ;;
 
 
     # Original Tableau formula: 1
@@ -294,6 +302,14 @@ measure: cal_rev_actual_sum_derived {
   }
 
   # Measures
+
+  measure: total_row_id_generated {
+    description: "Original name: [Row_ID_generated]"
+    type: sum
+    sql: ${row_id_generated_raw} ;;
+    value_format_name: decimal_0
+    label: "Row ID generated"
+  }
 
   measure: total_actual {
     description: "Original name: [Actual]"
