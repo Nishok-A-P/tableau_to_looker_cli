@@ -5,7 +5,7 @@
   elements:
   - title: "Cash Flow - Jan 2017"
     name: cash_flow
-    model: bigquery_tableau_to_bigquery_model_generated_20251029_160653
+    model: bigquery_tableau_to_bigquery_model_generated_20251029_170520
     explore: t2l_finance_dashboard_excel_direct_42446_764830127315
     type: looker_column
     fields: [t2l_finance_dashboard_excel_direct_42446_764830127315.cash_flow_sum_derived,
@@ -13,12 +13,12 @@ t2l_finance_dashboard_excel_direct_42446_764830127315.activity]
     pivots: [t2l_finance_dashboard_excel_direct_42446_764830127315.activity]
     sorts: [t2l_finance_dashboard_excel_direct_42446_764830127315.activity]
     series_colors:
-      "INVESTING ACTIVITIES": "#638b66"
       "Investing Activities": "#638b66"
-      "OPERATING ACTIVITIES": "#a2ceaa"
+      "INVESTING ACTIVITIES": "#638b66"
       "Operating Activities": "#a2ceaa"
-      "FINANCING ACTIVITIES": "#d7ce9f"
+      "OPERATING ACTIVITIES": "#a2ceaa"
       "Financing Activities": "#d7ce9f"
+      "FINANCING ACTIVITIES": "#d7ce9f"
     show_value_labels: true
     show_legend: true
     x_axis_label: true
@@ -33,7 +33,7 @@ t2l_finance_dashboard_excel_direct_42446_764830127315.activity]
 
   - title: "Revenue vs Gross Profit (2016)"
     name: revenue_gp_actual
-    model: bigquery_tableau_to_bigquery_model_generated_20251029_160653
+    model: bigquery_tableau_to_bigquery_model_generated_20251029_170520
     explore: t2l_finance_dashboard_excel_direct_42493_800401689812
     type: looker_grid
     fields: [t2l_finance_dashboard_excel_direct_42493_800401689812.month,
@@ -55,11 +55,11 @@ t2l_finance_dashboard_excel_direct_42493_800401689812.cal_rev_actual_sum_derived
 
   - title: "<Sheet Name> - 2016"
     name: balance_trend
-    model: bigquery_tableau_to_bigquery_model_generated_20251029_160653
+    model: bigquery_tableau_to_bigquery_model_generated_20251029_170520
     explore: t2l_finance_dashboard_extract_excel_direct_42452_837785428237
     type: looker_line
     fields: [t2l_finance_dashboard_extract_excel_direct_42452_837785428237.month,
-t2l_finance_dashboard_extract_excel_direct_42452_837785428237.value_sum_derived_2]
+t2l_finance_dashboard_extract_excel_direct_42452_837785428237.value_sum_derived]
     pivots: [t2l_finance_dashboard_extract_excel_direct_42452_837785428237.type]
     stacking: normal
     sorts: [t2l_finance_dashboard_extract_excel_direct_42452_837785428237.type]
@@ -82,7 +82,7 @@ t2l_finance_dashboard_extract_excel_direct_42452_837785428237.value_sum_derived_
 
   - title: "DSO vs DPO"
     name: dso_vs_dpo
-    model: bigquery_tableau_to_bigquery_model_generated_20251029_160653
+    model: bigquery_tableau_to_bigquery_model_generated_20251029_170520
     explore: t2l_finance_dashboard_excel_direct_42446_750381423612
     type: looker_line
     fields: [t2l_finance_dashboard_excel_direct_42446_750381423612.month,
@@ -110,10 +110,10 @@ t2l_finance_dashboard_excel_direct_42446_750381423612.cal_gap_sum_derived]
 
   - title: "Totalrevenue Count"
     name: totalrevenue_count
-    model: bigquery_tableau_to_bigquery_model_generated_20251029_160653
+    model: bigquery_tableau_to_bigquery_model_generated_20251029_170520
     explore: t2l_finance_dashboard_extract_excel_direct_42446_541327615741
     type: single_value
-    fields: [t2l_finance_dashboard_extract_excel_direct_42446_541327615741.value_sum_derived]
+    fields: [t2l_finance_dashboard_extract_excel_direct_42446_541327615741.value_sum_derived_2]
     filters:
       t2l_finance_dashboard_extract_excel_direct_42446_541327615741.type: Total Revenue
     show_row_numbers: true
@@ -127,10 +127,10 @@ t2l_finance_dashboard_excel_direct_42446_750381423612.cal_gap_sum_derived]
 
   - title: "Gp Count"
     name: gp_count
-    model: bigquery_tableau_to_bigquery_model_generated_20251029_160653
+    model: bigquery_tableau_to_bigquery_model_generated_20251029_170520
     explore: t2l_finance_dashboard_extract_excel_direct_42446_541327615741
     type: single_value
-    fields: [t2l_finance_dashboard_extract_excel_direct_42446_541327615741.value_sum_derived]
+    fields: [t2l_finance_dashboard_extract_excel_direct_42446_541327615741.value_sum_derived_2]
     filters:
       t2l_finance_dashboard_extract_excel_direct_42446_541327615741.type: Gross Profit
     show_row_numbers: true
@@ -144,10 +144,10 @@ t2l_finance_dashboard_excel_direct_42446_750381423612.cal_gap_sum_derived]
 
   - title: "Ebitda Count"
     name: ebitda_count
-    model: bigquery_tableau_to_bigquery_model_generated_20251029_160653
+    model: bigquery_tableau_to_bigquery_model_generated_20251029_170520
     explore: t2l_finance_dashboard_extract_excel_direct_42446_541327615741
     type: single_value
-    fields: [t2l_finance_dashboard_extract_excel_direct_42446_541327615741.value_sum_derived]
+    fields: [t2l_finance_dashboard_extract_excel_direct_42446_541327615741.value_sum_derived_2]
     filters:
       t2l_finance_dashboard_extract_excel_direct_42446_541327615741.type: EBITDA
     show_row_numbers: true
@@ -161,10 +161,10 @@ t2l_finance_dashboard_excel_direct_42446_750381423612.cal_gap_sum_derived]
 
   - title: "Operatingincome Count"
     name: operatingincome_count
-    model: bigquery_tableau_to_bigquery_model_generated_20251029_160653
+    model: bigquery_tableau_to_bigquery_model_generated_20251029_170520
     explore: t2l_finance_dashboard_extract_excel_direct_42446_541327615741
     type: single_value
-    fields: [t2l_finance_dashboard_extract_excel_direct_42446_541327615741.value_sum_derived]
+    fields: [t2l_finance_dashboard_extract_excel_direct_42446_541327615741.value_sum_derived_2]
     filters:
       t2l_finance_dashboard_extract_excel_direct_42446_541327615741.type: Operating Income
     show_row_numbers: true
@@ -178,10 +178,10 @@ t2l_finance_dashboard_excel_direct_42446_750381423612.cal_gap_sum_derived]
 
   - title: "Income Before Taxes Count"
     name: income_before_taxes_count
-    model: bigquery_tableau_to_bigquery_model_generated_20251029_160653
+    model: bigquery_tableau_to_bigquery_model_generated_20251029_170520
     explore: t2l_finance_dashboard_extract_excel_direct_42446_541327615741
     type: single_value
-    fields: [t2l_finance_dashboard_extract_excel_direct_42446_541327615741.value_sum_derived]
+    fields: [t2l_finance_dashboard_extract_excel_direct_42446_541327615741.value_sum_derived_2]
     filters:
       t2l_finance_dashboard_extract_excel_direct_42446_541327615741.type: Income Before Taxes
     show_row_numbers: true
@@ -195,10 +195,10 @@ t2l_finance_dashboard_excel_direct_42446_750381423612.cal_gap_sum_derived]
 
   - title: "Netincome Count"
     name: netincome_count
-    model: bigquery_tableau_to_bigquery_model_generated_20251029_160653
+    model: bigquery_tableau_to_bigquery_model_generated_20251029_170520
     explore: t2l_finance_dashboard_extract_excel_direct_42446_541327615741
     type: single_value
-    fields: [t2l_finance_dashboard_extract_excel_direct_42446_541327615741.value_sum_derived]
+    fields: [t2l_finance_dashboard_extract_excel_direct_42446_541327615741.value_sum_derived_2]
     filters:
       t2l_finance_dashboard_extract_excel_direct_42446_541327615741.type: Net Income
     show_row_numbers: true
@@ -212,7 +212,7 @@ t2l_finance_dashboard_excel_direct_42446_750381423612.cal_gap_sum_derived]
 
   - title: "Revenue vs Profit Margin"
     name: revenue_vs_profit_margin
-    model: bigquery_tableau_to_bigquery_model_generated_20251029_160653
+    model: bigquery_tableau_to_bigquery_model_generated_20251029_170520
     explore: t2l_finance_dashboard_extract_excel_direct_42494_561992662035
     type: looker_column
     fields: [t2l_finance_dashboard_extract_excel_direct_42494_561992662035.revenue_sum_derived,
@@ -241,7 +241,7 @@ t2l_finance_dashboard_extract_excel_direct_42494_561992662035.revenue_sum_derive
 
   - title: "Net working capital excl. Cash and Current Debt"
     name: net_working_capital_excl_cash_and_current_debt
-    model: bigquery_tableau_to_bigquery_model_generated_20251029_160653
+    model: bigquery_tableau_to_bigquery_model_generated_20251029_170520
     explore: t2l_finance_dashboard_extract_excel_direct_42581_611218009260
     type: looker_line
     fields: [t2l_finance_dashboard_extract_excel_direct_42581_611218009260.month,
@@ -272,7 +272,7 @@ t2l_finance_dashboard_extract_excel_direct_42581_611218009260.net_working_capita
 
   - title: " Accounts Payable, Accounts Receivable, and Inventory"
     name: accounts_payable_accounts_receivable_and_inventory
-    model: bigquery_tableau_to_bigquery_model_generated_20251029_160653
+    model: bigquery_tableau_to_bigquery_model_generated_20251029_170520
     explore: t2l_finance_dashboard_extract_excel_direct_42581_611218009260
     type: looker_grid
     fields: [t2l_finance_dashboard_extract_excel_direct_42581_611218009260.quarter,
@@ -293,7 +293,7 @@ t2l_finance_dashboard_extract_excel_direct_42581_611218009260.inventory_sum_deri
 
   - title: "Operating Cycle vs Cash Conversion Cycle"
     name: operating_cycle_vs_cash_conversion_cycle
-    model: bigquery_tableau_to_bigquery_model_generated_20251029_160653
+    model: bigquery_tableau_to_bigquery_model_generated_20251029_170520
     explore: t2l_finance_dashboard_extract_excel_direct_42581_611218009260
     type: looker_line
     fields: [t2l_finance_dashboard_extract_excel_direct_42581_611218009260.month,
@@ -317,7 +317,7 @@ t2l_finance_dashboard_extract_excel_direct_42581_611218009260.cash_coversion_cyc
 
   - title: "Liquidity"
     name: quick_ratio
-    model: bigquery_tableau_to_bigquery_model_generated_20251029_160653
+    model: bigquery_tableau_to_bigquery_model_generated_20251029_170520
     explore: t2l_finance_dashboard_extract_excel_direct_42581_611218009260
     type: looker_grid
     fields: [t2l_finance_dashboard_extract_excel_direct_42581_611218009260.month,
@@ -338,7 +338,7 @@ t2l_finance_dashboard_extract_excel_direct_42581_611218009260.current_ratio]
 
   - title: "<Sheet Name> (Last 3 Months)"
     name: revenue
-    model: bigquery_tableau_to_bigquery_model_generated_20251029_160653
+    model: bigquery_tableau_to_bigquery_model_generated_20251029_170520
     explore: t2l_finance_dashboard_extract_excel_direct_42454_522464293979
     type: looker_donut_multiples
     fields: [t2l_finance_dashboard_extract_excel_direct_42454_522464293979.client]
@@ -369,7 +369,7 @@ t2l_finance_dashboard_extract_excel_direct_42581_611218009260.current_ratio]
 
   - title: "GP Share(Last 3 Months)"
     name: grossprofit
-    model: bigquery_tableau_to_bigquery_model_generated_20251029_160653
+    model: bigquery_tableau_to_bigquery_model_generated_20251029_170520
     explore: t2l_finance_dashboard_extract_excel_direct_42454_526677638889
     type: looker_donut_multiples
     fields: [t2l_finance_dashboard_extract_excel_direct_42454_526677638889.client]
@@ -378,15 +378,15 @@ t2l_finance_dashboard_extract_excel_direct_42581_611218009260.current_ratio]
     sorts: [t2l_finance_dashboard_extract_excel_direct_42454_526677638889.client]
     series_colors:
       "Calix Networks": "#638b66"
-      "HEWLETT PACKARD (incl. former EDS)": "#a2ceaa"
       "Hewlett Packard (incl. former EDS)": "#a2ceaa"
-      "COMPUCOM C/O DATA2LOGISTICS": "#b66353"
+      "HEWLETT PACKARD (incl. former EDS)": "#a2ceaa"
       "Compucom c/o Data2Logistics": "#b66353"
+      "COMPUCOM C/O DATA2LOGISTICS": "#b66353"
       "Others": "#b9aa97"
-      "NATIONAL INSTRUMENTS": "#bfbb60"
       "National Instruments": "#bfbb60"
-      "NISSAN": "#d7ce9f"
+      "NATIONAL INSTRUMENTS": "#bfbb60"
       "Nissan": "#d7ce9f"
+      "NISSAN": "#d7ce9f"
     show_value_labels: true
     value_labels: "bold"
     show_legend: true
@@ -398,3 +398,4 @@ t2l_finance_dashboard_extract_excel_direct_42581_611218009260.current_ratio]
     col: 12
     width: 12
     height: 5
+
