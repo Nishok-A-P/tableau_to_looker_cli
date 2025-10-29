@@ -9,10 +9,18 @@ view: t2l_finance_dashboard_excel_direct_42446_750381423612 {
 
   # Dimensions
 
+  dimension: row_id_generated_raw {
+    description: "Raw field for Row_ID_generated"
+    type: string
+    sql: ${TABLE}.`Row_ID_generated` ;;
+    hidden: yes
+    label: "Row Id Generated (Raw)"
+  }
+
   dimension: dpo_raw {
     description: "Raw field for DPO"
     type: string
-    sql: ${TABLE}.DPO ;;
+    sql: ${TABLE}.`DPO` ;;
     hidden: yes
     label: "Dpo (Raw)"
   }
@@ -20,7 +28,7 @@ view: t2l_finance_dashboard_excel_direct_42446_750381423612 {
   dimension: dso_raw {
     description: "Raw field for DSO"
     type: string
-    sql: ${TABLE}.DSO ;;
+    sql: ${TABLE}.`DSO` ;;
     hidden: yes
     label: "Dso (Raw)"
   }
@@ -28,7 +36,7 @@ view: t2l_finance_dashboard_excel_direct_42446_750381423612 {
   dimension: gap_raw {
     description: "Raw field for Gap"
     type: string
-    sql: ${TABLE}.Gap ;;
+    sql: ${TABLE}.`Gap` ;;
     hidden: yes
     label: "Gap (Raw)"
   }
@@ -36,21 +44,21 @@ view: t2l_finance_dashboard_excel_direct_42446_750381423612 {
   dimension: month {
     description: "Original name: [Month]"
     type: string
-    sql: ${TABLE}.Month ;;
+    sql: ${TABLE}.`Month` ;;
     label: "Month"
   }
 
   dimension: quarter {
     description: "Original name: [Quarter]"
     type: string
-    sql: ${TABLE}.Quarter ;;
+    sql: ${TABLE}.`Quarter` ;;
     label: "Quarter"
   }
 
   dimension: year {
     description: "Original name: [Year]"
     type: number
-    sql: ${TABLE}.Year ;;
+    sql: ${TABLE}.`Year` ;;
     label: "Year"
   }
 
@@ -136,6 +144,14 @@ measure: dso_sum_derived {
   }
 
   # Measures
+
+  measure: total_row_id_generated {
+    description: "Original name: [Row_ID_generated]"
+    type: sum
+    sql: ${row_id_generated_raw} ;;
+    value_format_name: decimal_0
+    label: "Row ID generated"
+  }
 
   measure: total_dpo {
     description: "Original name: [DPO]"
