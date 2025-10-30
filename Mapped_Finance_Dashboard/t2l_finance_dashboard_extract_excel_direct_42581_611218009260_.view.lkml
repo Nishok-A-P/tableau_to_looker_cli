@@ -745,7 +745,7 @@ measure: net_working_capital_excl_cash_and_current_debt_copy_sum_derived {
     label: "Quick Assets"
   }
 
-  measure: total_revenue {
+  measure: total_revenue_Rev {
     description: "Original name: [Revenue]"
     type: sum
     sql: ${revenue_raw} ;;
