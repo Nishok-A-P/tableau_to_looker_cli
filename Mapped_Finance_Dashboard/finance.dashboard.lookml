@@ -398,3 +398,4 @@ t2l_finance_dashboard_extract_excel_direct_42581_611218009260.current_ratio]
     col: 12
     width: 12
     height: 5
+
