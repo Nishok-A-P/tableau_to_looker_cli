@@ -1,5 +1,5 @@
 - dashboard: dashboard
-  title: Dashboard 
+  title: Dashboard
   layout: newspaper
   preferred_viewer: dashboards-next
   elements:
@@ -303,7 +303,7 @@ testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9g
     show_row_numbers: true
     table_theme: "white"
     limit: 500
-    column_limit: [Parameters].[Parameter 2]
+    # column_limit: [Parameters].[Parameter 2]
     row: 35
     col: 8
     width: 8
@@ -323,7 +323,7 @@ testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9g
     show_row_numbers: true
     table_theme: "white"
     limit: 500
-    column_limit: [Parameters].[Parameter 2]
+    # column_limit: [Parameters].[Parameter 2]
     row: 35
     col: 16
     width: 8
@@ -344,4 +344,3 @@ testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9g
     col: 0
     width: 12
     height: 5
-

@@ -1,7 +1,7 @@
 # Generated LookML model
 # Project: tableau_migration
 
-connection: "tableau_looker_poc"
+connection: "t2l_validation"
 
 # Include all views
 include: "testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.view.lkml"
