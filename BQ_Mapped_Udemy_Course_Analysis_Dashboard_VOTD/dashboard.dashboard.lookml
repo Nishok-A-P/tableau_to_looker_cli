@@ -1,11 +1,11 @@
 - dashboard: dashboard
-  title: Dashboard
+  title: Dashboard 
   layout: newspaper
   preferred_viewer: dashboards-next
   elements:
   - title: "Legends"
     name: legends
-    model: bigquery_tableau_to_bigquery_model_generated_20251030_145822
+    model: bigquery_tableau_to_bigquery_model_generated_20251031_105723
     explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
     type: looker_grid
     fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject,
@@ -26,7 +26,7 @@ testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9g
 
   - title: "<"
     name: students
-    model: bigquery_tableau_to_bigquery_model_generated_20251030_145822
+    model: bigquery_tableau_to_bigquery_model_generated_20251031_105723
     explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
     type: looker_grid
     fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.None,
@@ -51,7 +51,7 @@ testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9g
 
   - title: "Student Bar Chart"
     name: student_bar_chart
-    model: bigquery_tableau_to_bigquery_model_generated_20251030_145822
+    model: bigquery_tableau_to_bigquery_model_generated_20251031_105723
     explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
     type: looker_grid
     fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject,
@@ -73,7 +73,7 @@ testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9g
 
   - title: "<"
     name: price_1
-    model: bigquery_tableau_to_bigquery_model_generated_20251030_145822
+    model: bigquery_tableau_to_bigquery_model_generated_20251031_105723
     explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
     type: looker_grid
     fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.None,
@@ -98,7 +98,7 @@ testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9g
 
   - title: "Price Bar Chart"
     name: price_bar_chart
-    model: bigquery_tableau_to_bigquery_model_generated_20251030_145822
+    model: bigquery_tableau_to_bigquery_model_generated_20251031_105723
     explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
     type: looker_grid
     fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject,
@@ -120,7 +120,7 @@ testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9g
 
   - title: "<"
     name: lectures
-    model: bigquery_tableau_to_bigquery_model_generated_20251030_145822
+    model: bigquery_tableau_to_bigquery_model_generated_20251031_105723
     explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
     type: looker_grid
     fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.None,
@@ -145,7 +145,7 @@ testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9g
 
   - title: "Lectures Bar Chart"
     name: lectures_bar_chart
-    model: bigquery_tableau_to_bigquery_model_generated_20251030_145822
+    model: bigquery_tableau_to_bigquery_model_generated_20251031_105723
     explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
     type: looker_grid
     fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject,
@@ -167,7 +167,7 @@ testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9g
 
   - title: "<"
     name: reviews
-    model: bigquery_tableau_to_bigquery_model_generated_20251030_145822
+    model: bigquery_tableau_to_bigquery_model_generated_20251031_105723
     explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
     type: looker_grid
     fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.None,
@@ -192,7 +192,7 @@ testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9g
 
   - title: "Review Bar Chart"
     name: review_bar_chart
-    model: bigquery_tableau_to_bigquery_model_generated_20251030_145822
+    model: bigquery_tableau_to_bigquery_model_generated_20251031_105723
     explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
     type: looker_grid
     fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject,
@@ -214,7 +214,7 @@ testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9g
 
   - title: "Paid Subscribers"
     name: paid_subscribers
-    model: bigquery_tableau_to_bigquery_model_generated_20251030_145822
+    model: bigquery_tableau_to_bigquery_model_generated_20251031_105723
     explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
     type: looker_donut_multiples
     fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.is_paid,
@@ -244,7 +244,7 @@ testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9g
 
   - title: "Histogram Price Vs Subscribtions"
     name: histogram_price_vs_subscribtions
-    model: bigquery_tableau_to_bigquery_model_generated_20251030_145822
+    model: bigquery_tableau_to_bigquery_model_generated_20251031_105723
     explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
     type: looker_column
     fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.students_sum_derived,
@@ -274,7 +274,7 @@ testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9g
 
   - title: "Circled Price Bs Students"
     name: circled_price_bs_students
-    model: bigquery_tableau_to_bigquery_model_generated_20251030_145822
+    model: bigquery_tableau_to_bigquery_model_generated_20251031_105723
     explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
     type: looker_map
     filters:
@@ -291,7 +291,7 @@ testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9g
 
   - title: "Subcribers vs Reviews"
     name: course_popularity_and_engmnt_reviews_vs_student
-    model: bigquery_tableau_to_bigquery_model_generated_20251030_145822
+    model: bigquery_tableau_to_bigquery_model_generated_20251031_105723
     explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
     type: looker_scatter
     fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.reviews_sum_derived,
@@ -303,15 +303,15 @@ testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9g
     show_row_numbers: true
     table_theme: "white"
     limit: 500
-    # column_limit: [Parameters].[Parameter 2]
-    # row: 35
+    column_limit: [Parameters].[Parameter 2]
+    row: 35
     col: 8
     width: 8
     height: 5
 
   - title: "Subcribers vs Reviews"
     name: course_pop_and_engmnt_lectures_vs_student
-    model: bigquery_tableau_to_bigquery_model_generated_20251030_145822
+    model: bigquery_tableau_to_bigquery_model_generated_20251031_105723
     explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
     type: looker_scatter
     fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.num_lectures_sum_derived,
@@ -323,15 +323,15 @@ testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9g
     show_row_numbers: true
     table_theme: "white"
     limit: 500
-    # column_limit: [Parameters].[Parameter 2]
-    # row: 35
+    column_limit: [Parameters].[Parameter 2]
+    row: 35
     col: 16
     width: 8
     height: 5
 
   - title: "Year Selector"
     name: year_selector
-    model: bigquery_tableau_to_bigquery_model_generated_20251030_145822
+    model: bigquery_tableau_to_bigquery_model_generated_20251031_105723
     explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
     type: looker_map
     filters:
@@ -344,3 +344,4 @@ testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9g
     col: 0
     width: 12
     height: 5
+
