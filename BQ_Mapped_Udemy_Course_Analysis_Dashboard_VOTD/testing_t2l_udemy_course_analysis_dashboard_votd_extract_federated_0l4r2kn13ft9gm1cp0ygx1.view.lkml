@@ -958,7 +958,7 @@ measure: reviews_sum_derived {
 
   # Measures
 
-  measure: total_price {
+  measure: total_price_1 {
     description: "Price"
     type: sum
     sql: ${price_raw} ;;
