@@ -3566,7 +3566,7 @@ measure: sales_sum_derived {
 
   # Measures
 
-  measure: total_sales {
+  measure: total_sales_1 {
     description: "Original name: [Sales]"
     type: sum
     sql: ${sales_raw} ;;
@@ -3582,7 +3582,7 @@ measure: sales_sum_derived {
     label: "Discount"
   }
 
-  measure: total_profit {
+  measure: total_profit_1 {
     description: "Original name: [Profit]"
     type: sum
     sql: ${profit_raw} ;;
