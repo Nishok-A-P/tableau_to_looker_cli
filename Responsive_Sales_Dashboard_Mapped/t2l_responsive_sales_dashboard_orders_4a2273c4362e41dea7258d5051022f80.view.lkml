@@ -2,7 +2,7 @@ view: t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80 {
   # Generated from Tableau view: T2L_Responsive_Sales_Dashboard_Orders_4A2273C4362E41DEA7258D5051022F80
   derived_table: {
     sql:
-      WITH max_table AS (SELECT MAX(`Order Date`) AS MaxDate FROM `tableau-to-looker-migration.Tableau_To_BigQuery.T2L_Responsive_Sales_Dashboard_Orders_4A2273C4362E41DEA7258D5051022F80`) SELECT base.*, max_table.MaxDate FROM `tableau-to-looker-migration.Tableau_To_BigQuery.T2L_Responsive_Sales_Dashboard_Orders_4A2273C4362E41DEA7258D5051022F80` AS base CROSS JOIN max_table ;;
+      WITH max_table AS (SELECT MAX(order_date) AS MaxDate FROM `tableau-to-looker-migration.Tableau_To_BigQuery.T2L_Responsive_Sales_Dashboard_Orders_4A2273C4362E41DEA7258D5051022F80`) SELECT base.*, max_table.MaxDate FROM `tableau-to-looker-migration.Tableau_To_BigQuery.T2L_Responsive_Sales_Dashboard_Orders_4A2273C4362E41DEA7258D5051022F80` AS base CROSS JOIN max_table ;;
   }
 
 
@@ -135,6 +135,14 @@ view: t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80 {
 
 
   # Dimensions
+
+  dimension: row_id_generated_raw {
+    description: "Raw field for Row_ID_generated"
+    type: string
+    sql: ${TABLE}.`Row_ID_generated` ;;
+    hidden: yes
+    label: "Row Id Generated (Raw)"
+  }
 
   dimension: order_id {
     description: "Original name: [Order ID]"
@@ -550,6 +558,15 @@ measure: region_size {
     # Original Tableau formula: [Order Date]>DATEADD('day',-[Parameters].[Parameter 3]*2,[Calculation_1000080622720552967]) AND [Order Date]<=DATEADD('day',-[Parameters].[Parameter 3],[Calculation_1000080622720552967])
   }
 
+measure: t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80_count_derived {
+    description: "MIGRATION ERROR - Manual conversion required"
+    type: number
+    sql: 'MIGRATION_REQUIRED' ;;
+
+
+    # MIGRATION_ERROR: Could not convert calculated field ORIGINAL_FORMULA: COUNT([__tableau_internal_object_id__].[T2L_Responsive_Sales_Dashboard_Orders_4A2273C4362E41DEA7258D5051022F80_C8AE162A376246608A3541C9FD1E89AF]) CONVERSION_ERROR: No AST data available - formula parsing may have failed TODO: Manual migration required - please convert this formula manually
+  }
+
 measure: profit_sum_derived {
     description: "Calculated field: SUM([Profit])"
     type: number
@@ -678,6 +695,14 @@ measure: sales_current_sum_derived {
   }
 
   # Measures
+
+  measure: total_row_id_generated {
+    description: "Original name: [Row_ID_generated]"
+    type: sum
+    sql: ${row_id_generated_raw} ;;
+    value_format_name: decimal_0
+    label: "Row ID generated"
+  }
 
   measure: total_sales {
     description: "Original name: [Sales]"
