@@ -2526,7 +2526,7 @@ view: t2l_superstore_sales_dashboard_people_sample_superstore {
   dimension: row_id_generated_raw {
     description: "Raw field for Row_ID_generated"
     type: string
-    sql: ${TABLE}.`Row_ID_generated (T2L_Superstore_Sales_Dashboard_People_Sample _ Superstore)` ;;
+    sql: ${TABLE}.`Row_ID_generated` ;;
     hidden: yes
     label: "Row Id Generated (Raw)"
   }
