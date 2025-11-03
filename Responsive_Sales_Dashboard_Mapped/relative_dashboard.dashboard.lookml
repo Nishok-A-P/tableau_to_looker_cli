@@ -180,4 +180,3 @@ t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80.customer_
     col: 0
     width: 24
     height: 5
-
