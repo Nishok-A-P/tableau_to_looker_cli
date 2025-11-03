@@ -5,7 +5,7 @@
   elements:
   - title: "Categories"
     name: 0_filter_cat
-    model: bigquery_tableau_to_bigquery_model_generated_20251103_125137
+    model: bigquery_tableau_to_bigquery_model_generated_20251103_141300
     explore: t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80
     type: single_value
     fields: [t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80.category_filter_label]
@@ -20,7 +20,7 @@
 
   - title: "1 Filter - Region"
     name: 1_filter_region
-    model: bigquery_tableau_to_bigquery_model_generated_20251103_125137
+    model: bigquery_tableau_to_bigquery_model_generated_20251103_141300
     explore: t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80
     type: looker_grid
     fields: [t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80.region_position_avg_derived,
@@ -38,7 +38,7 @@ t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80.customer_
 
   - title: "1 Sales By Country"
     name: 1_sales_by_country
-    model: bigquery_tableau_to_bigquery_model_generated_20251103_125137
+    model: bigquery_tableau_to_bigquery_model_generated_20251103_141300
     explore: t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80
     type: looker_bar
     fields: [t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80.sales_sum_derived,
@@ -61,7 +61,7 @@ t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80.country_r
 
   - title: "1 Sales By Customer"
     name: 1_sales_by_customer
-    model: bigquery_tableau_to_bigquery_model_generated_20251103_125137
+    model: bigquery_tableau_to_bigquery_model_generated_20251103_141300
     explore: t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80
     type: looker_bar
     fields: [t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80.sales_sum_derived,
@@ -82,7 +82,7 @@ t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80.customer_
 
   - title: "2 Filter - Region"
     name: 2_filter_region
-    model: bigquery_tableau_to_bigquery_model_generated_20251103_125137
+    model: bigquery_tableau_to_bigquery_model_generated_20251103_141300
     explore: t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80
     type: looker_grid
     fields: [t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80.region_position_avg_derived,
@@ -100,7 +100,7 @@ t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80.customer_
 
   - title: "2 Products"
     name: 2_products
-    model: bigquery_tableau_to_bigquery_model_generated_20251103_125137
+    model: bigquery_tableau_to_bigquery_model_generated_20251103_141300
     explore: t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80
     type: looker_bar
     fields: [t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80.sales_sum_derived,
@@ -121,7 +121,7 @@ t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80.product_n
 
   - title: "2 Timeseries"
     name: 2_timeseries
-    model: bigquery_tableau_to_bigquery_model_generated_20251103_125137
+    model: bigquery_tableau_to_bigquery_model_generated_20251103_141300
     explore: t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80
     type: looker_grid
     fields: [t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80.order_date_axis_days_or_weeks_none_derived,
@@ -142,7 +142,7 @@ t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80.manufactu
 
   - title: "2 Order Table"
     name: 2_order_table
-    model: bigquery_tableau_to_bigquery_model_generated_20251103_125137
+    model: bigquery_tableau_to_bigquery_model_generated_20251103_141300
     explore: t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80
     type: looker_scatter
     fields: [t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80.city,
@@ -168,7 +168,7 @@ t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80.order_id]
 
   - title: "0 Info"
     name: 0_info
-    model: bigquery_tableau_to_bigquery_model_generated_20251103_125137
+    model: bigquery_tableau_to_bigquery_model_generated_20251103_141300
     explore: t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80
     type: looker_grid
     fields: [t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80.None,
@@ -180,3 +180,4 @@ t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80.customer_
     col: 0
     width: 24
     height: 5
+
