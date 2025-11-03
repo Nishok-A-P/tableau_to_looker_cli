@@ -1,7 +1,7 @@
 # Generated LookML model
 # Project: tableau_migration
 
-connection: "tableau_looker_poc"
+connection: "t2l_validation"
 
 # Include all views
 include: "t2l_responsive_sales_dashboard_orders_4a2273c4362e41dea7258d5051022f80.view.lkml"
