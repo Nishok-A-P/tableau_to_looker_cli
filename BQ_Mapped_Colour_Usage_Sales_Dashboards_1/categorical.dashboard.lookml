@@ -126,4 +126,3 @@ t2l_colour_usage_in_sales_dashboards_returns_sample_superstore.sub_category]
     col: 0
     width: 24
     height: 13
-
