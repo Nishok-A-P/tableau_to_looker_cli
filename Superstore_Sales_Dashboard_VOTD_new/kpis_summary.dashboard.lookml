@@ -1,5 +1,5 @@
 - dashboard: kpis_summary
-  title: Kpis Summary 
+  title: Kpis Summary
   layout: newspaper
   preferred_viewer: dashboards-next
   elements:
@@ -269,4 +269,3 @@ t2l_superstore_sales_dashboard_people_sample_superstore.customer_name_countd_der
     col: 21
     width: 3
     height: 5
-
