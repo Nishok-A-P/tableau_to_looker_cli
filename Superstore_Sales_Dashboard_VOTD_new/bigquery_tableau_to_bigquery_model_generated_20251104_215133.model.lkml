@@ -19,7 +19,7 @@ explore: t2l_superstore_sales_dashboard_orders_sample_superstore {
 
   join: t2l_superstore_sales_dashboard_people_sample_superstore {
     type: inner
-    sql_on: ${t2l_superstore_sales_dashboard_orders_sample_superstore.region} = ${t2l_superstore_sales_dashboard_people_sample_superstore.region} ;;
+    sql_on: ${t2l_superstore_sales_dashboard_orders_sample_superstore.region} = ${t2l_superstore_sales_dashboard_people_sample_superstore.region_1} ;;
     relationship: many_to_one
   }
 }
@@ -27,9 +27,9 @@ explore: t2l_superstore_sales_dashboard_orders_sample_superstore {
 explore: t2l_superstore_sales_dashboard_people_sample_superstore {
   description: "Explore for T2L_Superstore_Sales_Dashboard_People_Sample _ Superstore with related tables"
 
-  join: orders {
+  join: t2l_superstore_sales_dashboard_orders_sample_superstore {
     type: inner
-    sql_on: ${t2l_superstore_sales_dashboard_people_sample_superstore.region} = ${orders.region} ;;
+    sql_on: ${t2l_superstore_sales_dashboard_orders_sample_superstore.region} = ${t2l_superstore_sales_dashboard_people_sample_superstore.region_1} ;;
     relationship: many_to_one
   }
 }
