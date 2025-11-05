@@ -1,7 +1,7 @@
 # Generated LookML model
 # Project: tableau_migration
 
-connection: "tableau_looker_poc"
+connection: "t2l_validation"
 
 # Include all views
 include: "testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.view.lkml"
