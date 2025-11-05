@@ -1,7 +1,7 @@
 # Generated LookML model
 # Project: tableau_migration
 
-connection: "t2l_validation"
+connection: "tableau_looker_poc"
 
 # Include all views
 include: "t2l_world_indicators_extract_row_id_copy.view.lkml"
