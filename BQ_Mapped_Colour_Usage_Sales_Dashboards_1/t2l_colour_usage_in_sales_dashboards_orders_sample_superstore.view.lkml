@@ -403,14 +403,14 @@ measure: order_date_max_derived {
     # Original Tableau formula: MAX([Order Date])
   }
 
-measure: ly_sales_total_sum_derived {
-    description: "Calculated field: SUM([Calculation_86623964100730880])"
-    type: number
-    sql: SUM(${ly_sales_total}) ;;
+# measure: ly_sales_total_sum_derived {
+#     description: "Calculated field: SUM([Calculation_86623964100730880])"
+#     type: number
+#     sql: SUM(${ly_sales_total}) ;;
 
 
     # Original Tableau formula: SUM([Calculation_86623964100730880])
-  }
+  # }
 
   dimension: order_date_month_trunc_derived {
     description: "Calculated field: DATETRUNC('month', [Order Date])"
