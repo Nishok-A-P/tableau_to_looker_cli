@@ -181,7 +181,7 @@ view: t2l_colour_usage_in_sales_dashboards_orders_sample_superstore {
 
   dimension: row_id_generated_raw {
     description: "Raw field for Row_ID_generated"
-    type: number
+    type: string
     sql: ${TABLE}.`Row_ID_generated` ;;
     hidden: yes
     label: "Row Id Generated (Raw)"
@@ -403,14 +403,14 @@ measure: order_date_max_derived {
     # Original Tableau formula: MAX([Order Date])
   }
 
-# measure: ly_sales_total_sum_derived {
-#     description: "Calculated field: SUM([Calculation_86623964100730880])"
-#     type: number
-#     sql: SUM(${ly_sales_total}) ;;
+measure: ly_sales_total_sum_derived {
+    description: "Calculated field: SUM([Calculation_86623964100730880])"
+    type: number
+    sql: SUM(${ly_sales_total}) ;;
 
 
     # Original Tableau formula: SUM([Calculation_86623964100730880])
-  # }
+  }
 
   dimension: order_date_month_trunc_derived {
     description: "Calculated field: DATETRUNC('month', [Order Date])"
@@ -478,7 +478,7 @@ measure: furniture_sum_derived {
 
   measure: total_row_id_generated {
     description: "Original name: [Row_ID_generated]"
-    type: number
+    type: sum
     sql: ${row_id_generated_raw} ;;
     value_format_name: decimal_0
     label: "Row ID generated"
