@@ -181,7 +181,7 @@ view: t2l_colour_usage_in_sales_dashboards_orders_sample_superstore {
 
   dimension: row_id_generated_raw {
     description: "Raw field for Row_ID_generated"
-    type: string
+    type: number
     sql: ${TABLE}.`Row_ID_generated` ;;
     hidden: yes
     label: "Row Id Generated (Raw)"
@@ -478,7 +478,7 @@ measure: furniture_sum_derived {
 
   measure: total_row_id_generated {
     description: "Original name: [Row_ID_generated]"
-    type: sum
+    type: number
     sql: ${row_id_generated_raw} ;;
     value_format_name: decimal_0
     label: "Row ID generated"
