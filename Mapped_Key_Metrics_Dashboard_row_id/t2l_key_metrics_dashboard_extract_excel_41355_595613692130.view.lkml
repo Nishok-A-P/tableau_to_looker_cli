@@ -238,6 +238,14 @@ view: t2l_key_metrics_dashboard_extract_excel_41355_595613692130 {
 
   # Dimensions
 
+  dimension: row_id_generated_raw {
+    description: "Raw field for Row_ID_generated"
+    type: number
+    sql: ${TABLE}.`Row_ID_generated` ;;
+    hidden: yes
+    label: "Row Id Generated (Raw)"
+  }
+
   dimension: administrative_raw {
     description: "Raw field for Administrative"
     type: string
@@ -856,6 +864,14 @@ measure: s_gand_a_max_derived {
   }
 
   # Measures
+
+  measure: total_row_id_generated {
+    description: "Original name: [Row_ID_generated]"
+    type: number
+    sql: ${row_id_generated_raw} ;;
+    value_format_name: decimal_0
+    label: "Row ID generated"
+  }
 
   measure: total_administrative {
     description: "Original name: [Administrative]"
