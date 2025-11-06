@@ -5,7 +5,7 @@
   elements:
   - title: "TOTAL"
     name: total_3
-    model: bigquery_tableau_to_bigquery_model_generated_20251106_125125
+    model: bigquery_tableau_to_bigquery_model_generated_20251106_125208
     explore: t2l_colour_usage_in_sales_dashboards_returns_sample_superstore
     type: looker_grid
     fields: [t2l_colour_usage_in_sales_dashboards_returns_sample_superstore.None]
@@ -21,7 +21,7 @@
 
   - title: "FURNITURE"
     name: furniture_3
-    model: bigquery_tableau_to_bigquery_model_generated_20251106_125125
+    model: bigquery_tableau_to_bigquery_model_generated_20251106_125208
     explore: t2l_colour_usage_in_sales_dashboards_returns_sample_superstore
     type: looker_grid
     fields: [t2l_colour_usage_in_sales_dashboards_returns_sample_superstore.None]
@@ -38,7 +38,7 @@
 
   - title: "OFFICE SUPPLIES"
     name: office_supplies_3
-    model: bigquery_tableau_to_bigquery_model_generated_20251106_125125
+    model: bigquery_tableau_to_bigquery_model_generated_20251106_125208
     explore: t2l_colour_usage_in_sales_dashboards_returns_sample_superstore
     type: looker_grid
     fields: [t2l_colour_usage_in_sales_dashboards_returns_sample_superstore.None]
@@ -55,7 +55,7 @@
 
   - title: "TECHNOLOGY"
     name: technology_3
-    model: bigquery_tableau_to_bigquery_model_generated_20251106_125125
+    model: bigquery_tableau_to_bigquery_model_generated_20251106_125208
     explore: t2l_colour_usage_in_sales_dashboards_returns_sample_superstore
     type: looker_grid
     fields: [t2l_colour_usage_in_sales_dashboards_returns_sample_superstore.None]
@@ -72,7 +72,7 @@
 
   - title: "PROFIT RATIO BY SUB - CATEGORY"
     name: diverging_chart
-    model: bigquery_tableau_to_bigquery_model_generated_20251106_125125
+    model: bigquery_tableau_to_bigquery_model_generated_20251106_125208
     explore: t2l_colour_usage_in_sales_dashboards_returns_sample_superstore
     type: looker_bar
     fields: [t2l_colour_usage_in_sales_dashboards_returns_sample_superstore.None]
