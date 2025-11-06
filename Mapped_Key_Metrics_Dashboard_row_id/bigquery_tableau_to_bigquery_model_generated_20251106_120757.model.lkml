@@ -1,7 +1,7 @@
 # Generated LookML model
 # Project: tableau_migration
 
-connection: "t2l_validation"
+connection: "tableau_looker_poc"
 
 # Include all views
 include: "t2l_key_metrics_dashboard_extract_excel_41355_595613692130.view.lkml"
