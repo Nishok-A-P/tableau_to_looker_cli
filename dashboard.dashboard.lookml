@@ -1,155 +1,64 @@
 - dashboard: dashboard
-  title: Dashboard 
+  title: Dashboard
   layout: newspaper
   preferred_viewer: dashboards-next
   elements:
-  - title: "Legends"
-    name: legends
-    model: bigquery_tableau_to_bigquery_model_generated_20251106_104545
-    explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
+  - title: "Total Users Trend"
+    name: total_users_trend
+    model: bigquery_tableau_to_bigquery_model_generated_20251106_110635
+    explore: testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u
     type: looker_grid
-    fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject_selector]
-    series_colors:
-      "Business Finance": "#59a14f"
-      "Graphic Design": "#76b7b2"
-      "Web Development": "#b07aa1"
-      "%null%": "#e15759"
-      "Musical Instruments": "#edc948"
-    table_theme: "white"
-    limit: 500
-    column_limit: 50
-    row: 7
-    col: 0
-    width: 8
-    height: 5
-
-  - title: "<"
-    name: students
-    model: bigquery_tableau_to_bigquery_model_generated_20251106_104545
-    explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
-    type: single_value
-    fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.yoy_student_percent]
+    fields: [testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.users_sum_derived,
+testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.date_month_trunc_derived,
+testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.fakehighlight,
+testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.windowfilter,
+testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.num_products]
     filters:
-      testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject_selector: true
-    show_row_numbers: true
+      testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.windowfilter: true
     table_theme: "white"
     limit: 500
     column_limit: 50
-    row: 21
+    row: 14
     col: 0
     width: 12
     height: 5
 
-  - title: "Student Bar Chart"
-    name: student_bar_chart
-    model: bigquery_tableau_to_bigquery_model_generated_20251106_104545
-    explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
+  - title: "One Prod Users Trend"
+    name: one_prod_users_trend
+    model: bigquery_tableau_to_bigquery_model_generated_20251106_110635
+    explore: testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u
     type: looker_grid
-    fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject_selector,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.current_year,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.cy_students]
-    sorts: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject_selector]
-    series_colors:
-      "false": "#bab0ac"
-      "true": "#f28e2b"
-    table_theme: "white"
-    limit: 500
-    column_limit: 50
-    row: 21
-    col: 12
-    width: 12
-    height: 5
-
-  - title: "<"
-    name: price_1
-    model: bigquery_tableau_to_bigquery_model_generated_20251106_104545
-    explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
-    type: single_value
-    fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.yoy_price_percent]
+    fields: [testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.users_sum_derived,
+testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.date_month_trunc_derived,
+testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.fakehighlight,
+testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.windowfilter,
+testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.num_products,
+testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.users_percent]
     filters:
-      testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject_selector: true
-    show_row_numbers: true
-    table_theme: "white"
-    limit: 500
-    column_limit: 50
-    row: 28
-    col: 0
-    width: 12
-    height: 5
-
-  - title: "Price Bar Chart"
-    name: price_bar_chart
-    model: bigquery_tableau_to_bigquery_model_generated_20251106_104545
-    explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
-    type: looker_grid
-    fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject_selector,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.current_year,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.cy_price]
-    sorts: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject_selector]
-    series_colors:
-      "false": "#bab0ac"
-      "true": "#f28e2b"
-    table_theme: "white"
-    limit: 500
-    column_limit: 50
-    row: 28
-    col: 12
-    width: 12
-    height: 5
-
-  - title: "<"
-    name: lectures
-    model: bigquery_tableau_to_bigquery_model_generated_20251106_104545
-    explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
-    type: single_value
-    fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.yoy_lectures_percent]
-    filters:
-      testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject_selector: true
-    show_row_numbers: true
-    table_theme: "white"
-    limit: 500
-    column_limit: 50
-    row: 42
-    col: 0
-    width: 24
-    height: 5
-
-  - title: "Lectures Bar Chart"
-    name: lectures_bar_chart
-    model: bigquery_tableau_to_bigquery_model_generated_20251106_104545
-    explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
-    type: looker_grid
-    fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject_selector,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.current_year,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.cy_lectures]
-    sorts: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject_selector]
-    series_colors:
-      "false": "#bab0ac"
-      "true": "#f28e2b"
+      testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.windowfilter: true
+      testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.num_products: 1
     table_theme: "white"
     limit: 500
     column_limit: 50
     row: 35
     col: 0
-    width: 8
+    width: 12
     height: 5
 
-  - title: "<"
-    name: reviews
-    model: bigquery_tableau_to_bigquery_model_generated_20251106_104545
-    explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
-    type: single_value
-    fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.yoy_reviews_percent]
+  - title: "Two Prod Users Trend"
+    name: two_prod_users_trend
+    model: bigquery_tableau_to_bigquery_model_generated_20251106_110635
+    explore: testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u
+    type: looker_grid
+    fields: [testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.users_sum_derived,
+testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.date_month_trunc_derived,
+testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.fakehighlight,
+testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.windowfilter,
+testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.num_products,
+testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.users_percent]
     filters:
-      testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject_selector: true
-    show_row_numbers: true
+      testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.windowfilter: true
+      testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.num_products: 2
     table_theme: "white"
     limit: 500
     column_limit: 50
@@ -158,21 +67,128 @@ testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9g
     width: 24
     height: 5
 
-  - title: "Review Bar Chart"
-    name: review_bar_chart
-    model: bigquery_tableau_to_bigquery_model_generated_20251106_104545
-    explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
+  - title: "Three Prod Users Trend"
+    name: three_prod_users_trend
+    model: bigquery_tableau_to_bigquery_model_generated_20251106_110635
+    explore: testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u
     type: looker_grid
-    fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject_selector,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.current_year,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.cy_reviews]
-    sorts: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject_selector]
-    series_colors:
-      "false": "#bab0ac"
-      "true": "#f28e2b"
+    fields: [testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.users_sum_derived,
+testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.date_month_trunc_derived,
+testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.fakehighlight,
+testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.windowfilter,
+testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.num_products,
+testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.users_percent]
+    filters:
+      testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.windowfilter: true
+      testing_t2l_multi_product_users_dashboard_extract_temp_1rmi3ij1xkpzv415l410b0pdyn5u.num_products: 3
     table_theme: "white"
+    limit: 500
+    column_limit: 50
+    row: 77
+    col: 0
+    width: 24
+    height: 5
+
+  - title: "Users By Product"
+    name: users_by_product
+    model: bigquery_tableau_to_bigquery_model_generated_20251106_110635
+    explore: testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3
+    type: looker_bar
+    fields: [testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.multiproductcolor,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.userscd_2,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.product_1]
+    pivots: [testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.multiproductcolor]
+    stacking: normal
+    filters:
+      testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.windowfilter_2: true
+      testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.product_2: All
+    sorts: [testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.multiproductcolor,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.product_1]
+    series_colors:
+      "false": "#2a2a2a"
+      "true": "#4f7bfa"
+    show_legend: true
+    x_axis_label: true
+    y_axis_label: true
+    limit: 500
+    column_limit: 50
+    row: 7
+    col: 0
+    width: 12
+    height: 5
+
+  - title: "Multi-Prod User% By Product"
+    name: multi_prod_user_by_product
+    model: bigquery_tableau_to_bigquery_model_generated_20251106_110635
+    explore: testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3
+    type: looker_bar
+    fields: [testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.multiprodusers_percentcd,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.None,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.product_1]
+    pivots: [testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.multiproductcolor,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.None]
+    stacking: ''
+    filters:
+      testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.windowfilter_2: true
+    sorts: [testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.multiproductcolor,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.None,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.product_1]
+    series_colors:
+      "false": "#2a2a2a"
+      "true": "#4f7bfa"
+    show_legend: true
+    x_axis_label: true
+    y_axis_label: true
+    limit: 500
+    column_limit: 50
+    row: 7
+    col: 12
+    width: 12
+    height: 5
+
+  - title: "Multi Prod % Users Trend"
+    name: multi_prod_users_trend
+    model: bigquery_tableau_to_bigquery_model_generated_20251106_110635
+    explore: testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3
+    type: looker_grid
+    fields: [testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.multiprodusers_percent,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.date_month_trunc_derived_2,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.fakehighlight_2,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.windowfilter_2,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.product_1,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.oneormoreproductusers_sum_derived,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.None]
+    filters:
+      testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.windowfilter_2: true
+    table_theme: "white"
+    limit: 500
+    column_limit: 50
+    row: 21
+    col: 0
+    width: 24
+    height: 5
+
+  - title: "Two Product Users"
+    name: two_product_users
+    model: bigquery_tableau_to_bigquery_model_generated_20251106_110635
+    explore: testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3
+    type: looker_bar
+    fields: [testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.twoproductcolor_attribute_derived,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.userscd_2,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.prod12]
+    pivots: [testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.twoproductcolor_attribute_derived]
+    stacking: normal
+    filters:
+      testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.windowfilter_2: true
+      testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.product_3: All
+    sorts: [testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.twoproductcolor_attribute_derived,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.prod12]
+    series_colors:
+      "false": "#2a2a2a"
+      "true": "#4f7bfa"
+    show_legend: true
+    x_axis_label: true
+    y_axis_label: true
     limit: 500
     column_limit: 50
     row: 49
@@ -180,136 +196,101 @@ testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9g
     width: 24
     height: 5
 
-  - title: "Paid Subscribers"
-    name: paid_subscribers
-    model: bigquery_tableau_to_bigquery_model_generated_20251106_104545
-    explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
-    type: looker_donut_multiples
-    fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.is_paid,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject]
-    pivots: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.is_paid,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject]
-    stacking: normal
+  - title: "Two Prod Users % Trend"
+    name: two_prod_users_trend
+    model: bigquery_tableau_to_bigquery_model_generated_20251106_110635
+    explore: testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3
+    type: looker_grid
+    fields: [testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.twoprodusers_percent,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.date_month_trunc_derived_2,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.fakehighlight_2,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.windowfilter_2,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.prod12,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.join_type,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.product_3,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.totalusers_sum_derived,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.users_sum_derived_2]
     filters:
-      testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject_selector: true
-      testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.year_selector: true
-    sorts: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.is_paid,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject]
-    series_colors:
-      "Paid": "#be85f7"
-      "Free": "#f0d5f7"
-    show_value_labels: true
-    value_labels: "bold"
-    show_legend: true
-    hide_legend: true
-    legend_position: "right"
+      testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.windowfilter_2: true
+      testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.product_3: All
+    table_theme: "white"
     limit: 500
     column_limit: 50
-    row: 0
+    row: 70
+    col: 0
+    width: 24
+    height: 5
+
+  - title: "Three Product Users"
+    name: three_product_users
+    model: bigquery_tableau_to_bigquery_model_generated_20251106_110635
+    explore: testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3
+    type: looker_bar
+    fields: [testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.threeproductcolor_attribute_derived,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.userscd_2,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.prod123]
+    pivots: [testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.threeproductcolor_attribute_derived]
+    stacking: normal
+    filters:
+      testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.windowfilter_2: true
+    sorts: [testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.threeproductcolor_attribute_derived,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.prod123]
+    series_colors:
+      "false": "#2a2a2a"
+      "true": "#4f7bfa"
+    show_legend: true
+    x_axis_label: true
+    y_axis_label: true
+    limit: 500
+    column_limit: 50
+    row: 14
     col: 12
     width: 12
     height: 5
 
-  - title: "Histogram Price Vs Subscribtions"
-    name: histogram_price_vs_subscribtions
-    model: bigquery_tableau_to_bigquery_model_generated_20251106_104545
-    explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
-    type: looker_column
-    fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.students_sum_derived,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.price_per_subcribers_bin]
-    pivots: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.price_per_subcribers_bin]
+  - title: "Three Prod Users % Trend"
+    name: three_prod_users_trend
+    model: bigquery_tableau_to_bigquery_model_generated_20251106_110635
+    explore: testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3
+    type: looker_grid
+    fields: [testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.threeprodusers_percent,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.date_month_trunc_derived_2,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.fakehighlight_2,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.prod123,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.windowfilter_2,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.join_type,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.totalusers_sum_derived,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.users_sum_derived_2]
     filters:
-      testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject_selector: true
-      testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.year_selector: true
-    sorts: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.price_per_subcribers_bin]
-    series_colors:
-      "Business Finance": "#59a14f"
-      "Graphic Design": "#76b7b2"
-      "Web Development": "#b07aa1"
-      "%null%": "#e15759"
-      "Musical Instruments": "#edc948"
-    show_value_labels: true
+      testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.windowfilter_2: true
+    table_theme: "white"
+    limit: 500
+    column_limit: 50
+    row: 35
+    col: 12
+    width: 12
+    height: 5
+
+  - title: "All Product Combination Users"
+    name: all_product_combination_users
+    model: bigquery_tableau_to_bigquery_model_generated_20251106_110635
+    explore: testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3
+    type: looker_bar
+    fields: [testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.userscd_2,
+testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.prod123]
+    stacking: normal
+    filters:
+      testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.windowfilter_2: true
+      testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.selectedproductcombinations: true
+      testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.join_type: and
+    sorts: [testing_t2l_multi_product_users_dashboard_extract_temp_03e42d51dky5lu10epzns0sdq4e3.prod123]
     show_legend: true
     x_axis_label: true
     y_axis_label: true
-    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
-    row: 7
-    col: 8
-    width: 8
-    height: 5
-
-  - title: "Circled Price Bs Students"
-    name: circled_price_bs_students
-    model: bigquery_tableau_to_bigquery_model_generated_20251106_104545
-    explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
-    type: looker_map
-    filters:
-      testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject_selector: true
-      testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.year_selector: true
-    show_row_numbers: true
-    table_theme: "white"
-    limit: 500
-    column_limit: 50
-    row: 7
-    col: 16
-    width: 8
-    height: 5
-
-  - title: "Subcribers vs Reviews"
-    name: course_popularity_and_engmnt_reviews_vs_student
-    model: bigquery_tableau_to_bigquery_model_generated_20251106_104545
-    explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
-    type: looker_scatter
-    fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.reviews_sum_derived,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.students_sum_derived]
-    filters:
-      testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject_selector: true
-      testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.year_selector: true
-    sorts: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.coursetitle desc]
-    show_row_numbers: true
-    table_theme: "white"
-    limit: 500
-    column_limit: [Parameters].[Parameter 2]
-    row: 35
-    col: 8
-    width: 8
-    height: 5
-
-  - title: "Subcribers vs Reviews"
-    name: course_pop_and_engmnt_lectures_vs_student
-    model: bigquery_tableau_to_bigquery_model_generated_20251106_104545
-    explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
-    type: looker_scatter
-    fields: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.num_lectures_sum_derived,
-testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.students_sum_derived]
-    filters:
-      testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject_selector: true
-      testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.year_selector: true
-    sorts: [testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.coursetitle desc]
-    show_row_numbers: true
-    table_theme: "white"
-    limit: 500
-    column_limit: [Parameters].[Parameter 2]
-    row: 35
-    col: 16
-    width: 8
-    height: 5
-
-  - title: "Year Selector"
-    name: year_selector
-    model: bigquery_tableau_to_bigquery_model_generated_20251106_104545
-    explore: testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1
-    type: looker_map
-    filters:
-      testing_t2l_udemy_course_analysis_dashboard_votd_extract_federated_0l4r2kn13ft9gm1cp0ygx1.subject_selector: true
-    show_row_numbers: true
-    table_theme: "white"
-    limit: 500
-    column_limit: 50
-    row: 0
+    row: 63
     col: 0
-    width: 12
+    width: 24
     height: 5
 
