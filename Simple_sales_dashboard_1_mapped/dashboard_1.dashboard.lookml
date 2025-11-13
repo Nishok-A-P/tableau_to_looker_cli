@@ -5,7 +5,7 @@
   elements:
   - title: "Sales"
     name: sales
-    model: bigquery_tableau_to_bigquery_model_generated_20251112_112226
+    model: bigquery_tableau_to_bigquery_model_generated_20251113_150200
     explore: tableautemp_03v2aem0utm91a12l8fbn0ra6l8o
     type: single_value
     fields: [tableautemp_03v2aem0utm91a12l8fbn0ra6l8o.total_sales]
@@ -20,7 +20,7 @@
 
   - title: "Sales By Sub-Category"
     name: sales_by_sub_category
-    model: bigquery_tableau_to_bigquery_model_generated_20251112_112226
+    model: bigquery_tableau_to_bigquery_model_generated_20251113_150200
     explore: tableautemp_03v2aem0utm91a12l8fbn0ra6l8o
     type: looker_bar
     fields: [tableautemp_03v2aem0utm91a12l8fbn0ra6l8o.total_sales,
@@ -41,7 +41,7 @@ tableautemp_03v2aem0utm91a12l8fbn0ra6l8o.sub_category]
 
   - title: "Saleschart"
     name: saleschart
-    model: bigquery_tableau_to_bigquery_model_generated_20251112_112226
+    model: bigquery_tableau_to_bigquery_model_generated_20251113_150200
     explore: tableautemp_03v2aem0utm91a12l8fbn0ra6l8o
     type: looker_column
     fields: [tableautemp_03v2aem0utm91a12l8fbn0ra6l8o.total_sales,
@@ -59,7 +59,7 @@ tableautemp_03v2aem0utm91a12l8fbn0ra6l8o.total_order_date]
 
   - title: "Profit"
     name: profit
-    model: bigquery_tableau_to_bigquery_model_generated_20251112_112226
+    model: bigquery_tableau_to_bigquery_model_generated_20251113_150200
     explore: tableautemp_03v2aem0utm91a12l8fbn0ra6l8o
     type: single_value
     fields: [tableautemp_03v2aem0utm91a12l8fbn0ra6l8o.total_profit]
@@ -74,7 +74,7 @@ tableautemp_03v2aem0utm91a12l8fbn0ra6l8o.total_order_date]
 
   - title: "Profit By Sub-Category (2)"
     name: profit_by_sub_category_2
-    model: bigquery_tableau_to_bigquery_model_generated_20251112_112226
+    model: bigquery_tableau_to_bigquery_model_generated_20251113_150200
     explore: tableautemp_03v2aem0utm91a12l8fbn0ra6l8o
     type: looker_bar
     fields: [tableautemp_03v2aem0utm91a12l8fbn0ra6l8o.total_profit,
@@ -95,7 +95,7 @@ tableautemp_03v2aem0utm91a12l8fbn0ra6l8o.sub_category]
 
   - title: "Profitchart"
     name: profitchart
-    model: bigquery_tableau_to_bigquery_model_generated_20251112_112226
+    model: bigquery_tableau_to_bigquery_model_generated_20251113_150200
     explore: tableautemp_03v2aem0utm91a12l8fbn0ra6l8o
     type: looker_column
     fields: [tableautemp_03v2aem0utm91a12l8fbn0ra6l8o.total_profit,
@@ -113,7 +113,7 @@ tableautemp_03v2aem0utm91a12l8fbn0ra6l8o.total_order_date]
 
   - title: "Quantity"
     name: quantity
-    model: bigquery_tableau_to_bigquery_model_generated_20251112_112226
+    model: bigquery_tableau_to_bigquery_model_generated_20251113_150200
     explore: tableautemp_03v2aem0utm91a12l8fbn0ra6l8o
     type: single_value
     fields: [tableautemp_03v2aem0utm91a12l8fbn0ra6l8o.total_quantity]
@@ -128,7 +128,7 @@ tableautemp_03v2aem0utm91a12l8fbn0ra6l8o.total_order_date]
 
   - title: "Quantity By Sub-Category (3)"
     name: quantity_by_sub_category_3
-    model: bigquery_tableau_to_bigquery_model_generated_20251112_112226
+    model: bigquery_tableau_to_bigquery_model_generated_20251113_150200
     explore: tableautemp_03v2aem0utm91a12l8fbn0ra6l8o
     type: looker_bar
     fields: [tableautemp_03v2aem0utm91a12l8fbn0ra6l8o.total_quantity,
@@ -149,7 +149,7 @@ tableautemp_03v2aem0utm91a12l8fbn0ra6l8o.sub_category]
 
   - title: "Qtycahrt"
     name: qtycahrt
-    model: bigquery_tableau_to_bigquery_model_generated_20251112_112226
+    model: bigquery_tableau_to_bigquery_model_generated_20251113_150200
     explore: tableautemp_03v2aem0utm91a12l8fbn0ra6l8o
     type: looker_column
     fields: [tableautemp_03v2aem0utm91a12l8fbn0ra6l8o.total_quantity,
