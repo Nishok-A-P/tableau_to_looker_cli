@@ -3,70 +3,68 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   elements:
-  - title: Total Sales by Hour
+  - title: "Total Sales by Hour"
     name: mkt_detail_2
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20260209_135856
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_grid
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_day_trunc_derived,
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_trunc_derived,
+intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived]
+    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_day_trunc_derived,
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_trunc_derived]
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted,
-intradaysales_results_hqa_pd_qmtbls_mock.mkt,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
-    table_theme: "white"
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_day_trunc_derived,
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_trunc_derived,
+intradaysales_results_hqa_pd_qmtbls_mock.mkt]
     header_background_color: "#000000"
     header_font_color: "#ffffff"
     limit: 500
     column_limit: 50
     row: 7
     col: 0
-    width: 23
+    width: 24
     height: 5
 
-  - title: By Sales Type
+  - title: "By Sales Type"
     name: mkt_nvu
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20260209_135856
     explore: intradaysales_results_hqa_pd_qmtbls_mock
-    type: looker_bar
-    fields: [intradaysales_results_hqa_pd_qmtbls_mock.calculation_5910989867950081,
+    type: looker_column
+    fields: [intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived,
 intradaysales_results_hqa_pd_qmtbls_mock.mkt]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.calculation_5910989867950081]
-    stacking: normal
+    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.mkt]
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.calculation_5910989867950081]
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.mkt]
     series_colors:
       "New": "#4e79a7"
       "Upgrade": "#f28e2b"
+    show_value_labels: true
     show_legend: true
     x_axis_label: true
     y_axis_label: true
+    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
-    row: 21
+    row: 14
     col: 0
     width: 6
     height: 5
 
-  - title: By Equipment Type
+  - title: "By Equipment Type"
     name: mkt_eqp_type
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20260209_135856
     explore: intradaysales_results_hqa_pd_qmtbls_mock
-    type: looker_bar
-    fields: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_type,
+    type: looker_column
+    fields: [intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived,
 intradaysales_results_hqa_pd_qmtbls_mock.mkt]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_type]
-    stacking: normal
+    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.mkt]
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_type]
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.mkt]
     series_colors:
       "95c7960075c7c88cd1d792868934b1af": "#4e79a7"
       "C3469": "#59a14f"
@@ -76,28 +74,29 @@ intradaysales_results_hqa_pd_qmtbls_mock.mkt]
       "C6115": "#edc948"
       "98edb85b00d9527ad5acebe451b3fae6": "#f28e2b"
       "C8134": "#ff9da7"
+    show_value_labels: true
     show_legend: true
     x_axis_label: true
     y_axis_label: true
+    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
-    row: 21
+    row: 14
     col: 6
     width: 6
     height: 5
 
-  - title: By Phone Manufacturer
+  - title: "By Phone Manufacturer"
     name: mkt_phone_man
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20260209_135856
     explore: intradaysales_results_hqa_pd_qmtbls_mock
-    type: looker_bar
-    fields: [intradaysales_results_hqa_pd_qmtbls_mock.manf,
+    type: looker_column
+    fields: [intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived,
 intradaysales_results_hqa_pd_qmtbls_mock.mkt]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.manf]
-    stacking: normal
+    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.mkt]
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.manf]
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.mkt]
     series_colors:
       "5e8c44f6456095c24a57837de8adac7b": "#499894"
       "C3044": "#499894"
@@ -161,79 +160,83 @@ intradaysales_results_hqa_pd_qmtbls_mock.mkt]
       "ad27659f6f77f91cb0ceb7b530bd5bfb": "#ffbe7d"
       "C1961": "#ffbe7d"
       "C7735": "#ffbe7d"
+    show_value_labels: true
     show_legend: true
     x_axis_label: true
     y_axis_label: true
+    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
-    row: 21
+    row: 14
     col: 12
     width: 6
     height: 5
 
-  - title: By Preorder/Backorder
+  - title: "By Preorder/Backorder"
     name: mkt_preorder
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20260209_135856
     explore: intradaysales_results_hqa_pd_qmtbls_mock
-    type: looker_bar
-    fields: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder,
+    type: looker_column
+    fields: [intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived,
 intradaysales_results_hqa_pd_qmtbls_mock.mkt]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder]
-    stacking: normal
+    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.mkt]
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder]
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.mkt]
     series_colors:
       "93cba07454f06a4a960172bbd6e2a435": "#4e79a7"
       "C8730": "#76b7b2"
       "C2004": "#e15759"
       "bafd7322c6e97d25b6299b5d6fe8920b": "#f28e2b"
+    show_value_labels: true
     show_legend: true
     x_axis_label: true
     y_axis_label: true
+    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
-    row: 21
+    row: 14
     col: 18
     width: 6
     height: 5
 
-  - title: By Interval
+  - title: "By Interval"
     name: mkt_interval
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20260209_135856
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
-    fields: [intradaysales_results_hqa_pd_qmtbls_mock.total_sales,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
+    fields: [intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived,
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_day_trunc_derived,
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_trunc_derived]
+    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_day_trunc_derived]
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
-    show_row_numbers: true
-    table_theme: "white"
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_day_trunc_derived,
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_trunc_derived]
+    show_value_labels: true
+    show_legend: true
+    x_axis_label: true
+    y_axis_label: true
+    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
-    row: 35
+    row: 21
     col: 0
-    width: 23
+    width: 24
     height: 5
 
-  - title: By VCG Market
+  - title: "By VCG Market"
     name: bymarket_mark
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20260209_135856
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_bar
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
+intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.mkt]
     stacking: normal
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.mkt]
     series_colors:
       "ec9903c79dd510ffa43f69ee867a9002": "#4e79a7"
       "501a92c9b793cb44dfbfe0ca9ffee563": "#59a14f"
@@ -258,6 +261,6 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     column_limit: 50
     row: 0
     col: 0
-    width: 23
+    width: 24
     height: 5
 
