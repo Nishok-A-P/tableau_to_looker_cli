@@ -10,7 +10,7 @@ view: intradaysales_results_day_7_mock {
   dimension_group: rpt_dt {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
-    sql: TIMESTAMP(${TABLE}.`RPT_DT`) ;;
+    sql: CAST(${TABLE}.`RPT_DT` AS TIMESTAMP) ;;
     description: "Rpt Dt"
     label: "Rpt Dt"
   }
@@ -29,35 +29,35 @@ view: intradaysales_results_day_7_mock {
 
   dimension: eqp_grp_desc {
     description: "Eqp Grp Desc"
-    type: string
+    type: 
     sql: ${TABLE}.`EQP_GRP_DESC` ;;
     label: "Eqp Grp Desc"
   }
 
   dimension: trans_type {
     description: "Trans Type"
-    type: string
+    type: 
     sql: ${TABLE}.`trans_type` ;;
     label: "Trans Type"
   }
 
   dimension: market {
     description: "Market"
-    type: string
+    type: 
     sql: ${TABLE}.`MARKET` ;;
     label: "Market"
   }
 
   dimension: channel {
     description: "Channel"
-    type: string
+    type: 
     sql: ${TABLE}.`CHANNEL` ;;
     label: "Channel"
   }
 
   dimension: orders_raw {
     description: "Raw field for orders"
-    type: string
+    type: 
     sql: ${TABLE}.`orders` ;;
     hidden: yes
     label: "Orders (Raw)"
