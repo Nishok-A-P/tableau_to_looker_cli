@@ -5,7 +5,7 @@
   elements:
   - title: "Day1 Mkt Graph"
     name: day1_mkt_graph
-    model: bigquery_super_store_sales_model_generated_20260209_135856
+    model: bigquery_super_store_sales_model_generated_20260209_141545
     explore: intradaysales_results_day_7_mock
     type: looker_column
     fields: [intradaysales_results_day_7_mock.orders_sum_derived,
@@ -28,7 +28,7 @@ intradaysales_results_day_7_mock.rpt_dt_day_trunc_derived_3]
 
   - title: "By VCG Market"
     name: day1_mkt_chart
-    model: bigquery_super_store_sales_model_generated_20260209_135856
+    model: bigquery_super_store_sales_model_generated_20260209_141545
     explore: intradaysales_results_day_7_mock
     type: looker_grid
     fields: [intradaysales_results_day_7_mock.market,
@@ -48,7 +48,7 @@ intradaysales_results_day_7_mock.market]
 
   - title: "Day1 Chnl Graph"
     name: day1_chnl_graph
-    model: bigquery_super_store_sales_model_generated_20260209_135856
+    model: bigquery_super_store_sales_model_generated_20260209_141545
     explore: intradaysales_results_day_7_mock
     type: looker_column
     fields: [intradaysales_results_day_7_mock.orders_sum_derived,
@@ -96,7 +96,7 @@ intradaysales_results_day_7_mock.rpt_dt_day_trunc_derived_3]
 
   - title: "By VCG Channel"
     name: day1_chn_chart
-    model: bigquery_super_store_sales_model_generated_20260209_135856
+    model: bigquery_super_store_sales_model_generated_20260209_141545
     explore: intradaysales_results_day_7_mock
     type: looker_grid
     fields: [intradaysales_results_day_7_mock.channel,
