@@ -5,7 +5,7 @@
   elements:
   - title: "Iconic Launch: Atlantic South"
     name: iconic_launch_atlantic_south
-    model: bigquery_super_store_sales_model_generated_20260209_135856
+    model: bigquery_super_store_sales_model_generated_20260209_141545
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: single_value
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.iconic_launch_atlantic_south]
@@ -20,7 +20,7 @@
 
   - title: "Iconic Launch: Coastal Plains"
     name: iconic_launch_coastal_plains
-    model: bigquery_super_store_sales_model_generated_20260209_135856
+    model: bigquery_super_store_sales_model_generated_20260209_141545
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: single_value
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.iconic_launch_coastal_plains]
@@ -35,7 +35,7 @@
 
   - title: "Iconic Launch: Great Lakes"
     name: iconic_launch_great_lakes
-    model: bigquery_super_store_sales_model_generated_20260209_135856
+    model: bigquery_super_store_sales_model_generated_20260209_141545
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: single_value
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.iconic_launch_great_lakes]
@@ -50,7 +50,7 @@
 
   - title: "Iconic Launch: Mountain"
     name: iconic_launch_mountain
-    model: bigquery_super_store_sales_model_generated_20260209_135856
+    model: bigquery_super_store_sales_model_generated_20260209_141545
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: single_value
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.iconic_launch_mountain]
@@ -65,7 +65,7 @@
 
   - title: "Iconic Launch: Pacific"
     name: iconic_launch_pacific
-    model: bigquery_super_store_sales_model_generated_20260209_135856
+    model: bigquery_super_store_sales_model_generated_20260209_141545
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: single_value
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.iconic_launch_pacific]
