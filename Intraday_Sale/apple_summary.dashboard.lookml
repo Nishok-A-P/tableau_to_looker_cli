@@ -3,72 +3,73 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   elements:
-  - title: By Hour
+  - title: "By Hour"
     name: bytypes_apple
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20260209_135856
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
-    fields: [intradaysales_results_hqa_pd_qmtbls_mock.total_sales,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
+    fields: [intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived,
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_day_trunc_derived,
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_trunc_derived]
+    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_day_trunc_derived]
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.manf: 4c462d6dd59d782386bb1cdad0060c70,APPLE,C8207
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-      intradaysales_results_hqa_pd_qmtbls_mock.segment: relevant
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
-    show_row_numbers: true
-    table_theme: "white"
+      intradaysales_results_hqa_pd_qmtbls_mock.manf: 4c462d6dd59d782386bb1cdad0060c70, APPLE, C8207
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_day_trunc_derived,
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_trunc_derived]
+    show_value_labels: true
+    show_legend: true
+    x_axis_label: true
+    y_axis_label: true
+    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
     row: 0
     col: 0
-    width: 23
+    width: 24
     height: 5
 
-  - title: By Sales Type
+  - title: "By Sales Type"
     name: bytype_apple
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20260209_135856
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
-    fields: [intradaysales_results_hqa_pd_qmtbls_mock.calculation_5910989867950081,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.calculation_5910989867950081]
+    fields: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type,
+intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived]
+    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type]
+    stacking: normal
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.manf: 4c462d6dd59d782386bb1cdad0060c70,APPLE,C8207
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.calculation_5910989867950081,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
+      intradaysales_results_hqa_pd_qmtbls_mock.manf: 4c462d6dd59d782386bb1cdad0060c70, APPLE, C8207
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type]
     series_colors:
       "New": "#4e79a7"
       "Upgrade": "#f28e2b"
     show_value_labels: true
     value_labels: "bold"
     show_legend: true
+    hide_legend: true
     legend_position: "right"
     limit: 500
     column_limit: 50
-    row: 14
+    row: 7
     col: 0
     width: 6
     height: 5
 
-  - title: By Equipment Type
+  - title: "By Equipment Type"
     name: byequiptype_apple
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20260209_135856
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_type,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
+intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_type]
+    stacking: normal
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.manf: 4c462d6dd59d782386bb1cdad0060c70,APPLE,C8207
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-      intradaysales_results_hqa_pd_qmtbls_mock.eqp_class_desc: %null%
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_type,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
+      intradaysales_results_hqa_pd_qmtbls_mock.manf: 4c462d6dd59d782386bb1cdad0060c70, APPLE, C8207
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_type]
     series_colors:
       "95c7960075c7c88cd1d792868934b1af": "#4e79a7"
       "C3469": "#59a14f"
@@ -81,27 +82,28 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     show_value_labels: true
     value_labels: "bold"
     show_legend: true
+    hide_legend: true
     legend_position: "right"
     limit: 500
     column_limit: 50
-    row: 14
+    row: 7
     col: 6
     width: 6
     height: 5
 
-  - title: Top 5 Phone Models
+  - title: "Top 5 Phone Models"
     name: bymodel_apple
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20260209_135856
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
-    fields: [intradaysales_results_hqa_pd_qmtbls_mock.model_name_copy_2681330689597788160,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.model_name_copy_2681330689597788160]
+    fields: [intradaysales_results_hqa_pd_qmtbls_mock.model_name_copy,
+intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived]
+    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.model_name_copy]
+    stacking: normal
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.manf: 4c462d6dd59d782386bb1cdad0060c70,C8207
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.model_name_copy_2681330689597788160,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
+      intradaysales_results_hqa_pd_qmtbls_mock.manf: 4c462d6dd59d782386bb1cdad0060c70, C8207
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.model_name_copy desc]
     series_colors:
       "C1546": "#499894"
       "C6078": "#499894"
@@ -161,27 +163,28 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     show_value_labels: true
     value_labels: "bold"
     show_legend: true
+    hide_legend: true
     legend_position: "right"
     limit: 500
-    column_limit: 50
-    row: 14
+    column_limit: 5
+    row: 7
     col: 12
     width: 6
     height: 5
 
-  - title: By Preorder/Backorder
+  - title: "By Preorder/Backorder"
     name: bypreorder_apple
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20260209_135856
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
+intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder]
+    stacking: normal
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.manf: 4c462d6dd59d782386bb1cdad0060c70,APPLE,C8207
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
+      intradaysales_results_hqa_pd_qmtbls_mock.manf: 4c462d6dd59d782386bb1cdad0060c70, APPLE, C8207
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder]
     series_colors:
       "93cba07454f06a4a960172bbd6e2a435": "#4e79a7"
       "C8730": "#76b7b2"
@@ -190,77 +193,87 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     show_value_labels: true
     value_labels: "bold"
     show_legend: true
+    hide_legend: true
     legend_position: "right"
     limit: 500
     column_limit: 50
-    row: 14
+    row: 7
     col: 18
     width: 6
     height: 5
 
-  - title: By VCG Channel
+  - title: "By VCG Channel"
     name: bychannel_apple
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20260209_135856
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_bar
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.channel,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
+intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.channel]
     stacking: normal
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.mfg_nm: 4c462d6dd59d782386bb1cdad0060c70,APPLE,C3976
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.channel,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
+      intradaysales_results_hqa_pd_qmtbls_mock.mfg_nm: 4c462d6dd59d782386bb1cdad0060c70, APPLE, C3976
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.channel]
     series_colors:
-      "bd6747d30278641e583695d9d1f19d30": "#499894"
-      "8d7e99c73cd5a10adaaf4c9f9a520368": "#4e79a7"
-      "C8527": "#4e79a7"
-      "7446050b848d839fe9847073ff94cfd6": "#59a14f"
-      "C1363": "#79706e"
-      "C7370": "#86bcb6"
-      "cd3c9bb8acb671dbd1faba3deaa1e03e": "#86bcb6"
-      "45084848ec7a713e5a75be2ed21c6ead": "#8cd17d"
-      "C5732": "#9d7660"
-      "51c7d5c508c40e0829bfce9e1c9164cb": "#a0cbe8"
-      "C8955": "#a0cbe8"
-      "C4337": "#b07aa1"
-      "a3d2de7675556553a5f08e4c88d2c228": "#b6992d"
-      "C1729": "#bab0ac"
-      "C1874": "#d37295"
-      "C5666": "#d4a6c8"
-      "C6720": "#d7b5a6"
-      "C8375": "#e15759"
-      "de03f7314621bff43c1259028c190c42": "#e15759"
-      "a202d41fc64cf30db1244c634189c994": "#f1ce63"
-      "77d3a8ff9372498fa97869b8c7832b11": "#f28e2b"
-      "C2161": "#fabfd2"
-      "C644": "#ff9d9a"
-      "053e0bc8b9627b28e2ed8029a34b35bd": "#ffbe7d"
+      "1de58b62915a99d33aef93758d31ceee": "#000000"
+      "B2B": "#000000"
+      "C1729": "#000000"
+      "C8527": "#000000"
+      "de03f7314621bff43c1259028c190c42": "#000000"
+      "%all%": "#000000"
+      "7446050b848d839fe9847073ff94cfd6": "#1b1d1f"
+      "C4337": "#1b1d1f"
+      "Retail": "#1b1d1f"
+      "77d3a8ff9372498fa97869b8c7832b11": "#333333"
+      "C5666": "#333333"
+      "MVO": "#333333"
+      "8d7e99c73cd5a10adaaf4c9f9a520368": "#6f7171"
+      "C5732": "#6f7171"
+      "MVA": "#6f7171"
+      "45084848ec7a713e5a75be2ed21c6ead": "#a7a7a7"
+      "C1874": "#a7a7a7"
+      "Inside Sales": "#a7a7a7"
+      "91e32a5fc05beb6db7bf9cd75b53e586": "#d8dada"
+      "C644": "#d8dada"
+      "CS": "#d8dada"
+      "National Retail": "#d8dada"
+      "053e0bc8b9627b28e2ed8029a34b35bd": "#ee0000"
+      "C1363": "#ee0000"
+      "C7370": "#ee0000"
+      "cd3c9bb8acb671dbd1faba3deaa1e03e": "#ee0000"
+      "Sales Chat": "#ee0000"
+      "a202d41fc64cf30db1244c634189c994": "#f6f6f6"
+      "Agent": "#f6f6f6"
+      "C6720": "#f6f6f6"
+      "RD": "#f6f6f6"
+      "": "#ffffff"
+      "51c7d5c508c40e0829bfce9e1c9164cb": "#ffffff"
+      "C2161": "#ffffff"
+      "D2D": "#ffffff"
     show_legend: true
     x_axis_label: true
     y_axis_label: true
     limit: 500
     column_limit: 50
-    row: 28
+    row: 14
     col: 0
-    width: 23
+    width: 24
     height: 5
 
-  - title: By VCG Market
+  - title: "By VCG Market"
     name: bymarket_apple
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20260209_135856
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_bar
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
+intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived]
     pivots: [intradaysales_results_hqa_pd_qmtbls_mock.mkt]
     stacking: normal
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.manf: 4c462d6dd59d782386bb1cdad0060c70,APPLE,C8207
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
+      intradaysales_results_hqa_pd_qmtbls_mock.manf: 4c462d6dd59d782386bb1cdad0060c70, APPLE, C8207
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.mkt]
     series_colors:
       "ec9903c79dd510ffa43f69ee867a9002": "#4e79a7"
       "501a92c9b793cb44dfbfe0ca9ffee563": "#59a14f"
@@ -283,39 +296,36 @@ intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
     y_axis_label: true
     limit: 500
     column_limit: 50
-    row: 35
+    row: 21
     col: 0
-    width: 23
+    width: 24
     height: 5
 
-  - title: Apple Phone Models
+  - title: "Apple Phone Models"
     name: apple_heat
-    model: bigquery_super_store_sales_model
+    model: bigquery_super_store_sales_model_generated_20260209_135856
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_grid
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.model_nm,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted]
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_day_trunc_derived,
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_trunc_derived,
+intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived]
+    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_day_trunc_derived,
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_trunc_derived]
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc: 853ca16bda4f3d303e70e48db81c17c6,C6781,Smartphone
-      intradaysales_results_hqa_pd_qmtbls_mock.manf: 4c462d6dd59d782386bb1cdad0060c70,APPLE,C8207
-      intradaysales_results_hqa_pd_qmtbls_mock.rolling_36_copy_777433916925095938: true
+      intradaysales_results_hqa_pd_qmtbls_mock.eqp_grp_desc: 853ca16bda4f3d303e70e48db81c17c6, C6781, Smartphone
+      intradaysales_results_hqa_pd_qmtbls_mock.manf: 4c462d6dd59d782386bb1cdad0060c70, APPLE, C8207
+      intradaysales_results_hqa_pd_qmtbls_mock.rolling_24: true
       intradaysales_results_hqa_pd_qmtbls_mock.eqp_class_desc: C4305
-      intradaysales_results_hqa_pd_qmtbls_mock.model_nm: %null%
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_formatted,
-intradaysales_results_hqa_pd_qmtbls_mock.model_nm,
-intradaysales_results_hqa_pd_qmtbls_mock.total_sales desc]
-    table_theme: "white"
+    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_day_trunc_derived,
+intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_trunc_derived,
+intradaysales_results_hqa_pd_qmtbls_mock.model_nm]
     header_background_color: "#000000"
     header_font_color: "#ffffff"
     limit: 500
     column_limit: 50
-    row: 42
+    row: 28
     col: 0
-    width: 23
+    width: 24
     height: 5
 
