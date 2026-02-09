@@ -5,7 +5,7 @@
   elements:
   - title: "By Hour"
     name: bytypes_apple
-    model: bigquery_super_store_sales_model_generated_20260209_135856
+    model: bigquery_super_store_sales_model_generated_20260209_141545
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_column
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived,
@@ -31,7 +31,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.rpt_time_hour_trunc_derived]
 
   - title: "By Sales Type"
     name: bytype_apple
-    model: bigquery_super_store_sales_model_generated_20260209_135856
+    model: bigquery_super_store_sales_model_generated_20260209_141545
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.sale_type,
@@ -59,7 +59,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived]
 
   - title: "By Equipment Type"
     name: byequiptype_apple
-    model: bigquery_super_store_sales_model_generated_20260209_135856
+    model: bigquery_super_store_sales_model_generated_20260209_141545
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.eqp_type,
@@ -93,7 +93,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived]
 
   - title: "Top 5 Phone Models"
     name: bymodel_apple
-    model: bigquery_super_store_sales_model_generated_20260209_135856
+    model: bigquery_super_store_sales_model_generated_20260209_141545
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.model_name_copy,
@@ -174,7 +174,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived]
 
   - title: "By Preorder/Backorder"
     name: bypreorder_apple
-    model: bigquery_super_store_sales_model_generated_20260209_135856
+    model: bigquery_super_store_sales_model_generated_20260209_141545
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_donut_multiples
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.is_preorder,
@@ -204,7 +204,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived]
 
   - title: "By VCG Channel"
     name: bychannel_apple
-    model: bigquery_super_store_sales_model_generated_20260209_135856
+    model: bigquery_super_store_sales_model_generated_20260209_141545
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_bar
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.channel,
@@ -263,7 +263,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived]
 
   - title: "By VCG Market"
     name: bymarket_apple
-    model: bigquery_super_store_sales_model_generated_20260209_135856
+    model: bigquery_super_store_sales_model_generated_20260209_141545
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_bar
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.mkt,
@@ -303,7 +303,7 @@ intradaysales_results_hqa_pd_qmtbls_mock.sales_sum_derived]
 
   - title: "Apple Phone Models"
     name: apple_heat
-    model: bigquery_super_store_sales_model_generated_20260209_135856
+    model: bigquery_super_store_sales_model_generated_20260209_141545
     explore: intradaysales_results_hqa_pd_qmtbls_mock
     type: looker_grid
     fields: [intradaysales_results_hqa_pd_qmtbls_mock.model_nm,
