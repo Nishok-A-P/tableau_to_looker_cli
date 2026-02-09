@@ -3,58 +3,60 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   elements:
-  - title: Day1 Mkt Graph
+  - title: "Day1 Mkt Graph"
     name: day1_mkt_graph
-    model: bigquery_super_store_sales_model
-    explore: intradaysales_results_hqa_pd_qmtbls_mock
-    type: looker_bar
-    fields: [intradaysales_results_hqa_pd_qmtbls_mock.market,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.market]
-    stacking: normal
+    model: bigquery_super_store_sales_model_generated_20260209_135856
+    explore: intradaysales_results_day_7_mock
+    type: looker_column
+    fields: [intradaysales_results_day_7_mock.orders_sum_derived,
+intradaysales_results_day_7_mock.rpt_dt_day_trunc_derived_3]
+    pivots: [intradaysales_results_day_7_mock.rpt_dt_day_trunc_derived_3]
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.calculation_1742611641682452480: New
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
-intradaysales_results_hqa_pd_qmtbls_mock.market]
+      intradaysales_results_day_7_mock.sale_type_2: New
+    sorts: [intradaysales_results_day_7_mock.rpt_dt_day_trunc_derived_3]
+    show_value_labels: true
     show_legend: true
     x_axis_label: true
     y_axis_label: true
+    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
     row: 21
-    col: 8
-    width: 14
+    col: 12
+    width: 12
     height: 5
 
-  - title: By VCG Market
+  - title: "By VCG Market"
     name: day1_mkt_chart
-    model: bigquery_super_store_sales_model
-    explore: intradaysales_results_hqa_pd_qmtbls_mock
-    type: looker_column
+    model: bigquery_super_store_sales_model_generated_20260209_135856
+    explore: intradaysales_results_day_7_mock
+    type: looker_grid
+    fields: [intradaysales_results_day_7_mock.market,
+intradaysales_results_day_7_mock.rpt_dt_day_trunc_derived_2,
+intradaysales_results_day_7_mock.orders_sum_derived]
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.calculation_1742611641682452480: New
-    show_row_numbers: true
-    table_theme: "white"
+      intradaysales_results_day_7_mock.sale_type_2: New
+    sorts: [intradaysales_results_day_7_mock.rpt_dt_day_trunc_derived_2,
+intradaysales_results_day_7_mock.market]
+    header_background_color: "#f5f5f5"
     limit: 500
     column_limit: 50
     row: 21
     col: 0
-    width: 7
+    width: 12
     height: 5
 
-  - title: Day1 Chnl Graph
+  - title: "Day1 Chnl Graph"
     name: day1_chnl_graph
-    model: bigquery_super_store_sales_model
-    explore: intradaysales_results_hqa_pd_qmtbls_mock
-    type: looker_bar
-    fields: [intradaysales_results_hqa_pd_qmtbls_mock.channel,
-intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date]
-    pivots: [intradaysales_results_hqa_pd_qmtbls_mock.channel]
-    stacking: normal
+    model: bigquery_super_store_sales_model_generated_20260209_135856
+    explore: intradaysales_results_day_7_mock
+    type: looker_column
+    fields: [intradaysales_results_day_7_mock.orders_sum_derived,
+intradaysales_results_day_7_mock.rpt_dt_day_trunc_derived_3]
+    pivots: [intradaysales_results_day_7_mock.rpt_dt_day_trunc_derived_3]
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.calculation_1742611641682452480: New
-    sorts: [intradaysales_results_hqa_pd_qmtbls_mock.rpt_dt_date,
-intradaysales_results_hqa_pd_qmtbls_mock.channel]
+      intradaysales_results_day_7_mock.sale_type_2: New
+    sorts: [intradaysales_results_day_7_mock.rpt_dt_day_trunc_derived_3]
     series_colors:
       "bd6747d30278641e583695d9d1f19d30": "#499894"
       "8d7e99c73cd5a10adaaf4c9f9a520368": "#4e79a7"
@@ -80,29 +82,35 @@ intradaysales_results_hqa_pd_qmtbls_mock.channel]
       "C2161": "#fabfd2"
       "C644": "#ff9d9a"
       "053e0bc8b9627b28e2ed8029a34b35bd": "#ffbe7d"
+    show_value_labels: true
     show_legend: true
     x_axis_label: true
     y_axis_label: true
+    column_spacing_ratio: 0.3
     limit: 500
     column_limit: 50
     row: 7
-    col: 8
-    width: 14
+    col: 12
+    width: 12
     height: 5
 
-  - title: By VCG Channel
+  - title: "By VCG Channel"
     name: day1_chn_chart
-    model: bigquery_super_store_sales_model
-    explore: intradaysales_results_hqa_pd_qmtbls_mock
-    type: looker_column
+    model: bigquery_super_store_sales_model_generated_20260209_135856
+    explore: intradaysales_results_day_7_mock
+    type: looker_grid
+    fields: [intradaysales_results_day_7_mock.channel,
+intradaysales_results_day_7_mock.rpt_dt_day_trunc_derived_2,
+intradaysales_results_day_7_mock.orders_sum_derived]
     filters:
-      intradaysales_results_hqa_pd_qmtbls_mock.calculation_1742611641682452480: New
-    show_row_numbers: true
-    table_theme: "white"
+      intradaysales_results_day_7_mock.sale_type_2: New
+    sorts: [intradaysales_results_day_7_mock.rpt_dt_day_trunc_derived_2,
+intradaysales_results_day_7_mock.channel]
+    header_background_color: "#f5f5f5"
     limit: 500
     column_limit: 50
     row: 7
     col: 0
-    width: 7
+    width: 12
     height: 5
 
