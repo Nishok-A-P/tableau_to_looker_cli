@@ -2,7 +2,7 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
   # Generated from Tableau view: IntradaySales_RESULTS_HQA_PD_QMTBLS_Mock
   derived_table: {
     sql:
-      WITH max_table AS (SELECT MAX(dttm) AS MaxDate FROM `elastic-pocs.Super_Store_Sales.IntradaySales_RESULTS_HQA_PD_QMTBLS_Mock`) SELECT base.*, max_table.MaxDate FROM `elastic-pocs.Super_Store_Sales.IntradaySales_RESULTS_HQA_PD_QMTBLS_Mock` AS base CROSS JOIN max_table ;;
+      WITH max_table AS (SELECT MAX(`DTTM`) AS `MaxDate` FROM `elastic-pocs.Super_Store_Sales.IntradaySales_RESULTS_HQA_PD_QMTBLS_Mock`) SELECT base.*, max_table.`MaxDate` FROM `elastic-pocs.Super_Store_Sales.IntradaySales_RESULTS_HQA_PD_QMTBLS_Mock` AS base CROSS JOIN `max_table` ;;
   }
 
 
@@ -13,7 +13,7 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
   dimension_group: rpt_dt {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
-    sql: TIMESTAMP(${TABLE}.`RPT_DT`) ;;
+    sql: CAST(${TABLE}.`RPT_DT` AS TIMESTAMP) ;;
     description: "Rpt Dt"
     label: "Rpt Dt"
   }
@@ -31,7 +31,7 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
   dimension_group: rpt_time {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
-    sql: TIMESTAMP(${TABLE}.`RPT_TIME`) ;;
+    sql: CAST(${TABLE}.`RPT_TIME` AS TIMESTAMP) ;;
     description: "Rpt Time"
     label: "Rpt Time"
   }
@@ -49,7 +49,7 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
   dimension_group: dttm {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
-    sql: TIMESTAMP(${TABLE}.`DTTM`) ;;
+    sql: CAST(${TABLE}.`DTTM` AS TIMESTAMP) ;;
     description: "Dttm"
     label: "Dttm"
   }
@@ -68,21 +68,21 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
 
   dimension: record_type {
     description: "Record Type"
-    type: string
+    type: 
     sql: ${TABLE}.`Record_Type` ;;
     label: "Record Type"
   }
 
   dimension: reference {
     description: "Original name: [Reference]"
-    type: string
+    type: 
     sql: ${TABLE}.`Reference` ;;
     label: "Reference"
   }
 
   dimension: rpt_hour_raw {
     description: "Raw field for rpt_hour"
-    type: string
+    type: 
     sql: ${TABLE}.`rpt_hour` ;;
     hidden: yes
     label: "Rpt Hour (Raw)"
@@ -90,91 +90,91 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
 
   dimension: rpt_time_i {
     description: "Rpt Time I"
-    type: string
+    type: 
     sql: ${TABLE}.`RPT_TIME_I` ;;
     label: "Rpt Time I"
   }
 
   dimension: trans_type {
     description: "Trans Type"
-    type: string
+    type: 
     sql: ${TABLE}.`trans_type` ;;
     label: "Trans Type"
   }
 
   dimension: is_preorder {
     description: "Is Preorder"
-    type: string
+    type: 
     sql: ${TABLE}.`IS_PREORDER` ;;
     label: "Is Preorder"
   }
 
   dimension: mfg_nm {
     description: "Mfg Nm"
-    type: string
+    type: 
     sql: ${TABLE}.`MFG_NM` ;;
     label: "Mfg Nm"
   }
 
   dimension: eqp_grp_desc {
     description: "Eqp Grp Desc"
-    type: string
+    type: 
     sql: ${TABLE}.`EQP_GRP_DESC` ;;
     label: "Eqp Grp Desc"
   }
 
   dimension: eqp_class_desc {
     description: "Eqp Class Desc"
-    type: string
+    type: 
     sql: ${TABLE}.`eqp_class_desc` ;;
     label: "Eqp Class Desc"
   }
 
   dimension: manf {
     description: "Manf"
-    type: string
+    type: 
     sql: ${TABLE}.`MANF` ;;
     label: "Manf"
   }
 
   dimension: model_nm {
     description: "Model Nm"
-    type: string
+    type: 
     sql: ${TABLE}.`model_nm` ;;
     label: "Model Nm"
   }
 
   dimension: channel {
     description: "Channel"
-    type: string
+    type: 
     sql: ${TABLE}.`CHANNEL` ;;
     label: "Channel"
   }
 
   dimension: mkt {
     description: "Mkt"
-    type: string
+    type: 
     sql: ${TABLE}.`mkt` ;;
     label: "Mkt"
   }
 
   dimension: territory_desc {
     description: "Territory Desc"
-    type: string
+    type: 
     sql: ${TABLE}.`territory_desc` ;;
     label: "Territory Desc"
   }
 
   dimension: sls_outlet_id {
     description: "Sls Outlet Id"
-    type: string
+    type: 
     sql: ${TABLE}.`SLS_OUTLET_ID` ;;
     label: "Sls Outlet Id"
   }
 
   dimension: sales_raw {
     description: "Raw field for sales"
-    type: string
+    type: 
     sql: ${TABLE}.`sales` ;;
     hidden: yes
     label: "Sales (Raw)"
@@ -182,42 +182,42 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
 
   dimension: interaction_vol {
     description: "Interaction Vol"
-    type: string
+    type: 
     sql: ${TABLE}.`interaction_vol` ;;
     label: "Interaction Vol"
   }
 
   dimension: segment {
     description: "Segment"
-    type: string
+    type: 
     sql: ${TABLE}.`segment` ;;
     label: "Segment"
   }
 
   dimension: store_design {
     description: "Store Design"
-    type: string
+    type: 
     sql: ${TABLE}.`STORE_DESIGN` ;;
     label: "Store Design"
   }
 
   dimension: bi_chnl_ctgry_desc {
     description: "Bi Chnl Ctgry Desc"
-    type: string
+    type: 
     sql: ${TABLE}.`BI_CHNL_CTGRY_DESC` ;;
     label: "Bi Chnl Ctgry Desc"
   }
 
   dimension: bi_chnl_sub_type_desc {
     description: "Bi Chnl Sub Type Desc"
-    type: string
+    type: 
     sql: ${TABLE}.`BI_CHNL_SUB_TYPE_DESC` ;;
     label: "Bi Chnl Sub Type Desc"
   }
 
   dimension: longitude_raw {
     description: "Raw field for LONGITUDE"
-    type: string
+    type: 
     sql: ${TABLE}.`LONGITUDE` ;;
     hidden: yes
     label: "Longitude (Raw)"
@@ -225,7 +225,7 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
 
   dimension: latitude_raw {
     description: "Raw field for LATITUDE"
-    type: string
+    type: 
     sql: ${TABLE}.`LATITUDE` ;;
     hidden: yes
     label: "Latitude (Raw)"
@@ -233,7 +233,7 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
 
   dimension: eqp_type {
     description: "Eqp Type"
-    type: string
+    type: 
     sql: ${TABLE}.`eqp_type` ;;
     label: "Eqp Type"
   }
@@ -352,7 +352,7 @@ view: intradaysales_results_hqa_pd_qmtbls_mock {
   dimension: max_dttm {
     description: "Calculated field: {MAX([DTTM])}"
     type: date_raw
-    sql: ${TABLE}.MaxDate ;;
+    sql: ${TABLE}.`MaxDate` ;;
     # Original Tableau formula: {MAX([DTTM])}
   }
 
